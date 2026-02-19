@@ -54,6 +54,26 @@ function App() {
       <div className="app-container">
         <Helmet>
           <title>GamsGo 프로모션 코드 TA9Y3 - 유튜브 프리미엄 4,000원대</title>
+          <meta name="description" content="2026년 최신 GamsGo(겜스고) 프로모션 코드 TA9Y3. 유튜브 프리미엄, 넷플릭스, ChatGPT Plus를 업계 최저가로 이용하는 법을 확인하세요." />
+          <meta name="keywords" content="겜스고 프로모션 코드, GamsGo 할인코드, 유튜브 프리미엄 우회, 넷플릭스 싸게 보는 법, TA9Y3" />
+
+          {/* Open Graph / Facebook / Naver */}
+          <meta property="og:type" content="website" />
+          <meta property="og:title" content="GamsGo 프로모션 코드 TA9Y3 - 유튜브 프리미엄, 넷플릭스 최저가" />
+          <meta property="og:description" content="지금 TA9Y3 코드를 입력하고 유튜브 프리미엄 월 4,000원대 혜택을 받으세요." />
+          <meta property="og:url" content="https://gamsgocode.com/" />
+          <meta property="og:site_name" content="GamsGo 할인 가이드" />
+
+          {/* Naver Specific */}
+          <meta name="naver-site-verification" content="" /> {/* User should fill this */}
+
+          {/* Twitter */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content="GamsGo 프로모션 코드 TA9Y3" />
+          <meta name="twitter:description" content="유튜브 프리미엄, 넷플릭스 월 3,000원대! 겜스고 할인코드 TA9Y3 적용하기" />
+
+          <link rel="canonical" href="https://gamsgocode.com/" />
+
           <script type="application/ld+json">
             {JSON.stringify(schemaMarkup)}
           </script>
