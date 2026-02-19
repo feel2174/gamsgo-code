@@ -61,7 +61,7 @@ function App() {
           <meta property="og:type" content="website" />
           <meta property="og:title" content="GamsGo 프로모션 코드 TA9Y3 - 유튜브 프리미엄, 넷플릭스 최저가" />
           <meta property="og:description" content="지금 TA9Y3 코드를 입력하고 유튜브 프리미엄 월 4,000원대 혜택을 받으세요." />
-          <meta property="og:url" content="https://gamsgocode.com/" />
+          <meta property="og:url" content="https://gamsgocode.co.kr/" />
           <meta property="og:site_name" content="GamsGo 할인 가이드" />
 
 
@@ -70,7 +70,7 @@ function App() {
           <meta name="twitter:title" content="GamsGo 프로모션 코드 TA9Y3" />
           <meta name="twitter:description" content="유튜브 프리미엄, 넷플릭스 월 3,000원대! 겜스고 할인코드 TA9Y3 적용하기" />
 
-          <link rel="canonical" href="https://gamsgocode.com/" />
+          <link rel="canonical" href="https://gamsgocode.co.kr/" />
 
           <script type="application/ld+json">
             {JSON.stringify(schemaMarkup)}
