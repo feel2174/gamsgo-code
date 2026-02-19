@@ -5,6 +5,7 @@ import TrustSection from './components/TrustSection';
 import Guide from './components/Guide';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
+import { Analytics } from '@vercel/analytics/react';
 
 function App() {
   const schemaMarkup = {
@@ -89,6 +90,7 @@ function App() {
         </main>
 
         <Footer />
+        <Analytics />
       </div>
 
       <style jsx>{`
