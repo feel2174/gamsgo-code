@@ -64,8 +64,9 @@ function App() {
           <meta property="og:url" content="https://gamsgocode.com/" />
           <meta property="og:site_name" content="GamsGo 할인 가이드" />
 
-          {/* Naver Specific */}
-          <meta name="naver-site-verification" content="" /> {/* User should fill this */}
+          {/* Site Verifications */}
+          <meta name="google-site-verification" content="w1N7lAB3qFnHio7RQDdSX05UNv-RskM89O1HvldhnJQ" />
+          <meta name="naver-site-verification" content="435632b08e0edbdaeaa006bc4cf33f31f3e73d3f" />
 
           {/* Twitter */}
           <meta name="twitter:card" content="summary_large_image" />
