@@ -2,9 +2,9 @@ import { motion } from 'framer-motion';
 
 const services = [
   { name: 'YouTube Premium', price: '$5.93', official: '14,900원', tag: 'BEST', color: '#FF0000', logo: 'https://cdn.simpleicons.org/youtube/white' },
-  { name: 'ChatGPT Plus', price: '$4.77', official: '28,000원', tag: 'AI 혁신', color: '#10A37F', logo: 'https://cdn.simpleicons.org/openai/white' },
+  { name: 'ChatGPT Plus', price: '$4.77', official: '28,000원', tag: 'AI 혁신', color: '#10A37F', logo: 'https://img.icons8.com/ios-filled/50/ffffff/chatgpt.png' },
   { name: 'Netflix (UHD)', price: '$4.17', official: '17,000원', tag: '인기', color: '#E50914', logo: 'https://cdn.simpleicons.org/netflix/white' },
-  { name: 'Disney Plus', price: '$4.17', official: '9,900원', tag: '추천', color: '#006E99', logo: 'https://cdn.simpleicons.org/disneyplus/white' },
+  { name: 'Disney Plus', price: '$4.17', official: '9,900원', tag: '추천', color: '#006E99', logo: 'https://cdn.simpleicons.org/disney/white' },
   { name: 'Gemini (제미나이)', price: '$2.34', official: '26,000원', tag: 'Nano Banana', color: '#4285F4', logo: 'https://cdn.simpleicons.org/googlegemini/white' },
   { name: 'Tidal Plus', price: '$2.75', official: '15,000원', tag: '고음질', color: '#00E5FF', logo: 'https://cdn.simpleicons.org/tidal/white' },
   { name: 'Spotify (스포티파이)', price: '$3.65', official: '10,900원', tag: '음악 무제한', color: '#1DB954', logo: 'https://cdn.simpleicons.org/spotify/white' },
@@ -81,23 +81,45 @@ const ServiceGrid = () => {
         .services {
           background-color: rgba(255, 255, 255, 0.02);
         }
+        .services .container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
         .section-header {
           text-align: center;
-          margin-bottom: 4rem;
+          margin-bottom: 5rem;
+          width: 100%;
         }
         h2 {
-          font-size: 2.5rem;
+          font-size: clamp(2rem, 4vw, 3rem);
           font-weight: 800;
-          margin-bottom: 1rem;
+          margin-bottom: 1.5rem;
         }
         .section-header p {
           color: #a1a1aa;
-          font-size: 1.1rem;
+          font-size: 1.2rem;
         }
         .grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+          grid-template-columns: repeat(4, 1fr);
           gap: 2rem;
+          width: 100%;
+        }
+        @media (max-width: 1200px) {
+          .grid {
+            grid-template-columns: repeat(3, 1fr);
+          }
+        }
+        @media (max-width: 900px) {
+          .grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+        @media (max-width: 600px) {
+          .grid {
+            grid-template-columns: 1fr;
+          }
         }
         .service-card {
           padding: 2rem;

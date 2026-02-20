@@ -1,18 +1,21 @@
 import { HelmetProvider, Helmet } from 'react-helmet-async';
-import Hero from './components/Hero';
-import ServiceGrid from './components/ServiceGrid';
-import TrustSection from './components/TrustSection';
-import Guide from './components/Guide';
-import FAQ from './components/FAQ';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
+import Home from './pages/Home';
+import YoutubeBypass from './pages/YoutubeBypass';
+import ChatGptDiscount from './pages/ChatGptDiscount';
+import GeminiDiscount from './pages/GeminiDiscount';
+import AiComparison from './pages/AiComparison';
 import { Analytics } from '@vercel/analytics/react';
 
 function App() {
   const schemaMarkup = {
     "@context": "https://schema.org",
     "@type": "Product",
-    "name": "GamsGo 프로모션 코드",
-    "description": "GamsGo(겜스고) 프로모션 코드 TA9Y3를 사용하여 유튜브 프리미엄, 넷플릭스 등 프리미엄 서비스를 업계 최저가로 이용하세요.",
+    "name": "겜스고(GamsGo) 프로모션 코드",
+    "description": "겜스고(GamsGo) 프로모션 코드 TA9Y3를 사용하여 유튜브 프리미엄, 넷플릭스 등 프리미엄 서비스를 업계 최저가로 이용하세요.",
     "brand": {
       "@type": "Brand",
       "name": "GamsGo"
@@ -77,65 +80,73 @@ function App() {
 
   return (
     <HelmetProvider>
-      <div className="app-container">
-        <Helmet>
-          <title>GamsGo 프로모션 코드 TA9Y3 - 유튜브 프리미엄 4,000원대</title>
-          <meta name="description" content="2026년 최신 GamsGo(겜스고) 프로모션 코드 TA9Y3. 유튜브 프리미엄, 넷플릭스, ChatGPT Plus를 업계 최저가로 이용하는 법을 확인하세요." />
-          <meta name="keywords" content="겜스고 프로모션 코드, GamsGo 할인코드, 유튜브 프리미엄 우회, 넷플릭스 싸게 보는 법, TA9Y3, OTT 할인 가이드" />
+      <Router>
+        <div className="app-container">
+          <Helmet>
+            <title>겜스고(GamsGo) 프로모션 코드 TA9Y3 - 유튜브 프리미엄 4,000원대</title>
+            <meta name="description" content="2026년 최신 겜스고(GamsGo) 프로모션 코드 TA9Y3. 유튜브 프리미엄, 넷플릭스, ChatGPT Plus를 업계 최저가로 이용하는 법을 확인하세요." />
+            <meta name="keywords" content="겜스고 프로모션 코드, GamsGo 할인코드, 유튜브 프리미엄 우회, 넷플릭스 싸게 보는 법, TA9Y3, OTT 할인 가이드" />
 
-          {/* Open Graph / Facebook / Naver */}
-          <meta property="og:type" content="website" />
-          <meta property="og:title" content="GamsGo 프로모션 코드 TA9Y3 - 유튜브 프리미엄, 넷플릭스 최저가" />
-          <meta property="og:description" content="지금 TA9Y3 코드를 입력하고 유튜브 프리미엄 월 4,000원대 혜택을 받으세요. 겜스고 공식 파트너." />
-          <meta property="og:url" content="https://gamsgocode.co.kr/" />
-          <meta property="og:site_name" content="GamsGo 할인 가이드" />
-          <meta property="og:image" content="https://gamsgocode.co.kr/og-image.svg" />
+            {/* Open Graph / Facebook / Naver */}
+            <meta property="og:type" content="website" />
+            <meta property="og:title" content="겜스고(GamsGo) 프로모션 코드 TA9Y3 - 유튜브 프리미엄, 넷플릭스 최저가" />
+            <meta property="og:description" content="지금 TA9Y3 코드를 입력하고 유튜브 프리미엄 월 4,000원대 혜택을 받으세요. 겜스고 공식 파트너." />
+            <meta property="og:url" content="https://gamsgocode.co.kr/" />
+            <meta property="og:site_name" content="GamsGo 할인 가이드" />
+            <meta property="og:image" content="https://gamsgocode.co.kr/og-image.svg" />
 
+            {/* Twitter */}
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:title" content="겜스고(GamsGo) 프로모션 코드 TA9Y3 - 최저가 구독 가이드" />
+            <meta name="twitter:description" content="유튜브 프리미엄, 넷플릭스 월 3,000원대! 겜스고 할인코드 TA9Y3 적용하기" />
+            <meta name="twitter:image" content="https://gamsgocode.co.kr/og-image.svg" />
 
-          {/* Twitter */}
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content="GamsGo 프로모션 코드 TA9Y3 - 최저가 구독 가이드" />
-          <meta name="twitter:description" content="유튜브 프리미엄, 넷플릭스 월 3,000원대! 겜스고 할인코드 TA9Y3 적용하기" />
-          <meta name="twitter:image" content="https://gamsgocode.co.kr/og-image.svg" />
+            <link rel="canonical" href="https://gamsgocode.co.kr/" />
 
-          <link rel="canonical" href="https://gamsgocode.co.kr/" />
+            <script type="application/ld+json">
+              {JSON.stringify(schemaMarkup)}
+            </script>
+            <script type="application/ld+json">
+              {JSON.stringify(faqSchema)}
+            </script>
+            <script type="application/ld+json">
+              {JSON.stringify(websiteSchema)}
+            </script>
+            <script type="application/ld+json">
+              {JSON.stringify(orgSchema)}
+            </script>
+          </Helmet>
 
-          <script type="application/ld+json">
-            {JSON.stringify(schemaMarkup)}
-          </script>
-          <script type="application/ld+json">
-            {JSON.stringify(faqSchema)}
-          </script>
-          <script type="application/ld+json">
-            {JSON.stringify(websiteSchema)}
-          </script>
-          <script type="application/ld+json">
-            {JSON.stringify(orgSchema)}
-          </script>
-        </Helmet>
+          <ScrollToTop />
+          <Header />
 
-        <main>
-          <Hero />
-          <TrustSection />
-          <ServiceGrid />
-          <Guide />
-          <FAQ />
-        </main>
+          <main>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/youtube-premium-bypass" element={<YoutubeBypass />} />
+              <Route path="/chatgpt-plus-discount" element={<ChatGptDiscount />} />
+              <Route path="/google-gemini-discount" element={<GeminiDiscount />} />
+              <Route path="/gpt5-vs-claude4" element={<AiComparison />} />
+            </Routes>
+          </main>
 
-        <Footer />
-        <Analytics />
-      </div>
+          <Footer />
+          <Analytics />
+        </div>
 
-      <style jsx>{`
-        .app-container {
-          min-height: 100vh;
-          display: flex;
-          flex-direction: column;
-        }
-        main {
-          flex: 1;
-        }
-      `}</style>
+        <style jsx>{`
+          .app-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: #0a0a0a;
+          }
+          main {
+            flex: 1;
+            width: 100%;
+          }
+        `}</style>
+      </Router>
     </HelmetProvider>
   );
 }

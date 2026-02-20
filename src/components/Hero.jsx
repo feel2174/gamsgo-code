@@ -44,36 +44,24 @@ const Hero = () => {
             광고 없는 유튜브 프리미엄과 4K 넷플릭스를 가장 안전하고 저렴하게 이용하는 법.
           </p>
 
-          <div className="cta-group">
-            <div className="code-box-wrapper">
-              <div className="code-box glass" onClick={handleCopy}>
-                <div className="code-info">
-                  <span className="label">프로모션 코드</span>
+          <div className="cta-wrapper">
+            <div className="cta-card glass">
+              <div className="code-display" onClick={handleCopy}>
+                <span className="label">추가 할인 프로모션 코드</span>
+                <div className="code-row">
                   <span className="code">{PROMO_CODE}</span>
-                </div>
-                <div className="copy-action">
-                  {copied && <span className="copy-notif-inner">복사 완료!</span>}
-                  <button className="copy-btn">
+                  <button className="copy-btn-inner">
                     {copied ? <Check size={20} color="#4ade80" /> : <Copy size={20} />}
                   </button>
                 </div>
+                {copied && <p className="msg">코드가 복사되었습니다!</p>}
               </div>
-            </div>
 
-            {!copied ? (
-              <a href={AFFILIATE_LINK} target="_blank" rel="noopener noreferrer" className="main-cta">
-                GamsGo 공식 홈페이지로 이동 <ExternalLink size={18} />
+              <a href={AFFILIATE_LINK} target="_blank" rel="noopener noreferrer" className={`main-button ${copied ? 'success' : ''}`}>
+                공식 홈페이지 할인받기 <ExternalLink size={18} />
               </a>
-            ) : (
-              <motion.button
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                onClick={handleGo}
-                className="main-cta success"
-              >
-                지금 바로 할인 받으러 가기 <ExternalLink size={18} />
-              </motion.button>
-            )}
+              <p className="hint">※ 결제 시 적용하면 추가 할인이 적용됩니다.</p>
+            </div>
           </div>
         </motion.div>
       </div>
@@ -81,12 +69,17 @@ const Hero = () => {
       <style jsx>{`
         .hero {
           position: relative;
-          text-align: center;
-          background: radial-gradient(circle at 50% -20%, rgba(255, 107, 0, 0.15), transparent 50%);
+          padding: 10rem 0 8rem;
+          background: radial-gradient(circle at 50% 20%, rgba(255, 107, 0, 0.15), transparent 50%);
+          overflow: hidden;
         }
         .hero-content {
-          max-width: 800px;
+          max-width: 900px;
           margin: 0 auto;
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
         }
         .badge {
           display: inline-block;
@@ -95,104 +88,115 @@ const Hero = () => {
           border: 1px solid rgba(255, 107, 0, 0.2);
           border-radius: 2rem;
           color: var(--primary);
-          font-weight: 600;
+          font-weight: 700;
           font-size: 0.9rem;
           margin-bottom: 2rem;
         }
         h1 {
-          font-size: 4rem;
+          font-size: clamp(2.5rem, 6vw, 4.2rem);
           font-weight: 800;
           letter-spacing: -0.02em;
-          line-height: 1.1;
+          line-height: 1.15;
           margin-bottom: 2rem;
+          word-break: keep-all;
         }
         h1 span {
           color: var(--primary);
           -webkit-text-fill-color: var(--primary);
         }
         .hero-desc {
-          font-size: 1.25rem;
+          font-size: clamp(1.1rem, 1.8vw, 1.3rem);
           color: var(--text-muted);
-          margin-bottom: 3.5rem;
+          line-height: 1.7;
           word-break: keep-all;
+          max-width: 700px;
+          margin-bottom: 4rem;
         }
-        .cta-group {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 1.5rem;
+        
+        .cta-wrapper {
+          width: 100%;
+          max-width: 480px;
         }
-        .code-box-wrapper {
-          position: relative;
+        .cta-card {
+          padding: 2.5rem;
+          border-radius: 32px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          background: rgba(255, 255, 255, 0.02);
+          backdrop-filter: blur(20px);
         }
-        .code-box {
-          display: flex;
-          align-items: center;
-          padding: 1rem 2rem;
-          gap: 3rem;
+        .code-display {
+          background: rgba(0, 0, 0, 0.4);
+          padding: 1.5rem;
+          border-radius: 20px;
+          margin-bottom: 1.5rem;
           cursor: pointer;
+          border: 2px dashed rgba(255, 107, 0, 0.3);
           transition: var(--transition);
         }
-        .code-box:hover {
+        .code-display:hover {
           border-color: var(--primary);
-          background: rgba(255, 107, 0, 0.05);
-        }
-        .code-info {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
+          background: rgba(255, 107, 0, 0.08);
         }
         .label {
+          display: block;
           font-size: 0.75rem;
-          text-transform: uppercase;
           color: var(--text-muted);
+          margin-bottom: 0.5rem;
+          text-transform: uppercase;
           letter-spacing: 0.1em;
         }
-        .code {
-          font-size: 2rem;
-          font-weight: 800;
-          color: var(--primary);
-          font-variant-numeric: tabular-nums;
-        }
-        .main-cta {
+        .code-row {
           display: flex;
           align-items: center;
-          gap: 0.5rem;
-          padding: 1.25rem 2.5rem;
+          justify-content: center;
+          gap: 1rem;
+        }
+        .code {
+          font-size: clamp(2rem, 5vw, 2.5rem);
+          font-weight: 900;
+          color: var(--primary);
+          letter-spacing: 2px;
+        }
+        .msg {
+          font-size: 0.85rem;
+          color: #4ade80;
+          margin-top: 0.5rem;
+          font-weight: 600;
+        }
+        .main-button {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.8rem;
+          padding: 1.25rem;
           background: var(--primary);
-          border-radius: 1rem;
+          color: #fff;
+          border-radius: 16px;
           font-weight: 700;
           font-size: 1.1rem;
           transition: var(--transition);
+          text-decoration: none;
         }
-        .main-cta.success {
-          background: #4ade80;
-          color: #000;
-        }
-        .main-cta.success:hover {
+        .main-button.success {
           background: #22c55e;
-          box-shadow: 0 10px 30px rgba(74, 222, 128, 0.4);
         }
-        .copy-action {
-          display: flex;
-          align-items: center;
-          gap: 0.75rem;
+        .main-button:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 10px 30px rgba(255, 107, 0, 0.4);
         }
-        .copy-notif-inner {
-          font-size: 0.85rem;
-          color: #4ade80;
-          font-weight: 600;
-          animation: fadeIn 0.3s ease;
+        .hint {
+          font-size: 0.8rem;
+          color: rgba(255, 255, 255, 0.4);
+          margin-top: 1.2rem;
         }
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateX(5px); }
-          to { opacity: 1; transform: translateX(0); }
-        }
+
         @media (max-width: 768px) {
+          .hero { padding: 6rem 0 4rem; }
           h1 { font-size: 2.5rem; }
-          .hero-desc { font-size: 1.1rem; }
-          .code-box { gap: 1.5rem; padding: 0.75rem 1.5rem; }
-          .code { font-size: 1.5rem; }
+          .hero-desc { font-size: 1rem; margin-bottom: 3rem; }
+          .cta-card { padding: 1.5rem; }
+          .code { font-size: 1.8rem; }
         }
       `}</style>
     </section>

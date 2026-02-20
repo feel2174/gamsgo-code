@@ -77,32 +77,68 @@ const FAQ = () => {
             </div>
 
             <style jsx>{`
+        .faq {
+          padding: 8rem 0;
+          background: #050505;
+        }
+        .faq .container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        .section-header {
+          text-align: center;
+          margin-bottom: 5rem;
+          width: 100%;
+        }
+        h2 {
+          font-size: clamp(2rem, 4vw, 3rem);
+          font-weight: 800;
+          margin-bottom: 1.5rem;
+        }
         .faq-list {
-          max-width: 800px;
+          width: 100%;
+          max-width: 900px;
           margin: 0 auto;
           display: flex;
           flex-direction: column;
-          gap: 1rem;
+          gap: 1.2rem;
         }
         .faq-item {
+          background: rgba(255, 255, 255, 0.02);
+          border: 1px solid rgba(255, 255, 255, 0.05);
+          border-radius: 20px;
           overflow: hidden;
-          transition: var(--transition);
+          transition: all 0.3s ease;
+        }
+        .faq-item:hover {
+          border-color: rgba(255, 255, 255, 0.1);
+          background: rgba(255, 255, 255, 0.03);
         }
         .faq-question {
           width: 100%;
-          padding: 1.5rem 2rem;
+          padding: 1.8rem 2.5rem;
           display: flex;
           justify-content: space-between;
           align-items: center;
-          font-size: 1.1rem;
+          font-size: 1.15rem;
           font-weight: 700;
-          color: var(--text);
+          color: #fff;
           text-align: left;
+          background: transparent;
+          border: none;
+          cursor: pointer;
         }
         .faq-answer {
-          padding: 0 2rem 1.5rem;
-          color: var(--text-muted);
-          line-height: 1.7;
+          padding: 0 2.5rem 1.8rem;
+          color: rgba(255, 255, 255, 0.6);
+          line-height: 1.8;
+          font-size: 1.05rem;
+        }
+        @media (max-width: 768px) {
+          .faq { padding: 5rem 0; }
+          .faq-question { padding: 1.5rem; font-size: 1.05rem; }
+          .faq-answer { padding: 0 1.5rem 1.5rem; font-size: 1rem; }
         }
       `}</style>
         </section>

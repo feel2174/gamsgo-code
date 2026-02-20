@@ -33,8 +33,19 @@ const TrustSection = () => {
       <style jsx>{`
         .trust-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+          grid-template-columns: repeat(4, 1fr);
           gap: 3rem;
+        }
+        @media (max-width: 1024px) {
+          .trust-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+        @media (max-width: 640px) {
+          .trust-grid {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+          }
         }
         .trust-card {
           text-align: center;
