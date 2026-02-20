@@ -35,6 +35,7 @@ const ServiceGrid = () => {
               href="https://www.gamsgo.com/partner/Chgyp"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={`${item.name} 할인 받기`}
               style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}
             >
               <motion.div
@@ -48,7 +49,8 @@ const ServiceGrid = () => {
                   <div className="logo-wrapper">
                     <img
                       src={item.logo}
-                      alt={item.name}
+                      alt={`${item.name} 공식 로고`}
+                      loading="lazy"
                       className="service-logo"
                       onError={(e) => {
                         e.target.src = 'https://img.icons8.com/ios-filled/50/ffffff/broken-link.png';

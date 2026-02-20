@@ -36,12 +36,12 @@ const Hero = () => {
 
           <h1 className="gradient-text">
             유튜브 프리미엄, 넷플릭스<br />
-            <span>월 3,000원대로</span> 종결
+            <span>우회 없이 월 3,000원대</span> 종결
           </h1>
 
           <p className="hero-desc">
-            전 세계 500만 유저가 선택한 1위 구독 공유 플랫폼 GamsGo.<br />
-            프로모션 코드를 복사하고 지금 바로 할인을 적용받으세요.
+            전 세계 500만 유저가 선택한 1위 구독 공유 플랫폼 GamsGo(겜스고).<br />
+            광고 없는 유튜브 프리미엄과 4K 넷플릭스를 가장 안전하고 저렴하게 이용하는 법.
           </p>
 
           <div className="cta-group">
