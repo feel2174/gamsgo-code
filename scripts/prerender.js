@@ -265,6 +265,10 @@ function run() {
       html = html.replace('</head>', `  <meta name="description" content="${page.description}" />\n</head>`);
     }
 
+    // Inject Canonical URL
+    const canonicalUrl = `https://gamsgocode.co.kr${route === '/' ? '' : route}`;
+    html = html.replace('</head>', `  <link rel="canonical" href="${canonicalUrl}" />\n</head>`);
+
     // Inject contentHtml
     const content = page.contentHtml();
     html = html.replace(/<div id="root">[\s\S]*?<\/div>/, `<div id="root">${content}</div>`);
@@ -290,6 +294,7 @@ function run() {
 
     const pageTitle = `${post.title} | DevInsight`;
     const pageDesc = post.excerpt;
+    const canonicalUrl = `https://gamsgocode.co.kr${route}`;
 
     // Schema JSON-LD markup
     const articleSchema = {
@@ -311,6 +316,7 @@ function run() {
   <meta property="og:image" content="${post.coverImage}" />
   <meta property="article:published_time" content="${post.date}" />
   <meta property="article:author" content="${post.author}" />
+  <link rel="canonical" href="${canonicalUrl}" />
   <script type="application/ld+json">${JSON.stringify(articleSchema)}</script>
     `;
 
