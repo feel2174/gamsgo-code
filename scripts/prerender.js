@@ -381,6 +381,59 @@ function run() {
     console.log(`Prerendered article: /post/${post.slug}/index.html`);
   }
 
+  // Generate sitemap.xml dynamically
+  console.log('=== GENERATING SITEMAP.XML ===');
+  let sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://gamsgocode.co.kr/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://gamsgocode.co.kr/about</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gamsgocode.co.kr/contact</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://gamsgocode.co.kr/privacy</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://gamsgocode.co.kr/terms</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+`;
+
+  for (const post of posts) {
+    sitemapXml += `  <url>
+    <loc>https://gamsgocode.co.kr/post/${post.slug}</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+`;
+  }
+
+  sitemapXml += `</urlset>\n`;
+
+  // Write to dist/sitemap.xml
+  fs.writeFileSync(path.join(DIST_DIR, 'sitemap.xml'), sitemapXml, 'utf8');
+  console.log('Generated: dist/sitemap.xml');
+
+  // Also write back to public/sitemap.xml so it persists in Git
+  const PUBLIC_DIR = path.resolve(__dirname, '../public');
+  if (fs.existsSync(PUBLIC_DIR)) {
+    fs.writeFileSync(path.join(PUBLIC_DIR, 'sitemap.xml'), sitemapXml, 'utf8');
+    console.log('Updated: public/sitemap.xml');
+  }
+
   console.log('=== PRERENDERING COMPLETE ===');
 }
 
