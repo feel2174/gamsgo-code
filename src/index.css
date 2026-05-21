@@ -1,12 +1,12 @@
 :root {
-  --primary: #ff6b00;
-  --primary-hover: #e66000;
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
   --background: #0a0a0c;
   --surface: #16161a;
   --surface-hover: #1c1c21;
   --text: #ffffff;
   --text-muted: #a1a1aa;
-  --accent: #00f2ff;
+  --accent: #60a5fa;
   --glass: rgba(255, 255, 255, 0.03);
   --glass-border: rgba(255, 255, 255, 0.1);
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -80,7 +80,7 @@ button {
 }
 
 .gradient-primary {
-  background: linear-gradient(135deg, var(--primary) 0%, #ff9e00 100%);
+  background: linear-gradient(135deg, var(--primary) 0%, #60a5fa 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

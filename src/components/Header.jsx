@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ExternalLink } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 const Header = () => {
@@ -8,11 +8,9 @@ const Header = () => {
   const location = useLocation();
 
   const navLinks = [
-    { name: '홈', path: '/' },
-    { name: '유튜브 프리미엄', path: '/youtube-premium-bypass' },
-    { name: 'ChatGPT 할인', path: '/chatgpt-plus-discount' },
-    { name: '제미나이 할인', path: '/google-gemini-discount' },
-    { name: 'AI 성능 비교', path: '/gpt5-vs-claude4' },
+    { name: '홈 (Home)', path: '/' },
+    { name: '소개 (About)', path: '/about' },
+    { name: '문의 (Contact)', path: '/contact' },
   ];
 
   useEffect(() => {
@@ -29,9 +27,9 @@ const Header = () => {
 
   return (
     <header className={`header ${scrolled ? 'scrolled' : ''}`}>
-      <div className="container">
+      <div className="header-container">
         <Link to="/" className="logo">
-          GamsGo<span>PROMO</span>
+          Dev<span>Insight</span>
         </Link>
 
         <nav className="desktop-nav">
@@ -44,9 +42,6 @@ const Header = () => {
               {link.name}
             </Link>
           ))}
-          <a href="https://www.gamsgo.com/partner/Chgyp" target="_blank" rel="noopener noreferrer" className="cta-button">
-            할인받기 <ExternalLink size={16} />
-          </a>
         </nav>
 
         <button className="mobile-menu-toggle" onClick={() => setIsOpen(!isOpen)}>
@@ -65,9 +60,6 @@ const Header = () => {
             {link.name}
           </Link>
         ))}
-        <a href="https://www.gamsgo.com/partner/Chgyp" target="_blank" rel="noopener noreferrer" className="mobile-cta">
-          GamsGo 공식 사이트 바로가기
-        </a>
       </div>
 
       <style jsx>{`
@@ -84,10 +76,10 @@ const Header = () => {
         }
         .header.scrolled {
           padding: 1rem 0;
-          background: rgba(10, 10, 10, 0.8);
+          background: rgba(10, 10, 10, 0.9);
           border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .container {
+        .header-container {
           max-width: 1200px;
           margin: 0 auto;
           display: flex;
@@ -96,24 +88,18 @@ const Header = () => {
           padding: 0 1.5rem;
         }
         .logo {
-          font-size: 1.5rem;
+          font-size: 1.8rem;
           font-weight: 800;
           color: #fff;
           text-decoration: none;
           letter-spacing: -1px;
-          white-space: nowrap;
-        }
-        @media (max-width: 380px) {
-          .logo {
-            font-size: 1.2rem;
-          }
         }
         .logo span {
-          color: #ff3e00;
+          color: #3b82f6; /* Blue accent */
         }
         .desktop-nav {
           display: none;
-          gap: 2rem;
+          gap: 2.5rem;
           align-items: center;
         }
         @media (min-width: 768px) {
@@ -125,26 +111,11 @@ const Header = () => {
           color: rgba(255, 255, 255, 0.7);
           text-decoration: none;
           font-weight: 500;
-          font-size: 0.95rem;
+          font-size: 1rem;
           transition: color 0.3s ease;
         }
         .desktop-nav a:hover, .desktop-nav a.active {
           color: #fff;
-        }
-        .cta-button {
-          background: #ff3e00;
-          color: #fff !important;
-          padding: 0.6rem 1.2rem;
-          border-radius: 50px;
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-          font-weight: 600 !important;
-          transition: transform 0.3s ease, box-shadow 0.3s ease !important;
-        }
-        .cta-button:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 5px 15px rgba(255, 62, 0, 0.3);
         }
         .mobile-menu-toggle {
           display: block;
@@ -162,9 +133,9 @@ const Header = () => {
           position: fixed;
           top: 0;
           right: -100%;
-          width: 80%;
+          width: 70%;
           height: 100vh;
-          background: #0a0a0a;
+          background: #0f1115;
           display: flex;
           flex-direction: column;
           padding: 6rem 2rem;
@@ -181,14 +152,6 @@ const Header = () => {
           font-size: 1.2rem;
           text-decoration: none;
           font-weight: 600;
-        }
-        .mobile-cta {
-          margin-top: auto;
-          background: #333;
-          text-align: center;
-          padding: 1rem;
-          border-radius: 12px;
-          font-size: 1rem !important;
         }
       `}</style>
     </header>

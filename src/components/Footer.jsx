@@ -1,46 +1,49 @@
 import { Link } from 'react-router-dom';
-import { Mail, Shield, Zap, ExternalLink } from 'lucide-react';
+import { Mail } from 'lucide-react';
 
 const Footer = () => {
   return (
     <footer className="footer">
-      <div className="container">
+      <div className="footer-container">
         <div className="footer-grid">
           <div className="footer-info">
-            <Link to="/" className="footer-logo">GamsGo<span>PROMO</span></Link>
-            <p>2026년 최신 GamsGo 프로모션 코드 TA9Y3를 통해 유튜브 프리미엄, 넷플릭스, ChatGPT 등 프리미엄 서비스를 업계 최저가로 이용하세요.</p>
+            <Link to="/" className="footer-logo">Dev<span>Insight</span></Link>
+            <p>2026년 최신 IT 트렌드, 웹 프론트엔드 개발 가이드 및 AI 도구 활용법을 깊이 있게 다루는 전문 기술 블로그입니다.</p>
           </div>
 
           <div className="footer-links">
-            <h4>서비스 가이드</h4>
+            <h4>사이트 메뉴</h4>
             <ul>
-              <li><Link to="/youtube-premium-bypass">유튜브 프리미엄 우회</Link></li>
-              <li><Link to="/chatgpt-plus-discount">ChatGPT 플러스 할인</Link></li>
-              <li><Link to="/google-gemini-discount">구글 제미나이 할인</Link></li>
-              <li><Link to="/gpt5-vs-claude4">AI 성능 비교</Link></li>
+              <li><Link to="/">홈</Link></li>
+              <li><Link to="/about">소개</Link></li>
+              <li><Link to="/contact">문의하기</Link></li>
             </ul>
           </div>
 
           <div className="footer-links">
-            <h4>고객 지원</h4>
+            <h4>법적 고지</h4>
             <ul>
-              <li><a href="https://www.gamsgo.com/partner/Chgyp" target="_blank" rel="noopener noreferrer">공식 사이트 <ExternalLink size={14} /></a></li>
-              <li><a href="#faq">자주 묻는 질문</a></li>
-              <li><a href="mailto:support@gamsgocode.co.kr">문의하기</a></li>
+              <li><Link to="/privacy">개인정보처리방침</Link></li>
+              <li><Link to="/terms">이용약관</Link></li>
             </ul>
           </div>
         </div>
 
         <div className="footer-bottom">
-          <p>&copy; 2026 GamsGo Promo Guide. All rights reserved.</p>
+          <p>&copy; 2026 DevInsight. All rights reserved.</p>
         </div>
       </div>
 
       <style jsx>{`
         .footer {
-          background: #050505;
+          background: #0f1115;
           padding: 5rem 0 2rem;
           border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .footer-container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 2rem;
         }
         .footer-grid {
           display: grid;
@@ -73,7 +76,7 @@ const Footer = () => {
           display: inline-block;
         }
         .footer-logo span {
-          color: #ff3e00;
+          color: #3b82f6;
         }
         .footer-info p {
           color: rgba(255, 255, 255, 0.5);
@@ -81,24 +84,26 @@ const Footer = () => {
           line-height: 1.6;
           word-break: keep-all;
         }
-        h4 {
+        .footer h4 {
           color: #fff;
           margin-bottom: 1.5rem;
           font-size: 1.1rem;
         }
-        ul {
+        .footer ul {
           list-style: none;
+          padding: 0;
         }
-        li {
+        .footer li {
           margin-bottom: 0.8rem;
         }
-        li a {
+        .footer li a {
           color: rgba(255, 255, 255, 0.5);
           transition: color 0.3s ease;
           font-size: 0.95rem;
+          text-decoration: none;
         }
-        li a:hover {
-          color: #ff3e00;
+        .footer li a:hover {
+          color: #3b82f6;
         }
         .footer-bottom {
           padding-top: 2rem;
@@ -115,3 +120,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

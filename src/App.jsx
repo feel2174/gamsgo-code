@@ -4,78 +4,28 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
-import YoutubeBypass from './pages/YoutubeBypass';
-import ChatGptDiscount from './pages/ChatGptDiscount';
-import GeminiDiscount from './pages/GeminiDiscount';
-import AiComparison from './pages/AiComparison';
+import Post from './pages/Post';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import Privacy from './pages/Privacy';
+import Terms from './pages/Terms';
 import { Analytics } from '@vercel/analytics/react';
 
 function App() {
-  const schemaMarkup = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "name": "겜스고(GamsGo) 프로모션 코드",
-    "description": "겜스고(GamsGo) 프로모션 코드 TA9Y3를 사용하여 유튜브 프리미엄, 넷플릭스 등 프리미엄 서비스를 업계 최저가로 이용하세요.",
-    "brand": {
-      "@type": "Brand",
-      "name": "GamsGo"
-    },
-    "offers": {
-      "@type": "Offer",
-      "priceCurrency": "KRW",
-      "price": "3000",
-      "itemCondition": "https://schema.org/NewCondition",
-      "availability": "https://schema.org/InStock",
-      "url": "https://www.gamsgo.com/partner/Chgyp"
-    }
-  };
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "GamsGo 프로모션 코드는 무엇인가요?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "2026년 기준 최신 프로모션 코드는 TA9Y3입니다. 결제 시 입력하면 추가 할인이 적용됩니다."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "겜스고는 안전한가요?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "네, 겜스고는 500만 명 이상의 유저가 이용 중인 세계적인 구독 공유 서비스로 믿고 사용할 수 있습니다."
-        }
-      }
-    ]
-  };
-
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "url": "https://gamsgocode.co.kr/",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": "https://gamsgocode.co.kr/?s={search_term_string}"
-      },
-      "query-input": "required name=search_term_string"
-    }
+    "name": "DevInsight - IT & 프론트엔드 블로그",
+    "description": "최신 웹 프론트엔드 트렌드, React, AI 도구 튜토리얼을 제공하는 고품질 기술 블로그",
   };
 
   const orgSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "GamsGo 할인 가이드",
+    "name": "DevInsight",
     "url": "https://gamsgocode.co.kr/",
     "logo": "https://gamsgocode.co.kr/apple-touch-icon.png",
-    "sameAs": [
-      "https://www.gamsgo.com/partner/Chgyp"
-    ]
   };
 
   return (
@@ -83,32 +33,19 @@ function App() {
       <Router>
         <div className="app-container">
           <Helmet>
-            <title>겜스고(GamsGo) 프로모션 코드 TA9Y3 - 유튜브 프리미엄 4,000원대</title>
-            <meta name="description" content="2026년 최신 겜스고(GamsGo) 프로모션 코드 TA9Y3. 유튜브 프리미엄, 넷플릭스, ChatGPT Plus를 업계 최저가로 이용하는 법을 확인하세요." />
-            <meta name="keywords" content="겜스고 프로모션 코드, GamsGo 할인코드, 유튜브 프리미엄 우회, 넷플릭스 싸게 보는 법, TA9Y3, OTT 할인 가이드" />
+            <title>DevInsight - IT & 프론트엔드 기술 블로그</title>
+            <meta name="description" content="2026년 최신 기술 트렌드를 가장 깊이 있게 탐구합니다. 프론트엔드 개발 가이드 및 AI 도구 활용법." />
+            <meta name="keywords" content="React 19, 프론트엔드 개발, ChatGPT API, 기술 블로그, IT 트렌드, 성능 최적화, TypeScript" />
 
-            {/* Open Graph / Facebook / Naver */}
+            {/* Open Graph */}
             <meta property="og:type" content="website" />
-            <meta property="og:title" content="겜스고(GamsGo) 프로모션 코드 TA9Y3 - 유튜브 프리미엄, 넷플릭스 최저가" />
-            <meta property="og:description" content="지금 TA9Y3 코드를 입력하고 유튜브 프리미엄 월 4,000원대 혜택을 받으세요. 겜스고 공식 파트너." />
+            <meta property="og:title" content="DevInsight - 전문 기술 블로그" />
+            <meta property="og:description" content="최신 기술 트렌드를 가장 깊이 있게 탐구합니다." />
             <meta property="og:url" content="https://gamsgocode.co.kr/" />
-            <meta property="og:site_name" content="GamsGo 할인 가이드" />
-            <meta property="og:image" content="https://gamsgocode.co.kr/og-image.svg" />
-
-            {/* Twitter */}
-            <meta name="twitter:card" content="summary_large_image" />
-            <meta name="twitter:title" content="겜스고(GamsGo) 프로모션 코드 TA9Y3 - 최저가 구독 가이드" />
-            <meta name="twitter:description" content="유튜브 프리미엄, 넷플릭스 월 3,000원대! 겜스고 할인코드 TA9Y3 적용하기" />
-            <meta name="twitter:image" content="https://gamsgocode.co.kr/og-image.svg" />
+            <meta property="og:site_name" content="DevInsight" />
 
             <link rel="canonical" href="https://gamsgocode.co.kr/" />
 
-            <script type="application/ld+json">
-              {JSON.stringify(schemaMarkup)}
-            </script>
-            <script type="application/ld+json">
-              {JSON.stringify(faqSchema)}
-            </script>
             <script type="application/ld+json">
               {JSON.stringify(websiteSchema)}
             </script>
@@ -123,10 +60,11 @@ function App() {
           <main>
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/youtube-premium-bypass" element={<YoutubeBypass />} />
-              <Route path="/chatgpt-plus-discount" element={<ChatGptDiscount />} />
-              <Route path="/google-gemini-discount" element={<GeminiDiscount />} />
-              <Route path="/gpt5-vs-claude4" element={<AiComparison />} />
+              <Route path="/post/:slug" element={<Post />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/terms" element={<Terms />} />
             </Routes>
           </main>
 
@@ -134,16 +72,115 @@ function App() {
           <Analytics />
         </div>
 
-        <style jsx>{`
+        <style jsx global>{`
           .app-container {
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             background: #0a0a0a;
+            color: #fff;
           }
           main {
             flex: 1;
             width: 100%;
+          }
+          
+          /* Global styles for static pages */
+          .page-wrapper {
+            padding: 120px 0 80px;
+            min-height: calc(100vh - 300px);
+          }
+          .page-wrapper .page-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+          }
+          .page-wrapper h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #fff;
+            border-bottom: 2px solid #3b82f6;
+            padding-bottom: 0.5rem;
+            display: inline-block;
+          }
+          .page-wrapper .content {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+            font-size: 1.1rem;
+          }
+          .page-wrapper h2 {
+            font-size: 1.5rem;
+            color: #e2e8f0;
+            margin: 2rem 0 1rem;
+          }
+          .page-wrapper p {
+            margin-bottom: 1.2rem;
+          }
+          .page-wrapper ul {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+          }
+          .page-wrapper li {
+            margin-bottom: 0.5rem;
+          }
+          
+          /* Contact Form */
+          .contact-form {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 2rem;
+          }
+          .form-group {
+            margin-bottom: 1.5rem;
+          }
+          .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #e2e8f0;
+            font-weight: 500;
+          }
+          .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-family: inherit;
+            transition: border-color 0.3s;
+          }
+          .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: #3b82f6;
+          }
+          .submit-btn {
+            background: #3b82f6;
+            color: #fff;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+          }
+          .submit-btn:hover {
+            background: #2563eb;
+          }
+          .contact-list {
+            list-style: none !important;
+            padding: 0 !important;
+          }
+          .contact-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1rem !important;
           }
         `}</style>
       </Router>
