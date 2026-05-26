@@ -17,32 +17,33 @@
   <rect width="1200" height="630" fill="url(#grad1)"/>
 
   <!-- Logo/Brand Symbol (Simplified) -->
-  <circle cx="600" cy="180" r="50" fill="#FF6B00" opacity="0.1" />
-  <path d="M600 150 L630 210 L570 210 Z" fill="#FF6B00" />
+  <circle cx="600" cy="170" r="56" fill="#3B82F6" opacity="0.14" />
+  <path d="M560 175 C585 135 635 135 660 175 C635 215 585 215 560 175 Z" fill="#3B82F6" opacity="0.95" />
+  <circle cx="610" cy="175" r="14" fill="#0F172A" />
   
   <!-- Main Title -->
   <text x="600" y="300" font-family="Arial, sans-serif" font-weight="800" font-size="64" text-anchor="middle" fill="#FFFFFF" filter="url(#shadow)">
-    GamsGo 프로모션 코드
+    DevInsight
   </text>
-  
-  <!-- Promo Code Box -->
-  <rect x="450" y="340" width="300" height="100" rx="15" fill="#FF6B00" filter="url(#shadow)"/>
-  <text x="600" y="408" font-family="monospace" font-weight="900" font-size="60" text-anchor="middle" fill="#000000">
-    TA9Y3
+
+  <!-- Topic Badge -->
+  <rect x="375" y="340" width="450" height="72" rx="16" fill="#1D4ED8" filter="url(#shadow)"/>
+  <text x="600" y="388" font-family="Arial, sans-serif" font-weight="800" font-size="34" text-anchor="middle" fill="#FFFFFF">
+    IT & 프론트엔드 기술 블로그
   </text>
   
   <!-- Subtitle -->
   <text x="600" y="500" font-family="Arial, sans-serif" font-weight="600" font-size="32" text-anchor="middle" fill="#94A3B8">
-    유튜브 프리미엄 / 넷플릭스 / ChatGPT Plus 최저가
+    React · TypeScript · AI 자동화 · 웹 성능
   </text>
   
   <!-- Trust Badges -->
   <g transform="translate(480, 560)">
-    <circle cx="0" cy="0" r="15" fill="#FF6B00" opacity="0.2" />
-    <text x="25" y="10" font-family="Arial, sans-serif" font-size="20" fill="#FFFFFF" font-weight="600">안전한 공식 파트너</text>
+    <circle cx="0" cy="0" r="15" fill="#3B82F6" opacity="0.25" />
+    <text x="25" y="10" font-family="Arial, sans-serif" font-size="20" fill="#FFFFFF" font-weight="600">실무 중심 튜토리얼</text>
   </g>
   <g transform="translate(720, 560)">
-    <circle cx="0" cy="0" r="15" fill="#FF6B00" opacity="0.2" />
-    <text x="25" y="10" font-family="Arial, sans-serif" font-size="20" fill="#FFFFFF" font-weight="600">24/7 한국어 지원</text>
+    <circle cx="0" cy="0" r="15" fill="#3B82F6" opacity="0.25" />
+    <text x="25" y="10" font-family="Arial, sans-serif" font-size="20" fill="#FFFFFF" font-weight="600">깊이 있는 기술 인사이트</text>
   </g>
 </svg>

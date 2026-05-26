@@ -151,6 +151,12 @@ const pages = {
             <h2>우리의 미션</h2>
             <p>단편적인 지식이 아닌, 실무에서 즉시 활용할 수 있는 깊이 있는 정보(Insight)를 제공하는 것이 목표입니다. React, TypeScript, 최신 성능 최적화 기법부터 ChatGPT API를 활용한 업무 자동화까지 다양한 주제를 다룹니다.</p>
 
+            <h2>콘텐츠 작성 기준</h2>
+            <p>DevInsight의 글은 단순한 용어 설명에 그치지 않고, 실제 개발자가 의사결정할 때 확인해야 하는 장단점, 적용 조건, 점검 항목을 함께 정리하는 것을 원칙으로 합니다. 기술 변화가 빠른 주제는 공식 문서와 실무 적용 사례를 함께 확인하며, 오래된 정보나 오류가 발견되면 수정합니다.</p>
+
+            <h2>운영 원칙</h2>
+            <p>이 사이트는 독자가 광고보다 콘텐츠를 먼저 읽을 수 있도록 명확한 문서 구조와 쉬운 탐색을 지향합니다. 광고가 게재되더라도 본문과 구분되도록 배치하며, 클릭을 유도하거나 사용자를 혼동시키는 표현은 사용하지 않습니다.</p>
+
             <h2>연락처</h2>
             <ul class="contact-list">
               <li>${SVGS.mail} devzucca@gmail.com</li>
@@ -164,27 +170,29 @@ const pages = {
   },
   '/contact': {
     title: '문의하기 | DevInsight',
-    description: 'DevInsight 운영진에게 피드백, 제휴 문의 등을 남겨주세요.',
+    description: 'DevInsight 운영자에게 콘텐츠 오류 신고, 제휴 문의, 개인정보 관련 요청을 보낼 수 있는 연락처 안내 페이지입니다.',
     contentHtml: () => wrapPage(`
       <div class="page-wrapper">
         <div class="page-container">
           <h1>문의하기</h1>
           <div class="content">
-            <p>블로그 콘텐츠에 대한 피드백, 비즈니스 제휴, 또는 오류 신고 등 어떠한 문의도 환영합니다.</p>
-            <form class="contact-form">
+            <p>DevInsight는 기술 콘텐츠의 정확성과 독자 경험을 중요하게 생각합니다. 글의 오류 신고, 보완 의견, 제휴 문의, 개인정보 관련 요청은 아래 이메일로 보내주세요.</p>
+            <p><strong>운영자 이메일:</strong> <a href="mailto:devzucca@gmail.com">devzucca@gmail.com</a></p>
+            <p>문의 시 이름, 회신받을 이메일 주소, 문의 내용을 보내주시면 확인 후 가능한 범위에서 답변드립니다. 광고, 스팸, 자동화된 홍보성 메시지는 답변하지 않을 수 있습니다.</p>
+            <form class="contact-form" action="mailto:devzucca@gmail.com" method="post" enctype="text/plain">
               <div class="form-group">
-                <label>이름</label>
-                <input type="text" placeholder="홍길동" required />
+                <label for="contact-name">이름</label>
+                <input id="contact-name" name="name" type="text" placeholder="홍길동" required />
               </div>
               <div class="form-group">
-                <label>이메일</label>
-                <input type="email" placeholder="example@email.com" required />
+                <label for="contact-email">이메일</label>
+                <input id="contact-email" name="email" type="email" placeholder="example@email.com" required />
               </div>
               <div class="form-group">
-                <label>메시지</label>
-                <textarea rows="5" placeholder="문의하실 내용을 입력해주세요." required></textarea>
+                <label for="contact-message">메시지</label>
+                <textarea id="contact-message" name="message" rows="5" placeholder="문의하실 내용을 입력해주세요." required></textarea>
               </div>
-              <button type="submit" class="submit-btn">메시지 보내기</button>
+              <button type="submit" class="submit-btn">이메일로 보내기</button>
             </form>
           </div>
         </div>
@@ -199,21 +207,37 @@ const pages = {
         <div class="page-container">
           <h1>개인정보처리방침</h1>
           <div class="content">
-            <p><strong>시행일자: 2026년 5월 21일</strong></p>
-            <p>DevInsight("본 사이트")는 이용자의 개인정보 보호를 매우 중요하게 생각하며, 관련 법령을 준수하고 있습니다.</p>
+            <p><strong>시행일자: 2026년 5월 26일</strong></p>
+            <p>DevInsight("본 사이트")는 이용자의 개인정보 보호를 중요하게 생각하며, 사이트 운영과 콘텐츠 개선에 필요한 최소한의 정보만 처리합니다.</p>
             
             <h2>1. 수집하는 개인정보 항목</h2>
-            <p>본 사이트는 회원가입 절차가 없으며, 원칙적으로 사용자를 식별할 수 있는 민감한 개인정보를 수집하지 않습니다. 다만, 서비스 개선 및 구글 애드센스 등 맞춤형 광고 제공을 위해 쿠키(Cookie)와 방문 기록 등의 정보가 자동으로 수집될 수 있습니다.</p>
+            <p>본 사이트는 회원가입 기능을 제공하지 않으며 주민등록번호, 결제 정보 등 민감한 개인정보를 요구하지 않습니다. 다만 문의를 위해 이용자가 직접 입력하거나 이메일로 보내는 경우 이름, 이메일 주소, 문의 내용이 처리될 수 있습니다.</p>
+            <p>또한 사이트 안정성 확인, 방문 통계 분석, 광고 제공을 위해 IP 주소, 브라우저 정보, 방문 페이지, 쿠키(Cookie)와 같은 비식별 정보가 자동으로 수집될 수 있습니다.</p>
 
-            <h2>2. 쿠키(Cookie)의 운용</h2>
-            <p>본 사이트는 구글(Google)과 같은 제3자 업체가 제공하는 광고를 게재할 수 있습니다. 구글 등 광고 업체는 쿠키를 사용하여 사용자의 이전 방문 기록을 바탕으로 맞춤형 광고를 제공할 수 있습니다.</p>
+            <h2>2. 개인정보의 이용 목적</h2>
             <ul>
-              <li>사용자는 브라우저 설정을 통해 쿠키 저장을 거부할 수 있습니다.</li>
-              <li>구글 광고 설정 페이지를 방문하여 맞춤설정 광고에 사용되는 쿠키를 거부할 수 있습니다.</li>
+              <li>문의, 오류 신고, 제휴 요청에 대한 회신</li>
+              <li>콘텐츠 품질 개선 및 사이트 이용 통계 분석</li>
+              <li>부정 이용 방지, 보안 점검, 서비스 안정성 유지</li>
+              <li>Google AdSense 등 제3자 광고 서비스 제공</li>
             </ul>
 
-            <h2>3. 웹 분석 도구의 사용</h2>
-            <p>트래픽 분석을 위해 구글 애널리틱스(Google Analytics)를 사용하고 있습니다. 이를 통해 비식별화된 통계 데이터가 수집됩니다.</p>
+            <h2>3. 보관 및 파기</h2>
+            <p>문의 처리에 필요한 정보는 답변 및 후속 확인을 위해 필요한 기간 동안 보관한 뒤 파기합니다. 법령상 보관 의무가 있거나 분쟁 대응을 위해 필요한 경우에는 해당 목적이 종료될 때까지 보관할 수 있습니다.</p>
+
+            <h2>4. 쿠키(Cookie)의 운용 및 광고</h2>
+            <p>본 사이트는 Google AdSense를 포함한 제3자 광고 서비스를 사용할 수 있습니다. Google과 제3자 광고 사업자는 쿠키를 사용하여 이용자의 이전 방문 기록 또는 관심사에 기반한 광고를 제공할 수 있습니다.</p>
+            <ul>
+              <li>이용자는 브라우저 설정을 통해 쿠키 저장을 거부하거나 삭제할 수 있습니다.</li>
+              <li>Google 광고 설정 페이지에서 맞춤형 광고 사용을 제한할 수 있습니다.</li>
+              <li>쿠키를 차단할 경우 일부 광고 또는 분석 기능이 정상적으로 작동하지 않을 수 있습니다.</li>
+            </ul>
+
+            <h2>5. 웹 분석 도구의 사용</h2>
+            <p>본 사이트는 방문 통계와 콘텐츠 개선을 위해 Google Analytics 및 Vercel Analytics와 같은 분석 도구를 사용할 수 있습니다. 분석 정보는 개별 이용자를 직접 식별하기보다 페이지 이용 흐름과 성능을 파악하는 목적으로 활용됩니다.</p>
+
+            <h2>6. 개인정보 관련 문의</h2>
+            <p>개인정보 열람, 정정, 삭제 요청 또는 기타 문의는 <a href="mailto:devzucca@gmail.com">devzucca@gmail.com</a>으로 연락해 주세요.</p>
           </div>
         </div>
       </div>
@@ -227,7 +251,7 @@ const pages = {
         <div class="page-container">
           <h1>이용약관</h1>
           <div class="content">
-            <p><strong>시행일자: 2026년 5월 21일</strong></p>
+            <p><strong>시행일자: 2026년 5월 26일</strong></p>
             
             <h2>1. 목적</h2>
             <p>본 약관은 DevInsight(이하 "본 사이트")가 제공하는 모든 정보 및 서비스의 이용과 관련하여, 운영자와 이용자의 권리, 의무 및 책임 사항을 규정함을 목적으로 합니다.</p>
@@ -240,6 +264,9 @@ const pages = {
 
             <h2>4. 면책 조항</h2>
             <p>본 사이트의 정보는 정확성을 위해 최선을 다하고 있으나, 오류가 발생할 수 있습니다. 본 사이트의 정보를 활용하여 발생한 어떠한 직/간접적 손해에 대해서도 운영자는 법적 책임을 지지 않습니다. 특히 코드 스니펫이나 튜토리얼은 참고용으로만 사용하시기 바랍니다.</p>
+
+            <h2>5. 문의 및 오류 신고</h2>
+            <p>콘텐츠 오류, 저작권 관련 요청, 개인정보 관련 문의는 <a href="mailto:devzucca@gmail.com">devzucca@gmail.com</a>으로 연락해 주세요. 운영자는 합리적인 범위에서 내용을 확인하고 필요한 경우 수정 또는 삭제 조치를 진행합니다.</p>
           </div>
         </div>
       </div>

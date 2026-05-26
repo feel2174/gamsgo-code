@@ -21,10 +21,6 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    setIsOpen(false);
-  }, [location]);
-
   return (
     <header className={`header ${scrolled ? 'scrolled' : ''}`}>
       <div className="header-container">
@@ -44,18 +40,25 @@ const Header = () => {
           ))}
         </nav>
 
-        <button className="mobile-menu-toggle" onClick={() => setIsOpen(!isOpen)}>
+        <button
+          className="mobile-menu-toggle"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label={isOpen ? '메뉴 닫기' : '메뉴 열기'}
+          aria-expanded={isOpen}
+          aria-controls="mobile-navigation"
+        >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
       {/* Mobile Navigation */}
-      <div className={`mobile-nav ${isOpen ? 'open' : ''}`}>
+      <div id="mobile-navigation" className={`mobile-nav ${isOpen ? 'open' : ''}`}>
         {navLinks.map((link) => (
           <Link
             key={link.path}
             to={link.path}
             className={location.pathname === link.path ? 'active' : ''}
+            onClick={() => setIsOpen(false)}
           >
             {link.name}
           </Link>
