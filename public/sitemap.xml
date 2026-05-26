@@ -1,127 +1,137 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://gamsgocode.co.kr/</loc>
+    <loc>https://www.gamsgocode.co.kr/</loc>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://gamsgocode.co.kr/about</loc>
+    <loc>https://www.gamsgocode.co.kr/resources</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.gamsgocode.co.kr/checklist</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.gamsgocode.co.kr/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gamsgocode.co.kr/contact</loc>
+    <loc>https://www.gamsgocode.co.kr/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://gamsgocode.co.kr/privacy</loc>
+    <loc>https://www.gamsgocode.co.kr/privacy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://gamsgocode.co.kr/terms</loc>
+    <loc>https://www.gamsgocode.co.kr/terms</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://gamsgocode.co.kr/post/react-19-features</loc>
+    <loc>https://www.gamsgocode.co.kr/post/react-19-features</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://gamsgocode.co.kr/post/chatgpt-api-automation</loc>
+    <loc>https://www.gamsgocode.co.kr/post/chatgpt-api-automation</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://gamsgocode.co.kr/post/frontend-performance-2026</loc>
+    <loc>https://www.gamsgocode.co.kr/post/frontend-performance-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://gamsgocode.co.kr/post/tailwind-css-pros-cons</loc>
+    <loc>https://www.gamsgocode.co.kr/post/tailwind-css-pros-cons</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://gamsgocode.co.kr/post/typescript-adoption-guide</loc>
+    <loc>https://www.gamsgocode.co.kr/post/typescript-adoption-guide</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://gamsgocode.co.kr/post/git-branch-strategy</loc>
+    <loc>https://www.gamsgocode.co.kr/post/git-branch-strategy</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://gamsgocode.co.kr/post/mvc-vs-mvvm</loc>
+    <loc>https://www.gamsgocode.co.kr/post/mvc-vs-mvvm</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://gamsgocode.co.kr/post/http-versions-comparison</loc>
+    <loc>https://www.gamsgocode.co.kr/post/http-versions-comparison</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://gamsgocode.co.kr/post/api-protocols-comparison</loc>
+    <loc>https://www.gamsgocode.co.kr/post/api-protocols-comparison</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://gamsgocode.co.kr/post/sql-vs-nosql</loc>
+    <loc>https://www.gamsgocode.co.kr/post/sql-vs-nosql</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://gamsgocode.co.kr/post/virtual-dom-vs-real-dom</loc>
+    <loc>https://www.gamsgocode.co.kr/post/virtual-dom-vs-real-dom</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://gamsgocode.co.kr/post/flexbox-vs-grid</loc>
+    <loc>https://www.gamsgocode.co.kr/post/flexbox-vs-grid</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://gamsgocode.co.kr/post/web-accessibility-guide</loc>
+    <loc>https://www.gamsgocode.co.kr/post/web-accessibility-guide</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://gamsgocode.co.kr/post/pwa-core-concepts</loc>
+    <loc>https://www.gamsgocode.co.kr/post/pwa-core-concepts</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://gamsgocode.co.kr/post/javascript-closures</loc>
+    <loc>https://www.gamsgocode.co.kr/post/javascript-closures</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://gamsgocode.co.kr/post/javascript-event-loop</loc>
+    <loc>https://www.gamsgocode.co.kr/post/javascript-event-loop</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://gamsgocode.co.kr/post/react-state-management</loc>
+    <loc>https://www.gamsgocode.co.kr/post/react-state-management</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://gamsgocode.co.kr/post/css-in-js-vs-modules</loc>
+    <loc>https://www.gamsgocode.co.kr/post/css-in-js-vs-modules</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://gamsgocode.co.kr/post/chrome-devtools-profiling</loc>
+    <loc>https://www.gamsgocode.co.kr/post/chrome-devtools-profiling</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://gamsgocode.co.kr/post/nextjs-rendering-modes</loc>
+    <loc>https://www.gamsgocode.co.kr/post/nextjs-rendering-modes</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>

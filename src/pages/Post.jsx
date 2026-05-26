@@ -20,11 +20,24 @@ const Post = () => {
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://www.gamsgocode.co.kr/post/${post.slug}`
+    },
     "headline": post.title,
     "image": [
       post.coverImage
     ],
     "datePublished": post.date,
+    "dateModified": post.updated ?? post.date,
+    "publisher": {
+      "@type": "Organization",
+      "name": "DevInsight",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.gamsgocode.co.kr/apple-touch-icon.png"
+      }
+    },
     "author": [{
         "@type": "Person",
         "name": post.author,
@@ -42,7 +55,9 @@ const Post = () => {
         <meta property="og:description" content={post.excerpt} />
         <meta property="og:type" content="article" />
         <meta property="og:image" content={post.coverImage} />
+        <meta property="og:url" content={`https://www.gamsgocode.co.kr/post/${post.slug}`} />
         <meta property="article:published_time" content={post.date} />
+        <meta property="article:modified_time" content={post.updated ?? post.date} />
         <meta property="article:author" content={post.author} />
 
         <script type="application/ld+json">
@@ -57,6 +72,7 @@ const Post = () => {
           <h1>{post.title}</h1>
           <div className="post-meta">
             <span className="meta-item"><Calendar size={16} /> {post.date}</span>
+            <span className="meta-item">업데이트 {post.updated ?? post.date}</span>
             <span className="meta-item"><User size={16} /> {post.author}</span>
           </div>
         </div>

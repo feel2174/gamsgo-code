@@ -132,6 +132,10 @@ main {
   gap: 1rem;
 }
 
+.page-wrapper .wide-page-container {
+  max-width: 1100px;
+}
+
 .page-wrapper h1 {
   font-size: 2.5rem;
   margin-bottom: 2rem;
@@ -230,6 +234,91 @@ main {
   align-items: center;
   gap: 0.8rem;
   margin-bottom: 1rem !important;
+}
+
+.resource-page .content,
+.checklist-page .content {
+  font-size: 1rem;
+}
+
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.resource-card {
+  padding: 1.3rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+}
+
+.resource-card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+}
+
+.resource-card ul {
+  padding-left: 1rem;
+  margin-bottom: 0;
+}
+
+.resource-card a,
+.post-content a,
+.page-wrapper .content a {
+  color: #93c5fd;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.resource-section {
+  padding: 0;
+  margin: 2rem 0;
+}
+
+.table-scroll {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+}
+
+.info-table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.info-table th,
+.info-table td {
+  padding: 1rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.info-table th {
+  color: #fff;
+  background: rgba(59, 130, 246, 0.14);
+  font-weight: 700;
+}
+
+.info-table td {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.info-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.checklist-table td:first-child,
+.info-table td:first-child {
+  color: #e5e7eb;
+  font-weight: 700;
+  white-space: nowrap;
 }
 
 /* ==========================================
@@ -653,6 +742,7 @@ main {
   gap: 1.5rem;
   color: rgba(255, 255, 255, 0.7);
   font-size: 0.95rem;
+  flex-wrap: wrap;
 }
 
 .post-meta .meta-item {
@@ -720,6 +810,16 @@ main {
 
 .post-content strong {
   color: #fff;
+}
+
+.post-content a {
+  color: #93c5fd;
+}
+
+@media (max-width: 768px) {
+  .resource-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .sidebar-widget {

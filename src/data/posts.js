@@ -718,7 +718,18 @@ const supplementalSections = {
   `
 };
 
+const commonReferenceSection = `
+  <h2>참고 자료와 업데이트 기준</h2>
+  <p>이 글은 실무 적용 관점에서 작성했으며, 관련 기술의 공식 문서와 브라우저 지원 현황이 바뀌면 내용을 다시 점검합니다. 특히 프레임워크 버전, API 정책, 성능 측정 방식은 시간이 지나며 달라질 수 있으므로 배포 전에는 최신 문서를 함께 확인하는 것을 권장합니다.</p>
+  <ul>
+    <li><a href="https://developer.mozilla.org/ko/" target="_blank" rel="noreferrer">MDN Web Docs</a>에서 웹 표준과 브라우저 동작을 확인합니다.</li>
+    <li><a href="https://web.dev/" target="_blank" rel="noreferrer">web.dev</a>에서 성능, 접근성, 사용자 경험 기준을 확인합니다.</li>
+    <li><a href="https://react.dev/" target="_blank" rel="noreferrer">React 공식 문서</a>에서 React 관련 API와 권장 패턴을 확인합니다.</li>
+  </ul>
+`;
+
 export const posts = basePosts.map((post) => ({
   ...post,
-  content: `${post.content}${supplementalSections[post.slug] ?? ''}`,
+  updated: '2026-05-26',
+  content: `${post.content}${supplementalSections[post.slug] ?? ''}${commonReferenceSection}`,
 }));

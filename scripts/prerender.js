@@ -8,6 +8,7 @@ const __dirname = path.dirname(__filename);
 
 const DIST_DIR = path.resolve(__dirname, '../dist');
 const INDEX_HTML_PATH = path.join(DIST_DIR, 'index.html');
+const SITE_URL = 'https://www.gamsgocode.co.kr';
 
 if (!fs.existsSync(INDEX_HTML_PATH)) {
   console.error('Error: index.html not found in dist. Run "npm run build" first.');
@@ -32,6 +33,8 @@ const getHeaderHtml = (activePath) => `
       <a href="/" class="logo">Dev<span>Insight</span></a>
       <nav class="desktop-nav">
         <a href="/" class="${activePath === '/' ? 'active' : ''}">홈 (Home)</a>
+        <a href="/resources" class="${activePath === '/resources' ? 'active' : ''}">자료실 (Resources)</a>
+        <a href="/checklist" class="${activePath === '/checklist' ? 'active' : ''}">체크리스트 (Checklist)</a>
         <a href="/about" class="${activePath === '/about' ? 'active' : ''}">소개 (About)</a>
         <a href="/contact" class="${activePath === '/contact' ? 'active' : ''}">문의 (Contact)</a>
       </nav>
@@ -41,6 +44,8 @@ const getHeaderHtml = (activePath) => `
     </div>
     <div class="mobile-nav">
       <a href="/" class="${activePath === '/' ? 'active' : ''}">홈 (Home)</a>
+      <a href="/resources" class="${activePath === '/resources' ? 'active' : ''}">자료실 (Resources)</a>
+      <a href="/checklist" class="${activePath === '/checklist' ? 'active' : ''}">체크리스트 (Checklist)</a>
       <a href="/about" class="${activePath === '/about' ? 'active' : ''}">소개 (About)</a>
       <a href="/contact" class="${activePath === '/contact' ? 'active' : ''}">문의 (Contact)</a>
     </div>
@@ -53,12 +58,14 @@ const getFooterHtml = () => `
       <div class="footer-grid">
         <div class="footer-info">
           <a href="/" class="footer-logo">Dev<span>Insight</span></a>
-          <p>2026년 최신 IT 트렌드, 웹 프론트엔드 개발 가이드 및 AI 도구 활용법을 깊이 있게 다루는 전문 기술 블로그입니다.</p>
+          <p>2026년 최신 IT 트렌드, 웹 프론트엔드 개발 가이드, AI 도구 활용법과 배포 전 점검 자료를 정리하는 기술 블로그입니다.</p>
         </div>
         <div class="footer-links">
           <h4>사이트 메뉴</h4>
           <ul>
             <li><a href="/">홈</a></li>
+            <li><a href="/resources">자료실</a></li>
+            <li><a href="/checklist">체크리스트</a></li>
             <li><a href="/about">소개</a></li>
             <li><a href="/contact">문의하기</a></li>
           </ul>
@@ -157,6 +164,13 @@ const pages = {
             <h2>운영 원칙</h2>
             <p>이 사이트는 독자가 광고보다 콘텐츠를 먼저 읽을 수 있도록 명확한 문서 구조와 쉬운 탐색을 지향합니다. 광고가 게재되더라도 본문과 구분되도록 배치하며, 클릭을 유도하거나 사용자를 혼동시키는 표현은 사용하지 않습니다.</p>
 
+            <h2>운영 정보</h2>
+            <p>DevInsight는 gamsgocode.co.kr 도메인에서 운영되는 기술 정보 사이트입니다. 2026년 5월 26일 사이트 구조와 콘텐츠 정책을 개편했으며, 이후 글의 최신성, 오류 여부, 공식 문서 변경 사항을 주기적으로 확인합니다.</p>
+            <p>새 글을 작성할 때는 독자가 바로 활용할 수 있는 점검 항목, 적용 조건, 참고 링크를 포함하는 것을 기준으로 삼습니다. 오래된 정보가 확인되면 글 하단의 참고 자료와 함께 수정 내용을 반영합니다.</p>
+
+            <h2>오류 제보와 수정 요청</h2>
+            <p>기술 문서 특성상 프레임워크 버전, 브라우저 지원 현황, API 정책이 바뀔 수 있습니다. 잘못된 설명이나 깨진 링크를 발견하면 이메일로 알려주세요. 확인 후 필요한 경우 본문을 수정하고 업데이트 기준에 반영합니다.</p>
+
             <h2>연락처</h2>
             <ul class="contact-list">
               <li>${SVGS.mail} devzucca@gmail.com</li>
@@ -198,6 +212,146 @@ const pages = {
         </div>
       </div>
     `, '/contact')
+  },
+  '/resources': {
+    title: '프론트엔드 실무 자료실 | DevInsight',
+    description: 'React, TypeScript, 웹 성능, 검색 노출, 접근성 점검에 필요한 공식 문서와 실무 참고 자료를 정리한 DevInsight 자료실입니다.',
+    contentHtml: () => wrapPage(`
+      <div class="page-wrapper resource-page">
+        <div class="page-container wide-page-container">
+          <h1>프론트엔드 실무 자료실</h1>
+          <div class="content">
+            <p>DevInsight 자료실은 글을 읽고 바로 확인해야 하는 공식 문서, 진단 도구, 실무 점검 기준을 한곳에 모아둔 페이지입니다. 단순 링크 모음이 아니라 배포 전 품질 확인과 학습 경로를 빠르게 찾을 수 있도록 주제별로 나누었습니다.</p>
+
+            <h2>공식 문서 빠른 링크</h2>
+            <div class="resource-grid">
+              <section class="resource-card">
+                <h3>프론트엔드 기본</h3>
+                <ul>
+                  <li><a href="https://developer.mozilla.org/ko/" target="_blank" rel="noreferrer">MDN Web Docs</a></li>
+                  <li><a href="https://web.dev/" target="_blank" rel="noreferrer">web.dev</a></li>
+                  <li><a href="https://caniuse.com/" target="_blank" rel="noreferrer">Can I use</a></li>
+                </ul>
+              </section>
+              <section class="resource-card">
+                <h3>React / TypeScript</h3>
+                <ul>
+                  <li><a href="https://react.dev/" target="_blank" rel="noreferrer">React 공식 문서</a></li>
+                  <li><a href="https://www.typescriptlang.org/docs/" target="_blank" rel="noreferrer">TypeScript Handbook</a></li>
+                  <li><a href="https://vite.dev/guide/" target="_blank" rel="noreferrer">Vite Guide</a></li>
+                </ul>
+              </section>
+              <section class="resource-card">
+                <h3>성능 / 검색</h3>
+                <ul>
+                  <li><a href="https://pagespeed.web.dev/" target="_blank" rel="noreferrer">PageSpeed Insights</a></li>
+                  <li><a href="https://developer.chrome.com/docs/lighthouse/overview/" target="_blank" rel="noreferrer">Lighthouse</a></li>
+                  <li><a href="https://developers.google.com/search/docs" target="_blank" rel="noreferrer">Google Search Central</a></li>
+                </ul>
+              </section>
+              <section class="resource-card">
+                <h3>구조화 데이터 / 접근성</h3>
+                <ul>
+                  <li><a href="https://schema.org/" target="_blank" rel="noreferrer">Schema.org</a></li>
+                  <li><a href="https://search.google.com/test/rich-results" target="_blank" rel="noreferrer">Rich Results Test</a></li>
+                  <li><a href="https://www.w3.org/WAI/fundamentals/" target="_blank" rel="noreferrer">WAI 접근성 기초</a></li>
+                </ul>
+              </section>
+            </div>
+
+            <section class="resource-section">
+              <h2>React 프로젝트 점검 자료</h2>
+              <div class="table-scroll">
+                <table class="info-table">
+                  <thead><tr><th>항목</th><th>확인 방법</th><th>함께 볼 기준</th></tr></thead>
+                  <tbody>
+                    <tr><td>렌더링 성능</td><td>React DevTools Profiler로 느린 컴포넌트와 반복 렌더링을 확인합니다.</td><td>상태 위치, memo 적용, 목록 key 안정성</td></tr>
+                    <tr><td>상태 관리</td><td>서버 상태와 UI 상태를 분리해 전역 상태가 과해지지 않았는지 봅니다.</td><td>TanStack Query, Zustand, Context 분리</td></tr>
+                    <tr><td>빌드 결과</td><td>번들 크기와 동적 import 적용 구간을 확인합니다.</td><td>Vite build, Lighthouse, Coverage 탭</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <section class="resource-section">
+              <h2>검색 노출 준비 자료</h2>
+              <div class="table-scroll">
+                <table class="info-table">
+                  <thead><tr><th>항목</th><th>확인 방법</th><th>함께 볼 기준</th></tr></thead>
+                  <tbody>
+                    <tr><td>문서 구조</td><td>각 페이지의 h1, title, meta description이 서로 다른지 확인합니다.</td><td>중복 title 방지, 본문 첫 문단 명확화</td></tr>
+                    <tr><td>색인 가능성</td><td>robots.txt, sitemap.xml, canonical URL이 실제 배포 주소와 일치하는지 확인합니다.</td><td>www/비www 통일, 200 응답 확인</td></tr>
+                    <tr><td>신뢰 요소</td><td>운영자 정보, 문의 경로, 수정 정책, 참고 출처가 보이는지 확인합니다.</td><td>About, Contact, Privacy, Terms</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    `, '/resources')
+  },
+  '/checklist': {
+    title: '배포 전 품질 체크리스트 | DevInsight',
+    description: 'DevInsight가 사용하는 검색 노출, 애드센스 준비, 사용자 경험, 기술 품질 배포 전 체크리스트입니다.',
+    contentHtml: () => wrapPage(`
+      <div class="page-wrapper checklist-page">
+        <div class="page-container wide-page-container">
+          <h1>배포 전 품질 체크리스트</h1>
+          <div class="content">
+            <p>이 체크리스트는 DevInsight의 글과 페이지를 배포하기 전에 확인하는 기준입니다. 검색 노출, 애드센스 심사, 사용자의 실제 탐색 경험을 함께 고려해 정리했습니다.</p>
+
+            <section class="resource-section">
+              <h2>검색과 애드센스 준비</h2>
+              <div class="table-scroll">
+                <table class="info-table checklist-table">
+                  <thead><tr><th>점검 항목</th><th>확인 내용</th><th>권장 기준</th></tr></thead>
+                  <tbody>
+                    <tr><td>고유한 페이지 제목</td><td>홈, 글, 소개, 자료실, 정책 페이지의 title이 서로 다릅니다.</td><td>중복 title 없음</td></tr>
+                    <tr><td>canonical 주소</td><td>실제 접속되는 www 주소와 sitemap 주소가 일치해야 합니다.</td><td>https://www.gamsgocode.co.kr 기준</td></tr>
+                    <tr><td>정책 페이지</td><td>개인정보처리방침, 이용약관, 문의 페이지가 상시 접근 가능해야 합니다.</td><td>푸터와 메뉴에서 접근 가능</td></tr>
+                    <tr><td>콘텐츠 독창성</td><td>본문마다 체크리스트, 판단 기준, 실무 적용 예시가 포함되어야 합니다.</td><td>단순 요약문보다 실제 활용성 우선</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <section class="resource-section">
+              <h2>사용자 경험</h2>
+              <div class="table-scroll">
+                <table class="info-table checklist-table">
+                  <thead><tr><th>점검 항목</th><th>확인 내용</th><th>권장 기준</th></tr></thead>
+                  <tbody>
+                    <tr><td>첫 화면 가독성</td><td>방문자가 사이트 주제와 주요 글 목록을 즉시 파악할 수 있어야 합니다.</td><td>명확한 h1과 최신 글 카드</td></tr>
+                    <tr><td>모바일 탐색</td><td>모바일 메뉴, 글 목록, 표 자료가 화면 밖으로 깨지지 않아야 합니다.</td><td>가로 스크롤은 표 영역에만 제한</td></tr>
+                    <tr><td>광고 배치 기준</td><td>광고가 본문 클릭을 방해하거나 콘텐츠처럼 보이면 안 됩니다.</td><td>본문과 광고 구분 유지</td></tr>
+                    <tr><td>외부 링크</td><td>공식 문서와 도구 링크는 새 탭으로 열고, 출처를 명확히 표시합니다.</td><td>target, rel 적용</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <section class="resource-section">
+              <h2>기술 품질</h2>
+              <div class="table-scroll">
+                <table class="info-table checklist-table">
+                  <thead><tr><th>점검 항목</th><th>확인 내용</th><th>권장 기준</th></tr></thead>
+                  <tbody>
+                    <tr><td>정적 HTML</td><td>중요 페이지와 글은 크롤러가 JavaScript 실행 전에도 내용을 볼 수 있어야 합니다.</td><td>prerender 결과 확인</td></tr>
+                    <tr><td>sitemap 갱신</td><td>새 페이지를 추가하면 sitemap.xml에 함께 반영합니다.</td><td>resources, checklist 포함</td></tr>
+                    <tr><td>성능 점검</td><td>이미지 lazy loading, 번들 크기, CLS/LCP 지표를 확인합니다.</td><td>PageSpeed Insights 활용</td></tr>
+                    <tr><td>접근성</td><td>버튼 라벨, heading 순서, 키보드 포커스, 색 대비를 점검합니다.</td><td>Lighthouse Accessibility</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <h2>업데이트 기준</h2>
+            <p>새로운 글을 추가하거나 정책, 도구, 공식 문서가 바뀌면 이 체크리스트도 함께 갱신합니다. 오류 제보는 <a href="mailto:devzucca@gmail.com">devzucca@gmail.com</a>으로 받을 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+    `, '/checklist')
   },
   '/privacy': {
     title: '개인정보처리방침 | DevInsight',
@@ -293,7 +447,7 @@ function run() {
     }
 
     // Inject Canonical URL
-    const canonicalUrl = `https://gamsgocode.co.kr${route === '/' ? '' : route}`;
+    const canonicalUrl = `${SITE_URL}${route === '/' ? '' : route}`;
     html = html.replace('</head>', `  <link rel="canonical" href="${canonicalUrl}" />\n</head>`);
 
     // Inject contentHtml
@@ -321,15 +475,28 @@ function run() {
 
     const pageTitle = `${post.title} | DevInsight`;
     const pageDesc = post.excerpt;
-    const canonicalUrl = `https://gamsgocode.co.kr${route}`;
+    const canonicalUrl = `${SITE_URL}${route}`;
 
     // Schema JSON-LD markup
     const articleSchema = {
       "@context": "https://schema.org",
       "@type": "Article",
       "headline": post.title,
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": canonicalUrl
+      },
       "image": [post.coverImage],
       "datePublished": post.date,
+      "dateModified": post.updated ?? post.date,
+      "publisher": {
+        "@type": "Organization",
+        "name": "DevInsight",
+        "logo": {
+          "@type": "ImageObject",
+          "url": `${SITE_URL}/apple-touch-icon.png`
+        }
+      },
       "author": [{
         "@type": "Person",
         "name": post.author
@@ -341,7 +508,9 @@ function run() {
   <meta property="og:description" content="${post.excerpt}" />
   <meta property="og:type" content="article" />
   <meta property="og:image" content="${post.coverImage}" />
+  <meta property="og:url" content="${canonicalUrl}" />
   <meta property="article:published_time" content="${post.date}" />
+  <meta property="article:modified_time" content="${post.updated ?? post.date}" />
   <meta property="article:author" content="${post.author}" />
   <link rel="canonical" href="${canonicalUrl}" />
   <script type="application/ld+json">${JSON.stringify(articleSchema)}</script>
@@ -383,6 +552,7 @@ function run() {
             <h1>${post.title}</h1>
             <div class="post-meta">
               <span class="meta-item">${SVGS.calendar} ${post.date}</span>
+              <span class="meta-item">업데이트 ${post.updated ?? post.date}</span>
               <span class="meta-item">${SVGS.user} ${post.author}</span>
             </div>
           </div>
@@ -419,27 +589,37 @@ function run() {
   let sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://gamsgocode.co.kr/</loc>
+    <loc>${SITE_URL}/</loc>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://gamsgocode.co.kr/about</loc>
+    <loc>${SITE_URL}/resources</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>${SITE_URL}/checklist</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>${SITE_URL}/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gamsgocode.co.kr/contact</loc>
+    <loc>${SITE_URL}/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://gamsgocode.co.kr/privacy</loc>
+    <loc>${SITE_URL}/privacy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://gamsgocode.co.kr/terms</loc>
+    <loc>${SITE_URL}/terms</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
@@ -447,7 +627,7 @@ function run() {
 
   for (const post of posts) {
     sitemapXml += `  <url>
-    <loc>https://gamsgocode.co.kr/post/${post.slug}</loc>
+    <loc>${SITE_URL}/post/${post.slug}</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
