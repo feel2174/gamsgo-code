@@ -14,24 +14,13 @@ const Contact = () => {
         <h1>문의하기</h1>
         <div className="content">
           <p>DevInsight는 기술 콘텐츠의 정확성과 독자 경험을 중요하게 생각합니다. 글의 오류 신고, 보완 의견, 제휴 문의, 개인정보 관련 요청은 아래 이메일로 보내주세요.</p>
-          <p><strong>운영자 이메일:</strong> <a href={`mailto:${contactEmail}`}>{contactEmail}</a></p>
-          <p>문의 시 이름, 회신받을 이메일 주소, 문의 내용을 보내주시면 확인 후 가능한 범위에서 답변드립니다. 광고, 스팸, 자동화된 홍보성 메시지는 답변하지 않을 수 있습니다.</p>
-
-          <form className="contact-form" action={`mailto:${contactEmail}`} method="post" encType="text/plain">
-            <div className="form-group">
-              <label htmlFor="contact-name">이름</label>
-              <input id="contact-name" name="name" type="text" placeholder="홍길동" required />
-            </div>
-            <div className="form-group">
-              <label htmlFor="contact-email">이메일</label>
-              <input id="contact-email" name="email" type="email" placeholder="example@email.com" required />
-            </div>
-            <div className="form-group">
-              <label htmlFor="contact-message">메시지</label>
-              <textarea id="contact-message" name="message" rows="5" placeholder="문의하실 내용을 입력해주세요." required></textarea>
-            </div>
-            <button type="submit" className="submit-btn">이메일로 보내기</button>
-          </form>
+          <div className="contact-card">
+            <h2>운영자 연락처</h2>
+            <p><strong>운영자:</strong> 김영주</p>
+            <p><strong>이메일:</strong> <a href={`mailto:${contactEmail}`}>{contactEmail}</a></p>
+            <a className="submit-btn contact-mail-link" href={`mailto:${contactEmail}?subject=DevInsight%20문의`}>이메일 보내기</a>
+          </div>
+          <p>문의에는 오류가 있는 글 주소, 보완이 필요한 문장, 참고할 공식 문서 링크를 함께 보내주시면 더 빠르게 확인할 수 있습니다. 광고, 스팸, 자동화된 홍보성 메시지는 답변하지 않을 수 있습니다.</p>
         </div>
       </div>
     </div>

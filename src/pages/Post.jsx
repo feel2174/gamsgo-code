@@ -7,6 +7,9 @@ import { useEffect } from 'react';
 const Post = () => {
   const { slug } = useParams();
   const post = posts.find((p) => p.slug === slug);
+  const handleImageError = (event) => {
+    event.currentTarget.src = '/og-image.svg';
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -91,7 +94,7 @@ const Post = () => {
               {posts.filter(p => p.id !== post.id).slice(0, 3).map(p => (
                 <li key={p.id}>
                   <Link to={`/post/${p.slug}`}>
-                    <img src={p.coverImage} alt="" />
+                    <img src={p.coverImage} alt="" onError={handleImageError} />
                     <span>{p.title}</span>
                   </Link>
                 </li>

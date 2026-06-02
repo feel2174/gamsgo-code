@@ -4,6 +4,10 @@ import { posts } from '../data/posts';
 import { Calendar, User } from 'lucide-react';
 
 const Home = () => {
+  const handleImageError = (event) => {
+    event.currentTarget.src = '/og-image.svg';
+  };
+
   return (
     <div className="home-page">
       <Helmet>
@@ -28,7 +32,7 @@ const Home = () => {
               <article key={post.id} className="post-card">
                 <Link to={`/post/${post.slug}`} className="card-image-link">
                   <div className="image-wrapper">
-                    <img src={post.coverImage} alt={post.title} loading="lazy" />
+                    <img src={post.coverImage} alt={post.title} loading="lazy" onError={handleImageError} />
                   </div>
                 </Link>
                 <div className="card-content">

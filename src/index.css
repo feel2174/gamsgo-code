@@ -236,6 +236,24 @@ main {
   margin-bottom: 1rem !important;
 }
 
+.contact-card {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+}
+
+.contact-card h2 {
+  margin-top: 0;
+}
+
+.contact-mail-link {
+  display: inline-flex;
+  margin-top: 0.5rem;
+  text-decoration: none !important;
+}
+
 .resource-page .content,
 .checklist-page .content {
   font-size: 1rem;

@@ -106,7 +106,7 @@ const pages = {
         <article class="post-card">
           <a href="/post/${post.slug}" class="card-image-link">
             <div class="image-wrapper">
-              <img src="${post.coverImage}" alt="${post.title}" loading="lazy" />
+              <img src="${post.coverImage}" alt="${post.title}" loading="lazy" onerror="this.onerror=null;this.src='/og-image.svg';" />
             </div>
           </a>
           <div class="card-content">
@@ -154,7 +154,7 @@ const pages = {
           <h1>DevInsight 소개</h1>
           <div class="content">
             <p>안녕하세요. DevInsight에 오신 것을 환영합니다.</p>
-            <p>이 블로그는 2026년 급변하는 IT 트렌드 속에서 프론트엔드 개발자, 기획자, 그리고 AI 기술에 관심 있는 모든 분들을 위해 양질의 기술 문서와 튜토리얼을 제공하기 위해 설립되었습니다.</p>
+            <p>이 블로그는 2026년 급변하는 IT 트렌드 속에서 프론트엔드 개발자, 기획자, 그리고 AI 기술에 관심 있는 모든 분들을 위해 양질의 기술 문서와 튜토리얼을 제공하기 위해 설립되었습니다. 운영자는 김영주이며, 사이트 관련 문의는 devzucca@gmail.com으로 받고 있습니다.</p>
             
             <h2>우리의 미션</h2>
             <p>단편적인 지식이 아닌, 실무에서 즉시 활용할 수 있는 깊이 있는 정보(Insight)를 제공하는 것이 목표입니다. React, TypeScript, 최신 성능 최적화 기법부터 ChatGPT API를 활용한 업무 자동화까지 다양한 주제를 다룹니다.</p>
@@ -166,8 +166,11 @@ const pages = {
             <p>이 사이트는 독자가 광고보다 콘텐츠를 먼저 읽을 수 있도록 명확한 문서 구조와 쉬운 탐색을 지향합니다. 광고가 게재되더라도 본문과 구분되도록 배치하며, 클릭을 유도하거나 사용자를 혼동시키는 표현은 사용하지 않습니다.</p>
 
             <h2>운영 정보</h2>
-            <p>DevInsight는 gamsgocode.co.kr 도메인에서 운영되는 기술 정보 사이트입니다. 2026년 5월 26일 사이트 구조와 콘텐츠 정책을 개편했으며, 이후 글의 최신성, 오류 여부, 공식 문서 변경 사항을 주기적으로 확인합니다.</p>
+            <p>DevInsight는 gamsgocode.co.kr 도메인에서 운영되는 기술 정보 사이트입니다. 도메인 이름은 개발 코드와 실무 개발 자료를 다루는 사이트라는 의미를 담고 있으며, 공개 브랜드명은 DevInsight로 통일해 사용합니다. 2026년 5월 26일 사이트 구조와 콘텐츠 정책을 개편했으며, 이후 글의 최신성, 오류 여부, 공식 문서 변경 사항을 주기적으로 확인합니다.</p>
             <p>새 글을 작성할 때는 독자가 바로 활용할 수 있는 점검 항목, 적용 조건, 참고 링크를 포함하는 것을 기준으로 삼습니다. 오래된 정보가 확인되면 글 하단의 참고 자료와 함께 수정 내용을 반영합니다.</p>
+
+            <h2>검토 방식</h2>
+            <p>DevInsight의 글은 주제 선정, 초안 작성, 공식 문서 확인, 실무 적용 관점 보강, 최종 링크 점검 순서로 발행합니다. 특히 버전 변화가 빠른 React, AI API, 브라우저 성능 주제는 단정적인 표현을 피하고 적용 조건과 한계를 함께 적는 것을 원칙으로 합니다.</p>
 
             <h2>오류 제보와 수정 요청</h2>
             <p>기술 문서 특성상 프레임워크 버전, 브라우저 지원 현황, API 정책이 바뀔 수 있습니다. 잘못된 설명이나 깨진 링크를 발견하면 이메일로 알려주세요. 확인 후 필요한 경우 본문을 수정하고 업데이트 기준에 반영합니다.</p>
@@ -192,23 +195,13 @@ const pages = {
           <h1>문의하기</h1>
           <div class="content">
             <p>DevInsight는 기술 콘텐츠의 정확성과 독자 경험을 중요하게 생각합니다. 글의 오류 신고, 보완 의견, 제휴 문의, 개인정보 관련 요청은 아래 이메일로 보내주세요.</p>
-            <p><strong>운영자 이메일:</strong> <a href="mailto:devzucca@gmail.com">devzucca@gmail.com</a></p>
-            <p>문의 시 이름, 회신받을 이메일 주소, 문의 내용을 보내주시면 확인 후 가능한 범위에서 답변드립니다. 광고, 스팸, 자동화된 홍보성 메시지는 답변하지 않을 수 있습니다.</p>
-            <form class="contact-form" action="mailto:devzucca@gmail.com" method="post" enctype="text/plain">
-              <div class="form-group">
-                <label for="contact-name">이름</label>
-                <input id="contact-name" name="name" type="text" placeholder="홍길동" required />
-              </div>
-              <div class="form-group">
-                <label for="contact-email">이메일</label>
-                <input id="contact-email" name="email" type="email" placeholder="example@email.com" required />
-              </div>
-              <div class="form-group">
-                <label for="contact-message">메시지</label>
-                <textarea id="contact-message" name="message" rows="5" placeholder="문의하실 내용을 입력해주세요." required></textarea>
-              </div>
-              <button type="submit" class="submit-btn">이메일로 보내기</button>
-            </form>
+            <div class="contact-card">
+              <h2>운영자 연락처</h2>
+              <p><strong>운영자:</strong> 김영주</p>
+              <p><strong>이메일:</strong> <a href="mailto:devzucca@gmail.com">devzucca@gmail.com</a></p>
+              <a class="submit-btn contact-mail-link" href="mailto:devzucca@gmail.com?subject=DevInsight%20문의">이메일 보내기</a>
+            </div>
+            <p>문의에는 오류가 있는 글 주소, 보완이 필요한 문장, 참고할 공식 문서 링크를 함께 보내주시면 더 빠르게 확인할 수 있습니다. 광고, 스팸, 자동화된 홍보성 메시지는 답변하지 않을 수 있습니다.</p>
           </div>
         </div>
       </div>
@@ -366,7 +359,7 @@ const pages = {
             <p>DevInsight("본 사이트")는 이용자의 개인정보 보호를 중요하게 생각하며, 사이트 운영과 콘텐츠 개선에 필요한 최소한의 정보만 처리합니다.</p>
             
             <h2>1. 수집하는 개인정보 항목</h2>
-            <p>본 사이트는 회원가입 기능을 제공하지 않으며 주민등록번호, 결제 정보 등 민감한 개인정보를 요구하지 않습니다. 다만 문의를 위해 이용자가 직접 입력하거나 이메일로 보내는 경우 이름, 이메일 주소, 문의 내용이 처리될 수 있습니다.</p>
+            <p>본 사이트는 회원가입 기능과 자체 문의 저장 기능을 제공하지 않으며 주민등록번호, 결제 정보 등 민감한 개인정보를 요구하지 않습니다. 다만 이용자가 운영자 이메일로 직접 문의를 보내는 경우 이름, 이메일 주소, 문의 내용이 처리될 수 있습니다.</p>
             <p>또한 사이트 안정성 확인, 방문 통계 분석, 광고 제공을 위해 IP 주소, 브라우저 정보, 방문 페이지, 쿠키(Cookie)와 같은 비식별 정보가 자동으로 수집될 수 있습니다.</p>
 
             <h2>2. 개인정보의 이용 목적</h2>
@@ -535,7 +528,7 @@ function run() {
     const relatedPostsHtml = relatedPosts.map(p => `
       <li>
         <a href="/post/${p.slug}">
-          <img src="${p.coverImage}" alt="" />
+          <img src="${p.coverImage}" alt="" onerror="this.onerror=null;this.src='/og-image.svg';" />
           <span>${p.title}</span>
         </a>
       </li>
