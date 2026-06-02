@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/checklist",
+      "destination": "/resources",
+      "permanent": true
+    },
+    {
+      "source": "/checklist/",
+      "destination": "/resources",
+      "permanent": true
+    }
+  ]
+}
