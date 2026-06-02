@@ -254,8 +254,7 @@ main {
   text-decoration: none !important;
 }
 
-.resource-page .content,
-.checklist-page .content {
+.resource-page .content {
   font-size: 1rem;
 }
 
@@ -332,7 +331,6 @@ main {
   border-bottom: 0;
 }
 
-.checklist-table td:first-child,
 .info-table td:first-child {
   color: #e5e7eb;
   font-weight: 700;

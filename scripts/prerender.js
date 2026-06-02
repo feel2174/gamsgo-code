@@ -34,7 +34,6 @@ const getHeaderHtml = (activePath) => `
       <nav class="desktop-nav">
         <a href="/" class="${activePath === '/' ? 'active' : ''}">홈 (Home)</a>
         <a href="/resources" class="${activePath === '/resources' ? 'active' : ''}">자료실 (Resources)</a>
-        <a href="/checklist" class="${activePath === '/checklist' ? 'active' : ''}">체크리스트 (Checklist)</a>
         <a href="/about" class="${activePath === '/about' ? 'active' : ''}">소개 (About)</a>
         <a href="/contact" class="${activePath === '/contact' ? 'active' : ''}">문의 (Contact)</a>
       </nav>
@@ -45,7 +44,6 @@ const getHeaderHtml = (activePath) => `
     <div class="mobile-nav">
       <a href="/" class="${activePath === '/' ? 'active' : ''}">홈 (Home)</a>
       <a href="/resources" class="${activePath === '/resources' ? 'active' : ''}">자료실 (Resources)</a>
-      <a href="/checklist" class="${activePath === '/checklist' ? 'active' : ''}">체크리스트 (Checklist)</a>
       <a href="/about" class="${activePath === '/about' ? 'active' : ''}">소개 (About)</a>
       <a href="/contact" class="${activePath === '/contact' ? 'active' : ''}">문의 (Contact)</a>
     </div>
@@ -65,7 +63,6 @@ const getFooterHtml = () => `
           <ul>
             <li><a href="/">홈</a></li>
             <li><a href="/resources">자료실</a></li>
-            <li><a href="/checklist">체크리스트</a></li>
             <li><a href="/about">소개</a></li>
             <li><a href="/contact">문의하기</a></li>
           </ul>
@@ -284,68 +281,6 @@ const pages = {
         </div>
       </div>
     `, '/resources')
-  },
-  '/checklist': {
-    title: '배포 전 품질 체크리스트 | DevInsight',
-    description: 'DevInsight가 사용하는 검색 노출, 애드센스 준비, 사용자 경험, 기술 품질 배포 전 체크리스트입니다.',
-    contentHtml: () => wrapPage(`
-      <div class="page-wrapper checklist-page">
-        <div class="page-container wide-page-container">
-          <h1>배포 전 품질 체크리스트</h1>
-          <div class="content">
-            <p>이 체크리스트는 DevInsight의 글과 페이지를 배포하기 전에 확인하는 기준입니다. 검색 노출, 애드센스 심사, 사용자의 실제 탐색 경험을 함께 고려해 정리했습니다.</p>
-
-            <section class="resource-section">
-              <h2>검색과 애드센스 준비</h2>
-              <div class="table-scroll">
-                <table class="info-table checklist-table">
-                  <thead><tr><th>점검 항목</th><th>확인 내용</th><th>권장 기준</th></tr></thead>
-                  <tbody>
-                    <tr><td>고유한 페이지 제목</td><td>홈, 글, 소개, 자료실, 정책 페이지의 title이 서로 다릅니다.</td><td>중복 title 없음</td></tr>
-                    <tr><td>canonical 주소</td><td>실제 접속되는 www 주소와 sitemap 주소가 일치해야 합니다.</td><td>https://www.gamsgocode.co.kr 기준</td></tr>
-                    <tr><td>정책 페이지</td><td>개인정보처리방침, 이용약관, 문의 페이지가 상시 접근 가능해야 합니다.</td><td>푸터와 메뉴에서 접근 가능</td></tr>
-                    <tr><td>콘텐츠 독창성</td><td>본문마다 체크리스트, 판단 기준, 실무 적용 예시가 포함되어야 합니다.</td><td>단순 요약문보다 실제 활용성 우선</td></tr>
-                  </tbody>
-                </table>
-              </div>
-            </section>
-
-            <section class="resource-section">
-              <h2>사용자 경험</h2>
-              <div class="table-scroll">
-                <table class="info-table checklist-table">
-                  <thead><tr><th>점검 항목</th><th>확인 내용</th><th>권장 기준</th></tr></thead>
-                  <tbody>
-                    <tr><td>첫 화면 가독성</td><td>방문자가 사이트 주제와 주요 글 목록을 즉시 파악할 수 있어야 합니다.</td><td>명확한 h1과 최신 글 카드</td></tr>
-                    <tr><td>모바일 탐색</td><td>모바일 메뉴, 글 목록, 표 자료가 화면 밖으로 깨지지 않아야 합니다.</td><td>가로 스크롤은 표 영역에만 제한</td></tr>
-                    <tr><td>광고 배치 기준</td><td>광고가 본문 클릭을 방해하거나 콘텐츠처럼 보이면 안 됩니다.</td><td>본문과 광고 구분 유지</td></tr>
-                    <tr><td>외부 링크</td><td>공식 문서와 도구 링크는 새 탭으로 열고, 출처를 명확히 표시합니다.</td><td>target, rel 적용</td></tr>
-                  </tbody>
-                </table>
-              </div>
-            </section>
-
-            <section class="resource-section">
-              <h2>기술 품질</h2>
-              <div class="table-scroll">
-                <table class="info-table checklist-table">
-                  <thead><tr><th>점검 항목</th><th>확인 내용</th><th>권장 기준</th></tr></thead>
-                  <tbody>
-                    <tr><td>정적 HTML</td><td>중요 페이지와 글은 크롤러가 JavaScript 실행 전에도 내용을 볼 수 있어야 합니다.</td><td>prerender 결과 확인</td></tr>
-                    <tr><td>sitemap 갱신</td><td>새 페이지를 추가하면 sitemap.xml에 함께 반영합니다.</td><td>resources, checklist 포함</td></tr>
-                    <tr><td>성능 점검</td><td>이미지 lazy loading, 번들 크기, CLS/LCP 지표를 확인합니다.</td><td>PageSpeed Insights 활용</td></tr>
-                    <tr><td>접근성</td><td>버튼 라벨, heading 순서, 키보드 포커스, 색 대비를 점검합니다.</td><td>Lighthouse Accessibility</td></tr>
-                  </tbody>
-                </table>
-              </div>
-            </section>
-
-            <h2>업데이트 기준</h2>
-            <p>새로운 글을 추가하거나 정책, 도구, 공식 문서가 바뀌면 이 체크리스트도 함께 갱신합니다. 오류 제보는 <a href="mailto:devzucca@gmail.com">devzucca@gmail.com</a>으로 받을 수 있습니다.</p>
-          </div>
-        </div>
-      </div>
-    `, '/checklist')
   },
   '/privacy': {
     title: '개인정보처리방침 | DevInsight',
@@ -589,11 +524,6 @@ function run() {
   </url>
   <url>
     <loc>${SITE_URL}/resources</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>${SITE_URL}/checklist</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>

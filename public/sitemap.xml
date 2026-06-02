@@ -11,11 +11,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.gamsgocode.co.kr/checklist</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://www.gamsgocode.co.kr/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

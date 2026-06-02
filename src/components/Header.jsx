@@ -10,7 +10,6 @@ const Header = () => {
   const navLinks = [
     { name: '홈 (Home)', path: '/' },
     { name: '자료실 (Resources)', path: '/resources' },
-    { name: '체크리스트 (Checklist)', path: '/checklist' },
     { name: '소개 (About)', path: '/about' },
     { name: '문의 (Contact)', path: '/contact' },
   ];

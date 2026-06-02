@@ -15,7 +15,6 @@ const Footer = () => {
             <ul>
               <li><Link to="/">홈</Link></li>
               <li><Link to="/resources">자료실</Link></li>
-              <li><Link to="/checklist">체크리스트</Link></li>
               <li><Link to="/about">소개</Link></li>
               <li><Link to="/contact">문의하기</Link></li>
             </ul>
