@@ -526,6 +526,16 @@ main {
   font-size: 0.85rem;
 }
 
+.footer-owner {
+  margin-top: 0.4rem;
+}
+
+.footer-owner a {
+  color: rgba(255, 255, 255, 0.48);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 /* ==========================================
    Home Page Component (Home.jsx)
    ========================================== */

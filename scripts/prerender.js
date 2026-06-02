@@ -80,6 +80,7 @@ const getFooterHtml = () => `
       </div>
       <div class="footer-bottom">
         <p>&copy; 2026 DevInsight. All rights reserved.</p>
+        <p class="footer-owner">김영주 <a href="mailto:devzucca@gmail.com">devzucca@gmail.com</a></p>
       </div>
     </div>
   </footer>

@@ -147,7 +147,7 @@ const basePosts = [
     date: "2026-05-03",
     author: "Dev Consultant",
     excerpt: "소프트웨어 배포 규모와 개발 주기 속도에 맞는 Git 브랜치 전략을 선택해 봅니다. Git Flow와 GitHub Flow의 장단점을 상세히 다룹니다.",
-    coverImage: "https://images.unsplash.com/photo-1618401471353-b98aedd07871?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    coverImage: "https://images.unsplash.com/photo-1556075798-4825dfaaf498?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
     content: `
       <h2>버전 관리와 협업의 시작, 브랜치 전략</h2>
       <p>개발 프로젝트가 커지고 여러 개발자가 동시에 코드를 수정할 때, 소스 코드의 안정성을 유지하면서 원활하게 배포하기 위해서는 명확한 규칙이 필요합니다. 이를 Git 브랜치 전략이라고 부릅니다. 프로젝트 규모, 릴리즈 빈도, 그리고 팀원들의 역량에 맞춰 올바른 브랜치 전략을 도입하는 방법을 비교 분석합니다.</p>

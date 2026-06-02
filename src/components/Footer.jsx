@@ -32,6 +32,7 @@ const Footer = () => {
 
         <div className="footer-bottom">
           <p>&copy; 2026 DevInsight. All rights reserved.</p>
+          <p className="footer-owner">김영주 <a href="mailto:devzucca@gmail.com">devzucca@gmail.com</a></p>
         </div>
       </div>
     </footer>
