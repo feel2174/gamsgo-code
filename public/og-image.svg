@@ -23,27 +23,27 @@
   
   <!-- Main Title -->
   <text x="600" y="300" font-family="Arial, sans-serif" font-weight="800" font-size="64" text-anchor="middle" fill="#FFFFFF" filter="url(#shadow)">
-    DevInsight
+    GamsGo Code
   </text>
 
   <!-- Topic Badge -->
   <rect x="375" y="340" width="450" height="72" rx="16" fill="#1D4ED8" filter="url(#shadow)"/>
   <text x="600" y="388" font-family="Arial, sans-serif" font-weight="800" font-size="34" text-anchor="middle" fill="#FFFFFF">
-    IT & 프론트엔드 기술 블로그
+    프론트엔드 실무 코드 자료실
   </text>
   
   <!-- Subtitle -->
   <text x="600" y="500" font-family="Arial, sans-serif" font-weight="600" font-size="32" text-anchor="middle" fill="#94A3B8">
-    React · TypeScript · AI 자동화 · 웹 성능
+    React · TypeScript · CSS Layout · 웹 성능
   </text>
   
   <!-- Trust Badges -->
   <g transform="translate(480, 560)">
     <circle cx="0" cy="0" r="15" fill="#3B82F6" opacity="0.25" />
-    <text x="25" y="10" font-family="Arial, sans-serif" font-size="20" fill="#FFFFFF" font-weight="600">실무 중심 튜토리얼</text>
+    <text x="25" y="10" font-family="Arial, sans-serif" font-size="20" fill="#FFFFFF" font-weight="600">실무 코드 예시</text>
   </g>
   <g transform="translate(720, 560)">
     <circle cx="0" cy="0" r="15" fill="#3B82F6" opacity="0.25" />
-    <text x="25" y="10" font-family="Arial, sans-serif" font-size="20" fill="#FFFFFF" font-weight="600">깊이 있는 기술 인사이트</text>
+    <text x="25" y="10" font-family="Arial, sans-serif" font-size="20" fill="#FFFFFF" font-weight="600">문제 해결 체크리스트</text>
   </g>
 </svg>

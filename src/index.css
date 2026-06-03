@@ -590,6 +590,35 @@ main {
   margin: 0 auto;
 }
 
+.home-focus-section {
+  padding: 3rem 0 1rem;
+}
+
+.home-focus-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.home-focus-card {
+  padding: 1.4rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+}
+
+.home-focus-card h2 {
+  font-size: 1.05rem;
+  margin-bottom: 0.7rem;
+  color: #fff;
+}
+
+.home-focus-card p {
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
 .post-list-section {
   padding: 4rem 0 8rem;
 }
@@ -843,6 +872,10 @@ main {
 }
 
 @media (max-width: 768px) {
+  .home-focus-grid {
+    grid-template-columns: 1fr;
+  }
+
   .resource-grid {
     grid-template-columns: 1fr;
   }

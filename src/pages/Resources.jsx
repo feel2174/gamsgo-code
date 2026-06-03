@@ -18,11 +18,11 @@ const officialDocs = [
     ],
   },
   {
-    group: '성능 / 검색',
+    group: '성능 / 디버깅',
     links: [
       { name: 'PageSpeed Insights', url: 'https://pagespeed.web.dev/' },
       { name: 'Lighthouse', url: 'https://developer.chrome.com/docs/lighthouse/overview/' },
-      { name: 'Google Search Central', url: 'https://developers.google.com/search/docs' },
+      { name: 'Chrome DevTools', url: 'https://developer.chrome.com/docs/devtools/' },
     ],
   },
   {
@@ -45,11 +45,11 @@ const resourceTables = [
     ],
   },
   {
-    title: '검색 노출 준비 자료',
+    title: '프론트엔드 품질 점검 자료',
     rows: [
-      ['문서 구조', '각 페이지의 h1, title, meta description이 서로 다른지 확인합니다.', '중복 title 방지, 본문 첫 문단 명확화'],
-      ['색인 가능성', 'robots.txt, sitemap.xml, canonical URL이 실제 배포 주소와 일치하는지 확인합니다.', 'www/비www 통일, 200 응답 확인'],
-      ['신뢰 요소', '운영자 정보, 문의 경로, 수정 정책, 참고 출처가 보이는지 확인합니다.', 'About, Contact, Privacy, Terms'],
+      ['HTML 구조', '페이지마다 h1, section, article, table, button, link의 의미가 맞는지 확인합니다.', '의미 있는 마크업, 스크린 리더 흐름'],
+      ['접근성', '키보드 이동, 포커스 표시, 폼 라벨, 이미지 대체 텍스트를 실제 화면에서 점검합니다.', 'WAI 기초, Lighthouse Accessibility'],
+      ['성능 예산', '초기 번들, 이미지 크기, LCP 후보 요소, 긴 작업을 배포 전에 확인합니다.', 'Coverage 탭, Performance 패널, PageSpeed'],
     ],
   },
 ];
@@ -58,14 +58,14 @@ const Resources = () => {
   return (
     <div className="page-wrapper resource-page">
       <Helmet>
-        <title>프론트엔드 실무 자료실 | DevInsight</title>
-        <meta name="description" content="React, TypeScript, 웹 성능, 검색 노출, 접근성 점검에 필요한 공식 문서와 실무 참고 자료를 정리한 DevInsight 자료실입니다." />
+        <title>프론트엔드 실무 자료실 | GamsGo Code</title>
+        <meta name="description" content="React, TypeScript, JavaScript, CSS, 웹 성능, 접근성 점검에 필요한 공식 문서와 실무 참고 자료를 정리한 GamsGo Code 자료실입니다." />
       </Helmet>
 
       <div className="page-container wide-page-container">
         <h1>프론트엔드 실무 자료실</h1>
         <div className="content">
-          <p>DevInsight 자료실은 글을 읽고 바로 확인해야 하는 공식 문서, 진단 도구, 실무 점검 기준을 한곳에 모아둔 페이지입니다. 단순 링크 모음이 아니라 배포 전 품질 확인과 학습 경로를 빠르게 찾을 수 있도록 주제별로 나누었습니다.</p>
+          <p>GamsGo Code 자료실은 글을 읽고 바로 확인해야 하는 공식 문서, 진단 도구, 실무 점검 기준을 한곳에 모아둔 페이지입니다. 단순 링크 모음이 아니라 React, TypeScript, CSS, 성능, 접근성 작업 중 필요한 자료를 빠르게 찾을 수 있도록 주제별로 나누었습니다.</p>
 
           <h2>공식 문서 빠른 링크</h2>
           <div className="resource-grid">

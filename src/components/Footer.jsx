@@ -6,8 +6,8 @@ const Footer = () => {
       <div className="footer-container">
         <div className="footer-grid">
           <div className="footer-info">
-            <Link to="/" className="footer-logo">Dev<span>Insight</span></Link>
-            <p>2026년 최신 IT 트렌드, 웹 프론트엔드 개발 가이드, AI 도구 활용법과 배포 전 점검 자료를 정리하는 기술 블로그입니다.</p>
+            <Link to="/" className="footer-logo">GamsGo<span>Code</span></Link>
+            <p>React, TypeScript, JavaScript, CSS Layout, 웹 성능과 접근성 문제를 실무 코드와 점검 기준으로 정리하는 프론트엔드 개발 자료실입니다.</p>
           </div>
 
           <div className="footer-links">
@@ -30,7 +30,7 @@ const Footer = () => {
         </div>
 
         <div className="footer-bottom">
-          <p>&copy; 2026 DevInsight. All rights reserved.</p>
+          <p>&copy; 2026 GamsGo Code. All rights reserved.</p>
           <p className="footer-owner">김영주 <a href="mailto:devzucca@gmail.com">devzucca@gmail.com</a></p>
         </div>
       </div>

@@ -4,14 +4,14 @@ const Privacy = () => {
   return (
     <div className="page-wrapper">
       <Helmet>
-        <title>개인정보처리방침 | DevInsight</title>
+        <title>개인정보처리방침 | GamsGo Code</title>
       </Helmet>
       
       <div className="page-container">
         <h1>개인정보처리방침</h1>
         <div className="content">
           <p><strong>시행일자: 2026년 5월 26일</strong></p>
-          <p>DevInsight("본 사이트")는 이용자의 개인정보 보호를 중요하게 생각하며, 사이트 운영과 콘텐츠 개선에 필요한 최소한의 정보만 처리합니다.</p>
+          <p>GamsGo Code("본 사이트")는 이용자의 개인정보 보호를 중요하게 생각하며, 사이트 운영과 콘텐츠 개선에 필요한 최소한의 정보만 처리합니다.</p>
           
           <h2>1. 수집하는 개인정보 항목</h2>
           <p>본 사이트는 회원가입 기능과 자체 문의 저장 기능을 제공하지 않으며 주민등록번호, 결제 정보 등 민감한 개인정보를 요구하지 않습니다. 다만 이용자가 운영자 이메일로 직접 문의를 보내는 경우 이름, 이메일 주소, 문의 내용이 처리될 수 있습니다.</p>

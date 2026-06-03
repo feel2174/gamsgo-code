@@ -20,14 +20,14 @@ function App() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "url": "https://www.gamsgocode.co.kr/",
-    "name": "DevInsight - IT & 프론트엔드 블로그",
-    "description": "최신 웹 프론트엔드 트렌드, React, AI 도구 튜토리얼과 실무 자료를 제공하는 기술 블로그",
+    "name": "GamsGo Code - 프론트엔드 실무 코드 자료실",
+    "description": "React, TypeScript, JavaScript, CSS Layout, 웹 성능과 접근성 문제를 실무 코드 중심으로 정리하는 프론트엔드 개발 자료실",
   };
 
   const orgSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "DevInsight",
+    "name": "GamsGo Code",
     "url": "https://www.gamsgocode.co.kr/",
     "logo": "https://www.gamsgocode.co.kr/apple-touch-icon.png",
     "email": "devzucca@gmail.com",
@@ -37,16 +37,16 @@ function App() {
     <HelmetProvider>
       <div className="app-container">
         <Helmet>
-          <title>DevInsight - IT & 프론트엔드 기술 블로그</title>
-          <meta name="description" content="2026년 최신 기술 트렌드를 깊이 있게 정리합니다. 프론트엔드 개발 가이드, AI 도구 활용법, 실무 자료실을 제공합니다." />
-          <meta name="keywords" content="React 19, 프론트엔드 개발, ChatGPT API, 기술 블로그, IT 트렌드, 성능 최적화, TypeScript" />
+          <title>GamsGo Code - 프론트엔드 실무 코드 자료실</title>
+          <meta name="description" content="React, TypeScript, JavaScript, CSS Layout, 웹 성능과 접근성 문제를 실무 코드 중심으로 정리하는 프론트엔드 개발 자료실입니다." />
+          <meta name="keywords" content="React, TypeScript, JavaScript, CSS Layout, 웹 성능, 웹 접근성, Chrome DevTools, Git Workflow, 프론트엔드 코드" />
 
           {/* Open Graph */}
           <meta property="og:type" content="website" />
-          <meta property="og:title" content="DevInsight - 전문 기술 블로그" />
-          <meta property="og:description" content="최신 기술 트렌드와 프론트엔드 실무 자료를 정리합니다." />
+          <meta property="og:title" content="GamsGo Code - 프론트엔드 실무 코드 자료실" />
+          <meta property="og:description" content="React, TypeScript, JavaScript, CSS, 성능과 접근성 문제를 코드 예시와 체크리스트로 정리합니다." />
           <meta property="og:url" content="https://www.gamsgocode.co.kr/" />
-          <meta property="og:site_name" content="DevInsight" />
+          <meta property="og:site_name" content="GamsGo Code" />
 
           <link rel="canonical" href={currentUrl} />
 

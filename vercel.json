@@ -9,6 +9,56 @@
       "source": "/checklist/",
       "destination": "/resources",
       "permanent": true
+    },
+    {
+      "source": "/post/chatgpt-api-automation",
+      "destination": "/resources",
+      "permanent": true
+    },
+    {
+      "source": "/post/mvc-vs-mvvm",
+      "destination": "/resources",
+      "permanent": true
+    },
+    {
+      "source": "/post/http-versions-comparison",
+      "destination": "/resources",
+      "permanent": true
+    },
+    {
+      "source": "/post/api-protocols-comparison",
+      "destination": "/resources",
+      "permanent": true
+    },
+    {
+      "source": "/post/sql-vs-nosql",
+      "destination": "/resources",
+      "permanent": true
+    },
+    {
+      "source": "/post/pwa-core-concepts",
+      "destination": "/resources",
+      "permanent": true
+    },
+    {
+      "source": "/post/tailwind-css-pros-cons",
+      "destination": "/resources",
+      "permanent": true
+    },
+    {
+      "source": "/post/css-in-js-vs-modules",
+      "destination": "/resources",
+      "permanent": true
+    },
+    {
+      "source": "/post/nextjs-rendering-modes",
+      "destination": "/resources",
+      "permanent": true
+    },
+    {
+      "source": "/post/virtual-dom-vs-real-dom",
+      "destination": "/resources",
+      "permanent": true
     }
   ]
 }

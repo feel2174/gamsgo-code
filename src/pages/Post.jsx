@@ -35,7 +35,7 @@ const Post = () => {
     "dateModified": post.updated ?? post.date,
     "publisher": {
       "@type": "Organization",
-      "name": "DevInsight",
+      "name": "GamsGo Code",
       "logo": {
         "@type": "ImageObject",
         "url": "https://www.gamsgocode.co.kr/apple-touch-icon.png"
@@ -50,7 +50,7 @@ const Post = () => {
   return (
     <div className="post-page">
       <Helmet>
-        <title>{post.title} | DevInsight</title>
+        <title>{post.title} | GamsGo Code</title>
         <meta name="description" content={post.excerpt} />
         
         {/* Open Graph Tags */}

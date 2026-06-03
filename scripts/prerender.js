@@ -30,7 +30,7 @@ const SVGS = {
 const getHeaderHtml = (activePath) => `
   <header class="header">
     <div class="header-container">
-      <a href="/" class="logo">Dev<span>Insight</span></a>
+      <a href="/" class="logo">GamsGo<span>Code</span></a>
       <nav class="desktop-nav">
         <a href="/" class="${activePath === '/' ? 'active' : ''}">홈 (Home)</a>
         <a href="/resources" class="${activePath === '/resources' ? 'active' : ''}">자료실 (Resources)</a>
@@ -55,8 +55,8 @@ const getFooterHtml = () => `
     <div class="footer-container">
       <div class="footer-grid">
         <div class="footer-info">
-          <a href="/" class="footer-logo">Dev<span>Insight</span></a>
-          <p>2026년 최신 IT 트렌드, 웹 프론트엔드 개발 가이드, AI 도구 활용법과 배포 전 점검 자료를 정리하는 기술 블로그입니다.</p>
+          <a href="/" class="footer-logo">GamsGo<span>Code</span></a>
+          <p>React, TypeScript, JavaScript, CSS Layout, 웹 성능과 접근성 문제를 실무 코드와 점검 기준으로 정리하는 프론트엔드 개발 자료실입니다.</p>
         </div>
         <div class="footer-links">
           <h4>사이트 메뉴</h4>
@@ -76,7 +76,7 @@ const getFooterHtml = () => `
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 DevInsight. All rights reserved.</p>
+        <p>&copy; 2026 GamsGo Code. All rights reserved.</p>
         <p class="footer-owner">김영주 <a href="mailto:devzucca@gmail.com">devzucca@gmail.com</a></p>
       </div>
     </div>
@@ -96,8 +96,8 @@ const wrapPage = (contentHtml, headerActivePath) => `
 // Render logic for different routes
 const pages = {
   '/': {
-    title: 'DevInsight - IT & 프론트엔드 기술 블로그',
-    description: '최신 웹 프론트엔드 개발 트렌드와 AI 활용 노하우를 깊이 있게 다룹니다. React 19, ChatGPT API 등 고품질 기술 튜토리얼.',
+    title: 'GamsGo Code - 프론트엔드 실무 코드 자료실',
+    description: 'React, TypeScript, JavaScript, CSS, 웹 성능과 접근성 문제를 코드 예시와 체크리스트로 정리하는 프론트엔드 개발 자료실입니다.',
     contentHtml: () => {
       const postsHtml = posts.map(post => `
         <article class="post-card">
@@ -124,14 +124,32 @@ const pages = {
         <div class="home-page">
           <section class="hero">
             <div class="home-container">
-              <h1>최신 기술 트렌드를<br/><span>가장 깊이 있게</span> 탐구합니다</h1>
-              <p>DevInsight는 웹 프론트엔드, AI, 생산성 도구에 대한 실무 중심의 전문적인 아티클을 제공합니다.</p>
+              <h1>프론트엔드 실무 코드를<br/><span>문제 해결 중심으로</span> 정리합니다</h1>
+              <p>GamsGo Code는 React, TypeScript, JavaScript, CSS, 성능과 접근성을 실제 코드와 체크리스트로 정리하는 개발 자료실입니다.</p>
+            </div>
+          </section>
+          <section class="home-focus-section">
+            <div class="home-container">
+              <div class="home-focus-grid">
+                <article class="home-focus-card">
+                  <h2>실무 코드 가이드</h2>
+                  <p>새 문법 소개보다 실제 프로젝트에서 어디에 적용하고 무엇을 조심해야 하는지 기준을 먼저 정리합니다.</p>
+                </article>
+                <article class="home-focus-card">
+                  <h2>문제 해결 노트</h2>
+                  <p>느린 화면, 복잡한 상태, 깨지는 레이아웃처럼 자주 만나는 문제를 재현 순서와 수정 코드로 설명합니다.</p>
+                </article>
+                <article class="home-focus-card">
+                  <h2>개발 자료실</h2>
+                  <p>React, TypeScript, CSS, 접근성, 성능 점검에 바로 쓰는 공식 문서와 도구 링크를 모아둡니다.</p>
+                </article>
+              </div>
             </div>
           </section>
           <section class="post-list-section">
             <div class="home-container">
               <div class="section-header">
-                <h2>최신 아티클</h2>
+                <h2>실무 코드 가이드</h2>
               </div>
               <div class="post-grid">
                 ${postsHtml}
@@ -143,31 +161,31 @@ const pages = {
     }
   },
   '/about': {
-    title: '소개 | DevInsight',
-    description: 'DevInsight 블로그와 운영자에 대한 소개 페이지입니다. IT 트렌드와 개발 지식을 공유합니다.',
+    title: '소개 | GamsGo Code',
+    description: 'GamsGo Code의 운영 목적, 콘텐츠 작성 기준, 공식 도메인과 문의 정보를 안내합니다.',
     contentHtml: () => wrapPage(`
       <div class="page-wrapper">
         <div class="page-container">
-          <h1>DevInsight 소개</h1>
+          <h1>GamsGo Code 소개</h1>
           <div class="content">
-            <p>안녕하세요. DevInsight에 오신 것을 환영합니다.</p>
-            <p>이 블로그는 2026년 급변하는 IT 트렌드 속에서 프론트엔드 개발자, 기획자, 그리고 AI 기술에 관심 있는 모든 분들을 위해 양질의 기술 문서와 튜토리얼을 제공하기 위해 설립되었습니다. 운영자는 김영주이며, 사이트 관련 문의는 devzucca@gmail.com으로 받고 있습니다.</p>
+            <p>안녕하세요. GamsGo Code에 오신 것을 환영합니다.</p>
+            <p>GamsGo Code는 한국어 프론트엔드 개발자가 실무에서 다시 찾아볼 수 있는 코드 자료와 문제 해결 노트를 정리하기 위해 운영되는 사이트입니다. 운영자는 김영주이며, 사이트 관련 문의는 devzucca@gmail.com으로 받고 있습니다.</p>
             
             <h2>우리의 미션</h2>
-            <p>단편적인 지식이 아닌, 실무에서 즉시 활용할 수 있는 깊이 있는 정보(Insight)를 제공하는 것이 목표입니다. React, TypeScript, 최신 성능 최적화 기법부터 ChatGPT API를 활용한 업무 자동화까지 다양한 주제를 다룹니다.</p>
+            <p>단편적인 용어 설명보다 실제 프로젝트에서 판단할 수 있는 기준을 제공하는 것이 목표입니다. React, TypeScript, JavaScript, CSS Layout, Web Performance, Accessibility, Git Workflow, Chrome DevTools처럼 프론트엔드 작업에 직접 연결되는 주제를 우선 다룹니다.</p>
 
             <h2>콘텐츠 작성 기준</h2>
-            <p>DevInsight의 글은 단순한 용어 설명에 그치지 않고, 실제 개발자가 의사결정할 때 확인해야 하는 장단점, 적용 조건, 점검 항목을 함께 정리하는 것을 원칙으로 합니다. 기술 변화가 빠른 주제는 공식 문서와 실무 적용 사례를 함께 확인하며, 오래된 정보나 오류가 발견되면 수정합니다.</p>
+            <p>GamsGo Code의 글은 단순한 용어 설명에 그치지 않고, 실제 개발자가 의사결정할 때 확인해야 하는 장단점, 적용 조건, 점검 항목을 함께 정리하는 것을 원칙으로 합니다. 기술 변화가 빠른 주제는 공식 문서와 실무 적용 사례를 함께 확인하며, 오래된 정보나 오류가 발견되면 수정합니다.</p>
 
             <h2>운영 원칙</h2>
             <p>이 사이트는 독자가 광고보다 콘텐츠를 먼저 읽을 수 있도록 명확한 문서 구조와 쉬운 탐색을 지향합니다. 광고가 게재되더라도 본문과 구분되도록 배치하며, 클릭을 유도하거나 사용자를 혼동시키는 표현은 사용하지 않습니다.</p>
 
             <h2>운영 정보</h2>
-            <p>DevInsight는 gamsgocode.co.kr 도메인에서 운영되는 기술 정보 사이트입니다. 도메인 이름은 개발 코드와 실무 개발 자료를 다루는 사이트라는 의미를 담고 있으며, 공개 브랜드명은 DevInsight로 통일해 사용합니다. 2026년 5월 26일 사이트 구조와 콘텐츠 정책을 개편했으며, 이후 글의 최신성, 오류 여부, 공식 문서 변경 사항을 주기적으로 확인합니다.</p>
+            <p>gamsgocode.co.kr는 프론트엔드 실무 코드와 개발 자료를 정리하는 GamsGo Code의 공식 도메인입니다. 도메인 이름은 개발 코드와 실무 개발 자료를 다루는 사이트라는 의미를 담고 있으며, 공개 브랜드명은 GamsGo Code로 통일해 사용합니다. 2026년 6월 3일 사이트 구조와 콘텐츠 정책을 프론트엔드 코드 자료실 중심으로 개편했으며, 이후 글의 최신성, 오류 여부, 공식 문서 변경 사항을 주기적으로 확인합니다.</p>
             <p>새 글을 작성할 때는 독자가 바로 활용할 수 있는 점검 항목, 적용 조건, 참고 링크를 포함하는 것을 기준으로 삼습니다. 오래된 정보가 확인되면 글 하단의 참고 자료와 함께 수정 내용을 반영합니다.</p>
 
             <h2>검토 방식</h2>
-            <p>DevInsight의 글은 주제 선정, 초안 작성, 공식 문서 확인, 실무 적용 관점 보강, 최종 링크 점검 순서로 발행합니다. 특히 버전 변화가 빠른 React, AI API, 브라우저 성능 주제는 단정적인 표현을 피하고 적용 조건과 한계를 함께 적는 것을 원칙으로 합니다.</p>
+            <p>GamsGo Code의 글은 주제 선정, 초안 작성, 공식 문서 확인, 실무 적용 관점 보강, 최종 링크 점검 순서로 발행합니다. 특히 버전 변화가 빠른 React, TypeScript, 브라우저 성능 주제는 단정적인 표현을 피하고 적용 조건과 한계를 함께 적는 것을 원칙으로 합니다.</p>
 
             <h2>오류 제보와 수정 요청</h2>
             <p>기술 문서 특성상 프레임워크 버전, 브라우저 지원 현황, API 정책이 바뀔 수 있습니다. 잘못된 설명이나 깨진 링크를 발견하면 이메일로 알려주세요. 확인 후 필요한 경우 본문을 수정하고 업데이트 기준에 반영합니다.</p>
@@ -184,19 +202,19 @@ const pages = {
     `, '/about')
   },
   '/contact': {
-    title: '문의하기 | DevInsight',
-    description: 'DevInsight 운영자에게 콘텐츠 오류 신고, 제휴 문의, 개인정보 관련 요청을 보낼 수 있는 연락처 안내 페이지입니다.',
+    title: '문의하기 | GamsGo Code',
+    description: 'GamsGo Code 운영자에게 콘텐츠 오류 신고, 제휴 문의, 개인정보 관련 요청을 보낼 수 있는 연락처 안내 페이지입니다.',
     contentHtml: () => wrapPage(`
       <div class="page-wrapper">
         <div class="page-container">
           <h1>문의하기</h1>
           <div class="content">
-            <p>DevInsight는 기술 콘텐츠의 정확성과 독자 경험을 중요하게 생각합니다. 글의 오류 신고, 보완 의견, 제휴 문의, 개인정보 관련 요청은 아래 이메일로 보내주세요.</p>
+            <p>GamsGo Code는 기술 콘텐츠의 정확성과 독자 경험을 중요하게 생각합니다. 글의 오류 신고, 보완 의견, 제휴 문의, 개인정보 관련 요청은 아래 이메일로 보내주세요.</p>
             <div class="contact-card">
               <h2>운영자 연락처</h2>
               <p><strong>운영자:</strong> 김영주</p>
               <p><strong>이메일:</strong> <a href="mailto:devzucca@gmail.com">devzucca@gmail.com</a></p>
-              <a class="submit-btn contact-mail-link" href="mailto:devzucca@gmail.com?subject=DevInsight%20문의">이메일 보내기</a>
+              <a class="submit-btn contact-mail-link" href="mailto:devzucca@gmail.com?subject=GamsGo Code%20문의">이메일 보내기</a>
             </div>
             <p>문의에는 오류가 있는 글 주소, 보완이 필요한 문장, 참고할 공식 문서 링크를 함께 보내주시면 더 빠르게 확인할 수 있습니다. 광고, 스팸, 자동화된 홍보성 메시지는 답변하지 않을 수 있습니다.</p>
           </div>
@@ -205,14 +223,14 @@ const pages = {
     `, '/contact')
   },
   '/resources': {
-    title: '프론트엔드 실무 자료실 | DevInsight',
-    description: 'React, TypeScript, 웹 성능, 검색 노출, 접근성 점검에 필요한 공식 문서와 실무 참고 자료를 정리한 DevInsight 자료실입니다.',
+    title: '프론트엔드 실무 자료실 | GamsGo Code',
+    description: 'React, TypeScript, JavaScript, CSS, 웹 성능, 접근성 점검에 필요한 공식 문서와 실무 참고 자료를 정리한 GamsGo Code 자료실입니다.',
     contentHtml: () => wrapPage(`
       <div class="page-wrapper resource-page">
         <div class="page-container wide-page-container">
           <h1>프론트엔드 실무 자료실</h1>
           <div class="content">
-            <p>DevInsight 자료실은 글을 읽고 바로 확인해야 하는 공식 문서, 진단 도구, 실무 점검 기준을 한곳에 모아둔 페이지입니다. 단순 링크 모음이 아니라 배포 전 품질 확인과 학습 경로를 빠르게 찾을 수 있도록 주제별로 나누었습니다.</p>
+            <p>GamsGo Code 자료실은 글을 읽고 바로 확인해야 하는 공식 문서, 진단 도구, 실무 점검 기준을 한곳에 모아둔 페이지입니다. 단순 링크 모음이 아니라 React, TypeScript, CSS, 성능, 접근성 작업 중 필요한 자료를 빠르게 찾을 수 있도록 주제별로 나누었습니다.</p>
 
             <h2>공식 문서 빠른 링크</h2>
             <div class="resource-grid">
@@ -233,11 +251,11 @@ const pages = {
                 </ul>
               </section>
               <section class="resource-card">
-                <h3>성능 / 검색</h3>
+                <h3>성능 / 디버깅</h3>
                 <ul>
                   <li><a href="https://pagespeed.web.dev/" target="_blank" rel="noreferrer">PageSpeed Insights</a></li>
                   <li><a href="https://developer.chrome.com/docs/lighthouse/overview/" target="_blank" rel="noreferrer">Lighthouse</a></li>
-                  <li><a href="https://developers.google.com/search/docs" target="_blank" rel="noreferrer">Google Search Central</a></li>
+                  <li><a href="https://developer.chrome.com/docs/devtools/" target="_blank" rel="noreferrer">Chrome DevTools</a></li>
                 </ul>
               </section>
               <section class="resource-card">
@@ -265,14 +283,14 @@ const pages = {
             </section>
 
             <section class="resource-section">
-              <h2>검색 노출 준비 자료</h2>
+              <h2>프론트엔드 품질 점검 자료</h2>
               <div class="table-scroll">
                 <table class="info-table">
                   <thead><tr><th>항목</th><th>확인 방법</th><th>함께 볼 기준</th></tr></thead>
                   <tbody>
-                    <tr><td>문서 구조</td><td>각 페이지의 h1, title, meta description이 서로 다른지 확인합니다.</td><td>중복 title 방지, 본문 첫 문단 명확화</td></tr>
-                    <tr><td>색인 가능성</td><td>robots.txt, sitemap.xml, canonical URL이 실제 배포 주소와 일치하는지 확인합니다.</td><td>www/비www 통일, 200 응답 확인</td></tr>
-                    <tr><td>신뢰 요소</td><td>운영자 정보, 문의 경로, 수정 정책, 참고 출처가 보이는지 확인합니다.</td><td>About, Contact, Privacy, Terms</td></tr>
+                    <tr><td>HTML 구조</td><td>페이지마다 h1, section, article, table, button, link의 의미가 맞는지 확인합니다.</td><td>의미 있는 마크업, 스크린 리더 흐름</td></tr>
+                    <tr><td>접근성</td><td>키보드 이동, 포커스 표시, 폼 라벨, 이미지 대체 텍스트를 실제 화면에서 점검합니다.</td><td>WAI 기초, Lighthouse Accessibility</td></tr>
+                    <tr><td>성능 예산</td><td>초기 번들, 이미지 크기, LCP 후보 요소, 긴 작업을 배포 전에 확인합니다.</td><td>Coverage 탭, Performance 패널, PageSpeed</td></tr>
                   </tbody>
                 </table>
               </div>
@@ -283,15 +301,15 @@ const pages = {
     `, '/resources')
   },
   '/privacy': {
-    title: '개인정보처리방침 | DevInsight',
-    description: 'DevInsight 개인정보처리방침 안내 페이지입니다.',
+    title: '개인정보처리방침 | GamsGo Code',
+    description: 'GamsGo Code 개인정보처리방침 안내 페이지입니다.',
     contentHtml: () => wrapPage(`
       <div class="page-wrapper">
         <div class="page-container">
           <h1>개인정보처리방침</h1>
           <div class="content">
             <p><strong>시행일자: 2026년 5월 26일</strong></p>
-            <p>DevInsight("본 사이트")는 이용자의 개인정보 보호를 중요하게 생각하며, 사이트 운영과 콘텐츠 개선에 필요한 최소한의 정보만 처리합니다.</p>
+            <p>GamsGo Code("본 사이트")는 이용자의 개인정보 보호를 중요하게 생각하며, 사이트 운영과 콘텐츠 개선에 필요한 최소한의 정보만 처리합니다.</p>
             
             <h2>1. 수집하는 개인정보 항목</h2>
             <p>본 사이트는 회원가입 기능과 자체 문의 저장 기능을 제공하지 않으며 주민등록번호, 결제 정보 등 민감한 개인정보를 요구하지 않습니다. 다만 이용자가 운영자 이메일로 직접 문의를 보내는 경우 이름, 이메일 주소, 문의 내용이 처리될 수 있습니다.</p>
@@ -327,8 +345,8 @@ const pages = {
     `, '/privacy')
   },
   '/terms': {
-    title: '이용약관 | DevInsight',
-    description: 'DevInsight 서비스 이용약관 안내 페이지입니다.',
+    title: '이용약관 | GamsGo Code',
+    description: 'GamsGo Code 서비스 이용약관 안내 페이지입니다.',
     contentHtml: () => wrapPage(`
       <div class="page-wrapper">
         <div class="page-container">
@@ -337,10 +355,10 @@ const pages = {
             <p><strong>시행일자: 2026년 5월 26일</strong></p>
             
             <h2>1. 목적</h2>
-            <p>본 약관은 DevInsight(이하 "본 사이트")가 제공하는 모든 정보 및 서비스의 이용과 관련하여, 운영자와 이용자의 권리, 의무 및 책임 사항을 규정함을 목적으로 합니다.</p>
+            <p>본 약관은 GamsGo Code(이하 "본 사이트")가 제공하는 모든 정보 및 서비스의 이용과 관련하여, 운영자와 이용자의 권리, 의무 및 책임 사항을 규정함을 목적으로 합니다.</p>
 
             <h2>2. 서비스의 제공 및 변경</h2>
-            <p>본 사이트는 IT, 개발, AI 등에 관한 정보성 콘텐츠를 무료로 제공합니다. 제공되는 정보는 사전 고지 없이 변경되거나 중단될 수 있습니다.</p>
+            <p>본 사이트는 프론트엔드 개발, 코드 예시, 웹 성능, 접근성, 개발 워크플로에 관한 정보성 콘텐츠를 무료로 제공합니다. 제공되는 정보는 사전 고지 없이 변경되거나 중단될 수 있습니다.</p>
 
             <h2>3. 저작권 및 지적재산권</h2>
             <p>본 사이트에 게시된 모든 텍스트, 이미지, 코드 스니펫 등의 저작물에 대한 지적재산권은 본 사이트에 귀속됩니다. 영리적 목적으로 무단 복제, 배포, 전송하는 행위는 엄격히 금지됩니다.</p>
@@ -402,7 +420,7 @@ function run() {
     const route = `/post/${post.slug}`;
     let html = template;
 
-    const pageTitle = `${post.title} | DevInsight`;
+    const pageTitle = `${post.title} | GamsGo Code`;
     const pageDesc = post.excerpt;
     const canonicalUrl = `${SITE_URL}${route}`;
 
@@ -420,7 +438,7 @@ function run() {
       "dateModified": post.updated ?? post.date,
       "publisher": {
         "@type": "Organization",
-        "name": "DevInsight",
+        "name": "GamsGo Code",
         "logo": {
           "@type": "ImageObject",
           "url": `${SITE_URL}/apple-touch-icon.png`
