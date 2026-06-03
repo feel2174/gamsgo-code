@@ -10,7 +10,7 @@ const Terms = () => {
       <div className="page-container">
         <h1>이용약관</h1>
         <div className="content">
-          <p><strong>시행일자: 2026년 5월 26일</strong></p>
+          <p><strong>시행일자: 2026년 6월 3일</strong></p>
           
           <h2>1. 목적</h2>
           <p>본 약관은 GamsGo Code(이하 "본 사이트")가 제공하는 모든 정보 및 서비스의 이용과 관련하여, 운영자와 이용자의 권리, 의무 및 책임 사항을 규정함을 목적으로 합니다.</p>
