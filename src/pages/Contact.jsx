@@ -20,7 +20,7 @@ const Contact = () => {
             <p><strong>이메일:</strong> <a href={`mailto:${contactEmail}`}>{contactEmail}</a></p>
             <a className="submit-btn contact-mail-link" href={`mailto:${contactEmail}?subject=GamsGo Code%20문의`}>이메일 보내기</a>
           </div>
-          <p>문의에는 오류가 있는 글 주소, 보완이 필요한 문장, 참고할 공식 문서 링크를 함께 보내주시면 더 빠르게 확인할 수 있습니다. 광고, 스팸, 자동화된 홍보성 메시지는 답변하지 않을 수 있습니다.</p>
+          <p>문의에는 오류가 있는 글 주소, 보완이 필요한 문장, 참고할 공식 문서 링크를 함께 보내주시면 더 빠르게 확인할 수 있습니다. 대량 홍보성 메시지와 자동 발송 메시지는 답변하지 않을 수 있습니다.</p>
         </div>
       </div>
     </div>

@@ -19,7 +19,7 @@ const Post = () => {
     return <Navigate to="/" replace />;
   }
 
-  // Schema Markup for SEO
+  // Structured data markup
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
