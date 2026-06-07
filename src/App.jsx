@@ -31,6 +31,9 @@ function App() {
     "url": "https://www.frontendnote.com/",
     "logo": "https://www.frontendnote.com/apple-touch-icon.png",
     "email": "devzucca@gmail.com",
+    "sameAs": [
+      "https://github.com/feel2174"
+    ],
   };
 
   return (

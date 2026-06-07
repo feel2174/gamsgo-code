@@ -29,10 +29,11 @@ const Privacy = () => {
           <p>문의 처리에 필요한 정보는 답변 및 후속 확인을 위해 필요한 기간 동안 보관한 뒤 파기합니다. 법령상 보관 의무가 있거나 분쟁 대응을 위해 필요한 경우에는 해당 목적이 종료될 때까지 보관할 수 있습니다.</p>
 
           <h2>4. 쿠키(Cookie)의 운용 및 광고</h2>
-          <p>본 사이트는 Google AdSense를 포함한 제3자 광고 서비스를 사용할 수 있습니다. Google과 제3자 광고 사업자는 쿠키를 사용하여 이용자의 이전 방문 기록 또는 관심사에 기반한 광고를 제공할 수 있습니다.</p>
+          <p>본 사이트는 Google AdSense를 포함한 제3자 광고 서비스를 사용할 수 있습니다. Google과 제3자 광고 사업자는 쿠키 또는 이와 유사한 기술을 사용하여 이용자의 이전 방문 기록, 관심사, 브라우저 환경에 기반한 광고를 제공할 수 있습니다.</p>
           <ul>
             <li>이용자는 브라우저 설정을 통해 쿠키 저장을 거부하거나 삭제할 수 있습니다.</li>
-            <li>Google 광고 설정 페이지에서 맞춤형 광고 사용을 제한할 수 있습니다.</li>
+            <li><a href="https://adssettings.google.com/" target="_blank" rel="noreferrer">Google 광고 설정</a> 페이지에서 맞춤형 광고 사용을 제한할 수 있습니다.</li>
+            <li>Google의 광고 쿠키 사용 방식은 <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noreferrer">Google 광고 관련 정책 안내</a>에서 확인할 수 있습니다.</li>
             <li>쿠키를 차단할 경우 일부 광고 또는 분석 기능이 정상적으로 작동하지 않을 수 있습니다.</li>
           </ul>
 
