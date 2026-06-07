@@ -11,14 +11,14 @@ const Home = () => {
   return (
     <div className="home-page">
       <Helmet>
-        <title>GamsGo Code | 프론트엔드 실무 코드 자료실</title>
+        <title>Frontend Note | 프론트엔드 실무 코드 자료실</title>
         <meta name="description" content="React, TypeScript, JavaScript, CSS, 웹 성능과 접근성 문제를 코드 예시와 체크리스트로 정리하는 프론트엔드 개발 자료실입니다." />
       </Helmet>
 
       <section className="hero">
         <div className="home-container">
           <h1>프론트엔드 실무 코드를<br/><span>문제 해결 중심으로</span> 정리합니다</h1>
-          <p>GamsGo Code는 React, TypeScript, JavaScript, CSS, 성능과 접근성을 실제 코드와 체크리스트로 정리하는 개발 자료실입니다.</p>
+          <p>Frontend Note는 React, TypeScript, JavaScript, CSS, 성능과 접근성을 실제 코드와 체크리스트로 정리하는 개발 자료실입니다.</p>
         </div>
       </section>
 

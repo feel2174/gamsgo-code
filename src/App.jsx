@@ -14,22 +14,22 @@ import { Analytics } from '@vercel/analytics/react';
 
 function App() {
   const location = useLocation();
-  const currentUrl = `https://www.gamsgocode.co.kr${location.pathname === '/' ? '' : location.pathname}`;
+  const currentUrl = `https://www.frontendnote.com${location.pathname === '/' ? '' : location.pathname}`;
 
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "url": "https://www.gamsgocode.co.kr/",
-    "name": "GamsGo Code - 프론트엔드 실무 코드 자료실",
+    "url": "https://www.frontendnote.com/",
+    "name": "Frontend Note - 프론트엔드 실무 코드 자료실",
     "description": "React, TypeScript, JavaScript, CSS Layout, 웹 성능과 접근성 문제를 실무 코드 중심으로 정리하는 프론트엔드 개발 자료실",
   };
 
   const orgSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "GamsGo Code",
-    "url": "https://www.gamsgocode.co.kr/",
-    "logo": "https://www.gamsgocode.co.kr/apple-touch-icon.png",
+    "name": "Frontend Note",
+    "url": "https://www.frontendnote.com/",
+    "logo": "https://www.frontendnote.com/apple-touch-icon.png",
     "email": "devzucca@gmail.com",
   };
 
@@ -37,16 +37,16 @@ function App() {
     <HelmetProvider>
       <div className="app-container">
         <Helmet>
-          <title>GamsGo Code - 프론트엔드 실무 코드 자료실</title>
+          <title>Frontend Note - 프론트엔드 실무 코드 자료실</title>
           <meta name="description" content="React, TypeScript, JavaScript, CSS Layout, 웹 성능과 접근성 문제를 실무 코드 중심으로 정리하는 프론트엔드 개발 자료실입니다." />
           <meta name="keywords" content="React, TypeScript, JavaScript, CSS Layout, 웹 성능, 웹 접근성, Chrome DevTools, Git Workflow, 프론트엔드 코드" />
 
           {/* Open Graph */}
           <meta property="og:type" content="website" />
-          <meta property="og:title" content="GamsGo Code - 프론트엔드 실무 코드 자료실" />
+          <meta property="og:title" content="Frontend Note - 프론트엔드 실무 코드 자료실" />
           <meta property="og:description" content="React, TypeScript, JavaScript, CSS, 성능과 접근성 문제를 코드 예시와 체크리스트로 정리합니다." />
-          <meta property="og:url" content="https://www.gamsgocode.co.kr/" />
-          <meta property="og:site_name" content="GamsGo Code" />
+          <meta property="og:url" content="https://www.frontendnote.com/" />
+          <meta property="og:site_name" content="Frontend Note" />
 
           <link rel="canonical" href={currentUrl} />
 

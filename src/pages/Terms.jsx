@@ -4,7 +4,7 @@ const Terms = () => {
   return (
     <div className="page-wrapper">
       <Helmet>
-        <title>이용약관 | GamsGo Code</title>
+        <title>이용약관 | Frontend Note</title>
       </Helmet>
       
       <div className="page-container">
@@ -13,7 +13,7 @@ const Terms = () => {
           <p><strong>시행일자: 2026년 6월 3일</strong></p>
           
           <h2>1. 목적</h2>
-          <p>본 약관은 GamsGo Code(이하 "본 사이트")가 제공하는 모든 정보 및 서비스의 이용과 관련하여, 운영자와 이용자의 권리, 의무 및 책임 사항을 규정함을 목적으로 합니다.</p>
+          <p>본 약관은 Frontend Note(이하 "본 사이트")가 제공하는 모든 정보 및 서비스의 이용과 관련하여, 운영자와 이용자의 권리, 의무 및 책임 사항을 규정함을 목적으로 합니다.</p>
 
           <h2>2. 서비스의 제공 및 변경</h2>
           <p>본 사이트는 프론트엔드 개발, 코드 예시, 웹 성능, 접근성, 개발 워크플로에 관한 정보성 콘텐츠를 무료로 제공합니다. 제공되는 정보는 사전 고지 없이 변경되거나 중단될 수 있습니다.</p>

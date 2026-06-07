@@ -8,7 +8,7 @@ const __dirname = path.dirname(__filename);
 
 const DIST_DIR = path.resolve(__dirname, '../dist');
 const INDEX_HTML_PATH = path.join(DIST_DIR, 'index.html');
-const SITE_URL = 'https://www.gamsgocode.co.kr';
+const SITE_URL = 'https://www.frontendnote.com';
 
 if (!fs.existsSync(INDEX_HTML_PATH)) {
   console.error('Error: index.html not found in dist. Run "npm run build" first.');
@@ -30,7 +30,7 @@ const SVGS = {
 const getHeaderHtml = (activePath) => `
   <header class="header">
     <div class="header-container">
-      <a href="/" class="logo">GamsGo<span>Code</span></a>
+      <a href="/" class="logo">Frontend<span>Note</span></a>
       <nav class="desktop-nav">
         <a href="/" class="${activePath === '/' ? 'active' : ''}">홈 (Home)</a>
         <a href="/resources" class="${activePath === '/resources' ? 'active' : ''}">자료실 (Resources)</a>
@@ -55,7 +55,7 @@ const getFooterHtml = () => `
     <div class="footer-container">
       <div class="footer-grid">
         <div class="footer-info">
-          <a href="/" class="footer-logo">GamsGo<span>Code</span></a>
+          <a href="/" class="footer-logo">Frontend<span>Note</span></a>
           <p>React, TypeScript, JavaScript, CSS Layout, 웹 성능과 접근성 문제를 실무 코드와 점검 기준으로 정리하는 프론트엔드 개발 자료실입니다.</p>
         </div>
         <div class="footer-links">
@@ -76,7 +76,7 @@ const getFooterHtml = () => `
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 GamsGo Code. All rights reserved.</p>
+        <p>&copy; 2026 Frontend Note. All rights reserved.</p>
         <p class="footer-owner">김영주 <a href="mailto:devzucca@gmail.com">devzucca@gmail.com</a></p>
       </div>
     </div>
@@ -96,7 +96,7 @@ const wrapPage = (contentHtml, headerActivePath) => `
 // Render logic for different routes
 const pages = {
   '/': {
-    title: 'GamsGo Code - 프론트엔드 실무 코드 자료실',
+    title: 'Frontend Note - 프론트엔드 실무 코드 자료실',
     description: 'React, TypeScript, JavaScript, CSS, 웹 성능과 접근성 문제를 코드 예시와 체크리스트로 정리하는 프론트엔드 개발 자료실입니다.',
     contentHtml: () => {
       const postsHtml = posts.map(post => `
@@ -125,7 +125,7 @@ const pages = {
           <section class="hero">
             <div class="home-container">
               <h1>프론트엔드 실무 코드를<br/><span>문제 해결 중심으로</span> 정리합니다</h1>
-              <p>GamsGo Code는 React, TypeScript, JavaScript, CSS, 성능과 접근성을 실제 코드와 체크리스트로 정리하는 개발 자료실입니다.</p>
+              <p>Frontend Note는 React, TypeScript, JavaScript, CSS, 성능과 접근성을 실제 코드와 체크리스트로 정리하는 개발 자료실입니다.</p>
             </div>
           </section>
           <section class="home-focus-section">
@@ -161,31 +161,31 @@ const pages = {
     }
   },
   '/about': {
-    title: '소개 | GamsGo Code',
-    description: 'GamsGo Code의 운영 목적, 콘텐츠 작성 기준, 공식 도메인과 문의 정보를 안내합니다.',
+    title: '소개 | Frontend Note',
+    description: 'Frontend Note의 운영 목적, 콘텐츠 작성 기준, 공식 도메인과 문의 정보를 안내합니다.',
     contentHtml: () => wrapPage(`
       <div class="page-wrapper">
         <div class="page-container">
-          <h1>GamsGo Code 소개</h1>
+          <h1>Frontend Note 소개</h1>
           <div class="content">
-            <p>안녕하세요. GamsGo Code에 오신 것을 환영합니다.</p>
-            <p>GamsGo Code는 한국어 프론트엔드 개발자가 실무에서 다시 찾아볼 수 있는 코드 자료와 문제 해결 노트를 정리하기 위해 운영되는 사이트입니다. 운영자는 김영주이며, 사이트 관련 문의는 devzucca@gmail.com으로 받고 있습니다.</p>
+            <p>안녕하세요. Frontend Note에 오신 것을 환영합니다.</p>
+            <p>Frontend Note는 한국어 프론트엔드 개발자가 실무에서 다시 찾아볼 수 있는 코드 자료와 문제 해결 노트를 정리하기 위해 운영되는 사이트입니다. 운영자는 김영주이며, 사이트 관련 문의는 devzucca@gmail.com으로 받고 있습니다.</p>
             
             <h2>우리의 미션</h2>
             <p>단편적인 용어 설명보다 실제 프로젝트에서 판단할 수 있는 기준을 제공하는 것이 목표입니다. React, TypeScript, JavaScript, CSS Layout, Web Performance, Accessibility, Git Workflow, Chrome DevTools처럼 프론트엔드 작업에 직접 연결되는 주제를 우선 다룹니다.</p>
 
             <h2>콘텐츠 작성 기준</h2>
-            <p>GamsGo Code의 글은 단순한 용어 설명에 그치지 않고, 실제 개발자가 의사결정할 때 확인해야 하는 장단점, 적용 조건, 점검 항목을 함께 정리하는 것을 원칙으로 합니다. 기술 변화가 빠른 주제는 공식 문서와 실무 적용 사례를 함께 확인하며, 오래된 정보나 오류가 발견되면 수정합니다.</p>
+            <p>Frontend Note의 글은 단순한 용어 설명에 그치지 않고, 실제 개발자가 의사결정할 때 확인해야 하는 장단점, 적용 조건, 점검 항목을 함께 정리하는 것을 원칙으로 합니다. 기술 변화가 빠른 주제는 공식 문서와 실무 적용 사례를 함께 확인하며, 오래된 정보나 오류가 발견되면 수정합니다.</p>
 
             <h2>운영 원칙</h2>
             <p>이 사이트는 독자가 콘텐츠를 방해 없이 읽을 수 있도록 명확한 문서 구조와 쉬운 탐색을 지향합니다. 외부 위젯이나 안내 요소가 추가되더라도 본문과 명확히 구분되도록 배치하며, 사용자를 혼동시키는 표현은 사용하지 않습니다.</p>
 
             <h2>운영 정보</h2>
-            <p>gamsgocode.co.kr는 프론트엔드 실무 코드와 개발 자료를 정리하는 GamsGo Code의 공식 도메인입니다. 도메인 이름은 개발 코드와 실무 개발 자료를 다루는 사이트라는 의미를 담고 있으며, 공개 브랜드명은 GamsGo Code로 통일해 사용합니다. 2026년 6월 3일 사이트 구조와 콘텐츠 정책을 프론트엔드 코드 자료실 중심으로 개편했으며, 이후 글의 최신성, 오류 여부, 공식 문서 변경 사항을 주기적으로 확인합니다.</p>
+            <p>frontendnote.com는 프론트엔드 실무 코드와 개발 자료를 정리하는 Frontend Note의 공식 도메인입니다. 도메인 이름은 개발 코드와 실무 개발 자료를 다루는 사이트라는 의미를 담고 있으며, 공개 브랜드명은 Frontend Note로 통일해 사용합니다. 2026년 6월 3일 사이트 구조와 콘텐츠 정책을 프론트엔드 코드 자료실 중심으로 개편했으며, 이후 글의 최신성, 오류 여부, 공식 문서 변경 사항을 주기적으로 확인합니다.</p>
             <p>새 글을 작성할 때는 독자가 바로 활용할 수 있는 점검 항목, 적용 조건, 참고 링크를 포함하는 것을 기준으로 삼습니다. 오래된 정보가 확인되면 글 하단의 참고 자료와 함께 수정 내용을 반영합니다.</p>
 
             <h2>검토 방식</h2>
-            <p>GamsGo Code의 글은 주제 선정, 초안 작성, 공식 문서 확인, 실무 적용 관점 보강, 최종 링크 점검 순서로 발행합니다. 특히 버전 변화가 빠른 React, TypeScript, 브라우저 성능 주제는 단정적인 표현을 피하고 적용 조건과 한계를 함께 적는 것을 원칙으로 합니다.</p>
+            <p>Frontend Note의 글은 주제 선정, 초안 작성, 공식 문서 확인, 실무 적용 관점 보강, 최종 링크 점검 순서로 발행합니다. 특히 버전 변화가 빠른 React, TypeScript, 브라우저 성능 주제는 단정적인 표현을 피하고 적용 조건과 한계를 함께 적는 것을 원칙으로 합니다.</p>
 
             <h2>오류 제보와 수정 요청</h2>
             <p>기술 문서 특성상 프레임워크 버전, 브라우저 지원 현황, API 정책이 바뀔 수 있습니다. 잘못된 설명이나 깨진 링크를 발견하면 이메일로 알려주세요. 확인 후 필요한 경우 본문을 수정하고 업데이트 기준에 반영합니다.</p>
@@ -202,19 +202,19 @@ const pages = {
     `, '/about')
   },
   '/contact': {
-    title: '문의하기 | GamsGo Code',
-    description: 'GamsGo Code 운영자에게 콘텐츠 오류 신고, 제휴 문의, 개인정보 관련 요청을 보낼 수 있는 연락처 안내 페이지입니다.',
+    title: '문의하기 | Frontend Note',
+    description: 'Frontend Note 운영자에게 콘텐츠 오류 신고, 제휴 문의, 개인정보 관련 요청을 보낼 수 있는 연락처 안내 페이지입니다.',
     contentHtml: () => wrapPage(`
       <div class="page-wrapper">
         <div class="page-container">
           <h1>문의하기</h1>
           <div class="content">
-            <p>GamsGo Code는 기술 콘텐츠의 정확성과 독자 경험을 중요하게 생각합니다. 글의 오류 신고, 보완 의견, 제휴 문의, 개인정보 관련 요청은 아래 이메일로 보내주세요.</p>
+            <p>Frontend Note는 기술 콘텐츠의 정확성과 독자 경험을 중요하게 생각합니다. 글의 오류 신고, 보완 의견, 제휴 문의, 개인정보 관련 요청은 아래 이메일로 보내주세요.</p>
             <div class="contact-card">
               <h2>운영자 연락처</h2>
               <p><strong>운영자:</strong> 김영주</p>
               <p><strong>이메일:</strong> <a href="mailto:devzucca@gmail.com">devzucca@gmail.com</a></p>
-              <a class="submit-btn contact-mail-link" href="mailto:devzucca@gmail.com?subject=GamsGo Code%20문의">이메일 보내기</a>
+              <a class="submit-btn contact-mail-link" href="mailto:devzucca@gmail.com?subject=Frontend Note%20문의">이메일 보내기</a>
             </div>
             <p>문의에는 오류가 있는 글 주소, 보완이 필요한 문장, 참고할 공식 문서 링크를 함께 보내주시면 더 빠르게 확인할 수 있습니다. 대량 홍보성 메시지와 자동 발송 메시지는 답변하지 않을 수 있습니다.</p>
           </div>
@@ -223,14 +223,14 @@ const pages = {
     `, '/contact')
   },
   '/resources': {
-    title: '프론트엔드 실무 자료실 | GamsGo Code',
-    description: 'React, TypeScript, JavaScript, CSS, 웹 성능, 접근성 점검에 필요한 공식 문서와 실무 참고 자료를 정리한 GamsGo Code 자료실입니다.',
+    title: '프론트엔드 실무 자료실 | Frontend Note',
+    description: 'React, TypeScript, JavaScript, CSS, 웹 성능, 접근성 점검에 필요한 공식 문서와 실무 참고 자료를 정리한 Frontend Note 자료실입니다.',
     contentHtml: () => wrapPage(`
       <div class="page-wrapper resource-page">
         <div class="page-container wide-page-container">
           <h1>프론트엔드 실무 자료실</h1>
           <div class="content">
-            <p>GamsGo Code 자료실은 글을 읽고 바로 확인해야 하는 공식 문서, 진단 도구, 실무 점검 기준을 한곳에 모아둔 페이지입니다. 단순 링크 모음이 아니라 React, TypeScript, CSS, 성능, 접근성 작업 중 필요한 자료를 빠르게 찾을 수 있도록 주제별로 나누었습니다.</p>
+            <p>Frontend Note 자료실은 글을 읽고 바로 확인해야 하는 공식 문서, 진단 도구, 실무 점검 기준을 한곳에 모아둔 페이지입니다. 단순 링크 모음이 아니라 React, TypeScript, CSS, 성능, 접근성 작업 중 필요한 자료를 빠르게 찾을 수 있도록 주제별로 나누었습니다.</p>
 
             <h2>공식 문서 빠른 링크</h2>
             <div class="resource-grid">
@@ -301,15 +301,15 @@ const pages = {
     `, '/resources')
   },
   '/privacy': {
-    title: '개인정보처리방침 | GamsGo Code',
-    description: 'GamsGo Code 개인정보처리방침 안내 페이지입니다.',
+    title: '개인정보처리방침 | Frontend Note',
+    description: 'Frontend Note 개인정보처리방침 안내 페이지입니다.',
     contentHtml: () => wrapPage(`
       <div class="page-wrapper">
         <div class="page-container">
           <h1>개인정보처리방침</h1>
           <div class="content">
             <p><strong>시행일자: 2026년 6월 3일</strong></p>
-            <p>GamsGo Code("본 사이트")는 이용자의 개인정보 보호를 중요하게 생각하며, 사이트 운영과 콘텐츠 개선에 필요한 최소한의 정보만 처리합니다.</p>
+            <p>Frontend Note("본 사이트")는 이용자의 개인정보 보호를 중요하게 생각하며, 사이트 운영과 콘텐츠 개선에 필요한 최소한의 정보만 처리합니다.</p>
             
             <h2>1. 수집하는 개인정보 항목</h2>
             <p>본 사이트는 회원가입 기능과 자체 문의 저장 기능을 제공하지 않으며 주민등록번호, 결제 정보 등 민감한 개인정보를 요구하지 않습니다. 다만 이용자가 운영자 이메일로 직접 문의를 보내는 경우 이름, 이메일 주소, 문의 내용이 처리될 수 있습니다.</p>
@@ -345,8 +345,8 @@ const pages = {
     `, '/privacy')
   },
   '/terms': {
-    title: '이용약관 | GamsGo Code',
-    description: 'GamsGo Code 서비스 이용약관 안내 페이지입니다.',
+    title: '이용약관 | Frontend Note',
+    description: 'Frontend Note 서비스 이용약관 안내 페이지입니다.',
     contentHtml: () => wrapPage(`
       <div class="page-wrapper">
         <div class="page-container">
@@ -355,7 +355,7 @@ const pages = {
             <p><strong>시행일자: 2026년 6월 3일</strong></p>
             
             <h2>1. 목적</h2>
-            <p>본 약관은 GamsGo Code(이하 "본 사이트")가 제공하는 모든 정보 및 서비스의 이용과 관련하여, 운영자와 이용자의 권리, 의무 및 책임 사항을 규정함을 목적으로 합니다.</p>
+            <p>본 약관은 Frontend Note(이하 "본 사이트")가 제공하는 모든 정보 및 서비스의 이용과 관련하여, 운영자와 이용자의 권리, 의무 및 책임 사항을 규정함을 목적으로 합니다.</p>
 
             <h2>2. 서비스의 제공 및 변경</h2>
             <p>본 사이트는 프론트엔드 개발, 코드 예시, 웹 성능, 접근성, 개발 워크플로에 관한 정보성 콘텐츠를 무료로 제공합니다. 제공되는 정보는 사전 고지 없이 변경되거나 중단될 수 있습니다.</p>
@@ -420,7 +420,7 @@ function run() {
     const route = `/post/${post.slug}`;
     let html = template;
 
-    const pageTitle = `${post.title} | GamsGo Code`;
+    const pageTitle = `${post.title} | Frontend Note`;
     const pageDesc = post.excerpt;
     const canonicalUrl = `${SITE_URL}${route}`;
 
@@ -438,7 +438,7 @@ function run() {
       "dateModified": post.updated ?? post.date,
       "publisher": {
         "@type": "Organization",
-        "name": "GamsGo Code",
+        "name": "Frontend Note",
         "logo": {
           "@type": "ImageObject",
           "url": `${SITE_URL}/apple-touch-icon.png`

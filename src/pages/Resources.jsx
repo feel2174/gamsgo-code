@@ -58,14 +58,14 @@ const Resources = () => {
   return (
     <div className="page-wrapper resource-page">
       <Helmet>
-        <title>프론트엔드 실무 자료실 | GamsGo Code</title>
-        <meta name="description" content="React, TypeScript, JavaScript, CSS, 웹 성능, 접근성 점검에 필요한 공식 문서와 실무 참고 자료를 정리한 GamsGo Code 자료실입니다." />
+        <title>프론트엔드 실무 자료실 | Frontend Note</title>
+        <meta name="description" content="React, TypeScript, JavaScript, CSS, 웹 성능, 접근성 점검에 필요한 공식 문서와 실무 참고 자료를 정리한 Frontend Note 자료실입니다." />
       </Helmet>
 
       <div className="page-container wide-page-container">
         <h1>프론트엔드 실무 자료실</h1>
         <div className="content">
-          <p>GamsGo Code 자료실은 글을 읽고 바로 확인해야 하는 공식 문서, 진단 도구, 실무 점검 기준을 한곳에 모아둔 페이지입니다. 단순 링크 모음이 아니라 React, TypeScript, CSS, 성능, 접근성 작업 중 필요한 자료를 빠르게 찾을 수 있도록 주제별로 나누었습니다.</p>
+          <p>Frontend Note 자료실은 글을 읽고 바로 확인해야 하는 공식 문서, 진단 도구, 실무 점검 기준을 한곳에 모아둔 페이지입니다. 단순 링크 모음이 아니라 React, TypeScript, CSS, 성능, 접근성 작업 중 필요한 자료를 빠르게 찾을 수 있도록 주제별로 나누었습니다.</p>
 
           <h2>공식 문서 빠른 링크</h2>
           <div className="resource-grid">

@@ -1,82 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.gamsgocode.co.kr/</loc>
+    <loc>https://www.frontendnote.com/</loc>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.gamsgocode.co.kr/resources</loc>
+    <loc>https://www.frontendnote.com/resources</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.gamsgocode.co.kr/about</loc>
+    <loc>https://www.frontendnote.com/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.gamsgocode.co.kr/contact</loc>
+    <loc>https://www.frontendnote.com/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.gamsgocode.co.kr/privacy</loc>
+    <loc>https://www.frontendnote.com/privacy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://www.gamsgocode.co.kr/terms</loc>
+    <loc>https://www.frontendnote.com/terms</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://www.gamsgocode.co.kr/post/react-19-features</loc>
+    <loc>https://www.frontendnote.com/post/react-19-features</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.gamsgocode.co.kr/post/frontend-performance-2026</loc>
+    <loc>https://www.frontendnote.com/post/frontend-performance-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.gamsgocode.co.kr/post/typescript-adoption-guide</loc>
+    <loc>https://www.frontendnote.com/post/typescript-adoption-guide</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.gamsgocode.co.kr/post/git-branch-strategy</loc>
+    <loc>https://www.frontendnote.com/post/git-branch-strategy</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.gamsgocode.co.kr/post/flexbox-vs-grid</loc>
+    <loc>https://www.frontendnote.com/post/flexbox-vs-grid</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.gamsgocode.co.kr/post/web-accessibility-guide</loc>
+    <loc>https://www.frontendnote.com/post/web-accessibility-guide</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.gamsgocode.co.kr/post/javascript-closures</loc>
+    <loc>https://www.frontendnote.com/post/javascript-closures</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.gamsgocode.co.kr/post/javascript-event-loop</loc>
+    <loc>https://www.frontendnote.com/post/javascript-event-loop</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.gamsgocode.co.kr/post/react-state-management</loc>
+    <loc>https://www.frontendnote.com/post/react-state-management</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.gamsgocode.co.kr/post/chrome-devtools-profiling</loc>
+    <loc>https://www.frontendnote.com/post/chrome-devtools-profiling</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>

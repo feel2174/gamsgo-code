@@ -25,7 +25,7 @@ const Post = () => {
     "@type": "Article",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": `https://www.gamsgocode.co.kr/post/${post.slug}`
+      "@id": `https://www.frontendnote.com/post/${post.slug}`
     },
     "headline": post.title,
     "image": [
@@ -35,10 +35,10 @@ const Post = () => {
     "dateModified": post.updated ?? post.date,
     "publisher": {
       "@type": "Organization",
-      "name": "GamsGo Code",
+      "name": "Frontend Note",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.gamsgocode.co.kr/apple-touch-icon.png"
+        "url": "https://www.frontendnote.com/apple-touch-icon.png"
       }
     },
     "author": [{
@@ -50,7 +50,7 @@ const Post = () => {
   return (
     <div className="post-page">
       <Helmet>
-        <title>{post.title} | GamsGo Code</title>
+        <title>{post.title} | Frontend Note</title>
         <meta name="description" content={post.excerpt} />
         
         {/* Open Graph Tags */}
@@ -58,7 +58,7 @@ const Post = () => {
         <meta property="og:description" content={post.excerpt} />
         <meta property="og:type" content="article" />
         <meta property="og:image" content={post.coverImage} />
-        <meta property="og:url" content={`https://www.gamsgocode.co.kr/post/${post.slug}`} />
+        <meta property="og:url" content={`https://www.frontendnote.com/post/${post.slug}`} />
         <meta property="article:published_time" content={post.date} />
         <meta property="article:modified_time" content={post.updated ?? post.date} />
         <meta property="article:author" content={post.author} />
