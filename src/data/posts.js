@@ -1,4 +1,4 @@
-export const posts = [
+const basePosts = [
   {
     "id": "react-19-features",
     "title": "React 19 실무 전환 가이드: 폼, 액션, 렌더링을 어디부터 바꿀까",
@@ -156,3 +156,109 @@ export const posts = [
     "updated": "2026-06-07"
   }
 ];
+
+const contentEnhancements = {
+  'react-19-features': String.raw`
+    <h2>실제 전환 시나리오: 문의 폼 하나를 React 19 방식으로 바꾸기</h2>
+    <p>예를 들어 운영 중인 사이트의 문의 폼을 전환한다고 가정하면, 먼저 기존 상태를 기록합니다. 제출 성공률, 실패 메시지 종류, 중복 제출 발생 여부, 사용자가 작성한 내용이 실패 후 보존되는지를 확인합니다. 그다음 입력 상태, 제출 상태, 서버 응답 상태를 한 컴포넌트에 섞어두지 않고 역할별로 나눕니다.</p>
+    <pre><code>const migrationScope = {
+  screen: 'contact-form',
+  risk: 'low',
+  before: ['isLoading', 'error', 'result'],
+  after: ['actionState', 'fieldErrors', 'submitResult'],
+  rollback: 'keep previous submit handler'
+};</code></pre>
+    <p>이 전환의 성공 기준은 새 훅을 썼는지가 아닙니다. 중복 제출이 줄었는지, 실패 후 입력값이 유지되는지, 에러 메시지가 필드 가까이에 표시되는지, QA가 같은 시나리오를 반복 확인할 수 있는지가 기준입니다. 작은 화면에서 검증하면 React 19 도입 글이 단순 소개가 아니라 실무 판단 자료가 됩니다.</p>
+    <h2>React 19 전환 FAQ</h2>
+    <h3>React 19는 기존 프로젝트에 바로 적용해도 되나요?</h3>
+    <p>전체 적용보다 폼 제출, 검색 필터, 관리자 도구처럼 실패 비용이 낮고 검증하기 쉬운 화면부터 적용하는 편이 안전합니다.</p>
+    <h3>React Compiler를 켜면 useMemo를 모두 지워도 되나요?</h3>
+    <p>아닙니다. 컴파일러 도입 여부와 별개로 기존 메모이제이션이 실제 성능 문제를 해결하고 있었는지 먼저 측정해야 합니다. 성능 코드는 추측으로 제거하면 회귀가 생길 수 있습니다.</p>
+  `,
+  'frontend-performance-2026': String.raw`
+    <h2>실제 진단 예시: 글 목록 페이지가 느릴 때 어디부터 볼까?</h2>
+    <p>콘텐츠 사이트에서 가장 자주 느려지는 화면은 글 목록입니다. 대표 이미지가 많고, 카드가 반복되며, 외부 스크립트가 함께 로드되기 때문입니다. 이때 첫 번째로 볼 것은 전체 점수가 아니라 LCP 요소입니다. LCP가 글 카드 이미지라면 이미지 크기와 로딩 우선순위를 보고, 제목 영역이라면 폰트 로딩과 서버 응답 시간을 봅니다.</p>
+    <pre><code>성능 기록 예시
+URL: /resources
+환경: 모바일 4G, 캐시 비활성화
+문제: 첫 화면 카드 이미지가 LCP
+조치: 이미지 크기 고정, loading 전략 조정
+재측정: LCP와 CLS를 같은 조건에서 비교</code></pre>
+    <p>이런 기록은 애드센스 심사에서도 간접적으로 도움이 됩니다. 사이트가 단순히 광고를 붙이기 위한 페이지가 아니라, 사용자가 읽기 좋은 속도와 레이아웃을 관리하는 실제 콘텐츠 서비스라는 신호가 되기 때문입니다.</p>
+    <h2>SEO 관점에서 성능 글을 더 가치 있게 만드는 방법</h2>
+    <p>성능 글은 LCP, INP, CLS의 정의만 설명하면 이미 많은 문서와 겹칩니다. 검색 유입을 노린다면 “LCP가 나쁠 때 먼저 볼 파일”, “INP가 나쁠 때 React에서 줄일 상태 업데이트”, “CLS가 생기는 이미지와 광고 영역의 차이”처럼 문제 상황을 제목과 본문에 직접 넣는 편이 좋습니다. 질문에 바로 답하는 문단은 검색 결과 요약과 AI 답변에도 더 잘 맞습니다.</p>
+  `,
+  'typescript-adoption-guide': String.raw`
+    <h2>실제 전환 예시: API 응답 타입부터 고정하기</h2>
+    <p>기존 JavaScript 프로젝트를 TypeScript로 바꿀 때 가장 먼저 손대기 좋은 곳은 API 응답입니다. 화면 컴포넌트 안에서 응답 구조를 추측해 바로 쓰면 필드 누락이나 null 값 때문에 런타임 오류가 생깁니다. 먼저 외부에서 들어오는 값을 unknown으로 받고, 필요한 값만 좁혀서 화면으로 넘기면 위험을 줄일 수 있습니다.</p>
+    <pre><code>type ArticleSummary = {
+  id: string;
+  title: string;
+  updatedAt: string;
+};
+
+function normalizeArticle(input: unknown): ArticleSummary | null {
+  if (!input || typeof input !== 'object') return null;
+  const item = input as Record&lt;string, unknown&gt;;
+  if (typeof item.id !== 'string') return null;
+  if (typeof item.title !== 'string') return null;
+  return {
+    id: item.id,
+    title: item.title,
+    updatedAt: typeof item.updatedAt === 'string' ? item.updatedAt : 'unknown'
+  };
+}</code></pre>
+    <p>이 방식은 코드가 조금 늘어나지만, 오류가 화면 전체로 번지는 일을 막습니다. TypeScript 도입의 가치는 타입 파일 수가 아니라 장애를 일으키는 불확실한 경계를 줄이는 데 있습니다.</p>
+    <h2>TypeScript 전환 FAQ</h2>
+    <h3>처음부터 strict 모드를 켜야 하나요?</h3>
+    <p>신규 프로젝트라면 권장하지만, 운영 중인 JavaScript 프로젝트라면 폴더별로 기준을 올리는 편이 현실적입니다. 먼저 API, 폼, 공통 컴포넌트처럼 실패 비용이 큰 영역부터 시작합니다.</p>
+    <h3>any를 모두 없애야 좋은 전환인가요?</h3>
+    <p>목표는 any 개수 자체보다 위험한 any를 줄이는 것입니다. 외부 데이터, 결제, 인증, 권한처럼 사용자 영향이 큰 영역의 any를 먼저 줄이는 것이 더 가치 있습니다.</p>
+  `,
+  'react-form-validation-patterns': String.raw`
+    <h2>Before / After: 에러가 사라지는 폼 구조</h2>
+    <p>가치 있는 폼 검증 글은 단순히 required를 설명하는 데서 끝나지 않아야 합니다. 실제로 자주 발생하는 문제는 에러 상태가 여러 곳에 흩어지는 것입니다. 아래처럼 로딩, 필드 오류, 폼 전체 오류를 한 객체에 섞어두면 화면이 커질수록 조건문이 늘어납니다.</p>
+    <pre><code>const state = {
+  loading: false,
+  error: '이메일 형식을 확인해 주세요.',
+  result: null
+};</code></pre>
+    <p>개선 후에는 필드 오류와 폼 오류를 분리합니다. 이렇게 하면 이메일 오류는 입력창 아래에, 네트워크 오류는 제출 버튼 근처에 표시할 수 있습니다.</p>
+    <pre><code>const formState = {
+  pending: false,
+  fieldErrors: {
+    email: '이메일 형식을 확인해 주세요.'
+  },
+  formError: null,
+  result: null
+};</code></pre>
+    <p>이 차이는 작아 보이지만 운영에서는 큽니다. 사용자는 어디를 고쳐야 하는지 바로 알 수 있고, 개발자는 서버 오류와 입력 오류를 다른 방식으로 처리할 수 있습니다.</p>
+    <h2>React 폼 검증 FAQ</h2>
+    <h3>클라이언트 검증만으로 충분한가요?</h3>
+    <p>아닙니다. 클라이언트 검증은 빠른 안내를 위한 것이고, 최종 판단은 서버에서 해야 합니다. 특히 중복 이메일, 권한, 결제 조건은 서버 검증이 필요합니다.</p>
+    <h3>폼 라이브러리를 쓰면 검증 문제가 해결되나요?</h3>
+    <p>라이브러리는 상태 관리를 도와줄 뿐입니다. 에러 메시지 위치, 실패 후 입력값 보존, 제출 중 중복 클릭 방지는 여전히 화면 설계 기준으로 확인해야 합니다.</p>
+  `,
+  'frontend-api-error-handling': String.raw`
+    <h2>실제 장애 시나리오: 401과 500을 같은 문구로 보여주면 생기는 문제</h2>
+    <p>API 오류 처리에서 흔한 실수는 모든 실패를 같은 메시지로 보여주는 것입니다. 예를 들어 로그인이 만료된 401 오류와 서버가 실패한 500 오류를 모두 “오류가 발생했습니다”로 보여주면 사용자는 다시 로그인해야 하는지, 잠시 기다려야 하는지 알 수 없습니다. 이 차이가 반복되면 사이트가 불안정하다는 인상을 줍니다.</p>
+    <pre><code>const errorActionMap = {
+  401: '로그인 화면으로 이동',
+  403: '권한 요청 안내',
+  404: '목록으로 돌아가기',
+  429: '잠시 후 재시도 안내',
+  500: '재시도 버튼 표시'
+};</code></pre>
+    <p>상태 코드별로 다음 행동을 정의하면 화면 문구도 자연스럽게 달라집니다. 좋은 에러 처리는 개발자를 위한 로그가 아니라 사용자의 다음 행동을 안내하는 UI입니다.</p>
+    <h2>API 에러 처리 FAQ</h2>
+    <h3>API 요청 실패 시 무조건 재시도 버튼을 보여줘야 하나요?</h3>
+    <p>아닙니다. 네트워크 오류나 500번대 오류에는 재시도가 유용하지만, 401이나 403에는 로그인 또는 권한 안내가 먼저입니다.</p>
+    <h3>빈 배열은 에러로 처리해야 하나요?</h3>
+    <p>아닙니다. 빈 배열은 정상 응답의 한 종류입니다. 검색 결과 없음, 첫 프로젝트 없음, 알림 없음처럼 다음 행동을 안내하는 빈 상태 화면을 보여주는 것이 좋습니다.</p>
+  `
+};
+
+export const posts = basePosts.map((post) => ({
+  ...post,
+  content: `${post.content}${contentEnhancements[post.slug] ?? ''}`,
+}));
