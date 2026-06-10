@@ -52,7 +52,8 @@ function App() {
           <meta property="og:site_name" content="Frontend Note" />
 
           <link rel="canonical" href={currentUrl} />
-
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8785405056367250"
+     crossorigin="anonymous"></script>
           <script type="application/ld+json">
             {JSON.stringify(websiteSchema)}
           </script>
