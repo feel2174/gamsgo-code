@@ -1,6 +1,6 @@
 export const SITE_NAME = "짠구독";
 export const SITE_TAGLINE = "짠내나게 아끼는 구독 생활";
-export const SITE_URL = "https://example.com";
+export const SITE_URL = "https://www.gamsgocode.co.kr";
 export const GAMSGO_AFFILIATE_URL = "https://www.gamsgo.com/partner/Chgyp";
 
 export const DISCLOSURE_TEXT =
