@@ -36,6 +36,11 @@ yarn-error.log*
 # vercel
 .vercel
 
+# local agent/skill tooling (installed by marketplace integrations, machine-local)
+.agents
+.claude
+skills-lock.json
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

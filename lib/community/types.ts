@@ -13,12 +13,15 @@ export type CommunityPostType = "후기" | "정보";
 
 export const COMMUNITY_POST_TYPES: CommunityPostType[] = ["후기", "정보"];
 
+export type ModerationStatus = "visible" | "hidden";
+
 export interface CommunityComment {
   id: string;
   nickname: string;
   content: string;
   hearts: number;
   createdAt: string;
+  status: ModerationStatus;
 }
 
 export interface CommunityPost {
@@ -32,5 +35,6 @@ export interface CommunityPost {
   content: string;
   hearts: number;
   createdAt: string;
+  status: ModerationStatus;
   comments: CommunityComment[];
 }

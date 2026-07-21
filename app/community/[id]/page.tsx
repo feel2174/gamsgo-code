@@ -17,7 +17,7 @@ export async function generateMetadata({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const post = getPost(id);
+  const post = await getPost(id);
   return buildMetadata({
     title: post ? post.title : "게시글",
     description: post ? post.content.slice(0, 80) : "익명 후기 게시판",
@@ -31,7 +31,7 @@ export default async function CommunityPostPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const post = getPost(id);
+  const post = await getPost(id);
   if (!post) notFound();
 
   const discussionJsonLd = {

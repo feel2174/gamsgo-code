@@ -50,7 +50,7 @@ export async function createPostAction(formData: FormData) {
       ? parsedRating
       : 5;
 
-  const post = createPost({
+  const post = await createPost({
     serviceCategory: safeServiceCategory,
     postType: safePostType,
     rating: safeRating,
@@ -68,12 +68,12 @@ export async function createCommentAction(postId: string, formData: FormData) {
   if (typeof content !== "string" || content.trim().length < 1) {
     return;
   }
-  createComment(postId, content.trim());
+  await createComment(postId, content.trim());
   revalidatePath(`/community/${postId}`);
 }
 
 export async function heartPostAction(postId: string, delta: 1 | -1) {
-  const next = adjustPostHearts(postId, delta);
+  const next = await adjustPostHearts(postId, delta);
   revalidatePath("/community");
   revalidatePath("/");
   revalidatePath(`/community/${postId}`);
@@ -89,7 +89,7 @@ export async function heartCommentAction(
   commentId: string,
   delta: 1 | -1
 ) {
-  const next = adjustCommentHearts(postId, commentId, delta);
+  const next = await adjustCommentHearts(postId, commentId, delta);
   revalidatePath(`/community/${postId}`);
   return next;
 }

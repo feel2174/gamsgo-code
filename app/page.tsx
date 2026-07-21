@@ -3,7 +3,7 @@ import { AffiliateCTA } from "@/components/AffiliateCTA";
 import { PriceTable } from "@/components/PriceTable";
 import { TrustBadges } from "@/components/TrustBadges";
 import { SERVICE_PRICES, SITE_TAGLINE } from "@/lib/constants";
-import { listPosts } from "@/lib/community/store";
+import { listPostsPage } from "@/lib/community/store";
 import { formatRelativeTime } from "@/lib/community/time";
 
 export const dynamic = "force-dynamic";
@@ -36,8 +36,8 @@ const guides = [
   },
 ];
 
-export default function Home() {
-  const latestPosts = listPosts().slice(0, 2);
+export default async function Home() {
+  const { posts: latestPosts } = await listPostsPage(0, 2);
 
   return (
     <div className="flex flex-col gap-8">

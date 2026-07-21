@@ -1,8 +1,14 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { DisclosureBanner } from "./DisclosureBanner";
 import { SITE_NAME } from "@/lib/constants";
 
 export function Footer() {
+  const pathname = usePathname();
+  if (pathname?.startsWith("/admin")) return null;
+
   return (
     <footer className="mt-10 flex flex-col gap-3 border-t border-neutral-200 px-4 py-6">
       <DisclosureBanner />

@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { listPosts, listPostsPage } from "@/lib/community/store";
+import { listPostsPage } from "@/lib/community/store";
+import type { CommunityPost } from "@/lib/community/types";
 import { buildMetadata } from "@/lib/seo";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { CommunityFeed } from "@/components/community/CommunityFeed";
@@ -16,7 +17,7 @@ export const metadata = buildMetadata({
 
 const PAGE_SIZE = 6;
 
-const itemListJsonLd = (posts: ReturnType<typeof listPosts>) => ({
+const itemListJsonLd = (posts: CommunityPost[]) => ({
   "@context": "https://schema.org",
   "@type": "ItemList",
   itemListElement: posts.map((post, index) => ({
@@ -27,9 +28,8 @@ const itemListJsonLd = (posts: ReturnType<typeof listPosts>) => ({
   })),
 });
 
-export default function CommunityPage() {
-  const allPosts = listPosts();
-  const { posts, nextOffset, hasMore } = listPostsPage(0, PAGE_SIZE);
+export default async function CommunityPage() {
+  const { posts, nextOffset, hasMore } = await listPostsPage(0, PAGE_SIZE);
 
   return (
     <div className="flex flex-col gap-6">
@@ -42,7 +42,7 @@ export default function CommunityPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(itemListJsonLd(allPosts)),
+          __html: JSON.stringify(itemListJsonLd(posts)),
         }}
       />
       <header className="flex flex-col gap-2">
