@@ -46,6 +46,8 @@ export interface ServicePrice {
   href?: string;
   /** 구조화 데이터(Offer)용 확정 숫자 가격. 실시간 확인이 필요한 경우 생략 */
   gamsgoPriceKRW?: number;
+  /** 카드에 가볍게 나열할 서비스 특징 2~3개 */
+  features: string[];
 }
 
 export const SERVICE_PRICES: ServicePrice[] = [
@@ -58,6 +60,7 @@ export const SERVICE_PRICES: ServicePrice[] = [
     discountLabel: "최대 70% 할인",
     href: "/youtube-premium-discount",
     gamsgoPriceKRW: 6900,
+    features: ["광고 완전 제거", "백그라운드 재생", "유튜브 뮤직 포함"],
   },
   {
     id: "netflix",
@@ -68,6 +71,7 @@ export const SERVICE_PRICES: ServicePrice[] = [
     discountLabel: "최대 70% 할인",
     href: "/netflix-discount",
     gamsgoPriceKRW: 5000,
+    features: ["4K UHD·HDR", "동시 접속 4대", "오리지널 콘텐츠"],
   },
   {
     id: "chatgpt-plus",
@@ -77,6 +81,7 @@ export const SERVICE_PRICES: ServicePrice[] = [
     gamsgoPrice: "정가 대비 50% 이상 할인가 (실시간 확인 필요)",
     discountLabel: "최대 50%+ 할인",
     href: "/chatgpt-plus-discount",
+    features: ["최신 모델 무제한급", "이미지 생성", "코드 인터프리터"],
   },
   {
     id: "disney-plus",
@@ -85,6 +90,7 @@ export const SERVICE_PRICES: ServicePrice[] = [
     officialPrice: "월 9,900원",
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
     discountLabel: "할인가 확인 필요",
+    features: ["마블·픽사·스타워즈", "내셔널지오그래픽", "4K 지원"],
   },
   {
     id: "spotify",
@@ -93,6 +99,7 @@ export const SERVICE_PRICES: ServicePrice[] = [
     officialPrice: "월 11,990원",
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
     discountLabel: "할인가 확인 필요",
+    features: ["광고 없는 음악", "오프라인 재생", "무제한 스킵"],
   },
   {
     id: "claude",
@@ -101,6 +108,7 @@ export const SERVICE_PRICES: ServicePrice[] = [
     officialPrice: "월 $20",
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
     discountLabel: "할인가 확인 필요",
+    features: ["코딩에 강한 AI", "긴 문서 처리", "높은 사용량 한도"],
   },
   {
     id: "gemini",
@@ -109,6 +117,7 @@ export const SERVICE_PRICES: ServicePrice[] = [
     officialPrice: "월 약 $19.99",
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
     discountLabel: "할인가 확인 필요",
+    features: ["구글 서비스 연동", "대용량 컨텍스트", "이미지·영상 이해"],
   },
   {
     id: "genspark",
@@ -117,6 +126,7 @@ export const SERVICE_PRICES: ServicePrice[] = [
     officialPrice: "월 $24.99",
     gamsgoPrice: "월 약 $16.99",
     discountLabel: "최대 30%+ 할인",
+    features: ["슈퍼 AI 에이전트", "문서·슬라이드 자동생성", "멀티 모델 통합"],
   },
   {
     id: "perplexity",
@@ -125,6 +135,7 @@ export const SERVICE_PRICES: ServicePrice[] = [
     officialPrice: "월 $20",
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
     discountLabel: "할인가 확인 필요",
+    features: ["출처 기반 AI 검색", "실시간 정보", "리서치 모드"],
   },
   {
     id: "midjourney",
@@ -133,6 +144,7 @@ export const SERVICE_PRICES: ServicePrice[] = [
     officialPrice: "월 약 $10~",
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
     discountLabel: "할인가 확인 필요",
+    features: ["고품질 AI 이미지", "다양한 스타일", "상업적 이용 가능"],
   },
   {
     id: "github-copilot",
@@ -141,6 +153,7 @@ export const SERVICE_PRICES: ServicePrice[] = [
     officialPrice: "월 $10",
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
     discountLabel: "할인가 확인 필요",
+    features: ["AI 코드 자동완성", "에디터 통합", "다양한 언어 지원"],
   },
   {
     id: "cursor",
@@ -149,6 +162,7 @@ export const SERVICE_PRICES: ServicePrice[] = [
     officialPrice: "월 $20",
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
     discountLabel: "할인가 확인 필요",
+    features: ["AI 네이티브 에디터", "코드베이스 이해", "빠른 리팩터링"],
   },
   {
     id: "deepl",
@@ -157,6 +171,7 @@ export const SERVICE_PRICES: ServicePrice[] = [
     officialPrice: "월 약 €10~",
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
     discountLabel: "할인가 확인 필요",
+    features: ["자연스러운 번역 품질", "문서 통번역", "용어집 지원"],
   },
   {
     id: "canva",
@@ -165,6 +180,7 @@ export const SERVICE_PRICES: ServicePrice[] = [
     officialPrice: "월 약 14,000원",
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
     discountLabel: "할인가 확인 필요",
+    features: ["프리미엄 템플릿", "배경 제거", "브랜드 키트"],
   },
   {
     id: "prime-video",
@@ -173,6 +189,7 @@ export const SERVICE_PRICES: ServicePrice[] = [
     officialPrice: "월 약 4,900원~",
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
     discountLabel: "할인가 확인 필요",
+    features: ["아마존 오리지널", "무료배송 혜택 연계", "대여·구매 가능"],
   },
   {
     id: "apple-tv",
@@ -181,6 +198,7 @@ export const SERVICE_PRICES: ServicePrice[] = [
     officialPrice: "월 약 6,900원",
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
     discountLabel: "할인가 확인 필요",
+    features: ["애플 오리지널 시리즈", "돌비 애트모스", "가족 공유"],
   },
   {
     id: "crunchyroll",
@@ -189,6 +207,7 @@ export const SERVICE_PRICES: ServicePrice[] = [
     officialPrice: "월 약 $7.99~",
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
     discountLabel: "할인가 확인 필요",
+    features: ["최신 애니메이션 동시방영", "광고 없음", "오프라인 다운로드"],
   },
   {
     id: "apple-music",
@@ -197,6 +216,7 @@ export const SERVICE_PRICES: ServicePrice[] = [
     officialPrice: "월 약 8,900원",
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
     discountLabel: "할인가 확인 필요",
+    features: ["공간음향 지원", "무손실 음질", "가사 싱크"],
   },
   {
     id: "microsoft-365",
@@ -205,6 +225,7 @@ export const SERVICE_PRICES: ServicePrice[] = [
     officialPrice: "월 약 11,900원",
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
     discountLabel: "할인가 확인 필요",
+    features: ["워드·엑셀·파워포인트", "원드라이브 저장공간", "다중 기기 설치"],
   },
   {
     id: "notion",
@@ -213,6 +234,7 @@ export const SERVICE_PRICES: ServicePrice[] = [
     officialPrice: "월 $10",
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
     discountLabel: "할인가 확인 필요",
+    features: ["메모+DB+협업", "무제한 파일 업로드", "버전 기록"],
   },
   {
     id: "figma",
@@ -221,6 +243,7 @@ export const SERVICE_PRICES: ServicePrice[] = [
     officialPrice: "월 약 $15~",
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
     discountLabel: "할인가 확인 필요",
+    features: ["실시간 협업 디자인", "무제한 버전 기록", "팀 라이브러리"],
   },
   {
     id: "expressvpn",
@@ -229,6 +252,7 @@ export const SERVICE_PRICES: ServicePrice[] = [
     officialPrice: "월 약 $12.95",
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
     discountLabel: "할인가 확인 필요",
+    features: ["빠른 글로벌 서버", "노로그 정책", "다중 기기 동시 연결"],
   },
   {
     id: "adobe-cc",
@@ -237,6 +261,7 @@ export const SERVICE_PRICES: ServicePrice[] = [
     officialPrice: "월 약 $59.99",
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
     discountLabel: "할인가 확인 필요",
+    features: ["포토샵·일러스트 등 전체 앱", "클라우드 저장", "폰트 라이브러리"],
   },
   {
     id: "playstation-plus",
@@ -245,6 +270,7 @@ export const SERVICE_PRICES: ServicePrice[] = [
     officialPrice: "월 약 7,900원~",
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
     discountLabel: "할인가 확인 필요",
+    features: ["온라인 멀티플레이", "매달 무료 게임", "클라우드 저장"],
   },
   {
     id: "xbox-game-pass",
@@ -253,6 +279,7 @@ export const SERVICE_PRICES: ServicePrice[] = [
     officialPrice: "월 약 20,000원대",
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
     discountLabel: "할인가 확인 필요",
+    features: ["수백 종 게임 무제한", "출시 당일 신작 포함", "PC·콘솔 동시 지원"],
   },
   {
     id: "ea-play",
@@ -261,6 +288,7 @@ export const SERVICE_PRICES: ServicePrice[] = [
     officialPrice: "월 약 $5.99",
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
     discountLabel: "할인가 확인 필요",
+    features: ["EA 인기작 무제한", "신작 얼리 액세스", "회원 전용 할인"],
   },
 ];
 

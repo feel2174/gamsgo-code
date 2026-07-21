@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getPost } from "@/lib/community/store";
+import { getPost, listPostIdsForSitemap } from "@/lib/community/store";
 import { createCommentAction, heartCommentAction, heartPostAction } from "../actions";
 import { HeartButton } from "@/components/community/HeartButton";
 import { StarRatingDisplay } from "@/components/community/StarRatingDisplay";
@@ -9,7 +9,12 @@ import { buildMetadata } from "@/lib/seo";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { SITE_URL } from "@/lib/constants";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 30;
+
+export async function generateStaticParams() {
+  const posts = await listPostIdsForSitemap();
+  return posts.map((post) => ({ id: post.id }));
+}
 
 export async function generateMetadata({
   params,

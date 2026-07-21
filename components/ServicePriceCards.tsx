@@ -1,10 +1,11 @@
 import Link from "next/link";
-import { AffiliateCTA } from "@/components/AffiliateCTA";
+import { ServiceIconBadge } from "@/components/ServiceIcon";
 import {
   GAMSGO_AFFILIATE_URL,
   SERVICE_PRICES,
   type ServiceCategory,
 } from "@/lib/constants";
+import { SERVICE_ICONS } from "@/lib/serviceIcons";
 
 const CATEGORY_ORDER: ServiceCategory[] = ["OTT", "AI", "음악", "소프트웨어", "게임"];
 
@@ -22,40 +23,58 @@ export function ServicePriceCards() {
               {services.map((service) => (
                 <div
                   key={service.id}
-                  className="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition-all duration-200 hover:-translate-y-1 hover:border-rose-200 hover:shadow-lg"
+                  className="flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition-all duration-200 hover:-translate-y-1 hover:border-rose-200 hover:shadow-lg"
                 >
-                  <div className="flex items-start justify-between gap-2">
-                    <h4 className="text-lg font-bold text-neutral-900">
-                      {service.name}
-                    </h4>
-                    <span className="shrink-0 rounded-full bg-rose-50 px-2.5 py-1 text-xs font-bold text-rose-500">
-                      {service.discountLabel}
-                    </span>
+                  <div className="flex items-start gap-3">
+                    <ServiceIconBadge icon={SERVICE_ICONS[service.id]} size={44} />
+                    <div className="flex min-w-0 flex-1 flex-col gap-1">
+                      <div className="flex items-start justify-between gap-2">
+                        <h4 className="font-bold text-neutral-900">
+                          {service.name}
+                        </h4>
+                        <span className="shrink-0 rounded-full bg-rose-50 px-2 py-0.5 text-[11px] font-bold text-rose-500">
+                          {service.discountLabel}
+                        </span>
+                      </div>
+                    </div>
                   </div>
-                  <div className="mt-4 flex flex-col gap-1">
-                    <p className="text-md text-neutral-400 line-through">
+
+                  <ul className="mt-3 flex flex-wrap gap-1.5">
+                    {service.features.map((feature) => (
+                      <li
+                        key={feature}
+                        className="rounded-full bg-neutral-50 px-2 py-1 text-[11px] font-medium text-neutral-500"
+                      >
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="mt-4 flex flex-col gap-0.5">
+                    <p className="text-xs text-neutral-400 line-through">
                       정가 {service.officialPrice}
                     </p>
-                    <p className="text-xl font-extrabold text-neutral-900">
+                    <p className="text-lg font-extrabold text-neutral-900">
                       {service.gamsgoPrice}
                     </p>
                   </div>
-                  {service.href ? (
+
+                  <a
+                    href={GAMSGO_AFFILIATE_URL}
+                    target="_blank"
+                    rel="sponsored noopener noreferrer"
+                    className="mt-4 flex items-center justify-center gap-1 rounded-lg bg-neutral-900 px-3 py-2.5 text-sm font-bold text-white transition-transform duration-150 active:scale-[0.98]"
+                  >
+                    겜스고에서 확인하기 <span aria-hidden>→</span>
+                  </a>
+
+                  {service.href && (
                     <Link
                       href={service.href}
-                      className="mt-4 flex items-center justify-between rounded-lg bg-neutral-50 px-3 py-2.5 text-sm font-semibold text-neutral-600 transition-colors group-hover:bg-rose-50 group-hover:text-rose-500"
+                      className="mt-2 text-center text-xs font-semibold text-neutral-400 transition-colors hover:text-rose-500"
                     >
-                      자세히 보기 <span aria-hidden>→</span>
+                      자세히 알아보기
                     </Link>
-                  ) : (
-                    <a
-                      href={GAMSGO_AFFILIATE_URL}
-                      target="_blank"
-                      rel="sponsored noopener noreferrer"
-                      className="mt-4 flex items-center justify-between rounded-lg bg-neutral-50 px-3 py-2.5 text-sm font-semibold text-neutral-600 transition-colors group-hover:bg-rose-50 group-hover:text-rose-500"
-                    >
-                      특가 확인하기 <span aria-hidden>→</span>
-                    </a>
                   )}
                 </div>
               ))}
@@ -63,7 +82,6 @@ export function ServicePriceCards() {
           </section>
         );
       })}
-      <AffiliateCTA label="가장 저렴한 서비스 지금 확인하기" />
     </div>
   );
 }

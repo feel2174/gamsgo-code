@@ -47,7 +47,7 @@ export function CommunityFeed({
 
   return (
     <div className="flex flex-col gap-3">
-      <ul className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
+      <ul className="grid grid-cols-1 gap-3 md:grid-cols-2">
         {posts.map((post) => (
           <FeedPostCard key={post.id} post={post} />
         ))}

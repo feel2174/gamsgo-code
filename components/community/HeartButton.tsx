@@ -61,9 +61,7 @@ export function HeartButton({
       onClick={handleClick}
       aria-pressed={hearted}
       aria-label={hearted ? "공감 취소" : "공감하기"}
-      className={`inline-flex items-center gap-1 rounded-full border border-neutral-200 bg-white text-neutral-500 transition-colors duration-150 hover:border-rose-200 hover:bg-rose-50 active:scale-95 ${
-        isSmall ? "px-2.5 py-1 text-xs" : "px-3.5 py-1.5 text-sm"
-      }`}
+      className={`inline-flex items-center gap-1 ${isSmall ? "text-xs" : "text-sm"}`}
     >
       <span
         className={`inline-block ${pop ? "animate-heart-pop" : ""}`}
@@ -71,7 +69,13 @@ export function HeartButton({
       >
         {hearted ? "❤️" : "🤍"}
       </span>
-      <span className="font-semibold tabular-nums">{count}</span>
+      <span
+        className={`font-semibold tabular-nums transition-colors duration-150 ${
+          hearted ? "text-rose-500" : "text-neutral-500"
+        }`}
+      >
+        {count}
+      </span>
     </button>
   );
 }

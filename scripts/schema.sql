@@ -25,6 +25,9 @@ create table if not exists comments (
 
 create index if not exists posts_created_at_idx on posts (created_at desc);
 create index if not exists comments_post_id_idx on comments (post_id);
+-- 공개 목록 조회(status='visible' 정렬)가 가장 잦은 쿼리라 복합 인덱스로 커버
+create index if not exists posts_status_created_at_idx on posts (status, created_at desc);
+create index if not exists comments_post_id_status_idx on comments (post_id, status);
 
 alter table posts enable row level security;
 alter table comments enable row level security;

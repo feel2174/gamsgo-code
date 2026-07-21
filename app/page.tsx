@@ -1,12 +1,12 @@
 import Link from "next/link";
 import { AffiliateCTA } from "@/components/AffiliateCTA";
-import { PriceTable } from "@/components/PriceTable";
 import { TrustBadges } from "@/components/TrustBadges";
-import { SERVICE_PRICES, SITE_TAGLINE } from "@/lib/constants";
+import { ServicePriceCards } from "@/components/ServicePriceCards";
+import { FeedPostCard } from "@/components/community/FeedPostCard";
+import { SITE_TAGLINE } from "@/lib/constants";
 import { listPostsPage } from "@/lib/community/store";
-import { formatRelativeTime } from "@/lib/community/time";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 30;
 
 const guides = [
   {
@@ -37,7 +37,7 @@ const guides = [
 ];
 
 export default async function Home() {
-  const { posts: latestPosts } = await listPostsPage(0, 2);
+  const { posts: reviewPosts } = await listPostsPage(0, 10);
 
   return (
     <div className="flex flex-col gap-8">
@@ -49,8 +49,9 @@ export default async function Home() {
           정가로 내면, 1년에 40만원 손해예요
         </h1>
         <p className="text-md text-neutral-500">
-          공식 아니라고 불안해하지 마세요. 150개국 1,000만 명이 이미 확인했고,
-          결제 즉시 발송·24시간 환불 보장까지 있어요.
+          공식 아니라고 불안해하지 마세요. 아래 찐후기부터 바로 확인할 수
+          있어요. 150개국 1,000만 명이 이미 확인했고, 결제 즉시 발송·24시간
+          환불 보장까지 있어요.
         </p>
         <TrustBadges />
         <AffiliateCTA label="지금 40만원 아끼러 가기" />
@@ -59,6 +60,36 @@ export default async function Home() {
       <section
         className="animate-fade-up flex flex-col gap-3"
         style={{ animationDelay: "80ms" }}
+      >
+        <div className="flex items-center justify-between">
+          <h2 className="text-lg font-bold">사기인지 아닌지, 찐후기부터 보세요</h2>
+        </div>
+        <p className="text-md text-neutral-500">
+          가입 없이도 실제 이용 후기를 바로 확인할 수 있어요. 스크롤만
+          내리면 됩니다.
+        </p>
+        <ul className="grid grid-cols-1 gap-3 md:grid-cols-2">
+          {reviewPosts.map((post) => (
+            <FeedPostCard key={post.id} post={post} />
+          ))}
+        </ul>
+        <Link
+          href="/community"
+          className="block rounded-xl border border-neutral-200 bg-white px-4 py-3 text-center text-sm font-bold text-neutral-700 transition-colors hover:border-rose-300 hover:text-rose-500"
+        >
+          찐후기 더보기 →
+        </Link>
+        <Link
+          href="/community/new"
+          className="rounded-xl border border-dashed border-neutral-300 px-4 py-3 text-center text-sm font-semibold text-neutral-400 transition-colors hover:border-rose-300 hover:text-rose-500"
+        >
+          3초면 끝, 나도 후기 남기기 ✍️
+        </Link>
+      </section>
+
+      <section
+        className="animate-fade-up flex flex-col gap-3"
+        style={{ animationDelay: "140ms" }}
       >
         <h2 className="text-lg font-bold">다들 이렇게 아끼고 있었더라고요</h2>
         <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3">
@@ -77,54 +108,10 @@ export default async function Home() {
 
       <section
         className="animate-fade-up flex flex-col gap-3"
-        style={{ animationDelay: "140ms" }}
-      >
-        <div className="flex items-center justify-between">
-          <h2 className="text-lg font-bold">사기인지 아닌지, 찐후기부터 보세요</h2>
-          <Link
-            href="/community"
-            className="text-xs font-semibold text-neutral-400 transition-colors hover:text-rose-500"
-          >
-            후기 더 보기 →
-          </Link>
-        </div>
-        <p className="text-md text-neutral-500">
-          가입 없이도 실제 이용 후기를 바로 확인할 수 있어요. 궁금한 점은
-          방문해서 직접 확인해보세요.
-        </p>
-        <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
-          {latestPosts.map((post) => (
-            <Link
-              key={post.id}
-              href={`/community/${post.id}`}
-              className="rounded-xl border border-neutral-200 bg-white px-4 py-3 transition-all duration-200 hover:-translate-y-0.5 hover:border-rose-300 hover:shadow-sm"
-            >
-              <div className="mb-1 flex items-center gap-2 text-xs text-neutral-400">
-                <span className="font-semibold text-neutral-500">
-                  {post.nickname}
-                </span>
-                <span>·</span>
-                <span>{formatRelativeTime(post.createdAt)}</span>
-              </div>
-              <p className="line-clamp-1 font-semibold">{post.title}</p>
-              <p className="mt-1 text-xs text-neutral-400">❤️ {post.hearts}</p>
-            </Link>
-          ))}
-        </div>
-        <Link
-          href="/community/new"
-          className="rounded-xl border border-dashed border-neutral-300 px-4 py-3 text-center text-sm font-semibold text-neutral-400 transition-colors hover:border-rose-300 hover:text-rose-500"
-        >
-          3초면 끝, 나도 후기 남기기 ✍️
-        </Link>
-      </section>
-
-      <section
-        className="animate-fade-up flex flex-col gap-3"
         style={{ animationDelay: "200ms" }}
       >
         <h2 className="text-lg font-bold">지금 얼마나 새고 있는지 확인해보세요</h2>
-        <PriceTable rows={SERVICE_PRICES} />
+        <ServicePriceCards />
       </section>
 
       <AffiliateCTA label="더 늦기 전에 구독료 아끼기" />

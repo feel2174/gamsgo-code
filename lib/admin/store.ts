@@ -37,6 +37,11 @@ function mapComment(row: CommentRow): CommunityComment {
 }
 
 function mapPost(row: PostRow): CommunityPost {
+  const comments = (row.comments ?? [])
+    .sort(
+      (a, b) => new Date(a.created_at).getTime() - new Date(b.created_at).getTime()
+    )
+    .map(mapComment);
   return {
     id: row.id,
     serviceCategory: row.service_category,
@@ -48,11 +53,8 @@ function mapPost(row: PostRow): CommunityPost {
     hearts: row.hearts,
     status: row.status,
     createdAt: row.created_at,
-    comments: (row.comments ?? [])
-      .sort(
-        (a, b) => new Date(a.created_at).getTime() - new Date(b.created_at).getTime()
-      )
-      .map(mapComment),
+    commentCount: comments.length,
+    comments,
   };
 }
 

@@ -6,7 +6,7 @@ const STAR_INDEXES = [1, 2, 3, 4, 5];
 
 function StarGlyph({ fill }: { fill: number }) {
   return (
-    <span className="relative inline-block text-2xl leading-none">
+    <span className="relative inline-block text-6xl leading-none md:text-7xl">
       <span className="text-neutral-300">★</span>
       <span
         className="absolute inset-0 overflow-hidden text-amber-400"
@@ -31,10 +31,10 @@ export function StarRatingInput({
   const display = hoverValue ?? value;
 
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex flex-col items-start gap-2">
       <input type="hidden" name={name} value={value} />
       <div
-        className="flex items-center gap-0.5"
+        className="flex items-center gap-1"
         role="radiogroup"
         aria-label="이용한 서비스 별점"
         onMouseLeave={() => setHoverValue(null)}
@@ -62,8 +62,8 @@ export function StarRatingInput({
           );
         })}
       </div>
-      <span className="text-sm font-semibold text-neutral-600">
-        {value.toFixed(1)}
+      <span className="text-xl font-bold text-neutral-700">
+        {value.toFixed(1)}점
       </span>
     </div>
   );

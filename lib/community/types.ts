@@ -36,5 +36,7 @@ export interface CommunityPost {
   hearts: number;
   createdAt: string;
   status: ModerationStatus;
+  /** 목록 화면에서는 개수만, 상세 화면에서는 실제 댓글까지 채워짐 */
+  commentCount: number;
   comments: CommunityComment[];
 }

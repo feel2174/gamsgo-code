@@ -1,6 +1,7 @@
 import { adminListPosts } from "@/lib/admin/store";
 import { formatRelativeTime } from "@/lib/community/time";
 import { ConfirmSubmitButton } from "@/components/admin/ConfirmSubmitButton";
+import { buildMetadata } from "@/lib/seo";
 import {
   deleteCommentAction,
   deletePostAction,
@@ -11,6 +12,13 @@ import {
 } from "../actions";
 
 export const dynamic = "force-dynamic";
+
+export const metadata = buildMetadata({
+  title: "관리자 대시보드",
+  description: "게시글·댓글 관리 페이지입니다.",
+  path: "/admin",
+  noIndex: true,
+});
 
 export default async function AdminDashboardPage() {
   const posts = await adminListPosts();

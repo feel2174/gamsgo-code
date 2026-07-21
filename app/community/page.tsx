@@ -6,7 +6,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { CommunityFeed } from "@/components/community/CommunityFeed";
 import { SITE_URL } from "@/lib/constants";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 30;
 
 export const metadata = buildMetadata({
   title: "익명 후기 게시판 — 겜스고·구독툴 솔직 후기",
