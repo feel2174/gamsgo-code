@@ -8,6 +8,7 @@ const paths = [
   "/chatgpt-plus-discount",
   "/gamsgo-review",
   "/price-comparison",
+  "/community",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

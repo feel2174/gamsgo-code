@@ -3,13 +3,15 @@ import { AffiliateCTA } from "@/components/AffiliateCTA";
 import { DisclosureBanner } from "@/components/DisclosureBanner";
 import { PriceTable } from "@/components/PriceTable";
 import { FaqAccordion } from "@/components/FaqAccordion";
+import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import { ProductJsonLd } from "@/components/seo/ProductJsonLd";
 import { buildMetadata } from "@/lib/seo";
 import { getServiceById } from "@/lib/constants";
 
 export const metadata = buildMetadata({
-  title: "유튜브 프리미엄 가격할인 총정리 (2026년 최신)",
+  title: "유튜브 프리미엄 가격할인 총정리, 월 6,900원대 (2026년 최신)",
   description:
-    "유튜브 프리미엄 정가 월 14,900원을 겜스고로 최대 70% 할인받는 방법, 이용 방식, 주의사항까지 정리했습니다.",
+    "유튜브 프리미엄 가격할인 정보 총정리. 정가 월 14,900원을 겜스고로 최대 70% 할인받아 월 6,900원대에 이용하는 방법, 이용 방식, 주의사항까지 정리했습니다.",
   path: "/youtube-premium-discount",
 });
 
@@ -41,12 +43,26 @@ export default function YoutubePremiumDiscountPage() {
 
   return (
     <article className="flex flex-col gap-8">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "홈", path: "/" },
+          { name: "유튜브 프리미엄 가격할인", path: "/youtube-premium-discount" },
+        ]}
+      />
+      {service.gamsgoPriceKRW && (
+        <ProductJsonLd
+          name="유튜브 프리미엄 (겜스고 할인가)"
+          description="겜스고를 통해 이용하는 유튜브 프리미엄 개인/가족 공유 구독"
+          priceKRW={service.gamsgoPriceKRW}
+          path="/youtube-premium-discount"
+        />
+      )}
       <header className="flex flex-col gap-3">
         <DisclosureBanner />
         <h1 className="text-2xl font-extrabold leading-snug">
           유튜브 프리미엄 가격할인, 최대 70% 저렴하게 구독하는 법
         </h1>
-        <p className="text-sm text-neutral-500 dark:text-neutral-400">
+        <p className="text-sm text-neutral-500">
           광고 없는 유튜브, 백그라운드 재생, 유튜브 뮤직까지 — 정가의 절반 이하로
           이용하는 방법을 정리했습니다.
         </p>
@@ -60,7 +76,7 @@ export default function YoutubePremiumDiscountPage() {
 
       <section className="flex flex-col gap-2">
         <h2 className="text-lg font-bold">왜 이렇게 저렴한가요?</h2>
-        <p className="text-sm leading-relaxed text-neutral-700 dark:text-neutral-300">
+        <p className="text-sm leading-relaxed text-neutral-700">
           겜스고는 유튜브 프리미엄 가족 요금제나 대량 구매 혜택을 활용해 개인
           사용자에게 나눠 제공하는 구독 공유 중개 플랫폼입니다. 이메일 초대
           방식으로 본인 계정에 프리미엄 혜택이 그대로 적용되기 때문에, 광고
@@ -71,7 +87,7 @@ export default function YoutubePremiumDiscountPage() {
 
       <section className="flex flex-col gap-2">
         <h2 className="text-lg font-bold">이용 방법 (3단계)</h2>
-        <ol className="flex flex-col gap-2 text-sm text-neutral-700 dark:text-neutral-300">
+        <ol className="flex flex-col gap-2 text-sm text-neutral-700">
           <li>
             <span className="font-semibold">1. 상품 선택 —</span> 개인 충전형
             또는 가족 공유형 중 원하는 방식을 선택합니다.
@@ -89,7 +105,7 @@ export default function YoutubePremiumDiscountPage() {
 
       <section className="flex flex-col gap-2">
         <h2 className="text-lg font-bold">주의할 점</h2>
-        <p className="text-sm leading-relaxed text-neutral-700 dark:text-neutral-300">
+        <p className="text-sm leading-relaxed text-neutral-700">
           구독 공유 방식은 유튜브 공식 약관과 배치될 수 있는 회색지대 서비스로,
           정책 변경에 따른 리스크가 있을 수 있습니다. 계정을 제3자와 재공유하는
           것은 제한되며, 문제 발생 시 24시간 고객센터를 통해 지원받을 수
@@ -103,13 +119,13 @@ export default function YoutubePremiumDiscountPage() {
       </section>
 
       <section className="flex flex-col gap-3">
-        <p className="text-sm text-neutral-500 dark:text-neutral-400">
+        <p className="text-sm text-neutral-500">
           겜스고 자체의 안전성과 후기가 궁금하다면{" "}
-          <Link href="/gamsgo-review" className="underline">
+          <Link href="/gamsgo-review" className="text-rose-500 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400">
             겜스고 후기 및 안전성 총정리
           </Link>
           를 참고하세요. 다른 구독 서비스 가격도 함께 보려면{" "}
-          <Link href="/price-comparison" className="underline">
+          <Link href="/price-comparison" className="text-rose-500 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400">
             구독료 전체 가격 비교
           </Link>
           페이지를 확인하세요.

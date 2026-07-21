@@ -3,6 +3,7 @@ import { AffiliateCTA } from "@/components/AffiliateCTA";
 import { DisclosureBanner } from "@/components/DisclosureBanner";
 import { PriceTable } from "@/components/PriceTable";
 import { FaqAccordion } from "@/components/FaqAccordion";
+import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { buildMetadata } from "@/lib/seo";
 import { getServiceById } from "@/lib/constants";
 
@@ -36,12 +37,18 @@ export default function ChatgptPlusDiscountPage() {
 
   return (
     <article className="flex flex-col gap-8">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "홈", path: "/" },
+          { name: "챗GPT 플러스 가격할인", path: "/chatgpt-plus-discount" },
+        ]}
+      />
       <header className="flex flex-col gap-3">
         <DisclosureBanner />
         <h1 className="text-2xl font-extrabold leading-snug">
           챗GPT 플러스 가격할인, AI 구독료도 절반 이하로
         </h1>
-        <p className="text-sm text-neutral-500 dark:text-neutral-400">
+        <p className="text-sm text-neutral-500">
           월 $20짜리 ChatGPT Plus를 겜스고로 더 저렴하게 이용하는 방법을
           정리했습니다.
         </p>
@@ -59,7 +66,7 @@ export default function ChatgptPlusDiscountPage() {
 
       <section className="flex flex-col gap-2">
         <h2 className="text-lg font-bold">이용 방법</h2>
-        <p className="text-sm leading-relaxed text-neutral-700 dark:text-neutral-300">
+        <p className="text-sm leading-relaxed text-neutral-700">
           계정 충전 또는 초대 방식으로 ChatGPT Plus 혜택을 적용받을 수 있으며,
           결제 후 안내에 따라 짧은 시간 내에 이용을 시작할 수 있습니다.
         </p>
@@ -71,17 +78,17 @@ export default function ChatgptPlusDiscountPage() {
       </section>
 
       <section className="flex flex-col gap-3">
-        <p className="text-sm text-neutral-500 dark:text-neutral-400">
+        <p className="text-sm text-neutral-500">
           OTT 구독료 할인도 궁금하다면{" "}
-          <Link href="/youtube-premium-discount" className="underline">
+          <Link href="/youtube-premium-discount" className="text-rose-500 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400">
             유튜브 프리미엄
           </Link>{" "}
           또는{" "}
-          <Link href="/netflix-discount" className="underline">
+          <Link href="/netflix-discount" className="text-rose-500 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400">
             넷플릭스
           </Link>{" "}
           할인 정보를, 전체 비교는{" "}
-          <Link href="/price-comparison" className="underline">
+          <Link href="/price-comparison" className="text-rose-500 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400">
             구독료 전체 가격 비교
           </Link>
           에서 확인하세요.

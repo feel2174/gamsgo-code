@@ -1,4 +1,5 @@
-export const SITE_NAME = "구독료 절약 가이드";
+export const SITE_NAME = "짠구독";
+export const SITE_TAGLINE = "짠내나게 아끼는 구독 생활";
 export const SITE_URL = "https://example.com";
 export const GAMSGO_AFFILIATE_URL = "https://www.gamsgo.com/partner/Chgyp";
 
@@ -20,6 +21,8 @@ export interface ServicePrice {
   gamsgoPrice: string;
   discountLabel: string;
   href?: string;
+  /** 구조화 데이터(Offer)용 확정 숫자 가격. 실시간 확인이 필요한 경우 생략 */
+  gamsgoPriceKRW?: number;
 }
 
 export const SERVICE_PRICES: ServicePrice[] = [
@@ -31,6 +34,7 @@ export const SERVICE_PRICES: ServicePrice[] = [
     gamsgoPrice: "연 82,800원 (월 환산 약 6,900원대)",
     discountLabel: "최대 70% 할인",
     href: "/youtube-premium-discount",
+    gamsgoPriceKRW: 6900,
   },
   {
     id: "netflix",
@@ -40,6 +44,7 @@ export const SERVICE_PRICES: ServicePrice[] = [
     gamsgoPrice: "월 5,000원대",
     discountLabel: "최대 70% 할인",
     href: "/netflix-discount",
+    gamsgoPriceKRW: 5000,
   },
   {
     id: "chatgpt-plus",
@@ -66,6 +71,21 @@ export const SERVICE_PRICES: ServicePrice[] = [
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
     discountLabel: "할인가 확인 필요",
   },
+];
+
+export interface KeywordLink {
+  href: string;
+  label: string;
+}
+
+/** 헤더 하단 가로스크롤 내비게이션에 노출되는 핵심 검색 키워드 */
+export const TOP_KEYWORDS: KeywordLink[] = [
+  { href: "/youtube-premium-discount", label: "유튜브 프리미엄 가격할인" },
+  { href: "/netflix-discount", label: "넷플릭스 가격할인" },
+  { href: "/chatgpt-plus-discount", label: "챗GPT 플러스 가격할인" },
+  { href: "/price-comparison", label: "구독료 가격 비교" },
+  { href: "/gamsgo-review", label: "겜스고 후기" },
+  { href: "/community", label: "익명 후기 게시판" },
 ];
 
 export function getServiceById(id: ServiceId): ServicePrice {

@@ -1,14 +1,64 @@
+"use client";
+
 import Link from "next/link";
-import { SITE_NAME } from "@/lib/constants";
+import { usePathname } from "next/navigation";
+import { SITE_NAME, TOP_KEYWORDS } from "@/lib/constants";
+
+const NAV_LINKS = [
+  { href: "/price-comparison", label: "가격비교" },
+  { href: "/community", label: "후기게시판" },
+];
 
 export function Header() {
+  const pathname = usePathname();
+
   return (
-    <header className="sticky top-0 z-10 border-b border-neutral-200 bg-white/90 backdrop-blur dark:border-neutral-800 dark:bg-black/90">
+    <header className="sticky top-0 z-10 border-b border-neutral-200 bg-white/90 backdrop-blur">
       <div className="mx-auto flex w-full max-w-[420px] items-center justify-between px-4 py-3">
-        <Link href="/" className="text-base font-bold">
+        <Link
+          href="/"
+          className="flex items-center gap-1 text-base font-extrabold tracking-tight text-neutral-900 transition-opacity hover:opacity-70"
+        >
+          <span aria-hidden>🐷</span>
           {SITE_NAME}
         </Link>
+        <nav className="flex items-center gap-3" aria-label="주요 메뉴">
+          {NAV_LINKS.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="text-xs font-semibold text-neutral-500 transition-colors hover:text-neutral-900"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
       </div>
+
+      <nav
+        aria-label="인기 검색 키워드"
+        className="border-t border-neutral-100"
+      >
+        <ul className="scrollbar-hide mx-auto flex w-full max-w-[420px] snap-x gap-2 overflow-x-auto px-4 py-2.5">
+          {TOP_KEYWORDS.map((keyword) => {
+            const isActive = pathname === keyword.href;
+            return (
+              <li key={keyword.href} className="snap-start">
+                <Link
+                  href={keyword.href}
+                  className={`block shrink-0 whitespace-nowrap rounded-full border px-3 py-1.5 text-xs font-semibold transition-colors ${
+                    isActive
+                      ? "border-rose-300 bg-rose-50 text-rose-500"
+                      : "border-neutral-200 bg-neutral-50 text-neutral-600 hover:border-rose-300 hover:bg-rose-50 hover:text-rose-500"
+                  }`}
+                >
+                  {keyword.label}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
     </header>
   );
 }

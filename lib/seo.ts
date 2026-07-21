@@ -5,14 +5,16 @@ export function buildMetadata(opts: {
   title: string;
   description: string;
   path: string;
+  noIndex?: boolean;
 }): Metadata {
-  const { title, description, path } = opts;
+  const { title, description, path, noIndex } = opts;
   const url = `${SITE_URL}${path}`;
 
   return {
-    title: `${title} | ${SITE_NAME}`,
+    title,
     description,
     alternates: { canonical: url },
+    ...(noIndex && { robots: { index: false, follow: true } }),
     openGraph: {
       title,
       description,

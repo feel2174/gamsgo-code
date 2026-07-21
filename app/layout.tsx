@@ -1,30 +1,46 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { SITE_NAME } from "@/lib/constants";
+import { SITE_NAME, SITE_TAGLINE, SITE_URL } from "@/lib/constants";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const pretendard = localFont({
+  src: "../node_modules/pretendard/dist/web/variable/woff2/PretendardVariable.woff2",
+  variable: "--font-pretendard",
+  display: "swap",
+  weight: "45 920",
 });
 
 export const metadata: Metadata = {
-  title: `${SITE_NAME} — 유튜브 프리미엄, 넷플릭스, 챗GPT 구독료 할인 정보`,
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: `${SITE_NAME} — 유튜브 프리미엄 가격할인, 넷플릭스 가격할인 총정리`,
+    template: `%s | ${SITE_NAME}`,
+  },
   description:
-    "유튜브 프리미엄, 넷플릭스, 챗GPT Plus 등 구독 서비스를 최대 70% 저렴하게 이용하는 방법을 정리했습니다.",
+    "유튜브 프리미엄 가격할인, 넷플릭스 가격할인, 챗GPT 플러스 할인까지 — 정가 대비 최대 70% 저렴하게 구독하는 법과 실제 이용자 익명 후기를 한곳에 모았습니다.",
   verification: {
     other: {
       "naver-site-verification": "c9f34b179e94c1dfd5cbb648cf335ea0981f6bbd",
     },
   },
+};
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: SITE_NAME,
+  url: SITE_URL,
+  description: SITE_TAGLINE,
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: SITE_NAME,
+  url: SITE_URL,
 };
 
 export default function RootLayout({
@@ -35,9 +51,17 @@ export default function RootLayout({
   return (
     <html
       lang="ko"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${pretendard.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-white text-neutral-900 dark:bg-black dark:text-neutral-100">
+      <body className="flex min-h-full flex-col bg-white text-neutral-900">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
         <Header />
         <main className="mx-auto w-full max-w-[420px] flex-1 px-4 py-6">
           {children}
