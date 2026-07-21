@@ -4,8 +4,9 @@ import { DisclosureBanner } from "@/components/DisclosureBanner";
 import { PriceTable } from "@/components/PriceTable";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import { TrustBadges } from "@/components/TrustBadges";
 import { buildMetadata } from "@/lib/seo";
-import { SERVICE_PRICES } from "@/lib/constants";
+import { SERVICE_PRICES, OBJECTION_FAQS } from "@/lib/constants";
 
 export const metadata = buildMetadata({
   title: "구독료 가격 비교, 유튜브·넷플릭스·챗GPT 가격할인 총정리",
@@ -15,6 +16,12 @@ export const metadata = buildMetadata({
 });
 
 const faqs = [
+  ...OBJECTION_FAQS,
+  {
+    question: "이 가격 진짜 맞아요? 어떻게 이렇게 싸게 파는 거예요?",
+    answer:
+      "겜스고는 가족 요금제나 대량 구매 혜택을 여러 명이 나눠 쓰는 구조로 가격을 낮춥니다. 개인이 정가로 혼자 결제하는 것과 결과물은 동일하지만, 비용만 나눠 내는 방식이라 이 정도 할인이 가능한 거예요.",
+  },
   {
     question: "구독료 가격 비교, 어떤 서비스가 가장 많이 할인되나요?",
     answer:
@@ -42,14 +49,15 @@ export default function PriceComparisonPage() {
           구독료 가격 비교, 정가 vs 겜스고가
         </h1>
         <p className="text-sm text-neutral-500">
-          유튜브 프리미엄 가격할인, 넷플릭스 가격할인부터 AI 서비스까지, 겜스고에서
-          얼마나 저렴해지는지 한눈에 비교해보세요.
+          정가로 다 내고 있다면 지금도 매달 그대로 새는 돈이에요. 얼마나
+          차이나는지 직접 비교해보세요.
         </p>
+        <TrustBadges />
       </header>
 
       <section className="flex flex-col gap-3">
         <PriceTable rows={SERVICE_PRICES} />
-        <AffiliateCTA label="전체 특가 겜스고에서 확인하기" />
+        <AffiliateCTA label="가장 저렴한 서비스 지금 확인하기" />
       </section>
 
       <section className="flex flex-col gap-2">

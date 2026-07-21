@@ -5,8 +5,9 @@ import { PriceTable } from "@/components/PriceTable";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { ProductJsonLd } from "@/components/seo/ProductJsonLd";
+import { TrustBadges } from "@/components/TrustBadges";
 import { buildMetadata } from "@/lib/seo";
-import { getServiceById } from "@/lib/constants";
+import { getServiceById, OBJECTION_FAQS } from "@/lib/constants";
 
 export const metadata = buildMetadata({
   title: "유튜브 프리미엄 가격할인 총정리, 월 6,900원대 (2026년 최신)",
@@ -16,6 +17,7 @@ export const metadata = buildMetadata({
 });
 
 const faqs = [
+  ...OBJECTION_FAQS,
   {
     question: "유튜브 프리미엄 가격할인, 겜스고에서 얼마나 저렴한가요?",
     answer:
@@ -63,15 +65,16 @@ export default function YoutubePremiumDiscountPage() {
           유튜브 프리미엄 가격할인, 최대 70% 저렴하게 구독하는 법
         </h1>
         <p className="text-sm text-neutral-500">
-          광고 없는 유튜브, 백그라운드 재생, 유튜브 뮤직까지 — 정가의 절반 이하로
-          이용하는 방법을 정리했습니다.
+          정가로 내면 연 178,800원, 겜스고면 연 82,800원. 그 차액 96,000원은
+          그냥 버리는 돈이에요.
         </p>
+        <TrustBadges />
       </header>
 
       <section className="flex flex-col gap-3">
         <h2 className="text-lg font-bold">정가 vs 겜스고 특가</h2>
         <PriceTable rows={[service]} />
-        <AffiliateCTA label="유튜브 프리미엄 특가 확인하기" />
+        <AffiliateCTA label="월 6,900원으로 지금 바꾸기" />
       </section>
 
       <section className="flex flex-col gap-2">
@@ -104,12 +107,11 @@ export default function YoutubePremiumDiscountPage() {
       </section>
 
       <section className="flex flex-col gap-2">
-        <h2 className="text-lg font-bold">주의할 점</h2>
+        <h2 className="text-lg font-bold">혹시 모를 상황도 이렇게 대비돼있어요</h2>
         <p className="text-sm leading-relaxed text-neutral-700">
-          구독 공유 방식은 유튜브 공식 약관과 배치될 수 있는 회색지대 서비스로,
-          정책 변경에 따른 리스크가 있을 수 있습니다. 계정을 제3자와 재공유하는
-          것은 제한되며, 문제 발생 시 24시간 고객센터를 통해 지원받을 수
-          있습니다.
+          구독 공유 방식은 유튜브 공식 약관과는 별개로 운영되는 서비스라 정책이
+          바뀔 가능성은 있어요. 그래서 문제가 생기면 24시간 고객센터가 바로
+          대응하고, 계정 재공유만 지키면 대부분 문제없이 이용하고 있습니다.
         </p>
       </section>
 

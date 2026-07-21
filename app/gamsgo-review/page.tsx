@@ -4,6 +4,7 @@ import { DisclosureBanner } from "@/components/DisclosureBanner";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { ProductJsonLd } from "@/components/seo/ProductJsonLd";
+import { TrustBadges } from "@/components/TrustBadges";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
@@ -57,9 +58,10 @@ export default function GamsgoReviewPage() {
           겜스고 후기, 안전성부터 장단점까지 솔직 정리
         </h1>
         <p className="text-sm text-neutral-500">
-          가입 전 꼭 확인해야 할 겜스고의 신뢰도, 장점, 단점을 있는 그대로
-          정리했습니다.
+          공식이 아니라고 다 위험한 건 아니에요. 가입 전 꼭 확인해야 할
+          겜스고의 신뢰도, 장점, 단점을 있는 그대로 정리했습니다.
         </p>
+        <TrustBadges />
       </header>
 
       <section className="flex flex-col gap-2">
@@ -111,7 +113,7 @@ export default function GamsgoReviewPage() {
           </Link>{" "}
           할인 페이지를 확인해보세요.
         </p>
-        <AffiliateCTA label="겜스고 둘러보기" />
+        <AffiliateCTA label="가입 없이 가격만 먼저 보기" />
       </section>
     </article>
   );

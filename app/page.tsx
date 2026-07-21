@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { AffiliateCTA } from "@/components/AffiliateCTA";
 import { PriceTable } from "@/components/PriceTable";
+import { TrustBadges } from "@/components/TrustBadges";
 import { SERVICE_PRICES, SITE_TAGLINE } from "@/lib/constants";
 import { listPosts } from "@/lib/community/store";
 import { formatRelativeTime } from "@/lib/community/time";
@@ -11,27 +12,27 @@ const guides = [
   {
     href: "/youtube-premium-discount",
     title: "유튜브 프리미엄 가격할인",
-    desc: "월 14,900원 → 최대 70% 저렴하게 이용하는 법",
+    desc: "정가로 내고 계셨다면 매달 8,000원 날린 거예요",
   },
   {
     href: "/netflix-discount",
-    title: "넷플릭스 싸게 보는법",
-    desc: "4K 프리미엄 화질을 월 5천원대로",
+    title: "넷플릭스 가격할인",
+    desc: "4K 프리미엄 그대로, 정가와 만원 넘게 차이나요",
   },
   {
     href: "/chatgpt-plus-discount",
     title: "챗GPT 플러스 가격할인",
-    desc: "AI 구독료도 절반 이하로 줄이는 방법",
+    desc: "AI 구독료도 반값 이하, 안 바꿀 이유가 없어요",
   },
   {
     href: "/price-comparison",
     title: "구독료 전체 가격 비교",
-    desc: "OTT·AI 서비스 정가 vs 겜스고가 한눈에",
+    desc: "내가 쓰는 서비스, 지금 얼마나 손해보고 있는지 확인",
   },
   {
     href: "/gamsgo-review",
     title: "겜스고 후기 및 안전성",
-    desc: "믿고 써도 되는지, 장단점까지 솔직 정리",
+    desc: "사기 아니냐고요? 3,674명 후기로 직접 확인하세요",
   },
 ];
 
@@ -43,22 +44,23 @@ export default function Home() {
       <section className="animate-fade-up flex flex-col gap-3 text-center">
         <p className="text-sm font-bold text-rose-500">{SITE_TAGLINE}</p>
         <h1 className="text-2xl font-extrabold leading-snug">
-          구독료, 최대 70%까지
+          유튜브·넷플릭스·챗GPT
           <br />
-          아끼는 방법
+          정가로 내면, 1년에 40만원 손해예요
         </h1>
         <p className="text-sm text-neutral-500">
-          유튜브 프리미엄, 넷플릭스, 챗GPT Plus까지 — 겜스고로 구독료를 절약하는
-          방법과 실제 이용자들의 솔직 후기를 모았습니다.
+          공식 아니라고 불안해하지 마세요. 150개국 1,000만 명이 이미 확인했고,
+          결제 즉시 발송·24시간 환불 보장까지 있어요.
         </p>
-        <AffiliateCTA label="겜스고 특가 바로가기" />
+        <TrustBadges />
+        <AffiliateCTA label="지금 40만원 아끼러 가기" />
       </section>
 
       <section
         className="animate-fade-up flex flex-col gap-3"
         style={{ animationDelay: "80ms" }}
       >
-        <h2 className="text-lg font-bold">이런 정보를 찾고 계셨죠?</h2>
+        <h2 className="text-lg font-bold">다들 이렇게 아끼고 있었더라고요</h2>
         <div className="flex flex-col gap-2">
           {guides.map((g) => (
             <Link
@@ -78,7 +80,7 @@ export default function Home() {
         style={{ animationDelay: "140ms" }}
       >
         <div className="flex items-center justify-between">
-          <h2 className="text-lg font-bold">지금 올라온 익명 후기</h2>
+          <h2 className="text-lg font-bold">사기인지 아닌지, 써본 사람들 얘기</h2>
           <Link
             href="/community"
             className="text-xs font-semibold text-neutral-400 transition-colors hover:text-rose-500"
@@ -117,11 +119,11 @@ export default function Home() {
         className="animate-fade-up flex flex-col gap-3"
         style={{ animationDelay: "200ms" }}
       >
-        <h2 className="text-lg font-bold">지금 바로 비교해보세요</h2>
+        <h2 className="text-lg font-bold">지금 얼마나 새고 있는지 확인해보세요</h2>
         <PriceTable rows={SERVICE_PRICES} />
       </section>
 
-      <AffiliateCTA label="겜스고에서 구독료 절약 시작하기" />
+      <AffiliateCTA label="더 늦기 전에 구독료 아끼기" />
     </div>
   );
 }

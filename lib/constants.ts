@@ -88,6 +88,33 @@ export const TOP_KEYWORDS: KeywordLink[] = [
   { href: "/community", label: "익명 후기 게시판" },
 ];
 
+export interface TrustBadge {
+  icon: string;
+  label: string;
+}
+
+/** 신뢰 배지: '사기 아닌가' 반박을 즉시 제거하기 위한 구체적 수치·권위 요소 */
+export const TRUST_BADGES: TrustBadge[] = [
+  { icon: "🌍", label: "150개국 1,000만 명" },
+  { icon: "⭐", label: "평점 4.8 (3,674건)" },
+  { icon: "⚡", label: "결제 후 즉시 발송" },
+  { icon: "🔄", label: "24시간 환불 보장" },
+];
+
+/** 사기/신뢰 반박을 선제 차단하는 공통 objection FAQ. 각 페이지 FAQ 최상단에 배치 */
+export const OBJECTION_FAQS = [
+  {
+    question: "이거 사기 아니에요?",
+    answer:
+      "겜스고는 전 세계 150개국에서 1,000만 명 이상이 이용 중이고, 실제 이용자 평점도 4.8점(3,674건)입니다. 결제 즉시 계정이 발송되고, 문제가 생기면 24시간 안에 환불도 받을 수 있어서 걱정하시는 것보다 훨씬 안전하게 운영되고 있어요.",
+  },
+  {
+    question: "진짜 정상적으로 다 되나요? 어디 막히는 거 아니에요?",
+    answer:
+      "네. 별도 앱 설치나 우회 프로그램 없이 공식 앱·사이트에 그대로 로그인해서 씁니다. 화질, 기능 모두 정가로 결제한 것과 100% 동일하게 작동해요.",
+  },
+];
+
 export function getServiceById(id: ServiceId): ServicePrice {
   const service = SERVICE_PRICES.find((s) => s.id === id);
   if (!service) throw new Error(`Unknown service id: ${id}`);

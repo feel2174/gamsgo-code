@@ -4,8 +4,9 @@ import { DisclosureBanner } from "@/components/DisclosureBanner";
 import { PriceTable } from "@/components/PriceTable";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import { TrustBadges } from "@/components/TrustBadges";
 import { buildMetadata } from "@/lib/seo";
-import { getServiceById } from "@/lib/constants";
+import { getServiceById, OBJECTION_FAQS } from "@/lib/constants";
 
 export const metadata = buildMetadata({
   title: "챗GPT 플러스 가격할인 정리 (ChatGPT Plus 싸게 구독하기)",
@@ -15,6 +16,7 @@ export const metadata = buildMetadata({
 });
 
 const faqs = [
+  ...OBJECTION_FAQS,
   {
     question: "챗GPT 플러스 가격할인, 얼마나 저렴해지나요?",
     answer:
@@ -49,9 +51,10 @@ export default function ChatgptPlusDiscountPage() {
           챗GPT 플러스 가격할인, AI 구독료도 절반 이하로
         </h1>
         <p className="text-sm text-neutral-500">
-          월 $20짜리 ChatGPT Plus를 겜스고로 더 저렴하게 이용하는 방법을
-          정리했습니다.
+          정가 $20(약 2.8만원), 매달 그대로 내고 계셨다면 절반 이상을 놓치고
+          있는 거예요.
         </p>
+        <TrustBadges />
       </header>
 
       <section className="flex flex-col gap-3">
@@ -61,7 +64,7 @@ export default function ChatgptPlusDiscountPage() {
           * AI 구독 특가는 환율/공급 상황에 따라 자주 바뀌므로 정확한 금액은
           아래 버튼에서 실시간으로 확인하세요.
         </p>
-        <AffiliateCTA label="챗GPT 플러스 특가 확인하기" />
+        <AffiliateCTA label="챗GPT 플러스 반값에 시작하기" />
       </section>
 
       <section className="flex flex-col gap-2">

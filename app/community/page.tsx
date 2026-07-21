@@ -51,8 +51,8 @@ export default function CommunityPage() {
       <header className="flex flex-col gap-2">
         <h1 className="text-2xl font-extrabold leading-snug">익명 후기 게시판</h1>
         <p className="text-sm text-neutral-500">
-          겜스고로 아낀 후기, 써본 구독툴 이야기를 자유롭게 남겨보세요. 닉네임은
-          매번 랜덤으로 생성돼요.
+          사기인지 아닌지 궁금하다면, 실제로 써본 사람들 얘기부터 보세요.
+          닉네임은 매번 랜덤으로 생성돼서 부담 없이 솔직하게 남길 수 있어요.
         </p>
       </header>
 
