@@ -50,7 +50,7 @@ export default function ChatgptPlusDiscountPage() {
         <h1 className="text-2xl font-extrabold leading-snug">
           챗GPT 플러스 가격할인, AI 구독료도 절반 이하로
         </h1>
-        <p className="text-sm text-neutral-500">
+        <p className="text-md text-neutral-500">
           정가 $20(약 2.8만원), 매달 그대로 내고 계셨다면 절반 이상을 놓치고
           있는 거예요.
         </p>
@@ -69,7 +69,7 @@ export default function ChatgptPlusDiscountPage() {
 
       <section className="flex flex-col gap-2">
         <h2 className="text-lg font-bold">이용 방법</h2>
-        <p className="text-sm leading-relaxed text-neutral-700">
+        <p className="text-md text-neutral-700">
           계정 충전 또는 초대 방식으로 ChatGPT Plus 혜택을 적용받을 수 있으며,
           결제 후 안내에 따라 짧은 시간 내에 이용을 시작할 수 있습니다.
         </p>
@@ -81,7 +81,7 @@ export default function ChatgptPlusDiscountPage() {
       </section>
 
       <section className="flex flex-col gap-3">
-        <p className="text-sm text-neutral-500">
+        <p className="text-md text-neutral-500">
           OTT 구독료 할인도 궁금하다면{" "}
           <Link href="/youtube-premium-discount" className="text-rose-500 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400">
             유튜브 프리미엄

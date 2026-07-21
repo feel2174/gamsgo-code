@@ -1,18 +1,10 @@
-/** 1차 카테고리: 겜스고에서 판매 중인 서비스 목록 기준 */
-export type CommunityServiceCategory =
-  | "유튜브 프리미엄"
-  | "넷플릭스"
-  | "챗GPT Plus"
-  | "디즈니플러스"
-  | "스포티파이"
-  | "기타 AI/OTT";
+import { SERVICE_PRICES } from "@/lib/constants";
+
+/** 1차 카테고리: 겜스고에서 판매 중인 서비스 목록(전체) + 기타 */
+export type CommunityServiceCategory = string;
 
 export const COMMUNITY_SERVICE_CATEGORIES: CommunityServiceCategory[] = [
-  "유튜브 프리미엄",
-  "넷플릭스",
-  "챗GPT Plus",
-  "디즈니플러스",
-  "스포티파이",
+  ...SERVICE_PRICES.map((s) => s.name),
   "기타 AI/OTT",
 ];
 
@@ -33,7 +25,7 @@ export interface CommunityPost {
   id: string;
   serviceCategory: CommunityServiceCategory;
   postType: CommunityPostType;
-  /** 이용한 서비스에 대한 별점 (1~5) */
+  /** 이용한 서비스에 대한 별점 (0.5~5.0, 0.5 단위) */
   rating: number;
   nickname: string;
   title: string;

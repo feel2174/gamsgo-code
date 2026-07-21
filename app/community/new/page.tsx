@@ -18,7 +18,7 @@ export default function NewCommunityPostPage() {
     <div className="flex flex-col gap-6">
       <header className="flex flex-col gap-2">
         <h1 className="text-2xl font-extrabold leading-snug">찐후기 남기기</h1>
-        <p className="text-sm text-neutral-500">
+        <p className="text-md text-neutral-500">
           글을 올리면 자연물+과일·채소를 조합한 랜덤 닉네임이 자동으로
           붙어요. 로그인은 필요 없어요.
         </p>
@@ -36,7 +36,7 @@ export default function NewCommunityPostPage() {
             <select
               id="serviceCategory"
               name="serviceCategory"
-              className="rounded-lg border border-neutral-200 bg-white px-3 py-2.5 text-sm outline-none transition-colors focus:border-neutral-900"
+              className="select-field rounded-lg border border-neutral-200 bg-white px-3 py-2.5 text-sm outline-none transition-colors focus:border-neutral-900"
             >
               {COMMUNITY_SERVICE_CATEGORIES.map((category) => (
                 <option key={category} value={category}>
@@ -56,7 +56,7 @@ export default function NewCommunityPostPage() {
             <select
               id="postType"
               name="postType"
-              className="rounded-lg border border-neutral-200 bg-white px-3 py-2.5 text-sm outline-none transition-colors focus:border-neutral-900"
+              className="select-field rounded-lg border border-neutral-200 bg-white px-3 py-2.5 text-sm outline-none transition-colors focus:border-neutral-900"
             >
               {COMMUNITY_POST_TYPES.map((type) => (
                 <option key={type} value={type}>

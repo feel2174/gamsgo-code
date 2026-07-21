@@ -54,7 +54,7 @@ export default function NetflixDiscountPage() {
         <h1 className="text-2xl font-extrabold leading-snug">
           넷플릭스 가격할인, 월 5천원대로 4K 프리미엄 보는법
         </h1>
-        <p className="text-sm text-neutral-500">
+        <p className="text-md text-neutral-500">
           정가로 내면 매달 17,000원, 겜스고면 5,000원대. 1년이면 14만원 이상
           차이나요.
         </p>
@@ -69,7 +69,7 @@ export default function NetflixDiscountPage() {
 
       <section className="flex flex-col gap-2">
         <h2 className="text-lg font-bold">이용 방법</h2>
-        <p className="text-sm leading-relaxed text-neutral-700">
+        <p className="text-md text-neutral-700">
           별도 앱 설치 없이 기존 넷플릭스 웹사이트나 앱에서 전달받은 계정
           정보로 로그인하면 바로 이용할 수 있습니다. 결제 즉시 계정 정보가
           발송되는 자동 발송 시스템을 사용합니다.
@@ -82,7 +82,7 @@ export default function NetflixDiscountPage() {
       </section>
 
       <section className="flex flex-col gap-3">
-        <p className="text-sm text-neutral-500">
+        <p className="text-md text-neutral-500">
           유튜브 프리미엄 할인 정보도 궁금하다면{" "}
           <Link href="/youtube-premium-discount" className="text-rose-500 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400">
             유튜브 프리미엄 가격할인 총정리

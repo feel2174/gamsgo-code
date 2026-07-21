@@ -64,7 +64,7 @@ export default function YoutubePremiumDiscountPage() {
         <h1 className="text-2xl font-extrabold leading-snug">
           유튜브 프리미엄 가격할인, 최대 70% 저렴하게 구독하는 법
         </h1>
-        <p className="text-sm text-neutral-500">
+        <p className="text-md text-neutral-500">
           정가로 내면 연 178,800원, 겜스고면 연 82,800원. 그 차액 96,000원은
           그냥 버리는 돈이에요.
         </p>
@@ -79,7 +79,7 @@ export default function YoutubePremiumDiscountPage() {
 
       <section className="flex flex-col gap-2">
         <h2 className="text-lg font-bold">왜 이렇게 저렴한가요?</h2>
-        <p className="text-sm leading-relaxed text-neutral-700">
+        <p className="text-md text-neutral-700">
           겜스고는 유튜브 프리미엄 가족 요금제나 대량 구매 혜택을 활용해 개인
           사용자에게 나눠 제공하는 구독 공유 중개 플랫폼입니다. 이메일 초대
           방식으로 본인 계정에 프리미엄 혜택이 그대로 적용되기 때문에, 광고
@@ -90,7 +90,7 @@ export default function YoutubePremiumDiscountPage() {
 
       <section className="flex flex-col gap-2">
         <h2 className="text-lg font-bold">이용 방법 (3단계)</h2>
-        <ol className="flex flex-col gap-2 text-sm text-neutral-700">
+        <ol className="flex flex-col gap-2 text-md text-neutral-700">
           <li>
             <span className="font-semibold">1. 상품 선택 —</span> 개인 충전형
             또는 가족 공유형 중 원하는 방식을 선택합니다.
@@ -108,7 +108,7 @@ export default function YoutubePremiumDiscountPage() {
 
       <section className="flex flex-col gap-2">
         <h2 className="text-lg font-bold">혹시 모를 상황도 이렇게 대비돼있어요</h2>
-        <p className="text-sm leading-relaxed text-neutral-700">
+        <p className="text-md text-neutral-700">
           구독 공유 방식은 유튜브 공식 약관과는 별개로 운영되는 서비스라 정책이
           바뀔 가능성은 있어요. 그래서 문제가 생기면 24시간 고객센터가 바로
           대응하고, 계정 재공유만 지키면 대부분 문제없이 이용하고 있습니다.
@@ -121,7 +121,7 @@ export default function YoutubePremiumDiscountPage() {
       </section>
 
       <section className="flex flex-col gap-3">
-        <p className="text-sm text-neutral-500">
+        <p className="text-md text-neutral-500">
           겜스고 자체의 안전성과 후기가 궁금하다면{" "}
           <Link href="/gamsgo-review" className="text-rose-500 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400">
             겜스고 후기 및 안전성 총정리

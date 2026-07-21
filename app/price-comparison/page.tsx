@@ -1,17 +1,16 @@
 import Link from "next/link";
-import { AffiliateCTA } from "@/components/AffiliateCTA";
 import { DisclosureBanner } from "@/components/DisclosureBanner";
-import { PriceTable } from "@/components/PriceTable";
+import { ServicePriceCards } from "@/components/ServicePriceCards";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { TrustBadges } from "@/components/TrustBadges";
 import { buildMetadata } from "@/lib/seo";
-import { SERVICE_PRICES, OBJECTION_FAQS } from "@/lib/constants";
+import { OBJECTION_FAQS } from "@/lib/constants";
 
 export const metadata = buildMetadata({
   title: "구독료 가격 비교, 유튜브·넷플릭스·챗GPT 가격할인 총정리",
   description:
-    "유튜브 프리미엄 가격할인, 넷플릭스 가격할인, 챗GPT Plus, 디즈니플러스, 스포티파이 정가와 겜스고 할인가를 한 번에 비교했습니다.",
+    "유튜브 프리미엄 가격할인, 넷플릭스 가격할인, 챗GPT Plus 등 겜스고에서 판매하는 전체 구독 서비스의 정가와 할인가를 한 번에 비교했습니다.",
   path: "/price-comparison",
 });
 
@@ -28,9 +27,9 @@ const faqs = [
       "유튜브 프리미엄과 넷플릭스가 겜스고에서 최대 70% 할인으로 가장 큰 폭의 절약 효과를 보여줍니다. 챗GPT Plus 등 AI 구독도 50% 이상 저렴하게 이용할 수 있습니다.",
   },
   {
-    question: "디즈니플러스, 스포티파이도 할인되나요?",
+    question: "AI 툴이나 게임 구독도 할인되나요?",
     answer:
-      "네, 겜스고는 디즈니플러스·스포티파이를 포함해 100여 개 구독 서비스를 취급합니다. 실시간 특가는 겜스고 페이지에서 바로 확인할 수 있습니다.",
+      "네, 겜스고는 젠스파크·제미나이·클로드 같은 AI 툴부터 PlayStation Plus·Xbox Game Pass 같은 게임 구독까지 100여 개 서비스를 취급합니다. 실시간 특가는 겜스고 페이지에서 바로 확인할 수 있습니다.",
   },
 ];
 
@@ -48,21 +47,18 @@ export default function PriceComparisonPage() {
         <h1 className="text-2xl font-extrabold leading-snug">
           구독료 가격 비교, 내가 새는 돈부터 확인하세요
         </h1>
-        <p className="text-sm text-neutral-500">
-          정가로 다 내고 있다면 지금도 매달 그대로 새는 돈이에요. 얼마나
-          차이나는지 직접 비교해보세요.
+        <p className="text-md text-neutral-500">
+          정가로 다 내고 있다면 지금도 매달 그대로 새는 돈이에요. 서비스별로
+          얼마나 차이나는지 카드로 한눈에 비교해보세요.
         </p>
         <TrustBadges />
       </header>
 
-      <section className="flex flex-col gap-3">
-        <PriceTable rows={SERVICE_PRICES} />
-        <AffiliateCTA label="가장 저렴한 서비스 지금 확인하기" />
-      </section>
+      <ServicePriceCards />
 
       <section className="flex flex-col gap-2">
         <h2 className="text-lg font-bold">서비스별 자세히 보기</h2>
-        <ul className="flex flex-col gap-1 text-sm">
+        <ul className="flex flex-col gap-1 text-md">
           <li>
             <Link
               href="/youtube-premium-discount"

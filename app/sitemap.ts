@@ -9,6 +9,7 @@ const paths = [
   "/gamsgo-review",
   "/price-comparison",
   "/community",
+  "/disclaimer",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -16,6 +17,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${SITE_URL}${path}`,
     lastModified: new Date(),
     changeFrequency: "weekly",
-    priority: path === "" ? 1 : 0.8,
+    priority: path === "/disclaimer" ? 0.3 : path === "" ? 1 : 0.8,
   }));
 }

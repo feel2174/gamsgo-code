@@ -7,6 +7,7 @@ import {
   adjustPostHearts,
   createComment,
   createPost,
+  listPostsPage,
 } from "@/lib/community/store";
 import {
   COMMUNITY_POST_TYPES,
@@ -43,8 +44,9 @@ export async function createPostAction(formData: FormData) {
     : "정보";
 
   const parsedRating = Number(rating);
+  const isHalfStep = Number.isInteger(parsedRating * 2);
   const safeRating =
-    Number.isInteger(parsedRating) && parsedRating >= 1 && parsedRating <= 5
+    isHalfStep && parsedRating >= 0.5 && parsedRating <= 5
       ? parsedRating
       : 5;
 
@@ -76,6 +78,10 @@ export async function heartPostAction(postId: string, delta: 1 | -1) {
   revalidatePath("/");
   revalidatePath(`/community/${postId}`);
   return next;
+}
+
+export async function loadMorePostsAction(offset: number) {
+  return listPostsPage(offset, 6);
 }
 
 export async function heartCommentAction(

@@ -48,7 +48,7 @@ export default function Home() {
           <br />
           정가로 내면, 1년에 40만원 손해예요
         </h1>
-        <p className="text-sm text-neutral-500">
+        <p className="text-md text-neutral-500">
           공식 아니라고 불안해하지 마세요. 150개국 1,000만 명이 이미 확인했고,
           결제 즉시 발송·24시간 환불 보장까지 있어요.
         </p>
@@ -69,7 +69,7 @@ export default function Home() {
               className="rounded-xl border border-neutral-200 bg-white px-4 py-3 transition-all duration-200 hover:-translate-y-0.5 hover:border-rose-300 hover:shadow-sm active:translate-y-0"
             >
               <p className="font-semibold">{g.title}</p>
-              <p className="text-sm text-neutral-500">{g.desc}</p>
+              <p className="text-md text-neutral-500">{g.desc}</p>
             </Link>
           ))}
         </div>
@@ -88,7 +88,7 @@ export default function Home() {
             후기 더 보기 →
           </Link>
         </div>
-        <p className="text-sm text-neutral-500">
+        <p className="text-md text-neutral-500">
           가입 없이도 실제 이용 후기를 바로 확인할 수 있어요. 궁금한 점은
           방문해서 직접 확인해보세요.
         </p>

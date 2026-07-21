@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getPost } from "@/lib/community/store";
 import { createCommentAction, heartCommentAction, heartPostAction } from "../actions";
 import { HeartButton } from "@/components/community/HeartButton";
+import { StarRatingDisplay } from "@/components/community/StarRatingDisplay";
 import { formatRelativeTime } from "@/lib/community/time";
 import { buildMetadata } from "@/lib/seo";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
@@ -32,8 +33,6 @@ export default async function CommunityPostPage({
   const { id } = await params;
   const post = getPost(id);
   if (!post) notFound();
-
-  const stars = "★".repeat(post.rating) + "☆".repeat(5 - post.rating);
 
   const discussionJsonLd = {
     "@context": "https://schema.org",
@@ -91,9 +90,7 @@ export default async function CommunityPostPage({
           <span className="rounded-full bg-rose-50 px-2 py-0.5 text-[11px] font-bold text-rose-500">
             {post.postType}
           </span>
-          <span className="text-amber-400 text-xs" aria-hidden>
-            {stars}
-          </span>
+          <StarRatingDisplay rating={post.rating} size="text-xs" />
           <span className="text-xs text-neutral-400">{post.nickname}</span>
           <span className="text-xs text-neutral-300">·</span>
           <span className="text-xs text-neutral-400">
@@ -101,7 +98,7 @@ export default async function CommunityPostPage({
           </span>
         </div>
         <h1 className="text-xl font-extrabold leading-snug">{post.title}</h1>
-        <p className="whitespace-pre-wrap text-sm leading-relaxed text-neutral-700">
+        <p className="whitespace-pre-wrap text-md leading-relaxed text-neutral-700">
           {post.content}
         </p>
         <HeartButton
@@ -130,7 +127,7 @@ export default async function CommunityPostPage({
                   {formatRelativeTime(comment.createdAt)}
                 </span>
               </div>
-              <p className="text-sm text-neutral-700">{comment.content}</p>
+              <p className="text-md text-neutral-700">{comment.content}</p>
               <div className="mt-2">
                 <HeartButton
                   initialCount={comment.hearts}

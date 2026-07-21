@@ -14,20 +14,20 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-10 border-b border-neutral-200 bg-white/90 backdrop-blur">
-      <div className="app-container flex items-center justify-between px-4 py-3">
+      <div className="app-container flex items-center justify-between px-4 py-4">
         <Link
           href="/"
-          className="flex items-center gap-1 text-base font-extrabold tracking-tight text-neutral-900 transition-opacity hover:opacity-70"
+          className="flex items-center gap-1.5 text-2xl font-extrabold tracking-tight text-neutral-900 transition-opacity hover:opacity-70 md:text-3xl"
         >
           <span aria-hidden>🐷</span>
           {SITE_NAME}
         </Link>
-        <nav className="flex items-center gap-3" aria-label="주요 메뉴">
+        <nav className="flex items-center gap-4" aria-label="주요 메뉴">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-xs font-semibold text-neutral-500 transition-colors hover:text-neutral-900"
+              className="text-sm font-semibold text-neutral-500 transition-colors hover:text-neutral-900"
             >
               {link.label}
             </Link>

@@ -76,3 +76,19 @@ body {
     max-width: 1020px;
   }
 }
+
+/* 본문 텍스트 기본값: 14px / line-height 1.6 */
+.text-md {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* 네이티브 select 화살표를 오른쪽 끝에서 10px 안쪽으로 이동해 균형 조정 */
+.select-field {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%23737373' stroke-width='1.6'%3E%3Cpath d='M6 8l4 4 4-4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px;
+  padding-right: 2.25rem;
+}

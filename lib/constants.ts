@@ -11,12 +11,35 @@ export type ServiceId =
   | "netflix"
   | "chatgpt-plus"
   | "disney-plus"
-  | "spotify";
+  | "spotify"
+  | "claude"
+  | "gemini"
+  | "genspark"
+  | "perplexity"
+  | "midjourney"
+  | "github-copilot"
+  | "cursor"
+  | "deepl"
+  | "canva"
+  | "prime-video"
+  | "apple-tv"
+  | "crunchyroll"
+  | "apple-music"
+  | "microsoft-365"
+  | "notion"
+  | "figma"
+  | "expressvpn"
+  | "adobe-cc"
+  | "playstation-plus"
+  | "xbox-game-pass"
+  | "ea-play";
+
+export type ServiceCategory = "OTT" | "AI" | "음악" | "소프트웨어" | "게임";
 
 export interface ServicePrice {
   id: ServiceId;
   name: string;
-  category: "OTT" | "AI" | "음악";
+  category: ServiceCategory;
   officialPrice: string;
   gamsgoPrice: string;
   discountLabel: string;
@@ -68,6 +91,174 @@ export const SERVICE_PRICES: ServicePrice[] = [
     name: "스포티파이",
     category: "음악",
     officialPrice: "월 11,990원",
+    gamsgoPrice: "겜스고에서 실시간 특가 확인",
+    discountLabel: "할인가 확인 필요",
+  },
+  {
+    id: "claude",
+    name: "클로드 (Claude)",
+    category: "AI",
+    officialPrice: "월 $20",
+    gamsgoPrice: "겜스고에서 실시간 특가 확인",
+    discountLabel: "할인가 확인 필요",
+  },
+  {
+    id: "gemini",
+    name: "제미나이 (Gemini)",
+    category: "AI",
+    officialPrice: "월 약 $19.99",
+    gamsgoPrice: "겜스고에서 실시간 특가 확인",
+    discountLabel: "할인가 확인 필요",
+  },
+  {
+    id: "genspark",
+    name: "젠스파크 (Genspark)",
+    category: "AI",
+    officialPrice: "월 $24.99",
+    gamsgoPrice: "월 약 $16.99",
+    discountLabel: "최대 30%+ 할인",
+  },
+  {
+    id: "perplexity",
+    name: "퍼플렉시티 (Perplexity)",
+    category: "AI",
+    officialPrice: "월 $20",
+    gamsgoPrice: "겜스고에서 실시간 특가 확인",
+    discountLabel: "할인가 확인 필요",
+  },
+  {
+    id: "midjourney",
+    name: "미드저니 (Midjourney)",
+    category: "AI",
+    officialPrice: "월 약 $10~",
+    gamsgoPrice: "겜스고에서 실시간 특가 확인",
+    discountLabel: "할인가 확인 필요",
+  },
+  {
+    id: "github-copilot",
+    name: "깃허브 코파일럿",
+    category: "AI",
+    officialPrice: "월 $10",
+    gamsgoPrice: "겜스고에서 실시간 특가 확인",
+    discountLabel: "할인가 확인 필요",
+  },
+  {
+    id: "cursor",
+    name: "커서 (Cursor)",
+    category: "AI",
+    officialPrice: "월 $20",
+    gamsgoPrice: "겜스고에서 실시간 특가 확인",
+    discountLabel: "할인가 확인 필요",
+  },
+  {
+    id: "deepl",
+    name: "딥엘 (DeepL)",
+    category: "AI",
+    officialPrice: "월 약 €10~",
+    gamsgoPrice: "겜스고에서 실시간 특가 확인",
+    discountLabel: "할인가 확인 필요",
+  },
+  {
+    id: "canva",
+    name: "캔바 (Canva Pro)",
+    category: "소프트웨어",
+    officialPrice: "월 약 14,000원",
+    gamsgoPrice: "겜스고에서 실시간 특가 확인",
+    discountLabel: "할인가 확인 필요",
+  },
+  {
+    id: "prime-video",
+    name: "프라임 비디오",
+    category: "OTT",
+    officialPrice: "월 약 4,900원~",
+    gamsgoPrice: "겜스고에서 실시간 특가 확인",
+    discountLabel: "할인가 확인 필요",
+  },
+  {
+    id: "apple-tv",
+    name: "Apple TV+",
+    category: "OTT",
+    officialPrice: "월 약 6,900원",
+    gamsgoPrice: "겜스고에서 실시간 특가 확인",
+    discountLabel: "할인가 확인 필요",
+  },
+  {
+    id: "crunchyroll",
+    name: "크런치롤",
+    category: "OTT",
+    officialPrice: "월 약 $7.99~",
+    gamsgoPrice: "겜스고에서 실시간 특가 확인",
+    discountLabel: "할인가 확인 필요",
+  },
+  {
+    id: "apple-music",
+    name: "Apple Music",
+    category: "음악",
+    officialPrice: "월 약 8,900원",
+    gamsgoPrice: "겜스고에서 실시간 특가 확인",
+    discountLabel: "할인가 확인 필요",
+  },
+  {
+    id: "microsoft-365",
+    name: "Microsoft 365",
+    category: "소프트웨어",
+    officialPrice: "월 약 11,900원",
+    gamsgoPrice: "겜스고에서 실시간 특가 확인",
+    discountLabel: "할인가 확인 필요",
+  },
+  {
+    id: "notion",
+    name: "노션 (Notion)",
+    category: "소프트웨어",
+    officialPrice: "월 $10",
+    gamsgoPrice: "겜스고에서 실시간 특가 확인",
+    discountLabel: "할인가 확인 필요",
+  },
+  {
+    id: "figma",
+    name: "피그마 (Figma)",
+    category: "소프트웨어",
+    officialPrice: "월 약 $15~",
+    gamsgoPrice: "겜스고에서 실시간 특가 확인",
+    discountLabel: "할인가 확인 필요",
+  },
+  {
+    id: "expressvpn",
+    name: "ExpressVPN",
+    category: "소프트웨어",
+    officialPrice: "월 약 $12.95",
+    gamsgoPrice: "겜스고에서 실시간 특가 확인",
+    discountLabel: "할인가 확인 필요",
+  },
+  {
+    id: "adobe-cc",
+    name: "어도비 (Adobe CC)",
+    category: "소프트웨어",
+    officialPrice: "월 약 $59.99",
+    gamsgoPrice: "겜스고에서 실시간 특가 확인",
+    discountLabel: "할인가 확인 필요",
+  },
+  {
+    id: "playstation-plus",
+    name: "PlayStation Plus",
+    category: "게임",
+    officialPrice: "월 약 7,900원~",
+    gamsgoPrice: "겜스고에서 실시간 특가 확인",
+    discountLabel: "할인가 확인 필요",
+  },
+  {
+    id: "xbox-game-pass",
+    name: "Xbox Game Pass",
+    category: "게임",
+    officialPrice: "월 약 20,000원대",
+    gamsgoPrice: "겜스고에서 실시간 특가 확인",
+    discountLabel: "할인가 확인 필요",
+  },
+  {
+    id: "ea-play",
+    name: "EA Play",
+    category: "게임",
+    officialPrice: "월 약 $5.99",
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
     discountLabel: "할인가 확인 필요",
   },
