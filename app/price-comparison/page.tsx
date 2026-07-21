@@ -45,7 +45,7 @@ export default function PriceComparisonPage() {
       <header className="flex flex-col gap-3">
         <DisclosureBanner />
         <h1 className="text-2xl font-extrabold leading-snug">
-          구독료 가격 비교, 내가 새는 돈부터 확인하세요
+          구독료 가격 비교, 새는 돈부터 확인하세요
         </h1>
         <p className="text-md text-neutral-500">
           정가로 다 내고 있다면 지금도 매달 그대로 새는 돈이에요. 서비스별로
