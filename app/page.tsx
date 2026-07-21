@@ -61,7 +61,7 @@ export default function Home() {
         style={{ animationDelay: "80ms" }}
       >
         <h2 className="text-lg font-bold">다들 이렇게 아끼고 있었더라고요</h2>
-        <div className="flex flex-col gap-2">
+        <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3">
           {guides.map((g) => (
             <Link
               key={g.href}
@@ -80,15 +80,19 @@ export default function Home() {
         style={{ animationDelay: "140ms" }}
       >
         <div className="flex items-center justify-between">
-          <h2 className="text-lg font-bold">사기인지 아닌지, 써본 사람들 얘기</h2>
+          <h2 className="text-lg font-bold">사기인지 아닌지, 찐후기부터 보세요</h2>
           <Link
             href="/community"
             className="text-xs font-semibold text-neutral-400 transition-colors hover:text-rose-500"
           >
-            더보기 →
+            후기 더 보기 →
           </Link>
         </div>
-        <div className="flex flex-col gap-2">
+        <p className="text-sm text-neutral-500">
+          가입 없이도 실제 이용 후기를 바로 확인할 수 있어요. 궁금한 점은
+          방문해서 직접 확인해보세요.
+        </p>
+        <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
           {latestPosts.map((post) => (
             <Link
               key={post.id}
@@ -111,7 +115,7 @@ export default function Home() {
           href="/community/new"
           className="rounded-xl border border-dashed border-neutral-300 px-4 py-3 text-center text-sm font-semibold text-neutral-400 transition-colors hover:border-rose-300 hover:text-rose-500"
         >
-          나도 익명으로 후기 남기기 ✍️
+          3초면 끝, 나도 후기 남기기 ✍️
         </Link>
       </section>
 

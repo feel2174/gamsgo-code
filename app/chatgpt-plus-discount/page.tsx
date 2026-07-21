@@ -94,6 +94,10 @@ export default function ChatgptPlusDiscountPage() {
           <Link href="/price-comparison" className="text-rose-500 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400">
             구독료 전체 가격 비교
           </Link>
+          에서, 실제 이용 후기는{" "}
+          <Link href="/community" className="text-rose-500 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400">
+            찐후기 게시판
+          </Link>
           에서 확인하세요.
         </p>
         <AffiliateCTA label="챗GPT 플러스 할인받기" />

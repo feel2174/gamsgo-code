@@ -57,3 +57,22 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+/* 반응형 컨텐츠 폭: mobile 375px / tablet(md) 760px / desktop(lg) 1020px */
+.app-container {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 375px;
+}
+
+@media (min-width: 768px) {
+  .app-container {
+    max-width: 760px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .app-container {
+    max-width: 1020px;
+  }
+}

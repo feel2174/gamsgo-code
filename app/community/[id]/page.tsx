@@ -33,6 +33,8 @@ export default async function CommunityPostPage({
   const post = getPost(id);
   if (!post) notFound();
 
+  const stars = "★".repeat(post.rating) + "☆".repeat(5 - post.rating);
+
   const discussionJsonLd = {
     "@context": "https://schema.org",
     "@type": "DiscussionForumPosting",
@@ -82,9 +84,15 @@ export default async function CommunityPostPage({
       </Link>
 
       <article className="flex flex-col gap-3">
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           <span className="rounded-full bg-neutral-100 px-2 py-0.5 text-[11px] font-bold text-neutral-500">
-            {post.category}
+            {post.serviceCategory}
+          </span>
+          <span className="rounded-full bg-rose-50 px-2 py-0.5 text-[11px] font-bold text-rose-500">
+            {post.postType}
+          </span>
+          <span className="text-amber-400 text-xs" aria-hidden>
+            {stars}
           </span>
           <span className="text-xs text-neutral-400">{post.nickname}</span>
           <span className="text-xs text-neutral-300">·</span>

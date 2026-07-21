@@ -22,31 +22,35 @@ export function HeartButton({
 }: {
   initialCount: number;
   storageKey: string;
-  action: () => Promise<number | undefined>;
+  action: (delta: 1 | -1) => Promise<number | undefined>;
   size?: "sm" | "md";
 }) {
   const [count, setCount] = useState(initialCount);
-  const [clicked, setClicked] = useState(false);
   const [pop, setPop] = useState(false);
   const [, startTransition] = useTransition();
 
-  const storedHearted = useSyncExternalStore(
+  const hearted = useSyncExternalStore(
     subscribeNoop,
     readHearted(storageKey),
     readHeartedServer
   );
-  const hearted = clicked || storedHearted;
 
   function handleClick() {
-    if (hearted) return;
-    setClicked(true);
-    setCount((c) => c + 1);
-    setPop(true);
-    window.localStorage.setItem(storageKey, "1");
+    const next = !hearted;
+    const delta = next ? 1 : -1;
+
+    if (next) {
+      window.localStorage.setItem(storageKey, "1");
+      setPop(true);
+      window.setTimeout(() => setPop(false), 320);
+    } else {
+      window.localStorage.removeItem(storageKey);
+    }
+
+    setCount((c) => Math.max(0, c + delta));
     startTransition(() => {
-      action();
+      action(delta);
     });
-    window.setTimeout(() => setPop(false), 320);
   }
 
   const isSmall = size === "sm";
@@ -55,14 +59,10 @@ export function HeartButton({
     <button
       type="button"
       onClick={handleClick}
-      disabled={hearted}
       aria-pressed={hearted}
-      className={`inline-flex items-center gap-1 rounded-full border transition-all duration-200 ${
+      aria-label={hearted ? "공감 취소" : "공감하기"}
+      className={`inline-flex items-center gap-1 rounded-full border border-neutral-200 bg-white text-neutral-500 transition-colors duration-150 hover:border-rose-200 hover:bg-rose-50 active:scale-95 ${
         isSmall ? "px-2.5 py-1 text-xs" : "px-3.5 py-1.5 text-sm"
-      } ${
-        hearted
-          ? "border-rose-200 bg-rose-50 text-rose-500"
-          : "border-neutral-200 bg-white text-neutral-500 hover:border-rose-200 hover:bg-rose-50 hover:text-rose-500 active:scale-95"
       }`}
     >
       <span

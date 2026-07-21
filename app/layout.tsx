@@ -63,10 +63,8 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
         <Header />
-        <main className="mx-auto w-full max-w-[420px] flex-1 px-4 py-6">
-          {children}
-        </main>
-        <div className="mx-auto w-full max-w-[420px]">
+        <main className="app-container flex-1 px-4 py-6">{children}</main>
+        <div className="app-container">
           <Footer />
         </div>
         <Analytics />

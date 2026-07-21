@@ -111,7 +111,11 @@ export default function GamsgoReviewPage() {
           <Link href="/chatgpt-plus-discount" className="text-rose-500 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400">
             챗GPT 플러스
           </Link>{" "}
-          할인 페이지를 확인해보세요.
+          할인 페이지를 확인해보세요. 실제로 써본 사람들의 생생한 이야기는{" "}
+          <Link href="/community" className="text-rose-500 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400">
+            찐후기 게시판
+          </Link>
+          에서 볼 수 있어요.
         </p>
         <AffiliateCTA label="가입 없이 가격만 먼저 보기" />
       </section>

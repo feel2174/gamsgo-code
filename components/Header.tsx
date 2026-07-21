@@ -5,8 +5,8 @@ import { usePathname } from "next/navigation";
 import { SITE_NAME, TOP_KEYWORDS } from "@/lib/constants";
 
 const NAV_LINKS = [
-  { href: "/price-comparison", label: "가격비교" },
-  { href: "/community", label: "후기게시판" },
+  { href: "/price-comparison", label: "손해계산기" },
+  { href: "/community", label: "찐후기" },
 ];
 
 export function Header() {
@@ -14,7 +14,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-10 border-b border-neutral-200 bg-white/90 backdrop-blur">
-      <div className="mx-auto flex w-full max-w-[420px] items-center justify-between px-4 py-3">
+      <div className="app-container flex items-center justify-between px-4 py-3">
         <Link
           href="/"
           className="flex items-center gap-1 text-base font-extrabold tracking-tight text-neutral-900 transition-opacity hover:opacity-70"
@@ -39,7 +39,7 @@ export function Header() {
         aria-label="인기 검색 키워드"
         className="border-t border-neutral-100"
       >
-        <ul className="scrollbar-hide mx-auto flex w-full max-w-[420px] snap-x gap-2 overflow-x-auto px-4 py-2.5">
+        <ul className="app-container scrollbar-hide flex snap-x gap-2 overflow-x-auto px-4 py-2.5">
           {TOP_KEYWORDS.map((keyword) => {
             const isActive = pathname === keyword.href;
             return (

@@ -130,7 +130,11 @@ export default function YoutubePremiumDiscountPage() {
           <Link href="/price-comparison" className="text-rose-500 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400">
             구독료 전체 가격 비교
           </Link>
-          페이지를 확인하세요.
+          페이지를, 실제 이용자들의 생생한 후기는{" "}
+          <Link href="/community" className="text-rose-500 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400">
+            찐후기 게시판
+          </Link>
+          에서 확인하세요.
         </p>
         <AffiliateCTA label="유튜브 프리미엄 최대 70% 할인받기" />
       </section>

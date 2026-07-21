@@ -46,7 +46,7 @@ export default function PriceComparisonPage() {
       <header className="flex flex-col gap-3">
         <DisclosureBanner />
         <h1 className="text-2xl font-extrabold leading-snug">
-          구독료 가격 비교, 정가 vs 겜스고가
+          구독료 가격 비교, 내가 새는 돈부터 확인하세요
         </h1>
         <p className="text-sm text-neutral-500">
           정가로 다 내고 있다면 지금도 매달 그대로 새는 돈이에요. 얼마나
@@ -93,6 +93,14 @@ export default function PriceComparisonPage() {
               className="text-rose-500 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400"
             >
               겜스고 후기 및 안전성 →
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/community"
+              className="text-rose-500 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400"
+            >
+              찐후기 게시판에서 실제 이용 후기 보기 →
             </Link>
           </li>
         </ul>

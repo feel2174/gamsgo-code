@@ -1,11 +1,13 @@
 import { generateNickname } from "./nickname";
-import type { CommunityComment, CommunityPost } from "./types";
+import type { CommunityComment, CommunityPost, CommunityPostType, CommunityServiceCategory } from "./types";
 
 function seedPosts(): CommunityPost[] {
   return [
     {
       id: "seed-1",
-      category: "겜스고 후기",
+      serviceCategory: "유튜브 프리미엄",
+      postType: "후기",
+      rating: 5,
       nickname: generateNickname(),
       title: "겜스고 유튜브 프리미엄 3개월째 이용 후기",
       content:
@@ -24,7 +26,9 @@ function seedPosts(): CommunityPost[] {
     },
     {
       id: "seed-2",
-      category: "구독툴 후기",
+      serviceCategory: "챗GPT Plus",
+      postType: "정보",
+      rating: 4,
       nickname: generateNickname(),
       title: "노션 플러스 vs 겜스고 챗gpt 같이 써보니",
       content:
@@ -35,7 +39,9 @@ function seedPosts(): CommunityPost[] {
     },
     {
       id: "seed-3",
-      category: "자유",
+      serviceCategory: "기타 AI/OTT",
+      postType: "정보",
+      rating: 4,
       nickname: generateNickname(),
       title: "다들 구독료로 한 달에 얼마 쓰세요?",
       content:
@@ -77,13 +83,17 @@ export function getPost(id: string): CommunityPost | undefined {
 }
 
 export function createPost(input: {
-  category: CommunityPost["category"];
+  serviceCategory: CommunityServiceCategory;
+  postType: CommunityPostType;
+  rating: number;
   title: string;
   content: string;
 }): CommunityPost {
   const post: CommunityPost = {
     id: crypto.randomUUID(),
-    category: input.category,
+    serviceCategory: input.serviceCategory,
+    postType: input.postType,
+    rating: input.rating,
     nickname: generateNickname(),
     title: input.title,
     content: input.content,
@@ -112,20 +122,24 @@ export function createComment(
   return comment;
 }
 
-export function heartPost(postId: string): number | undefined {
+export function adjustPostHearts(
+  postId: string,
+  delta: 1 | -1
+): number | undefined {
   const post = getPost(postId);
   if (!post) return undefined;
-  post.hearts += 1;
+  post.hearts = Math.max(0, post.hearts + delta);
   return post.hearts;
 }
 
-export function heartComment(
+export function adjustCommentHearts(
   postId: string,
-  commentId: string
+  commentId: string,
+  delta: 1 | -1
 ): number | undefined {
   const post = getPost(postId);
   const comment = post?.comments.find((c) => c.id === commentId);
   if (!comment) return undefined;
-  comment.hearts += 1;
+  comment.hearts = Math.max(0, comment.hearts + delta);
   return comment.hearts;
 }
