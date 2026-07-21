@@ -22,6 +22,7 @@ export const metadata: Metadata = {
   description:
     "유튜브 프리미엄 가격할인, 넷플릭스 가격할인, 챗GPT 플러스 할인까지 — 정가 대비 최대 70% 저렴하게 구독하는 법과 실제 이용자 익명 후기를 한곳에 모았습니다.",
   verification: {
+    google: "w1N7lAB3qFnHio7RQDdSX05UNv-RskM89O1HvldhnJQ",
     other: {
       "naver-site-verification": "c9f34b179e94c1dfd5cbb648cf335ea0981f6bbd",
     },
