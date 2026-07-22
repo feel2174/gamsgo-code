@@ -84,6 +84,22 @@
 
 ---
 
+## 📢 OpenGraph 공유 미리보기 최적화 (OG_SHARE_OPTIMIZATION)
+
+콘텐츠(페이지, 커뮤니티 게시글)를 카카오톡·트위터(X)·페이스북 등에 링크로 공유했을 때 노출되는 미리보기 카드(OG 카드)는 클릭률을 좌우하는 별도의 "제목"이다. 글을 작성할 때 아래 기준을 함께 적용한다.
+
+* **Logic:** `title`은 그대로 `og:title`이 되고, 동적 OG 이미지(`app/**/opengraph-image.tsx`)에도 그대로 렌더링된다. 본문을 읽지 않은 사람이 제목/이미지만 보고 클릭 여부를 판단하므로, 제목은 본문 맥락 없이도 단독으로 이해되고 클릭을 유도해야 한다.
+* **글자수 제한:**
+  - `og:title` (게시글 제목): 60자 이내 (`app/community/new/page.tsx`의 `maxLength={60}`과 동일). 카카오톡·트위터 카드에서 대부분 잘리지 않는 안전 길이.
+  - `og:description` (미리보기 요약): 80~100자 이내. 커뮤니티 게시글은 본문 앞 80자가 자동으로 잘려 들어가므로(`content.slice(0, 80)`), **본문의 첫 문장에 핵심 정보/훅을 배치**해야 한다. 뒷부분에 훅을 숨겨두면 미리보기에서 아예 잘려 보이지 않는다.
+* **위 6개 카피라이팅 프레임워크(RULE_CONTRADICTION, RULE_CONCRETE_NUMBERS 등)를 제목뿐 아니라 본문 첫 문장(=og:description)에도 동일하게 적용**해서, 제목과 미리보기 설명이 한 세트로 클릭을 유도하도록 만든다.
+* **피해야 할 것:**
+  - 본문을 읽어야만 이해되는 지시대명사형 제목만 단독 사용 ("이거 어떻게 생각하세요?" 단독 사용 — 이미지에 표시될 텍스트가 없어짐)
+  - 이모지로만 이루어진 제목, 특수문자 도배 (OG 이미지 렌더링 시 어색하게 잘리거나 폰트 미지원 문자가 깨질 수 있음)
+  - 제목과 실제 내용이 다른 낚시성 제목 (공유 카드까지 신뢰도에 영향)
+
+---
+
 ## 💻 Output Generation Prompt Template (For AI Agents)
 When requested to write titles or marketing content, use the following internal prompt logic:
 
