@@ -5,6 +5,7 @@ import { FaqAccordion } from "@/components/FaqAccordion";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { TrustBadges } from "@/components/TrustBadges";
 import { buildMetadata } from "@/lib/seo";
+import { PICKLEPLUS_AFFILIATE_URL } from "@/lib/constants";
 
 export const metadata = buildMetadata({
   title: "겜스고 대안 비교, 피클플러스·고잉버스·고스플릿과 뭐가 다른가",
@@ -25,6 +26,7 @@ const platforms = [
   },
   {
     name: "피클플러스",
+    href: PICKLEPLUS_AFFILIATE_URL,
     tagline: "국내 OTT까지 챙기는 올인원형",
     scope: "넷플릭스·웨이브·왓챠·라프텔·티빙·디즈니플러스 + 유튜브 프리미엄·네이버플러스 멤버십·애플뮤직·듀오링고",
     domesticOtt: "티빙·웨이브·왓챠 등 국내 OTT까지 폭넓게 지원",
@@ -53,7 +55,7 @@ const faqs = [
   {
     question: "겜스고에서 티빙이나 웨이브도 되나요?",
     answer:
-      "안 됩니다. 겜스고는 넷플릭스·유튜브 프리미엄 등 해외 OTT와 AI 툴 위주로 서비스를 제공하고, 티빙·웨이브 같은 국내 OTT는 취급하지 않습니다. 국내 OTT까지 함께 아끼고 싶다면 피클플러스나 고스플릿 쪽을 확인해보는 게 좋아요.",
+      "아쉽게도 아직은 지원하지 않아요. 겜스고는 넷플릭스·유튜브 프리미엄 등 해외 OTT와 AI 툴 위주로 서비스를 제공하고 있거든요. 대신 챗GPT·클로드 같은 AI 구독료까지 한 번에 아끼고 싶다면 겜스고가 딱이고, 티빙·웨이브 같은 국내 OTT까지 함께 챙기고 싶다면 피클플러스나 고스플릿 쪽을 같이 확인해보는 걸 추천해요.",
   },
   {
     question: "고스플릿이 겜스고랑 뭐가 다른가요?",
@@ -106,7 +108,18 @@ export default function GamsgoAlternativesPage() {
               }`}
             >
               <div className="mb-2 flex items-center justify-between gap-2">
-                <p className="font-bold">{p.name}</p>
+                {p.href ? (
+                  <a
+                    href={p.href}
+                    target="_blank"
+                    rel="sponsored noopener noreferrer"
+                    className="font-bold text-rose-600 underline decoration-rose-200 underline-offset-2 transition-colors hover:text-rose-500 hover:decoration-rose-400"
+                  >
+                    {p.name}
+                  </a>
+                ) : (
+                  <p className="font-bold">{p.name}</p>
+                )}
                 {p.highlight && (
                   <span className="rounded-full bg-rose-50 px-2 py-0.5 text-[11px] font-bold text-rose-500">
                     이 사이트

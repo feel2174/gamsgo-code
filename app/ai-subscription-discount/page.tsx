@@ -55,20 +55,20 @@ const whyCheapReasons = [
 
 const cautions = [
   {
-    title: "AI 회사가 직접 파는 게 아니에요.",
-    body: "겜스고는 공유 계정을 중개하는 곳이지, 공식 대리점이 아닙니다.",
+    title: "AI 회사가 직접 운영하는 공식 판매처는 아니에요",
+    body: "겜스고는 여러 명이 나눠 쓰는 요금제 자리를 연결해주는 중개 플랫폼이에요. 그래서 이만큼 저렴하게 쓸 수 있는 거고요.",
   },
   {
-    title: "가끔 계정이 바뀔 수 있어요.",
-    body: "그때 이전 대화 기록이 안 넘어올 수 있습니다. 중요한 건 따로 저장해 두세요.",
+    title: "계정이 한 번씩 바뀔 수도 있어요",
+    body: "그럴 땐 이전 대화 기록이 유지 안 될 수 있으니, 중요한 내용은 따로 저장해두면 마음이 편해요.",
   },
   {
-    title: "회사 기밀은 넣지 마세요.",
-    body: "남과 나눠 쓰는 계정이라, 민감한 자료는 본인 이름으로 만든 계정에서 다루는 게 안전해요.",
+    title: "민감한 자료는 개인 계정에서 다루는 걸 추천해요",
+    body: "여럿이 나눠 쓰는 계정이다 보니, 회사 기밀처럼 민감한 자료는 본인 이름으로 만든 계정에서 다루는 게 더 안심돼요.",
   },
   {
-    title: "가격이 고정이 아니에요.",
-    body: "환율과 프로모션에 따라 오르내립니다. 결제 화면 금액을 한 번 대조해 보세요.",
+    title: "가격은 시세처럼 조금씩 움직여요",
+    body: "환율이나 프로모션에 따라 달라질 수 있어요. 결제 화면에 뜬 최종 금액만 한 번 확인하면 충분해요.",
   },
 ];
 
@@ -232,6 +232,9 @@ export default function AiSubscriptionDiscountPage() {
       <section className="flex flex-col gap-3 rounded-2xl border border-amber-100 bg-amber-50/40 p-4">
         <p className="text-sm font-bold text-rose-500">좋은 얘기만 하면 광고죠</p>
         <h2 className="text-lg font-bold">결제 전에 이건 알고 가세요</h2>
+        <p className="text-sm text-neutral-500">
+          미리 알아두면 당황할 일 없이 편하게 쓸 수 있는 것들이에요.
+        </p>
         <ul className="flex flex-col gap-3">
           {cautions.map((c) => (
             <li key={c.title} className="flex gap-2 text-sm">

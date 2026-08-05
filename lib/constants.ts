@@ -2,6 +2,8 @@ export const SITE_NAME = "겜스고코드";
 export const SITE_TAGLINE = "짠내나게 아끼는 구독 생활";
 export const SITE_URL = "https://www.gamsgocode.co.kr";
 export const GAMSGO_AFFILIATE_URL = "https://www.gamsgo.com/partner/Chgyp";
+export const PICKLEPLUS_AFFILIATE_URL =
+  "https://pickle.plus/partners/partner-code/B43B9B75";
 
 export const DISCLOSURE_TEXT =
   "이 콘텐츠는 제휴 마케팅 활동의 일환으로 작성되었으며, 링크를 통한 가입 시 일정 수수료를 제공받을 수 있습니다.";
