@@ -18,22 +18,25 @@ function gamsgoPriceTextClass(price: string) {
   return "text-sm leading-snug";
 }
 
+/** 겜스고 실제 상품 카드의 흰색 상단 + 코랄 하단이 하나로 이어지는 "웨이브" 곡선 */
+const WAVE_TOP_RADIUS = "50% 50% 0 0 / 22px 22px 0 0";
+
 function ServicePriceCard({ service }: { service: ServicePrice }) {
   return (
-    <div className="relative flex flex-col overflow-hidden rounded-3xl border border-neutral-200 bg-white p-5 pt-6 transition-all duration-200 hover:-translate-y-1 hover:border-rose-200 hover:shadow-lg">
-      <span className="absolute right-4 top-4 max-w-[45%] truncate rounded-full bg-emerald-50 px-2.5 py-1 text-[11px] font-bold text-emerald-600">
-        {service.discountLabel}
+    <div className="relative flex flex-col overflow-hidden rounded-3xl border border-neutral-200 bg-white transition-all duration-200 hover:-translate-y-1 hover:border-rose-200 hover:shadow-lg">
+      <span className="absolute right-4 top-4 z-10 max-w-[45%] truncate rounded-full bg-emerald-50 px-2.5 py-1 text-[11px] font-bold text-emerald-600">
+        ✨ {service.discountLabel}
       </span>
 
-      {/* 위쪽 콘텐츠: flex-1로 남는 공간을 흡수해 가격 알약이 카드마다 다른
-          높이에서도 항상 하단에 고정되도록 함 */}
-      <div className="flex flex-1 flex-col items-center gap-2 text-center">
+      {/* 흰색 상단: 아이콘 + 한글명 + 영문명 알약. flex-1로 남는 공간을 흡수해
+          가격 웨이브가 카드마다 다른 높이에서도 항상 하단에 고정되도록 함 */}
+      <div className="flex flex-1 flex-col items-center gap-2 px-5 pb-6 pt-7 text-center">
         <ServiceIconBadge icon={SERVICE_ICONS[service.id]} size={40} />
         <h4 className="font-extrabold text-neutral-900">{service.name}</h4>
-        {service.features.length > 0 && (
-          <p className="text-xs text-neutral-500">
-            {service.features.slice(0, 2).join(" · ")}
-          </p>
+        {service.englishName && (
+          <span className="rounded-full bg-neutral-100 px-3 py-1 text-xs font-semibold text-neutral-500">
+            {service.englishName}
+          </span>
         )}
         {service.href && (
           <Link
@@ -49,9 +52,10 @@ function ServicePriceCard({ service }: { service: ServicePrice }) {
         href={GAMSGO_AFFILIATE_URL}
         target="_blank"
         rel="sponsored noopener noreferrer"
-        className="mt-4 flex flex-col items-center gap-0.5 rounded-2xl bg-rose-500 px-4 py-4 text-center transition-colors duration-200 hover:bg-rose-600 active:scale-[0.98]"
+        className="flex flex-col items-center gap-0.5 bg-rose-500 px-4 pb-5 pt-5 text-center transition-colors duration-200 hover:bg-rose-600 active:scale-[0.98]"
+        style={{ borderRadius: WAVE_TOP_RADIUS }}
       >
-        <span className="text-xs font-medium text-rose-100 line-through">
+        <span className="text-xs font-medium text-rose-100/80 line-through">
           정가 {service.officialPrice}
         </span>
         <span

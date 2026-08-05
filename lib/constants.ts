@@ -41,13 +41,31 @@ export type ServiceId =
   | "filmora"
   | "autodesk"
   | "nordvpn"
-  | "tidal";
+  | "tidal"
+  | "tving"
+  | "watcha"
+  | "wavve"
+  | "duolingo"
+  | "grammarly"
+  | "elevenlabs"
+  | "envato-elements"
+  | "klingai"
+  | "miricanvas"
+  | "scribd"
+  | "updf"
+  | "vidiq"
+  | "coursera"
+  | "deezer"
+  | "medium"
+  | "qobuz";
 
 export type ServiceCategory = "OTT" | "AI" | "음악" | "소프트웨어" | "게임";
 
 export interface ServicePrice {
   id: ServiceId;
   name: string;
+  /** 카드 아이콘 아래 알약 배지에 노출할 영문 브랜드명. name이 이미 영문이면 생략 */
+  englishName?: string;
   category: ServiceCategory;
   officialPrice: string;
   gamsgoPrice: string;
@@ -63,6 +81,7 @@ export const SERVICE_PRICES: ServicePrice[] = [
   {
     id: "youtube-premium",
     name: "유튜브 프리미엄",
+    englishName: "YouTube Premium",
     category: "OTT",
     officialPrice: "월 14,900원 (연 178,800원)",
     gamsgoPrice: "연 82,800원 (월 환산 약 6,900원대)",
@@ -74,6 +93,7 @@ export const SERVICE_PRICES: ServicePrice[] = [
   {
     id: "netflix",
     name: "넷플릭스 프리미엄",
+    englishName: "Netflix Premium",
     category: "OTT",
     officialPrice: "월 17,000원 (스탠다드 13,500원 / 광고형 7,000원)",
     gamsgoPrice: "월 5,000원대",
@@ -85,6 +105,7 @@ export const SERVICE_PRICES: ServicePrice[] = [
   {
     id: "chatgpt-plus",
     name: "챗GPT Plus",
+    englishName: "ChatGPT Plus",
     category: "AI",
     officialPrice: "월 $20 (약 2.8만원)",
     gamsgoPrice: "정가 대비 50% 이상 할인가 (실시간 확인 필요)",
@@ -95,6 +116,7 @@ export const SERVICE_PRICES: ServicePrice[] = [
   {
     id: "disney-plus",
     name: "디즈니플러스",
+    englishName: "Disney+",
     category: "OTT",
     officialPrice: "월 9,900원",
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
@@ -104,6 +126,7 @@ export const SERVICE_PRICES: ServicePrice[] = [
   {
     id: "spotify",
     name: "스포티파이",
+    englishName: "Spotify",
     category: "음악",
     officialPrice: "월 11,990원",
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
@@ -112,7 +135,8 @@ export const SERVICE_PRICES: ServicePrice[] = [
   },
   {
     id: "claude",
-    name: "클로드 (Claude)",
+    name: "클로드",
+    englishName: "Claude",
     category: "AI",
     officialPrice: "월 $20",
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
@@ -121,7 +145,8 @@ export const SERVICE_PRICES: ServicePrice[] = [
   },
   {
     id: "gemini",
-    name: "제미나이 (Gemini)",
+    name: "제미나이",
+    englishName: "Gemini",
     category: "AI",
     officialPrice: "월 약 $19.99",
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
@@ -130,7 +155,8 @@ export const SERVICE_PRICES: ServicePrice[] = [
   },
   {
     id: "genspark",
-    name: "젠스파크 (Genspark)",
+    name: "젠스파크",
+    englishName: "Genspark",
     category: "AI",
     officialPrice: "월 $24.99",
     gamsgoPrice: "월 약 $16.99",
@@ -139,7 +165,8 @@ export const SERVICE_PRICES: ServicePrice[] = [
   },
   {
     id: "perplexity",
-    name: "퍼플렉시티 (Perplexity)",
+    name: "퍼플렉시티",
+    englishName: "Perplexity",
     category: "AI",
     officialPrice: "월 $20",
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
@@ -148,7 +175,8 @@ export const SERVICE_PRICES: ServicePrice[] = [
   },
   {
     id: "midjourney",
-    name: "미드저니 (Midjourney)",
+    name: "미드저니",
+    englishName: "Midjourney",
     category: "AI",
     officialPrice: "월 약 $10~",
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
@@ -158,6 +186,7 @@ export const SERVICE_PRICES: ServicePrice[] = [
   {
     id: "github-copilot",
     name: "깃허브 코파일럿",
+    englishName: "GitHub Copilot",
     category: "AI",
     officialPrice: "월 $10",
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
@@ -166,7 +195,8 @@ export const SERVICE_PRICES: ServicePrice[] = [
   },
   {
     id: "cursor",
-    name: "커서 (Cursor)",
+    name: "커서",
+    englishName: "Cursor",
     category: "AI",
     officialPrice: "월 $20",
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
@@ -175,7 +205,8 @@ export const SERVICE_PRICES: ServicePrice[] = [
   },
   {
     id: "deepl",
-    name: "딥엘 (DeepL)",
+    name: "딥엘",
+    englishName: "DeepL",
     category: "AI",
     officialPrice: "월 약 €10~",
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
@@ -184,7 +215,8 @@ export const SERVICE_PRICES: ServicePrice[] = [
   },
   {
     id: "canva",
-    name: "캔바 (Canva Pro)",
+    name: "캔바",
+    englishName: "Canva Pro",
     category: "소프트웨어",
     officialPrice: "월 약 14,000원",
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
@@ -194,6 +226,7 @@ export const SERVICE_PRICES: ServicePrice[] = [
   {
     id: "prime-video",
     name: "프라임 비디오",
+    englishName: "Prime Video",
     category: "OTT",
     officialPrice: "월 약 4,900원~",
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
@@ -212,6 +245,7 @@ export const SERVICE_PRICES: ServicePrice[] = [
   {
     id: "crunchyroll",
     name: "크런치롤",
+    englishName: "Crunchyroll",
     category: "OTT",
     officialPrice: "월 약 $7.99~",
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
@@ -238,7 +272,8 @@ export const SERVICE_PRICES: ServicePrice[] = [
   },
   {
     id: "notion",
-    name: "노션 (Notion)",
+    name: "노션",
+    englishName: "Notion",
     category: "소프트웨어",
     officialPrice: "월 $10",
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
@@ -247,7 +282,8 @@ export const SERVICE_PRICES: ServicePrice[] = [
   },
   {
     id: "figma",
-    name: "피그마 (Figma)",
+    name: "피그마",
+    englishName: "Figma",
     category: "소프트웨어",
     officialPrice: "월 약 $15~",
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
@@ -265,7 +301,8 @@ export const SERVICE_PRICES: ServicePrice[] = [
   },
   {
     id: "adobe-cc",
-    name: "어도비 (Adobe CC)",
+    name: "어도비",
+    englishName: "Adobe Creative Cloud",
     category: "소프트웨어",
     officialPrice: "월 약 $59.99",
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
@@ -301,7 +338,8 @@ export const SERVICE_PRICES: ServicePrice[] = [
   },
   {
     id: "grok",
-    name: "그록 (Grok)",
+    name: "그록",
+    englishName: "Grok",
     category: "AI",
     officialPrice: "월 약 $30",
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
@@ -310,7 +348,8 @@ export const SERVICE_PRICES: ServicePrice[] = [
   },
   {
     id: "suno",
-    name: "수노 (Suno)",
+    name: "수노",
+    englishName: "Suno",
     category: "AI",
     officialPrice: "월 약 $10~",
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
@@ -319,7 +358,8 @@ export const SERVICE_PRICES: ServicePrice[] = [
   },
   {
     id: "gamma",
-    name: "감마 (Gamma)",
+    name: "감마",
+    englishName: "Gamma",
     category: "AI",
     officialPrice: "월 약 $15~",
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
@@ -328,7 +368,8 @@ export const SERVICE_PRICES: ServicePrice[] = [
   },
   {
     id: "manus",
-    name: "마누스 (Manus)",
+    name: "마누스",
+    englishName: "Manus",
     category: "AI",
     officialPrice: "월 약 $39~",
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
@@ -337,7 +378,8 @@ export const SERVICE_PRICES: ServicePrice[] = [
   },
   {
     id: "capcut",
-    name: "캡컷 (CapCut)",
+    name: "캡컷",
+    englishName: "CapCut",
     category: "소프트웨어",
     officialPrice: "월 약 $9.99~",
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
@@ -346,7 +388,8 @@ export const SERVICE_PRICES: ServicePrice[] = [
   },
   {
     id: "filmora",
-    name: "필모라 (Filmora)",
+    name: "필모라",
+    englishName: "Filmora",
     category: "소프트웨어",
     officialPrice: "연 약 $49.99~",
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
@@ -355,7 +398,8 @@ export const SERVICE_PRICES: ServicePrice[] = [
   },
   {
     id: "autodesk",
-    name: "오토데스크 (Autodesk)",
+    name: "오토데스크",
+    englishName: "Autodesk",
     category: "소프트웨어",
     officialPrice: "연 약 $305~",
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
@@ -364,7 +408,8 @@ export const SERVICE_PRICES: ServicePrice[] = [
   },
   {
     id: "nordvpn",
-    name: "노드VPN (NordVPN)",
+    name: "노드VPN",
+    englishName: "NordVPN",
     category: "소프트웨어",
     officialPrice: "월 약 $12.99~",
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
@@ -373,12 +418,174 @@ export const SERVICE_PRICES: ServicePrice[] = [
   },
   {
     id: "tidal",
-    name: "타이달 (Tidal)",
+    name: "타이달",
+    englishName: "Tidal",
     category: "음악",
     officialPrice: "월 약 $10.99~",
     gamsgoPrice: "겜스고에서 실시간 특가 확인",
     discountLabel: "할인가 확인 필요",
     features: ["고음질 무손실 스트리밍", "아티스트 독점 콘텐츠", "공간음향"],
+  },
+  // 아래부터는 gamsgo.com/ko 실제 카탈로그를 확인해 추가한 서비스(2026.08.05 기준)
+  {
+    id: "tving",
+    name: "티빙",
+    englishName: "TVING",
+    category: "OTT",
+    officialPrice: "월 약 9,500원~",
+    gamsgoPrice: "겜스고에서 실시간 특가 확인",
+    discountLabel: "할인가 확인 필요",
+    features: ["JTBC·tvN 방송 다시보기", "티빙 오리지널", "프로야구 중계"],
+  },
+  {
+    id: "watcha",
+    name: "왓차",
+    englishName: "Watcha",
+    category: "OTT",
+    officialPrice: "월 약 7,900원~",
+    gamsgoPrice: "겜스고에서 실시간 특가 확인",
+    discountLabel: "할인가 확인 필요",
+    features: ["희귀 영화·드라마 다수 보유", "개인 맞춤 추천", "다양한 해외 시리즈"],
+  },
+  {
+    id: "wavve",
+    name: "웨이브",
+    englishName: "Wavve",
+    category: "OTT",
+    officialPrice: "월 약 7,900원~",
+    gamsgoPrice: "겜스고에서 실시간 특가 확인",
+    discountLabel: "할인가 확인 필요",
+    features: ["지상파 방송 다시보기", "웨이브 오리지널", "실시간 채널 시청"],
+  },
+  {
+    id: "duolingo",
+    name: "슈퍼 듀오링고",
+    englishName: "Duolingo Super",
+    category: "소프트웨어",
+    officialPrice: "월 약 $12.99",
+    gamsgoPrice: "겜스고에서 실시간 특가 확인",
+    discountLabel: "할인가 확인 필요",
+    features: ["광고 없는 학습", "무제한 하트", "개인 맞춤 연습"],
+  },
+  {
+    id: "grammarly",
+    name: "그래멀리",
+    englishName: "Grammarly",
+    category: "소프트웨어",
+    officialPrice: "월 약 $12~",
+    gamsgoPrice: "겜스고에서 실시간 특가 확인",
+    discountLabel: "할인가 확인 필요",
+    features: ["AI 문법·표현 교정", "톤 분석 및 재작성", "표절 검사"],
+  },
+  {
+    id: "elevenlabs",
+    name: "일레븐랩스",
+    englishName: "ElevenLabs",
+    category: "AI",
+    officialPrice: "월 약 $5~",
+    gamsgoPrice: "겜스고에서 실시간 특가 확인",
+    discountLabel: "할인가 확인 필요",
+    features: ["AI 음성 합성·더빙", "자연스러운 다국어 보이스", "음성 클로닝"],
+  },
+  {
+    id: "envato-elements",
+    name: "엔바토 엘리먼츠",
+    englishName: "Envato Elements",
+    category: "소프트웨어",
+    officialPrice: "월 약 $16.50~",
+    gamsgoPrice: "겜스고에서 실시간 특가 확인",
+    discountLabel: "할인가 확인 필요",
+    features: ["수백만 개 디자인 소스", "폰트·템플릿·영상 소스", "상업적 이용 가능"],
+  },
+  {
+    id: "klingai",
+    name: "클링AI",
+    englishName: "Kling AI",
+    category: "AI",
+    officialPrice: "월 약 $10~",
+    gamsgoPrice: "겜스고에서 실시간 특가 확인",
+    discountLabel: "할인가 확인 필요",
+    features: ["고품질 AI 영상 생성", "이미지→영상 변환", "긴 길이 클립 지원"],
+  },
+  {
+    id: "miricanvas",
+    name: "미리캔버스",
+    englishName: "Miricanvas",
+    category: "소프트웨어",
+    officialPrice: "월 약 12,000원~",
+    gamsgoPrice: "겜스고에서 실시간 특가 확인",
+    discountLabel: "할인가 확인 필요",
+    features: ["수천 개 디자인 템플릿", "카드뉴스·발표자료 제작", "무료 폰트·이미지 소스"],
+  },
+  {
+    id: "scribd",
+    name: "스크리브드",
+    englishName: "Scribd",
+    category: "소프트웨어",
+    officialPrice: "월 약 $11.99",
+    gamsgoPrice: "겜스고에서 실시간 특가 확인",
+    discountLabel: "할인가 확인 필요",
+    features: ["전자책·오디오북 무제한", "문서·악보 열람", "광고 없는 독서 환경"],
+  },
+  {
+    id: "updf",
+    name: "유피디에프",
+    englishName: "UPDF",
+    category: "소프트웨어",
+    officialPrice: "월 약 $6.99~",
+    gamsgoPrice: "겜스고에서 실시간 특가 확인",
+    discountLabel: "할인가 확인 필요",
+    features: ["PDF 편집·변환", "AI 문서 요약", "전자서명 지원"],
+  },
+  {
+    id: "vidiq",
+    name: "비드아이큐",
+    englishName: "vidIQ",
+    category: "소프트웨어",
+    officialPrice: "월 약 $19~",
+    gamsgoPrice: "겜스고에서 실시간 특가 확인",
+    discountLabel: "할인가 확인 필요",
+    features: ["유튜브 키워드·SEO 분석", "경쟁 채널 리서치", "AI 제목·썸네일 추천"],
+  },
+  {
+    id: "coursera",
+    name: "코세라",
+    englishName: "Coursera Plus",
+    category: "소프트웨어",
+    officialPrice: "월 약 $59~",
+    gamsgoPrice: "겜스고에서 실시간 특가 확인",
+    discountLabel: "할인가 확인 필요",
+    features: ["대학·기업 강의 무제한", "수료증 발급", "실무 프로젝트 과정"],
+  },
+  {
+    id: "deezer",
+    name: "디저",
+    englishName: "Deezer",
+    category: "음악",
+    officialPrice: "월 약 11,900원",
+    gamsgoPrice: "겜스고에서 실시간 특가 확인",
+    discountLabel: "할인가 확인 필요",
+    features: ["1억 곡 이상 스트리밍", "무손실 음질(HiFi)", "오프라인 재생"],
+  },
+  {
+    id: "medium",
+    name: "미디엄",
+    englishName: "Medium",
+    category: "소프트웨어",
+    officialPrice: "월 약 $5",
+    gamsgoPrice: "겜스고에서 실시간 특가 확인",
+    discountLabel: "할인가 확인 필요",
+    features: ["프리미엄 아티클 무제한 열람", "광고 없는 읽기 환경", "작가 후원 기능"],
+  },
+  {
+    id: "qobuz",
+    name: "코부즈",
+    englishName: "Qobuz",
+    category: "음악",
+    officialPrice: "월 약 $12.99~",
+    gamsgoPrice: "겜스고에서 실시간 특가 확인",
+    discountLabel: "할인가 확인 필요",
+    features: ["스튜디오 마스터 음질", "무손실 하이파이 스트리밍", "음원 다운로드 지원"],
   },
 ];
 

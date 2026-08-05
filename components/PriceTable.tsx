@@ -19,9 +19,13 @@ export function PriceTable({ rows }: { rows: ServicePrice[] }) {
                   className="underline-offset-2 transition-colors hover:text-rose-500 hover:underline"
                 >
                   {row.name}
+                  {row.englishName && ` (${row.englishName})`}
                 </Link>
               ) : (
-                row.name
+                <>
+                  {row.name}
+                  {row.englishName && ` (${row.englishName})`}
+                </>
               )}
             </span>
             <span className="rounded-full bg-rose-50 px-2 py-0.5 text-xs font-bold text-rose-500">
