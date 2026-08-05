@@ -16,6 +16,10 @@ import {
   siExpressvpn,
   siPlaystation,
   siEa,
+  siSuno,
+  siAutodesk,
+  siNordvpn,
+  siTidal,
 } from "simple-icons";
 import type { ServiceId } from "@/lib/constants";
 
@@ -63,4 +67,13 @@ export const SERVICE_ICONS: Record<ServiceId, ServiceIcon> = {
   },
   "xbox-game-pass": { kind: "letter", letter: "X", hex: "107C10" },
   "ea-play": { kind: "brand", path: siEa.path, hex: siEa.hex },
+  grok: { kind: "letter", letter: "Gr", hex: "000000" },
+  suno: { kind: "brand", path: siSuno.path, hex: siSuno.hex },
+  gamma: { kind: "letter", letter: "G", hex: "8B5CF6" },
+  manus: { kind: "letter", letter: "Ma", hex: "0F172A" },
+  capcut: { kind: "letter", letter: "C", hex: "000000" },
+  filmora: { kind: "letter", letter: "F", hex: "429CF3" },
+  autodesk: { kind: "brand", path: siAutodesk.path, hex: siAutodesk.hex },
+  nordvpn: { kind: "brand", path: siNordvpn.path, hex: siNordvpn.hex },
+  tidal: { kind: "brand", path: siTidal.path, hex: siTidal.hex },
 };

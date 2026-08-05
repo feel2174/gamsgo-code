@@ -4,7 +4,7 @@ import { join } from "node:path";
 import { getPost } from "@/lib/community/store";
 import { SITE_NAME, SITE_TAGLINE } from "@/lib/constants";
 
-export const alt = "짠구독 찐후기";
+export const alt = "겜스고코드 찐후기";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -24,7 +24,7 @@ export default async function Image({
   const eyebrow = post
     ? `${post.serviceCategory} · ${post.postType}`
     : SITE_TAGLINE;
-  const title = post ? post.title : "짠구독 찐후기 게시판";
+  const title = post ? post.title : "겜스고코드 찐후기 게시판";
 
   const [extraBold, medium] = await Promise.all([
     readFile(join(FONT_DIR, "Pretendard-ExtraBold.ttf")),

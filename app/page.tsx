@@ -25,6 +25,11 @@ const guides = [
     desc: "AI 구독료도 반값 이하, 안 바꿀 이유가 없어요",
   },
   {
+    href: "/ai-subscription-discount",
+    title: "AI 구독료 비교 (챗GPT·제미나이·클로드)",
+    desc: "왜 이렇게 싼지, 결제 전에 뭘 알아야 하는지 한 번에 정리",
+  },
+  {
     href: "/price-comparison",
     title: "구독료 전체 가격 비교",
     desc: "내가 쓰는 서비스, 지금 얼마나 손해보고 있는지 확인",
@@ -33,6 +38,16 @@ const guides = [
     href: "/gamsgo-review",
     title: "겜스고 후기 및 안전성",
     desc: "사기 아니냐고요? 3,674명 후기로 직접 확인하세요",
+  },
+  {
+    href: "/gamsgo-scam-check",
+    title: "겜스고 사기 아니에요? 팩트체크",
+    desc: "디시·클리앙 논란까지 숨기지 않고 정리했어요",
+  },
+  {
+    href: "/gamsgo-alternatives",
+    title: "겜스고 대안 비교",
+    desc: "피클플러스·고잉버스·고스플릿과 뭐가 다른지 확인",
   },
 ];
 

@@ -1,4 +1,4 @@
-export const SITE_NAME = "짠구독";
+export const SITE_NAME = "겜스고코드";
 export const SITE_TAGLINE = "짠내나게 아끼는 구독 생활";
 export const SITE_URL = "https://www.gamsgocode.co.kr";
 export const GAMSGO_AFFILIATE_URL = "https://www.gamsgo.com/partner/Chgyp";
@@ -32,7 +32,16 @@ export type ServiceId =
   | "adobe-cc"
   | "playstation-plus"
   | "xbox-game-pass"
-  | "ea-play";
+  | "ea-play"
+  | "grok"
+  | "suno"
+  | "gamma"
+  | "manus"
+  | "capcut"
+  | "filmora"
+  | "autodesk"
+  | "nordvpn"
+  | "tidal";
 
 export type ServiceCategory = "OTT" | "AI" | "음악" | "소프트웨어" | "게임";
 
@@ -290,6 +299,87 @@ export const SERVICE_PRICES: ServicePrice[] = [
     discountLabel: "할인가 확인 필요",
     features: ["EA 인기작 무제한", "신작 얼리 액세스", "회원 전용 할인"],
   },
+  {
+    id: "grok",
+    name: "그록 (Grok)",
+    category: "AI",
+    officialPrice: "월 약 $30",
+    gamsgoPrice: "겜스고에서 실시간 특가 확인",
+    discountLabel: "할인가 확인 필요",
+    features: ["실시간 X(트위터) 정보", "빠른 응답 속도", "이미지 생성"],
+  },
+  {
+    id: "suno",
+    name: "수노 (Suno)",
+    category: "AI",
+    officialPrice: "월 약 $10~",
+    gamsgoPrice: "겜스고에서 실시간 특가 확인",
+    discountLabel: "할인가 확인 필요",
+    features: ["AI 작곡·작사", "다양한 장르 생성", "상업적 이용 가능"],
+  },
+  {
+    id: "gamma",
+    name: "감마 (Gamma)",
+    category: "AI",
+    officialPrice: "월 약 $15~",
+    gamsgoPrice: "겜스고에서 실시간 특가 확인",
+    discountLabel: "할인가 확인 필요",
+    features: ["AI 프레젠테이션 제작", "문서·웹페이지 변환", "템플릿 다양"],
+  },
+  {
+    id: "manus",
+    name: "마누스 (Manus)",
+    category: "AI",
+    officialPrice: "월 약 $39~",
+    gamsgoPrice: "겜스고에서 실시간 특가 확인",
+    discountLabel: "할인가 확인 필요",
+    features: ["자율 실행 AI 에이전트", "복잡한 작업 자동화", "리서치·코딩"],
+  },
+  {
+    id: "capcut",
+    name: "캡컷 (CapCut)",
+    category: "소프트웨어",
+    officialPrice: "월 약 $9.99~",
+    gamsgoPrice: "겜스고에서 실시간 특가 확인",
+    discountLabel: "할인가 확인 필요",
+    features: ["AI 영상 편집", "템플릿·자막 자동생성", "워터마크 제거"],
+  },
+  {
+    id: "filmora",
+    name: "필모라 (Filmora)",
+    category: "소프트웨어",
+    officialPrice: "연 약 $49.99~",
+    gamsgoPrice: "겜스고에서 실시간 특가 확인",
+    discountLabel: "할인가 확인 필요",
+    features: ["직관적인 영상 편집", "AI 편집 도구", "스톡 콘텐츠 포함"],
+  },
+  {
+    id: "autodesk",
+    name: "오토데스크 (Autodesk)",
+    category: "소프트웨어",
+    officialPrice: "연 약 $305~",
+    gamsgoPrice: "겜스고에서 실시간 특가 확인",
+    discountLabel: "할인가 확인 필요",
+    features: ["AutoCAD 등 설계 툴", "3D 모델링", "산업 표준 CAD"],
+  },
+  {
+    id: "nordvpn",
+    name: "노드VPN (NordVPN)",
+    category: "소프트웨어",
+    officialPrice: "월 약 $12.99~",
+    gamsgoPrice: "겜스고에서 실시간 특가 확인",
+    discountLabel: "할인가 확인 필요",
+    features: ["전세계 서버망", "노로그 정책", "다중 기기 동시 연결"],
+  },
+  {
+    id: "tidal",
+    name: "타이달 (Tidal)",
+    category: "음악",
+    officialPrice: "월 약 $10.99~",
+    gamsgoPrice: "겜스고에서 실시간 특가 확인",
+    discountLabel: "할인가 확인 필요",
+    features: ["고음질 무손실 스트리밍", "아티스트 독점 콘텐츠", "공간음향"],
+  },
 ];
 
 export interface KeywordLink {
@@ -302,8 +392,11 @@ export const TOP_KEYWORDS: KeywordLink[] = [
   { href: "/youtube-premium-discount", label: "유튜브 프리미엄 가격할인" },
   { href: "/netflix-discount", label: "넷플릭스 가격할인" },
   { href: "/chatgpt-plus-discount", label: "챗GPT 플러스 가격할인" },
+  { href: "/ai-subscription-discount", label: "AI 구독료 비교" },
   { href: "/price-comparison", label: "구독료 가격 비교" },
   { href: "/gamsgo-review", label: "겜스고 후기" },
+  { href: "/gamsgo-scam-check", label: "겜스고 사기 아니에요?" },
+  { href: "/gamsgo-alternatives", label: "겜스고 대안 비교" },
   { href: "/community", label: "익명 후기 게시판" },
 ];
 
@@ -318,6 +411,31 @@ export const TRUST_BADGES: TrustBadge[] = [
   { icon: "⭐", label: "평점 4.8 (3,674건)" },
   { icon: "⚡", label: "결제 후 즉시 발송" },
   { icon: "🔄", label: "24시간 환불 보장" },
+];
+
+export interface TrustFact {
+  label: string;
+  detail: string;
+}
+
+/** 겜스고 사기 논란 반박용 상세 신뢰 근거. TRUST_BADGES보다 한 단계 더 구체적인 근거가 필요한 페이지(겜스고 후기, 사기 팩트체크)에서 사용 */
+export const PLATFORM_TRUST_FACTS: TrustFact[] = [
+  {
+    label: "정식 등록 법인, 6년 이상 운영",
+    detail: "일회성 사이트가 아니라 수년간 동일한 사업자로 운영을 이어온 정식 법인입니다.",
+  },
+  {
+    label: "Trustpilot 평점 4.0/5.0",
+    detail: "국내 자체 후기뿐 아니라 해외 독립 리뷰 플랫폼인 Trustpilot에서도 검증 가능한 평점을 공개하고 있습니다.",
+  },
+  {
+    label: "PCI DSS v4.0 결제 보안 인증",
+    detail: "카드 결제 정보를 다루는 국제 표준 보안 인증을 획득해 결제 정보 유출 위험을 낮췄습니다.",
+  },
+  {
+    label: "EU GDPR 개인정보 처리 기준 준수",
+    detail: "유럽 개인정보보호법 기준에 맞춰 이용자 데이터를 처리한다고 명시하고 있습니다.",
+  },
 ];
 
 /** 사기/신뢰 반박을 선제 차단하는 공통 objection FAQ. 각 페이지 FAQ 최상단에 배치 */

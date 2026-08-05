@@ -6,6 +6,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { ProductJsonLd } from "@/components/seo/ProductJsonLd";
 import { TrustBadges } from "@/components/TrustBadges";
 import { buildMetadata } from "@/lib/seo";
+import { PLATFORM_TRUST_FACTS } from "@/lib/constants";
 
 export const metadata = buildMetadata({
   title: "겜스고 후기 총정리 (안전한가요? 장단점까지)",
@@ -80,6 +81,18 @@ export default function GamsgoReviewPage() {
           <li>· 결제 후 즉시 발송되는 자동화 시스템</li>
           <li>· 24시간 한국어 고객지원</li>
           <li>· 24시간 환불 보장 정책</li>
+        </ul>
+      </section>
+
+      <section className="flex flex-col gap-2">
+        <h2 className="text-lg font-bold">신뢰할 수 있는 근거</h2>
+        <ul className="flex flex-col gap-1 text-md text-neutral-700">
+          {PLATFORM_TRUST_FACTS.map((fact) => (
+            <li key={fact.label}>
+              · <span className="font-semibold">{fact.label}</span> —{" "}
+              {fact.detail}
+            </li>
+          ))}
         </ul>
       </section>
 
