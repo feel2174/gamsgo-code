@@ -5,4 +5,4 @@ Disallow: /community/new
 
 Sitemap: https://www.gamsgocode.co.kr/sitemap.xml
 
-#DaumWebMasterTool:19a6381a95ab9d03ceb8c0b1a473d92c3d1339cab7fc6ed68604cb8aab420546:P9w4LyykEX5hnuiYI3Hlww==
+#DaumWebMasterTool:611a81a4811d42d2ab34ac524a7cc7248d7441960025702024ca07edef6d4a3e:P9w4LyykEX5hnuiYI3Hlww==
