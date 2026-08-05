@@ -76,6 +76,22 @@ export default async function Home() {
         className="animate-fade-up flex flex-col gap-3"
         style={{ animationDelay: "80ms" }}
       >
+        <h2 className="text-lg font-bold">지금 얼마나 새고 있는지 확인해보세요</h2>
+        <ServicePriceCards
+          serviceIds={["youtube-premium", "netflix", "chatgpt-plus", "spotify"]}
+        />
+        <Link
+          href="/price-comparison"
+          className="block rounded-xl border border-neutral-200 bg-white px-4 py-3 text-center text-sm font-bold text-neutral-700 transition-colors hover:border-rose-300 hover:text-rose-500"
+        >
+          전체 서비스 가격 비교 더보기 →
+        </Link>
+      </section>
+
+      <section
+        className="animate-fade-up flex flex-col gap-3"
+        style={{ animationDelay: "140ms" }}
+      >
         <div className="flex items-center justify-between">
           <h2 className="text-lg font-bold">사기인지 아닌지, 찐후기부터 보세요</h2>
         </div>
@@ -104,7 +120,7 @@ export default async function Home() {
 
       <section
         className="animate-fade-up flex flex-col gap-3"
-        style={{ animationDelay: "140ms" }}
+        style={{ animationDelay: "200ms" }}
       >
         <h2 className="text-lg font-bold">다들 이렇게 아끼고 있었더라고요</h2>
         <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3">
@@ -119,22 +135,6 @@ export default async function Home() {
             </Link>
           ))}
         </div>
-      </section>
-
-      <section
-        className="animate-fade-up flex flex-col gap-3"
-        style={{ animationDelay: "200ms" }}
-      >
-        <h2 className="text-lg font-bold">지금 얼마나 새고 있는지 확인해보세요</h2>
-        <ServicePriceCards
-          serviceIds={["youtube-premium", "netflix", "chatgpt-plus", "spotify"]}
-        />
-        <Link
-          href="/price-comparison"
-          className="block rounded-xl border border-neutral-200 bg-white px-4 py-3 text-center text-sm font-bold text-neutral-700 transition-colors hover:border-rose-300 hover:text-rose-500"
-        >
-          전체 서비스 가격 비교 더보기 →
-        </Link>
       </section>
 
       <AffiliateCTA label="더 늦기 전에 구독료 아끼기" />

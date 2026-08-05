@@ -11,64 +11,55 @@ import { SERVICE_ICONS } from "@/lib/serviceIcons";
 
 const CATEGORY_ORDER: ServiceCategory[] = ["OTT", "AI", "음악", "소프트웨어", "게임"];
 
+/** 가격 문자열 길이에 따라 알약 안에서 자연스럽게 보이도록 글자 크기를 단계적으로 낮춤 */
+function gamsgoPriceTextClass(price: string) {
+  if (price.length <= 10) return "text-2xl";
+  if (price.length <= 16) return "text-lg";
+  return "text-sm leading-snug";
+}
+
 function ServicePriceCard({ service }: { service: ServicePrice }) {
   return (
-    <div className="flex flex-col rounded-2xl border border-neutral-200 bg-white p-5 transition-all duration-200 hover:-translate-y-1 hover:border-rose-200 hover:shadow-lg">
-      {/* 위쪽 콘텐츠: flex-1로 남는 공간을 흡수해 버튼 영역이 카드마다 다른
+    <div className="relative flex flex-col overflow-hidden rounded-3xl border border-neutral-200 bg-white p-5 pt-6 transition-all duration-200 hover:-translate-y-1 hover:border-rose-200 hover:shadow-lg">
+      <span className="absolute right-4 top-4 max-w-[45%] truncate rounded-full bg-emerald-50 px-2.5 py-1 text-[11px] font-bold text-emerald-600">
+        {service.discountLabel}
+      </span>
+
+      {/* 위쪽 콘텐츠: flex-1로 남는 공간을 흡수해 가격 알약이 카드마다 다른
           높이에서도 항상 하단에 고정되도록 함 */}
-      <div className="flex flex-1 flex-col">
-        <div className="flex items-start gap-3">
-          <ServiceIconBadge icon={SERVICE_ICONS[service.id]} size={44} />
-          <div className="flex min-w-0 flex-1 flex-col gap-1">
-            <div className="flex items-start justify-between gap-2">
-              <h4 className="font-bold text-neutral-900">{service.name}</h4>
-              <span className="shrink-0 rounded-full bg-rose-50 px-2 py-0.5 text-[11px] font-bold text-rose-500">
-                {service.discountLabel}
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <ul className="mt-3 flex flex-wrap gap-1.5">
-          {service.features.map((feature) => (
-            <li
-              key={feature}
-              className="rounded-full bg-neutral-50 px-2 py-1 text-[11px] font-medium text-neutral-500"
-            >
-              {feature}
-            </li>
-          ))}
-        </ul>
-
-        <div className="mt-4 flex flex-col gap-0.5">
-          <p className="text-xs text-neutral-400 line-through">
-            정가 {service.officialPrice}
+      <div className="flex flex-1 flex-col items-center gap-2 text-center">
+        <ServiceIconBadge icon={SERVICE_ICONS[service.id]} size={40} />
+        <h4 className="font-extrabold text-neutral-900">{service.name}</h4>
+        {service.features.length > 0 && (
+          <p className="text-xs text-neutral-500">
+            {service.features.slice(0, 2).join(" · ")}
           </p>
-          <p className="text-lg font-extrabold text-neutral-900">
-            {service.gamsgoPrice}
-          </p>
-        </div>
-      </div>
-
-      {/* 버튼 영역: 항상 카드 하단에 고정 */}
-      <div className="mt-4 flex flex-col gap-2">
+        )}
         {service.href && (
           <Link
             href={service.href}
-            className="text-center text-xs font-semibold text-neutral-400 transition-colors hover:text-rose-500"
+            className="text-[11px] font-semibold text-neutral-400 underline decoration-neutral-200 underline-offset-2 transition-colors hover:text-rose-500 hover:decoration-rose-300"
           >
             자세히 알아보기
           </Link>
         )}
-        <a
-          href={GAMSGO_AFFILIATE_URL}
-          target="_blank"
-          rel="sponsored noopener noreferrer"
-          className="flex items-center justify-center gap-1 rounded-lg bg-neutral-900 px-3 py-2.5 text-sm font-bold text-white transition-transform duration-150 active:scale-[0.98]"
-        >
-          겜스고에서 확인하기 <span aria-hidden>→</span>
-        </a>
       </div>
+
+      <a
+        href={GAMSGO_AFFILIATE_URL}
+        target="_blank"
+        rel="sponsored noopener noreferrer"
+        className="mt-4 flex flex-col items-center gap-0.5 rounded-2xl bg-rose-500 px-4 py-4 text-center transition-colors duration-200 hover:bg-rose-600 active:scale-[0.98]"
+      >
+        <span className="text-xs font-medium text-rose-100 line-through">
+          정가 {service.officialPrice}
+        </span>
+        <span
+          className={`font-extrabold text-white ${gamsgoPriceTextClass(service.gamsgoPrice)}`}
+        >
+          {service.gamsgoPrice}
+        </span>
+      </a>
     </div>
   );
 }
