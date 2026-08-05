@@ -52,8 +52,8 @@ export default async function Image({
               padding: "8px 20px",
               marginBottom: "36px",
               borderRadius: "999px",
-              background: "#fff1f2",
-              color: "#e11d48",
+              background: "#fff0ef",
+              color: "#dc312d",
               fontSize: 26,
               fontWeight: 800,
             }}
@@ -80,7 +80,7 @@ export default async function Image({
             alignItems: "center",
             justifyContent: "space-between",
             paddingTop: "36px",
-            borderTop: "1px solid #fecdd3",
+            borderTop: "1px solid #fddad9",
           }}
         >
           <div

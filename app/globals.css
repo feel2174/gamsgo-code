@@ -12,6 +12,27 @@
     system-ui, sans-serif;
 }
 
+/*
+ * 겜스고(gamsgo.com) 실제 브랜드 레드(#EF534F)에 맞춘 rose 팔레트 재정의.
+ * 사이트 전반의 rose 계열 유틸리티(bg-rose, text-rose, border-rose 등)가
+ * 전부 이 값을 참조하므로, 여기 한 곳만 바꾸면 primary 레드 톤이 일괄 적용된다.
+ * rose-500을 #EF534F로 고정하고, 나머지 단계는 동일한 색상(H는 약 1.5도)을
+ * 유지한 채 밝기와 채도만 계단식으로 조정해 만든 스케일이다.
+ */
+@theme {
+  --color-rose-50: #fffcfc;
+  --color-rose-100: #fff0ef;
+  --color-rose-200: #fddad9;
+  --color-rose-300: #fbb3b1;
+  --color-rose-400: #f78380;
+  --color-rose-500: #ef534f;
+  --color-rose-600: #dc312d;
+  --color-rose-700: #c21e19;
+  --color-rose-800: #a31c19;
+  --color-rose-900: #8d1c19;
+  --color-rose-950: #540a08;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
