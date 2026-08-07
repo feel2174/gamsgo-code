@@ -5,6 +5,7 @@ import { listPostIdsForSitemap } from "@/lib/community/store";
 const staticPaths = [
   "",
   "/youtube-premium-discount",
+  "/youtube-premium-bypass",
   "/netflix-discount",
   "/chatgpt-plus-discount",
   "/ai-subscription-discount",

@@ -599,6 +599,7 @@ export interface KeywordLink {
 /** 헤더 하단 가로스크롤 내비게이션에 노출되는 핵심 검색 키워드 */
 export const TOP_KEYWORDS: KeywordLink[] = [
   { href: "/youtube-premium-discount", label: "유튜브 프리미엄 가격할인" },
+  { href: "/youtube-premium-bypass", label: "유튜브 프리미엄 우회" },
   { href: "/netflix-discount", label: "넷플릭스 가격할인" },
   { href: "/chatgpt-plus-discount", label: "챗GPT 플러스 가격할인" },
   { href: "/ai-subscription-discount", label: "AI 구독료 비교" },
