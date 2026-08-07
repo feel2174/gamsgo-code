@@ -9,7 +9,7 @@ import { SITE_URL } from "@/lib/constants";
 export const revalidate = 30;
 
 export const metadata = buildMetadata({
-  title: "익명 후기 게시판 — 겜스고·구독툴 솔직 후기",
+  title: "익명 후기 게시판, 겜스고·구독툴 솔직 후기",
   description:
     "겜스고 구독 후기와 내가 써본 구독 서비스를 익명으로 자유롭게 공유하는 게시판입니다.",
   path: "/community",
@@ -47,11 +47,12 @@ export default async function CommunityPage() {
       />
       <header className="flex flex-col gap-2">
         <h1 className="text-2xl font-extrabold leading-snug">
-          익명 후기 게시판, 사기인지 아닌지 여기서 확인
+          익명 후기 게시판, 겜스고·구독툴 솔직 후기
         </h1>
         <p className="text-md text-neutral-500">
-          가입 없이도 볼 수 있어요. 먼저 읽어보고, 나도 솔직하게 남겨보세요.
-          닉네임은 매번 랜덤으로 생성돼서 부담 없어요.
+          사기인지 아닌지 여기서 확인하세요. 가입 없이도 볼 수 있어요. 먼저
+          읽어보고, 나도 솔직하게 남겨보세요. 닉네임은 매번 랜덤으로 생성돼서
+          부담 없어요.
         </p>
       </header>
 

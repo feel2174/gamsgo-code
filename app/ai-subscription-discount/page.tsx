@@ -160,11 +160,12 @@ export default function AiSubscriptionDiscountPage() {
       <header className="flex flex-col gap-3">
         <DisclosureBanner />
         <h1 className="text-2xl font-extrabold leading-snug">
-          챗GPT·제미나이·클로드, AI 구독료도 정가로 내면 손해예요
+          AI 구독료 비교, 챗GPT·제미나이·클로드 반값에 쓰는 법
         </h1>
         <p className="text-md text-neutral-500">
-          똑같은 AI 구독을 누구는 3만원 내고, 누구는 3천원대에 씁니다. 왜 이렇게
-          차이가 나는지, 결제 전에 뭘 알아야 하는지 순서대로 정리했어요.
+          똑같은 AI 구독을 정가로 내면 손해예요. 누구는 3만원 내고, 누구는
+          3천원대에 씁니다. 왜 이렇게 차이가 나는지, 결제 전에 뭘 알아야 하는지
+          순서대로 정리했어요.
         </p>
         <TrustBadges />
       </header>

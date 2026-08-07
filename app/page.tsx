@@ -59,14 +59,13 @@ export default async function Home() {
       <section className="animate-fade-up flex flex-col gap-3 text-center">
         <p className="text-sm font-bold text-rose-500">{SITE_TAGLINE}</p>
         <h1 className="text-2xl font-extrabold leading-snug">
-          유튜브·넷플릭스·챗GPT
-          <br />
-          정가로 내면, 1년에 40만원 손해예요
+          유튜브 프리미엄 가격할인, 넷플릭스 가격할인, 챗GPT 플러스 할인
+          총정리
         </h1>
         <p className="text-md text-neutral-500">
-          공식 아니라고 불안해하지 마세요. 아래 찐후기부터 바로 확인할 수
-          있어요. 150개국 1,000만 명이 이미 확인했고, 결제 즉시 발송·24시간
-          환불 보장까지 있어요.
+          정가로 내면 1년에 40만원 손해예요. 공식 아니라고 불안해하지 마세요.
+          아래 찐후기부터 바로 확인할 수 있어요. 150개국 1,000만 명이 이미
+          확인했고, 결제 즉시 발송·24시간 환불 보장까지 있어요.
         </p>
         <TrustBadges />
         <AffiliateCTA label="지금 40만원 아끼러 가기" />

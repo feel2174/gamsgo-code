@@ -10,7 +10,7 @@ import { buildMetadata } from "@/lib/seo";
 import { getServiceById, OBJECTION_FAQS } from "@/lib/constants";
 
 export const metadata = buildMetadata({
-  title: "넷플릭스 가격할인 총정리, 월 5천원대로 보는법 (2026)",
+  title: "넷플릭스 가격할인, 월 5천원대로 4K 프리미엄 보는 법",
   description:
     "넷플릭스 가격할인 정보 총정리. 프리미엄 정가 월 17,000원을 겜스고로 월 5,000원대에 VPN 없이 이용하는 방법을 정리했습니다.",
   path: "/netflix-discount",
@@ -52,7 +52,7 @@ export default function NetflixDiscountPage() {
       <header className="flex flex-col gap-3">
         <DisclosureBanner />
         <h1 className="text-2xl font-extrabold leading-snug">
-          넷플릭스 가격할인, 월 5천원대로 4K 프리미엄 보는법
+          넷플릭스 가격할인, 월 5천원대로 4K 프리미엄 보는 법
         </h1>
         <p className="text-md text-neutral-500">
           정가로 내면 매달 17,000원, 겜스고면 5,000원대. 1년이면 14만원 이상

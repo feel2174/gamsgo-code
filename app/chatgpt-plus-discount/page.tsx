@@ -9,7 +9,7 @@ import { buildMetadata } from "@/lib/seo";
 import { getServiceById, OBJECTION_FAQS } from "@/lib/constants";
 
 export const metadata = buildMetadata({
-  title: "챗GPT 플러스 가격할인 정리 (ChatGPT Plus 싸게 구독하기)",
+  title: "챗GPT 플러스 가격할인, AI 구독료도 절반 이하로",
   description:
     "ChatGPT Plus 정가 월 $20를 겜스고로 절반 이하로 이용하는 방법과 주의사항을 정리했습니다.",
   path: "/chatgpt-plus-discount",

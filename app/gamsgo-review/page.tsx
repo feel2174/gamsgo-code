@@ -9,7 +9,7 @@ import { buildMetadata } from "@/lib/seo";
 import { PLATFORM_TRUST_FACTS } from "@/lib/constants";
 
 export const metadata = buildMetadata({
-  title: "겜스고 후기 총정리 (안전한가요? 장단점까지)",
+  title: "겜스고 후기, 안전성부터 장단점까지 솔직 정리",
   description:
     "겜스고 이용 전 꼭 알아야 할 안전성, 장단점, 실제 이용자 평점을 솔직하게 정리했습니다.",
   path: "/gamsgo-review",

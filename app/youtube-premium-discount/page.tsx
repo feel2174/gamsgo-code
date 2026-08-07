@@ -10,7 +10,7 @@ import { buildMetadata } from "@/lib/seo";
 import { getServiceById, OBJECTION_FAQS } from "@/lib/constants";
 
 export const metadata = buildMetadata({
-  title: "유튜브 프리미엄 가격할인 총정리, 월 6,900원대 (2026년 최신)",
+  title: "유튜브 프리미엄 가격할인, 월 6,900원대로 최대 70% 저렴하게 구독하는 법",
   description:
     "유튜브 프리미엄 가격할인 정보 총정리. 정가 월 14,900원을 겜스고로 최대 70% 할인받아 월 6,900원대에 이용하는 방법, 이용 방식, 주의사항까지 정리했습니다.",
   path: "/youtube-premium-discount",
@@ -62,7 +62,7 @@ export default function YoutubePremiumDiscountPage() {
       <header className="flex flex-col gap-3">
         <DisclosureBanner />
         <h1 className="text-2xl font-extrabold leading-snug">
-          유튜브 프리미엄 가격할인, 최대 70% 저렴하게 구독하는 법
+          유튜브 프리미엄 가격할인, 월 6,900원대로 최대 70% 저렴하게 구독하는 법
         </h1>
         <p className="text-md text-neutral-500">
           정가로 내면 연 178,800원, 겜스고면 연 82,800원. 그 차액 96,000원은

@@ -13,9 +13,9 @@ const pretendard = localFont({
   weight: "45 920",
 });
 
-const DEFAULT_TITLE = `${SITE_NAME} — 유튜브 프리미엄 가격할인, 넷플릭스 가격할인 총정리`;
+const DEFAULT_TITLE = `${SITE_NAME} — 유튜브 프리미엄 가격할인, 넷플릭스 가격할인, 챗GPT 플러스 할인 총정리`;
 const DEFAULT_DESCRIPTION =
-  "유튜브 프리미엄 가격할인, 넷플릭스 가격할인, 챗GPT 플러스 할인까지 — 정가 대비 최대 70% 저렴하게 구독하는 법과 실제 이용자 익명 후기를 한곳에 모았습니다.";
+  "유튜브 프리미엄·넷플릭스·챗GPT 플러스를 정가 대비 최대 70% 할인받는 법과 실제 이용자 익명 후기를 한곳에 모았습니다.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

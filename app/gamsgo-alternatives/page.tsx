@@ -86,11 +86,11 @@ export default function GamsgoAlternativesPage() {
       <header className="flex flex-col gap-3">
         <DisclosureBanner />
         <h1 className="text-2xl font-extrabold leading-snug">
-          겜스고 대안 비교, 다른 구독 공유 사이트와 뭐가 다른가
+          겜스고 대안 비교, 피클플러스·고잉버스·고스플릿과 뭐가 다른가
         </h1>
         <p className="text-md text-neutral-500">
-          구독 공유 중개 플랫폼이 겜스고 하나만 있는 건 아니에요. 피클플러스,
-          고잉버스, 고스플릿과 서비스 범위부터 국내 OTT 지원까지 비교했습니다.
+          구독 공유 중개 플랫폼이 겜스고 하나만 있는 건 아니에요. 서비스
+          범위부터 국내 OTT 지원까지 비교했습니다.
         </p>
         <TrustBadges />
       </header>
