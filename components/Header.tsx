@@ -20,15 +20,20 @@ export function Header() {
     const el = keywordScrollRef.current;
     if (!el) return;
 
+    let rafId = 0;
     const updateScrollState = () => {
-      setCanScrollLeft(el.scrollLeft > 4);
-      setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 4);
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        setCanScrollLeft(el.scrollLeft > 4);
+        setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 4);
+      });
     };
 
     updateScrollState();
     el.addEventListener("scroll", updateScrollState);
     window.addEventListener("resize", updateScrollState);
     return () => {
+      cancelAnimationFrame(rafId);
       el.removeEventListener("scroll", updateScrollState);
       window.removeEventListener("resize", updateScrollState);
     };
@@ -73,7 +78,7 @@ export function Header() {
               type="button"
               aria-label="키워드 왼쪽으로 스크롤"
               onClick={() => scrollKeywordsBy(-160)}
-              className="absolute left-0 top-0 z-10 hidden h-full items-center bg-gradient-to-r from-white via-white/90 to-transparent pl-2 pr-4 text-neutral-400 transition-colors hover:text-rose-500 md:flex"
+              className="absolute left-0 top-0 z-10 hidden h-full items-center bg-gradient-to-r from-white via-white/90 to-transparent pl-2 pr-4 text-neutral-500 transition-colors hover:text-rose-600 md:flex"
             >
               ‹
             </button>
@@ -95,8 +100,8 @@ export function Header() {
                     href={keyword.href}
                     className={`block shrink-0 whitespace-nowrap rounded-full border px-3 py-1.5 text-xs font-semibold transition-colors ${
                       isActive
-                        ? "border-rose-300 bg-rose-50 text-rose-500"
-                        : "border-neutral-200 bg-neutral-50 text-neutral-600 hover:border-rose-300 hover:bg-rose-50 hover:text-rose-500"
+                        ? "border-rose-300 bg-rose-50 text-rose-600"
+                        : "border-neutral-200 bg-neutral-50 text-neutral-600 hover:border-rose-300 hover:bg-rose-50 hover:text-rose-600"
                     }`}
                   >
                     {keyword.label}
@@ -110,7 +115,7 @@ export function Header() {
               type="button"
               aria-label="키워드 오른쪽으로 스크롤"
               onClick={() => scrollKeywordsBy(160)}
-              className="absolute right-0 top-0 z-10 hidden h-full items-center bg-gradient-to-l from-white via-white/90 to-transparent pl-4 pr-2 text-neutral-400 transition-colors hover:text-rose-500 md:flex"
+              className="absolute right-0 top-0 z-10 hidden h-full items-center bg-gradient-to-l from-white via-white/90 to-transparent pl-4 pr-2 text-neutral-500 transition-colors hover:text-rose-600 md:flex"
             >
               ›
             </button>

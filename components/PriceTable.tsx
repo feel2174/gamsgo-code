@@ -16,7 +16,7 @@ export function PriceTable({ rows }: { rows: ServicePrice[] }) {
               {row.href ? (
                 <Link
                   href={row.href}
-                  className="underline-offset-2 transition-colors hover:text-rose-500 hover:underline"
+                  className="underline-offset-2 transition-colors hover:text-rose-600 hover:underline"
                 >
                   {row.name}
                   {row.englishName && ` (${row.englishName})`}
@@ -28,11 +28,11 @@ export function PriceTable({ rows }: { rows: ServicePrice[] }) {
                 </>
               )}
             </span>
-            <span className="rounded-full bg-rose-50 px-2 py-0.5 text-xs font-bold text-rose-500">
+            <span className="rounded-full bg-rose-50 px-2 py-0.5 text-xs font-bold text-rose-600">
               {row.discountLabel}
             </span>
           </div>
-          <div className="text-sm text-neutral-400 line-through">
+          <div className="text-sm text-neutral-500 line-through">
             정가 {row.officialPrice}
           </div>
           <div className="text-sm font-medium text-neutral-800">

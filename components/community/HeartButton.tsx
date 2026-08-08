@@ -71,7 +71,7 @@ export function HeartButton({
       </span>
       <span
         className={`font-semibold tabular-nums transition-colors duration-150 ${
-          hearted ? "text-rose-500" : "text-neutral-500"
+          hearted ? "text-rose-600" : "text-neutral-500"
         }`}
       >
         {count}

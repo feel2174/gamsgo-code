@@ -62,7 +62,7 @@ export default function PriceComparisonPage() {
           <li>
             <Link
               href="/youtube-premium-discount"
-              className="text-rose-500 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400"
+              className="text-rose-600 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400"
             >
               유튜브 프리미엄 가격할인 총정리 →
             </Link>
@@ -70,7 +70,7 @@ export default function PriceComparisonPage() {
           <li>
             <Link
               href="/netflix-discount"
-              className="text-rose-500 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400"
+              className="text-rose-600 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400"
             >
               넷플릭스 가격할인 총정리 →
             </Link>
@@ -78,7 +78,7 @@ export default function PriceComparisonPage() {
           <li>
             <Link
               href="/chatgpt-plus-discount"
-              className="text-rose-500 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400"
+              className="text-rose-600 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400"
             >
               챗GPT 플러스 가격할인 →
             </Link>
@@ -86,7 +86,7 @@ export default function PriceComparisonPage() {
           <li>
             <Link
               href="/gamsgo-review"
-              className="text-rose-500 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400"
+              className="text-rose-600 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400"
             >
               겜스고 후기 및 안전성 →
             </Link>
@@ -94,7 +94,7 @@ export default function PriceComparisonPage() {
           <li>
             <Link
               href="/community"
-              className="text-rose-500 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400"
+              className="text-rose-600 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400"
             >
               찐후기 게시판에서 실제 이용 후기 보기 →
             </Link>

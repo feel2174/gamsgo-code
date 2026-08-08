@@ -84,15 +84,15 @@ export default function NetflixDiscountPage() {
       <section className="flex flex-col gap-3">
         <p className="text-md text-neutral-500">
           유튜브 프리미엄 할인 정보도 궁금하다면{" "}
-          <Link href="/youtube-premium-discount" className="text-rose-500 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400">
+          <Link href="/youtube-premium-discount" className="text-rose-600 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400">
             유튜브 프리미엄 가격할인 총정리
           </Link>
           를, 전체 서비스 가격 비교는{" "}
-          <Link href="/price-comparison" className="text-rose-500 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400">
+          <Link href="/price-comparison" className="text-rose-600 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400">
             구독료 전체 가격 비교
           </Link>
           에서, 실제 이용 후기는{" "}
-          <Link href="/community" className="text-rose-500 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400">
+          <Link href="/community" className="text-rose-600 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400">
             찐후기 게시판
           </Link>
           에서 확인하세요.

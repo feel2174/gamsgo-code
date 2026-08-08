@@ -123,15 +123,15 @@ export default function YoutubePremiumDiscountPage() {
       <section className="flex flex-col gap-3">
         <p className="text-md text-neutral-500">
           겜스고 자체의 안전성과 후기가 궁금하다면{" "}
-          <Link href="/gamsgo-review" className="text-rose-500 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400">
+          <Link href="/gamsgo-review" className="text-rose-600 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400">
             겜스고 후기 및 안전성 총정리
           </Link>
           를 참고하세요. 다른 구독 서비스 가격도 함께 보려면{" "}
-          <Link href="/price-comparison" className="text-rose-500 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400">
+          <Link href="/price-comparison" className="text-rose-600 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400">
             구독료 전체 가격 비교
           </Link>
           페이지를, 실제 이용자들의 생생한 후기는{" "}
-          <Link href="/community" className="text-rose-500 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400">
+          <Link href="/community" className="text-rose-600 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400">
             찐후기 게시판
           </Link>
           에서 확인하세요.

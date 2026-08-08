@@ -171,7 +171,7 @@ export default function AiSubscriptionDiscountPage() {
       </header>
 
       <section className="flex flex-col gap-3">
-        <p className="text-sm font-bold text-rose-500">잠깐, 그 전에</p>
+        <p className="text-sm font-bold text-rose-600">잠깐, 그 전에</p>
         <h2 className="text-lg font-bold">유료 쓰면 뭐가 달라지나요?</h2>
         <p className="text-md text-neutral-500">
           무료로도 되는데 왜 돈을 내냐고요? 이 세 가지가 제일 크게 달라요.
@@ -185,13 +185,13 @@ export default function AiSubscriptionDiscountPage() {
               <p className="mb-3 font-bold">{row.title}</p>
               <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
                 <div className="rounded-xl bg-neutral-50 p-3">
-                  <p className="mb-1 text-xs font-bold text-neutral-400">
+                  <p className="mb-1 text-xs font-bold text-neutral-500">
                     무료
                   </p>
                   <p className="text-sm text-neutral-600">{row.free}</p>
                 </div>
                 <div className="rounded-xl bg-rose-50 p-3">
-                  <p className="mb-1 text-xs font-bold text-rose-500">유료</p>
+                  <p className="mb-1 text-xs font-bold text-rose-600">유료</p>
                   <p className="text-sm font-semibold text-rose-700">
                     {row.paid}
                   </p>
@@ -203,7 +203,7 @@ export default function AiSubscriptionDiscountPage() {
       </section>
 
       <section className="flex flex-col gap-3">
-        <p className="text-sm font-bold text-rose-500">궁금하시죠</p>
+        <p className="text-sm font-bold text-rose-600">궁금하시죠</p>
         <h2 className="text-lg font-bold">
           왜 이렇게 싼가요? 이상한 거 아닌가요?
         </h2>
@@ -231,7 +231,7 @@ export default function AiSubscriptionDiscountPage() {
       </section>
 
       <section className="flex flex-col gap-3 rounded-2xl border border-amber-100 bg-amber-50/40 p-4">
-        <p className="text-sm font-bold text-rose-500">좋은 얘기만 하면 광고죠</p>
+        <p className="text-sm font-bold text-rose-600">좋은 얘기만 하면 광고죠</p>
         <h2 className="text-lg font-bold">결제 전에 이건 알고 가세요</h2>
         <p className="text-sm text-neutral-500">
           미리 알아두면 당황할 일 없이 편하게 쓸 수 있는 것들이에요.
@@ -251,13 +251,13 @@ export default function AiSubscriptionDiscountPage() {
       </section>
 
       <section className="flex flex-col gap-3">
-        <p className="text-sm font-bold text-rose-500">전체 가격</p>
+        <p className="text-sm font-bold text-rose-600">전체 가격</p>
         <h2 className="text-lg font-bold">진단 없이 바로 고르고 싶다면</h2>
         <p className="text-md text-neutral-500">
           전부 한 달 기준이에요. 눌러서 실제 가격을 확인해 보세요.
         </p>
         <AiServicePriceGrid services={aiServices} />
-        <p className="text-xs text-neutral-400">
+        <p className="text-xs text-neutral-500">
           가격 확인일 2026.08.04 · 환율과 프로모션에 따라 달라질 수 있어요.
           &apos;원래 가격&apos;은 각 서비스 공식 월 요금의 원화 환산 기준입니다.
         </p>
@@ -273,28 +273,28 @@ export default function AiSubscriptionDiscountPage() {
           OTT 구독료 할인도 궁금하다면{" "}
           <Link
             href="/youtube-premium-discount"
-            className="text-rose-500 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400"
+            className="text-rose-600 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400"
           >
             유튜브 프리미엄
           </Link>{" "}
           또는{" "}
           <Link
             href="/netflix-discount"
-            className="text-rose-500 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400"
+            className="text-rose-600 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400"
           >
             넷플릭스
           </Link>{" "}
           할인 정보를, 챗GPT Plus만 자세히 보려면{" "}
           <Link
             href="/chatgpt-plus-discount"
-            className="text-rose-500 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400"
+            className="text-rose-600 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400"
           >
             챗GPT 플러스 가격할인
           </Link>{" "}
           페이지를, 실제 이용 후기는{" "}
           <Link
             href="/community"
-            className="text-rose-500 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400"
+            className="text-rose-600 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400"
           >
             찐후기 게시판
           </Link>

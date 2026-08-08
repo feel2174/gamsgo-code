@@ -32,7 +32,7 @@ function ServicePriceCard({ service }: { service: ServicePrice }) {
           가격 웨이브가 카드마다 다른 높이에서도 항상 하단에 고정되도록 함 */}
       <div className="flex flex-1 flex-col items-center gap-2 px-5 pb-6 pt-7 text-center">
         <ServiceIconBadge icon={SERVICE_ICONS[service.id]} size={40} />
-        <h4 className="font-extrabold text-neutral-900">{service.name}</h4>
+        <h3 className="font-extrabold text-neutral-900">{service.name}</h3>
         {service.englishName && (
           <span className="rounded-full bg-neutral-100 px-3 py-1 text-xs font-semibold text-neutral-500">
             {service.englishName}
@@ -41,7 +41,7 @@ function ServicePriceCard({ service }: { service: ServicePrice }) {
         {service.href && (
           <Link
             href={service.href}
-            className="text-[11px] font-semibold text-neutral-400 underline decoration-neutral-200 underline-offset-2 transition-colors hover:text-rose-500 hover:decoration-rose-300"
+            className="text-[11px] font-semibold text-neutral-500 underline decoration-neutral-200 underline-offset-2 transition-colors hover:text-rose-600 hover:decoration-rose-300"
           >
             자세히 알아보기
           </Link>
@@ -52,10 +52,10 @@ function ServicePriceCard({ service }: { service: ServicePrice }) {
         href={GAMSGO_AFFILIATE_URL}
         target="_blank"
         rel="sponsored noopener noreferrer"
-        className="flex flex-col items-center gap-0.5 bg-rose-500 px-4 pb-5 pt-5 text-center transition-colors duration-200 hover:bg-rose-600 active:scale-[0.98]"
+        className="flex flex-col items-center gap-0.5 bg-rose-600 px-4 pb-5 pt-5 text-center transition-colors duration-200 hover:bg-rose-700 active:scale-[0.98]"
         style={{ borderRadius: WAVE_TOP_RADIUS }}
       >
-        <span className="text-xs font-medium text-rose-100/80 line-through">
+        <span className="text-xs font-medium text-rose-50 line-through">
           정가 {service.officialPrice}
         </span>
         <span
@@ -99,7 +99,7 @@ export function ServicePriceCards({
 
         return (
           <section key={category} className="flex flex-col gap-3">
-            <h3 className="text-sm font-bold text-neutral-400">{category}</h3>
+            <h3 className="text-sm font-bold text-neutral-500">{category}</h3>
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {services.map((service) => (
                 <ServicePriceCard key={service.id} service={service} />

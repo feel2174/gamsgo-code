@@ -9,7 +9,14 @@ import { SITE_NAME, SITE_TAGLINE, SITE_URL } from "@/lib/constants";
 const pretendard = localFont({
   src: "../node_modules/pretendard/dist/web/variable/woff2/PretendardVariable.woff2",
   variable: "--font-pretendard",
-  display: "swap",
+  // PretendardVariable.woff2는 전체 한글 음절을 포함해 2MB에 달함.
+  // "swap"은 폴백으로 즉시 페인트되지만, 텍스트 요소의 LCP 기록 시점은
+  // 크롬이 웹폰트 로딩 완료까지 미루기 때문에 저속 회선에서 LCP가 10초+로
+  // 치솟는 원인이 된다. "optional"은 짧은 대기(~100ms) 후 폰트가 준비되지
+  // 않으면 그 로드에서는 폴백을 그대로 최종 렌더로 확정해 LCP를 지연시키지
+  // 않는다. 폰트는 백그라운드에서 계속 받아 캐시되므로 다음 페이지 이동부터는
+  // 정상적으로 Pretendard가 표시된다.
+  display: "optional",
   weight: "45 920",
 });
 

@@ -40,7 +40,7 @@ export default async function AdminDashboardPage() {
 
       <section className="flex flex-col gap-3">
         {posts.length === 0 && (
-          <p className="rounded-lg border border-dashed border-neutral-200 px-4 py-6 text-center text-sm text-neutral-400">
+          <p className="rounded-lg border border-dashed border-neutral-200 px-4 py-6 text-center text-sm text-neutral-500">
             아직 게시글이 없습니다.
           </p>
         )}
@@ -69,10 +69,10 @@ export default async function AdminDashboardPage() {
               <span className="rounded-full bg-sky-50 px-2 py-0.5 font-bold text-sky-600">
                 {post.postType}
               </span>
-              <span className="text-neutral-400">★ {post.rating.toFixed(1)}</span>
-              <span className="text-neutral-400">{post.nickname}</span>
+              <span className="text-neutral-500">★ {post.rating.toFixed(1)}</span>
+              <span className="text-neutral-500">{post.nickname}</span>
               <span className="text-neutral-300">·</span>
-              <span className="text-neutral-400">
+              <span className="text-neutral-500">
                 {formatRelativeTime(post.createdAt)}
               </span>
             </div>
@@ -94,7 +94,7 @@ export default async function AdminDashboardPage() {
                 <form action={hidePostAction.bind(null, post.id)}>
                   <button
                     type="submit"
-                    className="rounded-lg border border-neutral-200 px-3 py-1.5 text-xs font-semibold text-neutral-600 transition-colors hover:border-rose-300 hover:text-rose-500"
+                    className="rounded-lg border border-neutral-200 px-3 py-1.5 text-xs font-semibold text-neutral-600 transition-colors hover:border-rose-300 hover:text-rose-600"
                   >
                     숨기기
                   </button>
@@ -103,7 +103,7 @@ export default async function AdminDashboardPage() {
               <form action={deletePostAction.bind(null, post.id)}>
                 <ConfirmSubmitButton
                   confirmMessage="이 게시글과 모든 댓글을 완전히 삭제할까요? 되돌릴 수 없습니다."
-                  className="rounded-lg border border-neutral-200 px-3 py-1.5 text-xs font-semibold text-neutral-400 transition-colors hover:border-red-300 hover:text-red-600"
+                  className="rounded-lg border border-neutral-200 px-3 py-1.5 text-xs font-semibold text-neutral-500 transition-colors hover:border-red-300 hover:text-red-600"
                 >
                   완전 삭제
                 </ConfirmSubmitButton>
@@ -139,7 +139,7 @@ export default async function AdminDashboardPage() {
                           {comment.nickname}
                         </span>
                         <span className="text-neutral-300">·</span>
-                        <span className="text-neutral-400">
+                        <span className="text-neutral-500">
                           {formatRelativeTime(comment.createdAt)}
                         </span>
                       </div>
@@ -172,7 +172,7 @@ export default async function AdminDashboardPage() {
                           >
                             <button
                               type="submit"
-                              className="rounded-md border border-neutral-200 px-2.5 py-1 text-[11px] font-semibold text-neutral-600 transition-colors hover:border-rose-300 hover:text-rose-500"
+                              className="rounded-md border border-neutral-200 px-2.5 py-1 text-[11px] font-semibold text-neutral-600 transition-colors hover:border-rose-300 hover:text-rose-600"
                             >
                               숨기기
                             </button>
@@ -187,7 +187,7 @@ export default async function AdminDashboardPage() {
                         >
                           <ConfirmSubmitButton
                             confirmMessage="이 댓글을 완전히 삭제할까요? 되돌릴 수 없습니다."
-                            className="rounded-md border border-neutral-200 px-2.5 py-1 text-[11px] font-semibold text-neutral-400 transition-colors hover:border-red-300 hover:text-red-600"
+                            className="rounded-md border border-neutral-200 px-2.5 py-1 text-[11px] font-semibold text-neutral-500 transition-colors hover:border-red-300 hover:text-red-600"
                           >
                             완전 삭제
                           </ConfirmSubmitButton>
@@ -216,10 +216,10 @@ function StatCard({
 }) {
   return (
     <div className="rounded-xl border border-neutral-200 bg-white p-4">
-      <p className="text-xs font-semibold text-neutral-400">{label}</p>
+      <p className="text-xs font-semibold text-neutral-500">{label}</p>
       <p
         className={`mt-1 text-2xl font-extrabold ${
-          tone === "rose" && value > 0 ? "text-rose-500" : "text-neutral-900"
+          tone === "rose" && value > 0 ? "text-rose-600" : "text-neutral-900"
         }`}
       >
         {value}

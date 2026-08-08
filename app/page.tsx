@@ -57,7 +57,7 @@ export default async function Home() {
   return (
     <div className="flex flex-col gap-8">
       <section className="animate-fade-up flex flex-col gap-3 text-center">
-        <p className="text-sm font-bold text-rose-500">{SITE_TAGLINE}</p>
+        <p className="text-sm font-bold text-rose-600">{SITE_TAGLINE}</p>
         <h1 className="text-2xl font-extrabold leading-snug">
           유튜브 프리미엄 가격할인, 넷플릭스 가격할인, 챗GPT 플러스 할인
           총정리
@@ -81,7 +81,7 @@ export default async function Home() {
         />
         <Link
           href="/price-comparison"
-          className="block rounded-xl border border-neutral-200 bg-white px-4 py-3 text-center text-sm font-bold text-neutral-700 transition-colors hover:border-rose-300 hover:text-rose-500"
+          className="block rounded-xl border border-neutral-200 bg-white px-4 py-3 text-center text-sm font-bold text-neutral-700 transition-colors hover:border-rose-300 hover:text-rose-600"
         >
           전체 서비스 가격 비교 더보기 →
         </Link>
@@ -105,13 +105,13 @@ export default async function Home() {
         </ul>
         <Link
           href="/community"
-          className="block rounded-xl border border-neutral-200 bg-white px-4 py-3 text-center text-sm font-bold text-neutral-700 transition-colors hover:border-rose-300 hover:text-rose-500"
+          className="block rounded-xl border border-neutral-200 bg-white px-4 py-3 text-center text-sm font-bold text-neutral-700 transition-colors hover:border-rose-300 hover:text-rose-600"
         >
           찐후기 더보기 →
         </Link>
         <Link
           href="/community/new"
-          className="rounded-xl border border-dashed border-neutral-300 px-4 py-3 text-center text-sm font-semibold text-neutral-400 transition-colors hover:border-rose-300 hover:text-rose-500"
+          className="rounded-xl border border-dashed border-neutral-300 px-4 py-3 text-center text-sm font-semibold text-neutral-500 transition-colors hover:border-rose-300 hover:text-rose-600"
         >
           3초면 끝, 나도 후기 남기기 ✍️
         </Link>

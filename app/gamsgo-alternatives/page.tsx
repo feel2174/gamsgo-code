@@ -113,7 +113,7 @@ export default function GamsgoAlternativesPage() {
                     href={p.href}
                     target="_blank"
                     rel="sponsored noopener noreferrer"
-                    className="font-bold text-rose-600 underline decoration-rose-200 underline-offset-2 transition-colors hover:text-rose-500 hover:decoration-rose-400"
+                    className="font-bold text-rose-600 underline decoration-rose-200 underline-offset-2 transition-colors hover:text-rose-600 hover:decoration-rose-400"
                   >
                     {p.name}
                   </a>
@@ -121,7 +121,7 @@ export default function GamsgoAlternativesPage() {
                   <p className="font-bold">{p.name}</p>
                 )}
                 {p.highlight && (
-                  <span className="rounded-full bg-rose-50 px-2 py-0.5 text-[11px] font-bold text-rose-500">
+                  <span className="rounded-full bg-rose-50 px-2 py-0.5 text-[11px] font-bold text-rose-600">
                     이 사이트
                   </span>
                 )}
@@ -150,7 +150,7 @@ export default function GamsgoAlternativesPage() {
             </div>
           ))}
         </div>
-        <p className="text-xs text-neutral-400">
+        <p className="text-xs text-neutral-500">
           각 서비스의 취급 목록과 정책은 수시로 바뀔 수 있어 결제 전 공식
           페이지에서 실시간으로 확인하는 걸 추천합니다.
         </p>
@@ -167,21 +167,21 @@ export default function GamsgoAlternativesPage() {
           겜스고 사기 논란이 궁금하다면{" "}
           <Link
             href="/gamsgo-scam-check"
-            className="text-rose-500 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400"
+            className="text-rose-600 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400"
           >
             겜스고 사기 아니에요? 팩트체크
           </Link>
           를, 장단점을 더 보고 싶다면{" "}
           <Link
             href="/gamsgo-review"
-            className="text-rose-500 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400"
+            className="text-rose-600 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400"
           >
             겜스고 후기 총정리
           </Link>
           를, 서비스별 가격은{" "}
           <Link
             href="/price-comparison"
-            className="text-rose-500 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400"
+            className="text-rose-600 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400"
           >
             구독료 전체 가격 비교
           </Link>

@@ -7,7 +7,7 @@ import { formatRelativeTime } from "@/lib/community/time";
 import type { CommunityPost } from "@/lib/community/types";
 
 const POST_TYPE_STYLES: Record<string, string> = {
-  후기: "bg-rose-50 text-rose-500",
+  후기: "bg-rose-50 text-rose-600",
   정보: "bg-sky-50 text-sky-600",
 };
 
@@ -19,8 +19,11 @@ export function FeedPostCard({ post }: { post: CommunityPost }) {
   useEffect(() => {
     const el = contentRef.current;
     if (!el) return;
-    setCanExpand(el.scrollHeight > el.clientHeight + 1);
-    // 최초 접힌 상태에서 한 번만 넘침 여부를 측정
+    // rAF로 미뤄 마운트 직후 동기 레이아웃 강제(forced reflow)를 피함
+    const rafId = requestAnimationFrame(() => {
+      setCanExpand(el.scrollHeight > el.clientHeight + 1);
+    });
+    return () => cancelAnimationFrame(rafId);
   }, []);
 
   return (
@@ -38,7 +41,7 @@ export function FeedPostCard({ post }: { post: CommunityPost }) {
       </div>
 
       <Link href={`/community/${post.id}`} className="group">
-        <p className="font-semibold text-neutral-900 transition-colors group-hover:text-rose-500">
+        <p className="font-semibold text-neutral-900 transition-colors group-hover:text-rose-600">
           {post.title}
         </p>
         <p
@@ -50,7 +53,7 @@ export function FeedPostCard({ post }: { post: CommunityPost }) {
       </Link>
 
       <div className="mt-3 flex items-center justify-between gap-2">
-        <div className="flex flex-wrap items-center gap-1.5 text-xs text-neutral-400">
+        <div className="flex flex-wrap items-center gap-1.5 text-xs text-neutral-500">
           <span className="font-semibold text-neutral-500">
             {post.nickname}
           </span>
@@ -64,7 +67,7 @@ export function FeedPostCard({ post }: { post: CommunityPost }) {
           <button
             type="button"
             onClick={() => setExpanded((e) => !e)}
-            className="shrink-0 text-xs font-bold text-rose-500 transition-colors hover:text-rose-600"
+            className="shrink-0 text-xs font-bold text-rose-600 transition-colors hover:text-rose-600"
           >
             {expanded ? "접기" : "더보기"}
           </button>

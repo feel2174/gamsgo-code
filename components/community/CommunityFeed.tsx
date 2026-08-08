@@ -55,13 +55,13 @@ export function CommunityFeed({
       {hasMore ? (
         <div
           ref={sentinelRef}
-          className="flex justify-center py-4 text-sm text-neutral-400"
+          className="flex justify-center py-4 text-sm text-neutral-500"
         >
           {isPending ? "불러오는 중..." : ""}
         </div>
       ) : (
         posts.length > 0 && (
-          <p className="py-4 text-center text-xs text-neutral-400">
+          <p className="py-4 text-center text-xs text-neutral-500">
             마지막 후기까지 다 보셨어요
           </p>
         )

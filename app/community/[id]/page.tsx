@@ -83,7 +83,7 @@ export default async function CommunityPostPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(discussionJsonLd) }}
       />
-      <Link href="/community" className="text-sm text-neutral-400">
+      <Link href="/community" className="text-sm text-neutral-500">
         ← 목록으로
       </Link>
 
@@ -92,13 +92,13 @@ export default async function CommunityPostPage({
           <span className="rounded-full bg-neutral-100 px-2 py-0.5 text-[11px] font-bold text-neutral-500">
             {post.serviceCategory}
           </span>
-          <span className="rounded-full bg-rose-50 px-2 py-0.5 text-[11px] font-bold text-rose-500">
+          <span className="rounded-full bg-rose-50 px-2 py-0.5 text-[11px] font-bold text-rose-600">
             {post.postType}
           </span>
           <StarRatingDisplay rating={post.rating} size="text-xs" />
-          <span className="text-xs text-neutral-400">{post.nickname}</span>
+          <span className="text-xs text-neutral-500">{post.nickname}</span>
           <span className="text-xs text-neutral-300">·</span>
-          <span className="text-xs text-neutral-400">
+          <span className="text-xs text-neutral-500">
             {formatRelativeTime(post.createdAt)}
           </span>
         </div>
@@ -128,7 +128,7 @@ export default async function CommunityPostPage({
                   {comment.nickname}
                 </span>
                 <span className="text-xs text-neutral-300">·</span>
-                <span className="text-xs text-neutral-400">
+                <span className="text-xs text-neutral-500">
                   {formatRelativeTime(comment.createdAt)}
                 </span>
               </div>
@@ -144,7 +144,7 @@ export default async function CommunityPostPage({
             </li>
           ))}
           {post.comments.length === 0 && (
-            <li className="rounded-lg border border-dashed border-neutral-200 px-3.5 py-4 text-center text-sm text-neutral-400">
+            <li className="rounded-lg border border-dashed border-neutral-200 px-3.5 py-4 text-center text-sm text-neutral-500">
               아직 댓글이 없어요. 첫 댓글을 남겨보세요.
             </li>
           )}

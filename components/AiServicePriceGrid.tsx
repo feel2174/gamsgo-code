@@ -45,15 +45,15 @@ export function AiServicePriceGrid({ services }: { services: AiServicePrice[] })
           </div>
 
           <div
-            className="flex flex-col items-center gap-0.5 bg-rose-500 px-4 pb-5 pt-5 transition-colors duration-200 group-hover:bg-rose-600"
+            className="flex flex-col items-center gap-0.5 bg-rose-600 px-4 pb-5 pt-5 transition-colors duration-200 group-hover:bg-rose-700"
             style={{ borderRadius: WAVE_TOP_RADIUS }}
           >
-            <span className="text-xs font-medium text-rose-100/80 line-through">
+            <span className="text-xs font-medium text-rose-50 line-through">
               {service.officialPriceKRW.toLocaleString()}원
             </span>
             <span className="text-2xl font-extrabold text-white">
               {service.gamsgoPriceKRW.toLocaleString()}원
-              <span className="ml-1 text-sm font-semibold text-rose-100">
+              <span className="ml-1 text-sm font-semibold text-rose-50">
                 /월
               </span>
             </span>

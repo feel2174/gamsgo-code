@@ -146,7 +146,7 @@ export default function GamsgoScamCheckPage() {
               key={fact.label}
               className="flex gap-3 rounded-2xl border border-neutral-200 bg-white p-4"
             >
-              <span aria-hidden className="shrink-0 text-lg text-rose-500">
+              <span aria-hidden className="shrink-0 text-lg text-rose-600">
                 ✓
               </span>
               <div className="flex flex-col gap-1">
@@ -165,7 +165,7 @@ export default function GamsgoScamCheckPage() {
       </section>
 
       <section className="flex flex-col gap-3 rounded-2xl border border-amber-100 bg-amber-50/40 p-4">
-        <p className="text-sm font-bold text-rose-500">
+        <p className="text-sm font-bold text-rose-600">
           그래서 오히려 이런 것까지 미리 알려드려요
         </p>
         <h2 className="text-lg font-bold">결제 전에 이건 알고 가세요</h2>
@@ -197,21 +197,21 @@ export default function GamsgoScamCheckPage() {
           장단점을 더 자세히 보고 싶다면{" "}
           <Link
             href="/gamsgo-review"
-            className="text-rose-500 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400"
+            className="text-rose-600 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400"
           >
             겜스고 후기 총정리
           </Link>
           를, 비슷한 다른 서비스와 비교해보고 싶다면{" "}
           <Link
             href="/gamsgo-alternatives"
-            className="text-rose-500 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400"
+            className="text-rose-600 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400"
           >
             겜스고 대안 비교
           </Link>
           를, 실제 이용 후기는{" "}
           <Link
             href="/community"
-            className="text-rose-500 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400"
+            className="text-rose-600 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400"
           >
             찐후기 게시판
           </Link>

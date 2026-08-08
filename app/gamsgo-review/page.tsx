@@ -113,19 +113,19 @@ export default function GamsgoReviewPage() {
       <section className="flex flex-col gap-3">
         <p className="text-md text-neutral-500">
           구체적인 서비스별 가격이 궁금하다면{" "}
-          <Link href="/youtube-premium-discount" className="text-rose-500 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400">
+          <Link href="/youtube-premium-discount" className="text-rose-600 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400">
             유튜브 프리미엄
           </Link>
           ,{" "}
-          <Link href="/netflix-discount" className="text-rose-500 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400">
+          <Link href="/netflix-discount" className="text-rose-600 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400">
             넷플릭스
           </Link>
           ,{" "}
-          <Link href="/chatgpt-plus-discount" className="text-rose-500 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400">
+          <Link href="/chatgpt-plus-discount" className="text-rose-600 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400">
             챗GPT 플러스
           </Link>{" "}
           할인 페이지를 확인해보세요. 실제로 써본 사람들의 생생한 이야기는{" "}
-          <Link href="/community" className="text-rose-500 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400">
+          <Link href="/community" className="text-rose-600 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400">
             찐후기 게시판
           </Link>
           에서 볼 수 있어요.

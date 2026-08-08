@@ -60,7 +60,7 @@ export default function ChatgptPlusDiscountPage() {
       <section className="flex flex-col gap-3">
         <h2 className="text-lg font-bold">정가 vs 겜스고가</h2>
         <PriceTable rows={[service]} />
-        <p className="text-xs text-neutral-400">
+        <p className="text-xs text-neutral-500">
           * AI 구독 특가는 환율/공급 상황에 따라 자주 바뀌므로 정확한 금액은
           아래 버튼에서 실시간으로 확인하세요.
         </p>
@@ -83,19 +83,19 @@ export default function ChatgptPlusDiscountPage() {
       <section className="flex flex-col gap-3">
         <p className="text-md text-neutral-500">
           OTT 구독료 할인도 궁금하다면{" "}
-          <Link href="/youtube-premium-discount" className="text-rose-500 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400">
+          <Link href="/youtube-premium-discount" className="text-rose-600 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400">
             유튜브 프리미엄
           </Link>{" "}
           또는{" "}
-          <Link href="/netflix-discount" className="text-rose-500 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400">
+          <Link href="/netflix-discount" className="text-rose-600 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400">
             넷플릭스
           </Link>{" "}
           할인 정보를, 전체 비교는{" "}
-          <Link href="/price-comparison" className="text-rose-500 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400">
+          <Link href="/price-comparison" className="text-rose-600 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400">
             구독료 전체 가격 비교
           </Link>
           에서, 실제 이용 후기는{" "}
-          <Link href="/community" className="text-rose-500 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400">
+          <Link href="/community" className="text-rose-600 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400">
             찐후기 게시판
           </Link>
           에서 확인하세요.
