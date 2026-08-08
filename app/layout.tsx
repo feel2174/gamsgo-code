@@ -7,28 +7,23 @@ import { Footer } from "@/components/Footer";
 import { SITE_NAME, SITE_TAGLINE, SITE_URL } from "@/lib/constants";
 
 // PretendardVariable.woff2 원본은 전체 한글 음절을 포함해 2MB에 달한다.
-// Lighthouse의 Lantern 시뮬레이터는 font-display 값과 무관하게 폰트 리소스의
-// (스로틀링 적용) 다운로드 시간을 그대로 텍스트 LCP 렌더 지연으로 계산하므로,
-// display만 바꿔서는 랩 점수가 개선되지 않는다 — 실제로 파일 크기를 줄여야 한다.
-// scripts/subset-pretendard.mjs(prebuild에서 자동 실행)가 app/components/lib
-// 소스에 실제로 쓰인 문자만 추려 143KiB 서브셋을 생성한다. 이 서브셋을 프리로드
-// 1순위로 쓰고, 서브셋에 없는 글자(커뮤니티 사용자 글의 희귀 음절 등)를 위해
-// 원본 풀세트 폰트를 비프리로드 폴백으로 뒤에 둔다 — 브라우저는 글리프 단위로
-// 폴백하므로 커버되지 않는 글자만 필요할 때 큰 파일을 지연 로드한다.
-const pretendardSubset = localFont({
+// Lighthouse의 Lantern 시뮬레이터는 font-display 값(swap/optional)을 무시하고,
+// 텍스트 렌더에 필요한 웹폰트의 (스로틀링 적용) 다운로드 시간을 그대로 FCP·LCP에
+// 반영한다. 따라서 랩 점수를 움직이는 유일한 레버는 "실제 로드되는 폰트의 크기"이며,
+// 원본 2MB 폰트가 어떤 경로로든(폴백 스택 포함) 로드되면 LCP가 12초까지 치솟는다.
+// (로컬 Lighthouse 재현으로 확인: 2MB→LCP 12초, 311KB 서브셋→LCP 2.6초. 폰트를
+//  2개 로드하면 대역폭 경쟁으로 오히려 악화되어, 반드시 "작은 것 하나만" 써야 한다.)
+//
+// scripts/subset-pretendard.mjs(prebuild 자동 실행)가 상용 한글 2,350자 + 사이트
+// 소스 실사용 문자 + 기호를 담고 가중치 축을 400–800으로 좁힌 311KB 서브셋을
+// 생성한다(실제 한국어의 99.9% 커버). 여기에도 없는 극희귀 음절만 기기 내장 한글
+// 폰트로 폴백된다(다운로드 0). 원본 풀세트 폰트는 폰트 스택에 두지 않는다.
+const pretendard = localFont({
   src: "../assets/fonts/PretendardVariable-subset.woff2",
-  variable: "--font-pretendard-subset",
+  variable: "--font-pretendard",
   display: "optional",
-  weight: "45 920",
+  weight: "400 800",
   preload: true,
-});
-
-const pretendardFull = localFont({
-  src: "../node_modules/pretendard/dist/web/variable/woff2/PretendardVariable.woff2",
-  variable: "--font-pretendard-full",
-  display: "swap",
-  weight: "45 920",
-  preload: false,
 });
 
 const DEFAULT_TITLE = `${SITE_NAME} — 유튜브 프리미엄 가격할인, 넷플릭스 가격할인, 챗GPT 플러스 할인 총정리`;
@@ -86,7 +81,7 @@ export default function RootLayout({
   return (
     <html
       lang="ko"
-      className={`${pretendardSubset.variable} ${pretendardFull.variable} h-full antialiased`}
+      className={`${pretendard.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-white text-neutral-900">
         <script

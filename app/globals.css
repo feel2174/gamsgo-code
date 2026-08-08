@@ -8,8 +8,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-pretendard-subset), var(--font-pretendard-full),
-    -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-sans: var(--font-pretendard), -apple-system, BlinkMacSystemFont,
+    system-ui, sans-serif;
 }
 
 /*
