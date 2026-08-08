@@ -30,7 +30,7 @@ export function AiServicePriceGrid({ services }: { services: AiServicePrice[] })
           rel="sponsored noopener noreferrer"
           className="group relative flex flex-col overflow-hidden rounded-3xl border border-neutral-200 bg-white transition-all duration-200 hover:-translate-y-1 hover:border-rose-200 hover:shadow-lg"
         >
-          <span className="absolute right-4 top-4 z-10 rounded-full bg-emerald-50 px-2.5 py-1 text-[11px] font-bold text-emerald-600">
+          <span className="absolute right-4 top-4 z-10 rounded-full bg-emerald-50 px-2.5 py-1 text-[11px] font-bold text-emerald-700">
             ✨ {service.badge}
           </span>
 
@@ -39,7 +39,7 @@ export function AiServicePriceGrid({ services }: { services: AiServicePrice[] })
             <h3 className="text-lg font-extrabold text-neutral-900">
               {service.name}
             </h3>
-            <span className="rounded-full bg-neutral-100 px-3 py-1 text-xs font-semibold text-neutral-500">
+            <span className="rounded-full bg-neutral-100 px-3 py-1 text-xs font-semibold text-neutral-600">
               {service.tagline}
             </span>
           </div>

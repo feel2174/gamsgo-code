@@ -2,9 +2,18 @@ import Link from "next/link";
 import { AffiliateCTA } from "@/components/AffiliateCTA";
 import { TrustBadges } from "@/components/TrustBadges";
 import { ServicePriceCards } from "@/components/ServicePriceCards";
+import { DiscountHeroBox } from "@/components/home/DiscountHeroBox";
+import { ServiceLogoStrip } from "@/components/home/ServiceLogoStrip";
 import { FeedPostCard } from "@/components/community/FeedPostCard";
 import { SITE_TAGLINE } from "@/lib/constants";
 import { listPostsPage } from "@/lib/community/store";
+
+/** 상단 점프링크 내비 — 온페이지 섹션으로 스크롤(헤더 키워드 내비와 차별화) */
+const JUMP_LINKS = [
+  { href: "#price", label: "가격비교" },
+  { href: "#reviews", label: "찐후기" },
+  { href: "#guides", label: "할인가이드" },
+];
 
 export const revalidate = 30;
 
@@ -56,23 +65,39 @@ export default async function Home() {
 
   return (
     <div className="flex flex-col gap-8">
-      <section className="animate-fade-up flex flex-col gap-3 text-center">
+      <section className="animate-fade-up flex flex-col gap-4 text-center">
         <p className="text-sm font-bold text-rose-600">{SITE_TAGLINE}</p>
-        <h1 className="text-2xl font-extrabold leading-snug">
-          유튜브 프리미엄 가격할인, 넷플릭스 가격할인, 챗GPT 플러스 할인
-          총정리
+        <h1 className="text-2xl font-extrabold leading-snug md:text-3xl">
+          유튜브·넷플릭스·챗GPT 구독료,
+          <br />
+          정가 대비 최대 70% 할인
         </h1>
-        <p className="text-md text-neutral-500">
-          정가로 내면 1년에 40만원 손해예요. 공식 아니라고 불안해하지 마세요.
-          아래 찐후기부터 바로 확인할 수 있어요. 150개국 1,000만 명이 이미
-          확인했고, 결제 즉시 발송·24시간 환불 보장까지 있어요.
-        </p>
+
+        <DiscountHeroBox />
+
         <TrustBadges />
-        <AffiliateCTA label="지금 40만원 아끼러 가기" />
+
+        <nav
+          aria-label="바로가기"
+          className="flex flex-wrap justify-center gap-2"
+        >
+          {JUMP_LINKS.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="rounded-full border border-neutral-200 bg-neutral-50 px-3.5 py-1.5 text-xs font-semibold text-neutral-600 transition-colors hover:border-rose-300 hover:bg-rose-50 hover:text-rose-600"
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+
+        <ServiceLogoStrip />
       </section>
 
       <section
-        className="animate-fade-up flex flex-col gap-3"
+        id="price"
+        className="animate-fade-up flex scroll-mt-24 flex-col gap-3"
         style={{ animationDelay: "80ms" }}
       >
         <h2 className="text-lg font-bold">지금 얼마나 새고 있는지 확인해보세요</h2>
@@ -88,7 +113,8 @@ export default async function Home() {
       </section>
 
       <section
-        className="animate-fade-up flex flex-col gap-3"
+        id="reviews"
+        className="animate-fade-up flex scroll-mt-24 flex-col gap-3"
         style={{ animationDelay: "140ms" }}
       >
         <div className="flex items-center justify-between">
@@ -118,7 +144,8 @@ export default async function Home() {
       </section>
 
       <section
-        className="animate-fade-up flex flex-col gap-3"
+        id="guides"
+        className="animate-fade-up flex scroll-mt-24 flex-col gap-3"
         style={{ animationDelay: "200ms" }}
       >
         <h2 className="text-lg font-bold">다들 이렇게 아끼고 있었더라고요</h2>

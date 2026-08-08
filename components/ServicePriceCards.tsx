@@ -24,7 +24,7 @@ const WAVE_TOP_RADIUS = "50% 50% 0 0 / 22px 22px 0 0";
 function ServicePriceCard({ service }: { service: ServicePrice }) {
   return (
     <div className="relative flex flex-col overflow-hidden rounded-3xl border border-neutral-200 bg-white transition-all duration-200 hover:-translate-y-1 hover:border-rose-200 hover:shadow-lg">
-      <span className="absolute right-4 top-4 z-10 max-w-[45%] truncate rounded-full bg-emerald-50 px-2.5 py-1 text-[11px] font-bold text-emerald-600">
+      <span className="absolute right-4 top-4 z-10 max-w-[45%] truncate rounded-full bg-emerald-50 px-2.5 py-1 text-[11px] font-bold text-emerald-700">
         ✨ {service.discountLabel}
       </span>
 
@@ -34,7 +34,7 @@ function ServicePriceCard({ service }: { service: ServicePrice }) {
         <ServiceIconBadge icon={SERVICE_ICONS[service.id]} size={40} />
         <h3 className="font-extrabold text-neutral-900">{service.name}</h3>
         {service.englishName && (
-          <span className="rounded-full bg-neutral-100 px-3 py-1 text-xs font-semibold text-neutral-500">
+          <span className="rounded-full bg-neutral-100 px-3 py-1 text-xs font-semibold text-neutral-600">
             {service.englishName}
           </span>
         )}

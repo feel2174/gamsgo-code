@@ -8,7 +8,7 @@ import type { CommunityPost } from "@/lib/community/types";
 
 const POST_TYPE_STYLES: Record<string, string> = {
   후기: "bg-rose-50 text-rose-600",
-  정보: "bg-sky-50 text-sky-600",
+  정보: "bg-sky-50 text-sky-700",
 };
 
 export function FeedPostCard({ post }: { post: CommunityPost }) {
@@ -29,7 +29,7 @@ export function FeedPostCard({ post }: { post: CommunityPost }) {
   return (
     <li className="flex flex-col rounded-xl border border-neutral-200 bg-white p-4 transition-shadow duration-150 hover:shadow-sm">
       <div className="mb-1.5 flex flex-wrap items-center gap-2">
-        <span className="rounded-full bg-neutral-100 px-2 py-0.5 text-[11px] font-bold text-neutral-500">
+        <span className="rounded-full bg-neutral-100 px-2 py-0.5 text-[11px] font-bold text-neutral-600">
           {post.serviceCategory}
         </span>
         <span
