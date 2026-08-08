@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { AffiliateCTA } from "@/components/AffiliateCTA";
 import { TrustBadges } from "@/components/TrustBadges";
@@ -5,8 +6,14 @@ import { ServicePriceCards } from "@/components/ServicePriceCards";
 import { DiscountHeroBox } from "@/components/home/DiscountHeroBox";
 import { ServiceLogoStrip } from "@/components/home/ServiceLogoStrip";
 import { FeedPostCard } from "@/components/community/FeedPostCard";
-import { SITE_TAGLINE } from "@/lib/constants";
+import { SITE_TAGLINE, SITE_URL } from "@/lib/constants";
 import { listPostsPage } from "@/lib/community/store";
+
+// 홈은 layout의 기본 title·description·OG를 그대로 상속받되(콘텐츠 페이지와 달리
+// buildMetadata를 쓰지 않음), 자기참조 canonical만 명시해 도메인 중복 색인을 방어한다.
+export const metadata: Metadata = {
+  alternates: { canonical: SITE_URL },
+};
 
 /** 상단 점프링크 내비 — 온페이지 섹션으로 스크롤(헤더 키워드 내비와 차별화) */
 const JUMP_LINKS = [
