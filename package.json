@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/subset-pretendard.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
@@ -26,6 +27,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.2.10",
     "pg": "^8.22.0",
+    "subset-font": "^2.5.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
