@@ -5,8 +5,15 @@ import { FaqAccordion } from "@/components/FaqAccordion";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { ProductJsonLd } from "@/components/seo/ProductJsonLd";
 import { TrustBadges } from "@/components/TrustBadges";
+import { StarRatingDisplay } from "@/components/community/StarRatingDisplay";
+import { formatRelativeTime } from "@/lib/community/time";
+import { listRecentReviews } from "@/lib/community/store";
 import { buildMetadata } from "@/lib/seo";
 import { PLATFORM_TRUST_FACTS } from "@/lib/constants";
+
+// 구조화 데이터에 넣는 review는 페이지에 실제 노출되는 진짜 후기여야 하므로,
+// 커뮤니티 게시판 최신 후기를 주기적으로 다시 읽어 반영한다.
+export const revalidate = 300;
 
 export const metadata = buildMetadata({
   title: "겜스고 후기, 안전성부터 장단점까지 솔직 정리",
@@ -38,7 +45,9 @@ const faqs = [
   },
 ];
 
-export default function GamsgoReviewPage() {
+export default async function GamsgoReviewPage() {
+  const recentReviews = await listRecentReviews(6);
+
   return (
     <article className="flex flex-col gap-8">
       <BreadcrumbJsonLd
@@ -52,6 +61,13 @@ export default function GamsgoReviewPage() {
         description="넷플릭스, 유튜브 프리미엄 등 OTT·AI 구독 서비스를 최대 85% 할인가로 제공하는 구독 공유 중개 플랫폼"
         path="/gamsgo-review"
         aggregateRating={{ ratingValue: 4.8, reviewCount: 3674 }}
+        reviews={recentReviews.map((post) => ({
+          author: post.nickname,
+          ratingValue: post.rating,
+          body: post.content,
+          datePublished: post.createdAt,
+          name: post.title,
+        }))}
       />
       <header className="flex flex-col gap-3">
         <DisclosureBanner />
@@ -104,6 +120,45 @@ export default function GamsgoReviewPage() {
           <li>· 받은 계정을 제3자와 다시 나눠 쓰는 재공유는 지원하지 않아요</li>
         </ul>
       </section>
+
+      {recentReviews.length > 0 && (
+        <section className="flex flex-col gap-3">
+          <div className="flex items-baseline justify-between">
+            <h2 className="text-lg font-bold">실제 이용자 후기</h2>
+            <Link
+              href="/community"
+              className="text-sm text-rose-600 underline decoration-rose-200 underline-offset-2 transition-colors hover:decoration-rose-400"
+            >
+              후기 더 보기 →
+            </Link>
+          </div>
+          <ul className="flex flex-col gap-3">
+            {recentReviews.map((review) => (
+              <li
+                key={review.id}
+                className="rounded-lg border border-neutral-200 bg-white px-4 py-3"
+              >
+                <div className="mb-1 flex flex-wrap items-center gap-2">
+                  <StarRatingDisplay rating={review.rating} size="text-xs" />
+                  <span className="text-xs font-semibold text-neutral-600">
+                    {review.nickname}
+                  </span>
+                  <span className="text-xs text-neutral-300">·</span>
+                  <span className="text-xs text-neutral-500">
+                    {formatRelativeTime(review.createdAt)}
+                  </span>
+                </div>
+                <p className="text-md font-semibold text-neutral-800">
+                  {review.title}
+                </p>
+                <p className="mt-0.5 line-clamp-3 whitespace-pre-wrap text-sm text-neutral-600">
+                  {review.content}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       <section className="flex flex-col gap-3">
         <h2 className="text-lg font-bold">자주 묻는 질문</h2>

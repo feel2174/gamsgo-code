@@ -130,6 +130,31 @@ export async function listPostsPage(
   return { posts, nextOffset, hasMore: nextOffset < total };
 }
 
+/**
+ * 겜스고 후기 페이지의 구조화 데이터(Review)·노출 섹션용 실제 후기 조회.
+ * 별점이 있는 '후기' 타입 공개 글만 최신순으로 가져온다. 실패 시 빈 배열을
+ * 돌려주어 마케팅 페이지 렌더링이 Supabase 장애에 영향받지 않게 한다.
+ */
+export const listRecentReviews = cache(
+  async (limit: number): Promise<CommunityPost[]> => {
+    try {
+      const supabase = createServiceClient();
+      const { data, error } = await supabase
+        .from("posts")
+        .select("*, comments(count)")
+        .eq("status", "visible")
+        .eq("post_type", "후기")
+        .gt("rating", 0)
+        .order("created_at", { ascending: false })
+        .limit(limit);
+      if (error || !data) return [];
+      return (data as PostRowWithCommentCount[]).map(mapPostSummary);
+    } catch {
+      return [];
+    }
+  }
+);
+
 export const getPost = cache(
   async (id: string): Promise<CommunityPost | undefined> => {
     const supabase = createServiceClient();

@@ -39,16 +39,21 @@ export default async function CommunityPostPage({
   const post = await getPost(id);
   if (!post) notFound();
 
+  // 익명 게시판이라 작성자별 프로필 페이지가 없다. Google이 요구하는 author.url은
+  // 해당 작성자의 글/댓글이 실제로 노출되는 게시글 URL로 채운다.
+  const postUrl = `${SITE_URL}/community/${post.id}`;
+
   const discussionJsonLd = {
     "@context": "https://schema.org",
     "@type": "DiscussionForumPosting",
     headline: post.title,
     text: post.content,
     datePublished: post.createdAt,
-    url: `${SITE_URL}/community/${post.id}`,
+    url: postUrl,
     author: {
       "@type": "Person",
       name: post.nickname,
+      url: postUrl,
     },
     interactionStatistic: [
       {
@@ -66,7 +71,7 @@ export default async function CommunityPostPage({
       "@type": "Comment",
       text: comment.content,
       datePublished: comment.createdAt,
-      author: { "@type": "Person", name: comment.nickname },
+      author: { "@type": "Person", name: comment.nickname, url: postUrl },
     })),
   };
 
