@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { TaboolaPlacements } from "@/components/TaboolaPlacements";
 import { SITE_NAME, SITE_TAGLINE, SITE_URL } from "@/lib/constants";
 
 // PretendardVariable.woff2 원본은 전체 한글 음절을 포함해 2MB에 달한다.
@@ -83,6 +85,56 @@ export default function RootLayout({
       lang="ko"
       className={`${pretendard.variable} h-full antialiased`}
     >
+      <head>
+        <Script
+          id="taboola-loader"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+(function () {
+    var PUBLISHER_ID = 'zucca-network';
+    var PAGE_TYPE    = 'article';
+
+    var LOADER_URL         = '//cdn.taboola.com/libtrc/' + PUBLISHER_ID + '/loader.js';
+    var LOADER_PRIVACY_URL = '//static.tblcontent.com/libtrc/' + PUBLISHER_ID + '/loader.privacy.js';
+    var PIXEL_URL          = 'https://static.qovani.com/libtrc/tr5?type=pixel&publisher=' + PUBLISHER_ID;
+    var SCRIPT_ID          = 'tb_loader_script';
+
+    window._taboola = window._taboola || [];
+
+    var pageTypePush = {};
+    pageTypePush[PAGE_TYPE] = 'auto';
+    _taboola.push(pageTypePush);
+
+    new Image().src = PIXEL_URL;
+
+    var firstScript = document.getElementsByTagName('script')[0];
+
+    function injectLoader(id, src, fallbackSrc) {
+        if (document.getElementById(id)) return;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src   = src;
+        s.id    = id;
+        if (fallbackSrc) {
+            s.onerror = function () {
+                if (s.parentNode) s.parentNode.removeChild(s);
+                injectLoader(SCRIPT_ID + '_fb', fallbackSrc, null);
+            };
+        }
+        firstScript.parentNode.insertBefore(s, firstScript);
+    }
+
+    injectLoader(SCRIPT_ID, LOADER_URL, LOADER_PRIVACY_URL);
+
+    if (window.performance && typeof window.performance.mark === 'function') {
+        window.performance.mark('tbl_ic');
+    }
+})();
+            `,
+          }}
+        />
+      </head>
       <body className="flex min-h-full flex-col bg-white text-neutral-900">
         <script
           type="application/ld+json"
@@ -97,6 +149,7 @@ export default function RootLayout({
         <div className="app-container">
           <Footer />
         </div>
+        <TaboolaPlacements />
         <Analytics />
       </body>
     </html>
