@@ -5,7 +5,8 @@ import { getPost } from "@/lib/community/store";
 import { SITE_NAME, SITE_TAGLINE } from "@/lib/constants";
 
 export const alt = "겜스고코드 찐후기";
-export const size = { width: 1200, height: 630 };
+// 2x resolution (120:63 ratio) — vector-sourced, stays crisp when scaled up.
+export const size = { width: 2400, height: 1260 };
 export const contentType = "image/png";
 
 const FONT_DIR = join(
@@ -35,26 +36,42 @@ export default async function Image({
     (
       <div
         style={{
+          position: "relative",
           width: "100%",
           height: "100%",
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          padding: "72px",
-          background: "linear-gradient(160deg, #ffffff 0%, #fff5f5 100%)",
+          padding: "128px 144px",
+          background: "linear-gradient(155deg, #ffffff 0%, #fff2f1 62%, #ffe7e5 100%)",
+          overflow: "hidden",
         }}
       >
+        <div
+          style={{
+            position: "absolute",
+            top: -180,
+            right: -140,
+            width: 700,
+            height: 700,
+            borderRadius: 700,
+            background: "radial-gradient(circle, rgba(244,63,94,0.20), transparent 66%)",
+          }}
+        />
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div
             style={{
               display: "flex",
               alignSelf: "flex-start",
-              padding: "8px 20px",
-              marginBottom: "36px",
-              borderRadius: "999px",
-              background: "#fff0ef",
+              padding: "16px 36px",
+              marginBottom: 56,
+              borderRadius: 999,
+              background: "#ffffff",
+              border: "1px solid #fbcfcd",
+              boxShadow: "0 18px 40px rgba(220,49,45,0.12)",
               color: "#dc312d",
-              fontSize: 26,
+              fontFamily: "Pretendard",
+              fontSize: 46,
               fontWeight: 800,
             }}
           >
@@ -63,11 +80,14 @@ export default async function Image({
           <div
             style={{
               display: "flex",
-              fontSize: 58,
-              lineHeight: 1.4,
+              fontFamily: "Pretendard",
+              fontSize: 104,
+              lineHeight: 1.32,
               fontWeight: 800,
               color: "#18181b",
-              maxWidth: 1000,
+              letterSpacing: -2.5,
+              maxWidth: 1900,
+              wordBreak: "keep-all",
             }}
           >
             {title.length > 42 ? `${title.slice(0, 42)}…` : title}
@@ -79,16 +99,17 @@ export default async function Image({
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            paddingTop: "36px",
-            borderTop: "1px solid #fddad9",
+            paddingTop: 64,
+            borderTop: "2px solid #fbcfcd",
           }}
         >
           <div
             style={{
               display: "flex",
               alignItems: "center",
-              gap: "12px",
-              fontSize: 36,
+              gap: 22,
+              fontFamily: "Pretendard",
+              fontSize: 62,
               fontWeight: 800,
               color: "#18181b",
             }}
@@ -96,7 +117,7 @@ export default async function Image({
             <span>🐷</span>
             <span>{SITE_NAME}</span>
           </div>
-          <div style={{ display: "flex", fontSize: 26, color: "#71717a" }}>
+          <div style={{ display: "flex", fontFamily: "Pretendard", fontSize: 44, color: "#71717a" }}>
             gamsgocode.co.kr
           </div>
         </div>
