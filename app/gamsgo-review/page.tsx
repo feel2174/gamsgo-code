@@ -7,7 +7,7 @@ import { ProductJsonLd } from "@/components/seo/ProductJsonLd";
 import { TrustBadges } from "@/components/TrustBadges";
 import { StarRatingDisplay } from "@/components/community/StarRatingDisplay";
 import { formatRelativeTime } from "@/lib/community/time";
-import { listRecentReviews } from "@/lib/community/store";
+import { listRecentReviews, getReviewAggregate } from "@/lib/community/store";
 import { buildMetadata } from "@/lib/seo";
 import { PLATFORM_TRUST_FACTS } from "@/lib/constants";
 
@@ -26,7 +26,7 @@ const faqs = [
   {
     question: "겜스고 안전한가요?",
     answer:
-      "겜스고는 전 세계 150개국 1,000만 명 이상이 이용 중이며 4.8/5.0(3,674건) 평점을 받고 있어요. 구독 계정을 나눠 쓰는 방식이라 각 서비스 공식 약관과는 조금 다른 '회색지대'에 속하긴 하지만, 그래도 수백만 명이 별 탈 없이 쓰고 있고 정책이 바뀌더라도 환불·재발급으로 대응해주는 만큼 부담 없이 시작해볼 만해요.",
+      "겜스고는 전 세계 150개국 1,000만 명 이상이 이용 중이며, 겜스고 플랫폼 공개 평점은 4.8/5.0(3,674건)입니다. 구독 계정을 나눠 쓰는 방식이라 각 서비스 공식 약관과는 조금 다른 '회색지대'에 속하긴 하지만, 그래도 수백만 명이 별 탈 없이 쓰고 있고 정책이 바뀌더라도 환불·재발급으로 대응해주는 만큼 부담 없이 시작해볼 만해요.",
   },
   {
     question: "겜스고는 합법인가요?",
@@ -46,7 +46,10 @@ const faqs = [
 ];
 
 export default async function GamsgoReviewPage() {
-  const recentReviews = await listRecentReviews(6);
+  const [recentReviews, siteRating] = await Promise.all([
+    listRecentReviews(6),
+    getReviewAggregate(),
+  ]);
 
   return (
     <article className="flex flex-col gap-8">
@@ -60,7 +63,11 @@ export default async function GamsgoReviewPage() {
         name="겜스고 (GamsGo)"
         description="넷플릭스, 유튜브 프리미엄 등 OTT·AI 구독 서비스를 최대 85% 할인가로 제공하는 구독 공유 중개 플랫폼"
         path="/gamsgo-review"
-        aggregateRating={{ ratingValue: 4.8, reviewCount: 3674 }}
+        // 구조화 데이터의 평점은 조작 없이 '본 사이트 커뮤니티 실제 후기'만 집계해
+        // 넣는다(겜스고 플랫폼 공개 수치 4.8/3,674건과는 별개). 페이지에 실제로
+        // 노출되는 후기·평점과 일치해야 Google 리뷰 스니펫 정책을 지킬 수 있고,
+        // 후기가 없으면 aggregateRating 없이 내보낸다.
+        aggregateRating={siteRating ?? undefined}
         reviews={recentReviews.map((post) => ({
           author: post.nickname,
           ratingValue: post.rating,
@@ -93,7 +100,7 @@ export default async function GamsgoReviewPage() {
       <section className="flex flex-col gap-2">
         <h2 className="text-lg font-bold">장점</h2>
         <ul className="flex flex-col gap-1 text-md text-neutral-700">
-          <li>· 전 세계 150개국 1,000만 명 이상 이용, 평점 4.8/5.0(3,674건)</li>
+          <li>· 전 세계 150개국 1,000만 명 이상 이용 (겜스고 플랫폼 공개 평점 4.8/5.0, 3,674건)</li>
           <li>· 결제 후 즉시 발송되는 자동화 시스템</li>
           <li>· 24시간 한국어 고객지원</li>
           <li>· 24시간 환불 보장 정책</li>
@@ -132,6 +139,16 @@ export default async function GamsgoReviewPage() {
               후기 더 보기 →
             </Link>
           </div>
+          {siteRating && (
+            <p className="text-sm text-neutral-500">
+              본 사이트 찐후기 게시판 이용자 평점{" "}
+              <span className="font-bold text-neutral-800">
+                {siteRating.ratingValue.toFixed(1)}/5.0
+              </span>{" "}
+              ({siteRating.reviewCount}건) · 익명 이용자가 남긴 실제 별점만 집계한
+              수치예요.
+            </p>
+          )}
           <ul className="flex flex-col gap-3">
             {recentReviews.map((review) => (
               <li

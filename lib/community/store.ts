@@ -155,6 +155,39 @@ export const listRecentReviews = cache(
   }
 );
 
+/**
+ * 겜스고 후기 페이지의 구조화 데이터(AggregateRating)·노출 배지용 실제 집계.
+ * 별점이 있는 공개 '후기'(rating > 0)의 평균 별점과 개수를 실제 데이터로 계산한다.
+ * Google 리뷰 스니펫 정책·사이트 정책상 조작된 값이 아닌 진짜 커뮤니티 데이터만
+ * 구조화 데이터에 넣어야 하므로, 후기가 하나도 없으면 null을 돌려 aggregateRating
+ * 자체를 생략한다(마케팅 페이지 렌더링은 Supabase 장애에 영향받지 않도록 try/catch).
+ */
+export const getReviewAggregate = cache(
+  async (): Promise<{ ratingValue: number; reviewCount: number } | null> => {
+    try {
+      const supabase = createServiceClient();
+      const { data, error } = await supabase
+        .from("posts")
+        .select("rating")
+        .eq("status", "visible")
+        .eq("post_type", "후기")
+        .gt("rating", 0);
+      if (error || !data || data.length === 0) return null;
+      const ratings = (data as { rating: number | string }[]).map((r) =>
+        Number(r.rating)
+      );
+      const sum = ratings.reduce((acc, r) => acc + r, 0);
+      return {
+        // 소수 첫째 자리까지 반올림(예: 4.63 → 4.6)
+        ratingValue: Math.round((sum / ratings.length) * 10) / 10,
+        reviewCount: ratings.length,
+      };
+    } catch {
+      return null;
+    }
+  }
+);
+
 export const getPost = cache(
   async (id: string): Promise<CommunityPost | undefined> => {
     const supabase = createServiceClient();
