@@ -1,4 +1,11 @@
-import { GAMSGO_AFFILIATE_URL, SITE_URL } from "@/lib/constants";
+import {
+  GAMSGO_AFFILIATE_URL,
+  OG_IMAGE_URL,
+  ORGANIZATION_ID,
+  SITE_LANG,
+  SITE_URL,
+} from "@/lib/constants";
+import { JsonLd } from "./JsonLd";
 
 /**
  * 겜스고를 통해 이용하는 구독은 물리 배송이 없는 디지털 상품이다.
@@ -43,6 +50,13 @@ const MERCHANT_RETURN_POLICY = {
   returnFees: "https://schema.org/FreeReturn",
 };
 
+/** Offer.priceValidUntil 이 없으면 구글이 가격을 만료된 것으로 처리한다. 오늘로부터 90일. */
+function priceValidUntil(): string {
+  const d = new Date();
+  d.setDate(d.getDate() + 90);
+  return d.toISOString().slice(0, 10);
+}
+
 export interface ProductReview {
   author: string;
   /** 별점 0.5~5.0 */
@@ -57,7 +71,8 @@ export function ProductJsonLd({
   description,
   priceKRW,
   path,
-  image = `${SITE_URL}/opengraph-image`,
+  category,
+  image = OG_IMAGE_URL,
   aggregateRating,
   reviews,
 }: {
@@ -65,7 +80,9 @@ export function ProductJsonLd({
   description: string;
   priceKRW?: number;
   path: string;
-  /** 상품 리치 결과 필수 항목. 기본값은 사이트 동적 OG 이미지(1200×630) */
+  /** OTT / AI / 음악 등. 구글 상품 이해도와 카테고리 매칭에 쓰인다 */
+  category?: string;
+  /** 상품 리치 결과 필수 항목. 기본값은 사이트 동적 OG 이미지 */
   image?: string;
   aggregateRating?: { ratingValue: number; reviewCount: number };
   /**
@@ -74,56 +91,72 @@ export function ProductJsonLd({
    */
   reviews?: ProductReview[];
 }) {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    name,
-    description,
-    image: [image],
-    brand: {
-      "@type": "Brand",
-      name: "겜스고",
-    },
-    url: `${SITE_URL}${path}`,
-    ...(priceKRW && {
-      offers: {
-        "@type": "Offer",
-        price: priceKRW,
-        priceCurrency: "KRW",
-        url: GAMSGO_AFFILIATE_URL,
-        availability: "https://schema.org/InStock",
-        shippingDetails: DIGITAL_SHIPPING_DETAILS,
-        hasMerchantReturnPolicy: MERCHANT_RETURN_POLICY,
-      },
-    }),
-    ...(aggregateRating && {
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: aggregateRating.ratingValue,
-        reviewCount: aggregateRating.reviewCount,
-      },
-    }),
-    ...(reviews &&
-      reviews.length > 0 && {
-        review: reviews.map((r) => ({
-          "@type": "Review",
-          reviewRating: {
-            "@type": "Rating",
-            ratingValue: r.ratingValue,
-            bestRating: 5,
-          },
-          author: { "@type": "Person", name: r.author },
-          datePublished: r.datePublished,
-          reviewBody: r.body,
-          ...(r.name && { name: r.name }),
-        })),
-      }),
-  };
+  const url = `${SITE_URL}${path}`;
 
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    <JsonLd
+      data={{
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "@id": `${url}#product`,
+        name,
+        description,
+        inLanguage: SITE_LANG,
+        image: [image],
+        brand: {
+          "@type": "Brand",
+          name: "겜스고",
+          url: "https://www.gamsgo.com",
+        },
+        url,
+        mainEntityOfPage: { "@id": `${url}#webpage` },
+        ...(category && { category }),
+        ...(priceKRW && {
+          offers: {
+            "@type": "Offer",
+            "@id": `${url}#offer`,
+            price: priceKRW,
+            priceCurrency: "KRW",
+            priceValidUntil: priceValidUntil(),
+            url: GAMSGO_AFFILIATE_URL,
+            availability: "https://schema.org/InStock",
+            itemCondition: "https://schema.org/NewCondition",
+            seller: {
+              "@type": "Organization",
+              name: "겜스고",
+              url: "https://www.gamsgo.com",
+            },
+            eligibleRegion: { "@type": "Country", name: "대한민국" },
+            shippingDetails: DIGITAL_SHIPPING_DETAILS,
+            hasMerchantReturnPolicy: MERCHANT_RETURN_POLICY,
+          },
+        }),
+        ...(aggregateRating && {
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: aggregateRating.ratingValue,
+            reviewCount: aggregateRating.reviewCount,
+            bestRating: 5,
+            worstRating: 1,
+          },
+        }),
+        ...(reviews &&
+          reviews.length > 0 && {
+            review: reviews.map((r) => ({
+              "@type": "Review",
+              reviewRating: {
+                "@type": "Rating",
+                ratingValue: r.ratingValue,
+                bestRating: 5,
+              },
+              author: { "@type": "Person", name: r.author },
+              datePublished: r.datePublished,
+              reviewBody: r.body,
+              ...(r.name && { name: r.name }),
+            })),
+          }),
+        subjectOf: { "@id": ORGANIZATION_ID },
+      }}
     />
   );
 }

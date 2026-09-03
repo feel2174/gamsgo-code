@@ -3,8 +3,10 @@ import { listPostsPage } from "@/lib/community/store";
 import type { CommunityPost } from "@/lib/community/types";
 import { buildMetadata } from "@/lib/seo";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import { ArticleJsonLd } from "@/components/seo/ArticleJsonLd";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { CommunityFeed } from "@/components/community/CommunityFeed";
-import { SITE_URL } from "@/lib/constants";
+import { SITE_LANG, SITE_URL } from "@/lib/constants";
 
 export const revalidate = 30;
 
@@ -13,6 +15,13 @@ export const metadata = buildMetadata({
   description:
     "겜스고 구독 후기와 내가 써본 구독 서비스를 익명으로 자유롭게 공유하는 게시판입니다.",
   path: "/community",
+  ogType: "website",
+  keywords: [
+    "겜스고 후기 게시판",
+    "구독 공유 후기",
+    "겜스고 실사용 후기",
+    "익명 후기",
+  ],
 });
 
 const PAGE_SIZE = 6;
@@ -20,6 +29,12 @@ const PAGE_SIZE = 6;
 const itemListJsonLd = (posts: CommunityPost[]) => ({
   "@context": "https://schema.org",
   "@type": "ItemList",
+  "@id": `${SITE_URL}/community#itemlist`,
+  name: "겜스고·구독툴 익명 후기 목록",
+  inLanguage: SITE_LANG,
+  mainEntityOfPage: { "@id": `${SITE_URL}/community#webpage` },
+  numberOfItems: posts.length,
+  itemListOrder: "https://schema.org/ItemListOrderDescending",
   itemListElement: posts.map((post, index) => ({
     "@type": "ListItem",
     position: index + 1,
@@ -39,12 +54,14 @@ export default async function CommunityPage() {
           { name: "익명 후기 게시판", path: "/community" },
         ]}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(itemListJsonLd(posts)),
-        }}
+      <ArticleJsonLd
+        headline="익명 후기 게시판 — 겜스고·구독툴 솔직 후기"
+        description="겜스고 구독 후기와 실제 사용해본 구독 서비스 경험을 익명으로 공유하는 게시판."
+        path="/community"
+        pageType="CollectionPage"
+        about={["겜스고 이용 후기", "구독 서비스 후기"]}
       />
+      <JsonLd data={itemListJsonLd(posts)} />
       <header className="flex flex-col gap-2">
         <h1 className="text-2xl font-extrabold leading-snug">
           익명 후기 게시판, 겜스고·구독툴 솔직 후기

@@ -1,4 +1,5 @@
 import { SITE_URL } from "@/lib/constants";
+import { JsonLd } from "./JsonLd";
 
 export interface BreadcrumbEntry {
   name: string;
@@ -6,21 +7,21 @@ export interface BreadcrumbEntry {
 }
 
 export function BreadcrumbJsonLd({ items }: { items: BreadcrumbEntry[] }) {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: items.map((item, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      name: item.name,
-      item: `${SITE_URL}${item.path}`,
-    })),
-  };
+  const last = items[items.length - 1];
 
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    <JsonLd
+      data={{
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "@id": `${SITE_URL}${last?.path ?? "/"}#breadcrumb`,
+        itemListElement: items.map((item, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: item.name,
+          item: `${SITE_URL}${item.path}`,
+        })),
+      }}
     />
   );
 }

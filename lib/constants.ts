@@ -667,3 +667,77 @@ export function getServiceById(id: ServiceId): ServicePrice {
   if (!service) throw new Error(`Unknown service id: ${id}`);
   return service;
 }
+
+/* ------------------------------------------------------------------ *
+ * SEO / AEO / GEO 공통 상수
+ * ------------------------------------------------------------------ */
+
+export const SITE_LOCALE = "ko_KR";
+export const SITE_LANG = "ko-KR";
+
+/** 사이트 전역 기본 설명. 메타 태그와 JSON-LD가 동일한 문장을 쓰도록 한곳에서 관리 */
+export const SITE_DESCRIPTION =
+  "유튜브 프리미엄·넷플릭스·챗GPT 플러스를 정가 대비 최대 70% 할인받는 법과 실제 이용자 익명 후기를 한곳에 모았습니다.";
+
+/**
+ * JSON-LD @graph 노드 식별자.
+ * 페이지마다 흩어진 Organization/WebSite 노드를 중복 정의하지 않고
+ * @id 참조로 연결하기 위해 사용한다.
+ */
+export const ORGANIZATION_ID = `${SITE_URL}/#organization`;
+export const WEBSITE_ID = `${SITE_URL}/#website`;
+
+/** 검색엔진에 노출할 브랜드 동의어. 오탈자·구어체 검색어까지 커버 */
+export const SITE_ALTERNATE_NAMES = ["겜스고코드", "GamsGo Code", "겜스고 코드"];
+
+/** 사이트 전역 키워드. 페이지별 키워드는 buildMetadata의 keywords로 추가 */
+export const SITE_KEYWORDS = [
+  "유튜브 프리미엄 할인",
+  "넷플릭스 할인",
+  "챗GPT 플러스 할인",
+  "구독료 절약",
+  "겜스고",
+  "겜스고 후기",
+  "구독 공유",
+  "OTT 할인",
+  "AI 구독 할인",
+];
+
+/**
+ * 콘텐츠 최종 검수일(YYYY-MM-DD).
+ * sitemap의 lastModified와 JSON-LD의 dateModified가 같은 값을 쓰도록 한곳에서 관리한다.
+ * 매 빌드마다 new Date()를 넣으면 검색엔진이 신선도 신호를 무시하므로 수동 갱신한다.
+ */
+export const CONTENT_UPDATED_AT: Record<string, string> = {
+  "": "2026-09-03",
+  "/youtube-premium-discount": "2026-09-03",
+  "/netflix-discount": "2026-09-03",
+  "/chatgpt-plus-discount": "2026-09-03",
+  "/ai-subscription-discount": "2026-08-05",
+  "/price-comparison": "2026-09-03",
+  "/gamsgo-review": "2026-09-03",
+  "/gamsgo-scam-check": "2026-08-25",
+  "/gamsgo-alternatives": "2026-08-25",
+  "/community": "2026-09-03",
+  "/disclaimer": "2026-07-21",
+};
+
+export const DEFAULT_CONTENT_UPDATED_AT = "2026-09-03";
+
+export function getContentUpdatedAt(path: string): string {
+  return CONTENT_UPDATED_AT[path] ?? DEFAULT_CONTENT_UPDATED_AT;
+}
+
+/** 2026-09-03 → "2026년 9월 3일" */
+export function formatKoreanDate(isoDate: string): string {
+  const [y, m, d] = isoDate.split("-");
+  return `${y}년 ${Number(m)}월 ${Number(d)}일`;
+}
+
+/**
+ * 루트 app/opengraph-image.tsx 가 생성하는 이미지의 절대 URL.
+ * 하위 라우트에는 개별 OG 이미지 파일이 없으므로 구조화 데이터의 image 도 이 URL을 공유한다.
+ */
+export const OG_IMAGE_URL = `${SITE_URL}/opengraph-image`;
+export const OG_IMAGE_WIDTH = 2400;
+export const OG_IMAGE_HEIGHT = 1260;

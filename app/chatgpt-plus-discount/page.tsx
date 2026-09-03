@@ -3,7 +3,10 @@ import { AffiliateCTA } from "@/components/AffiliateCTA";
 import { DisclosureBanner } from "@/components/DisclosureBanner";
 import { PriceTable } from "@/components/PriceTable";
 import { FaqAccordion } from "@/components/FaqAccordion";
+import { AnswerSummary } from "@/components/AnswerSummary";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import { ArticleJsonLd } from "@/components/seo/ArticleJsonLd";
+import { ProductJsonLd } from "@/components/seo/ProductJsonLd";
 import { TrustBadges } from "@/components/TrustBadges";
 import { buildMetadata } from "@/lib/seo";
 import { getServiceById, OBJECTION_FAQS } from "@/lib/constants";
@@ -13,6 +16,14 @@ export const metadata = buildMetadata({
   description:
     "ChatGPT Plus 정가 월 $20를 겜스고로 절반 이하로 이용하는 방법과 주의사항을 정리했습니다.",
   path: "/chatgpt-plus-discount",
+  keywords: [
+    "챗GPT 플러스 할인",
+    "ChatGPT Plus 할인",
+    "챗지피티 플러스 싸게",
+    "챗GPT 구독료",
+    "AI 구독료 할인",
+    "겜스고 챗GPT",
+  ],
 });
 
 const faqs = [
@@ -45,6 +56,19 @@ export default function ChatgptPlusDiscountPage() {
           { name: "챗GPT 플러스 가격할인", path: "/chatgpt-plus-discount" },
         ]}
       />
+      <ArticleJsonLd
+        headline="챗GPT 플러스 가격할인, AI 구독료도 절반 이하로"
+        description="ChatGPT Plus 정가 월 $20를 겜스고 구독 공유로 절반 이하에 이용하는 방법과 주의사항."
+        path="/chatgpt-plus-discount"
+        about={["ChatGPT Plus", "AI 구독료 할인", "구독 공유"]}
+        mentions={["ChatGPT", "OpenAI", "Claude", "Midjourney", "겜스고", "GamsGo"]}
+      />
+      <ProductJsonLd
+        name="챗GPT Plus (겜스고 할인가)"
+        description="겜스고를 통해 이용하는 ChatGPT Plus 구독. 정가 대비 50% 이상 할인"
+        category="AI"
+        path="/chatgpt-plus-discount"
+      />
       <header className="flex flex-col gap-3">
         <DisclosureBanner />
         <h1 className="text-2xl font-extrabold leading-snug">
@@ -55,6 +79,16 @@ export default function ChatgptPlusDiscountPage() {
           있는 거예요.
         </p>
         <TrustBadges />
+        <AnswerSummary
+          path="/chatgpt-plus-discount"
+          answer="ChatGPT Plus 공식 요금은 월 $20(약 2.8만원)입니다. 구독 공유 플랫폼 겜스고를 이용하면 정가 대비 50% 이상 저렴하게 쓸 수 있고, 최신 모델·이미지 생성·코드 인터프리터 등 Plus 핵심 기능은 그대로 사용할 수 있습니다. AI 구독 특가는 자주 바뀌므로 결제 전 겜스고 페이지에서 실시간 가격을 확인하는 편이 정확합니다."
+          facts={[
+            "공식 요금: 월 $20 (약 2.8만원)",
+            "겜스고 요금: 정가 대비 50% 이상 할인 (실시간 변동)",
+            "이용 가능 기능: 최신 모델, 이미지 생성, 코드 인터프리터",
+            "Claude·미드저니·캔바 등 다른 AI 구독도 동일 방식으로 할인",
+          ]}
+        />
       </header>
 
       <section className="flex flex-col gap-3">
@@ -77,7 +111,7 @@ export default function ChatgptPlusDiscountPage() {
 
       <section className="flex flex-col gap-3">
         <h2 className="text-lg font-bold">자주 묻는 질문</h2>
-        <FaqAccordion items={faqs} />
+        <FaqAccordion items={faqs} path="/chatgpt-plus-discount" />
       </section>
 
       <section className="flex flex-col gap-3">

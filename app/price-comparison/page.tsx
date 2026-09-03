@@ -2,16 +2,27 @@ import Link from "next/link";
 import { DisclosureBanner } from "@/components/DisclosureBanner";
 import { ServicePriceCards } from "@/components/ServicePriceCards";
 import { FaqAccordion } from "@/components/FaqAccordion";
+import { AnswerSummary } from "@/components/AnswerSummary";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import { ArticleJsonLd } from "@/components/seo/ArticleJsonLd";
+import { ServiceItemListJsonLd } from "@/components/seo/ServiceItemListJsonLd";
 import { TrustBadges } from "@/components/TrustBadges";
 import { buildMetadata } from "@/lib/seo";
-import { OBJECTION_FAQS } from "@/lib/constants";
+import { OBJECTION_FAQS, SERVICE_PRICES } from "@/lib/constants";
 
 export const metadata = buildMetadata({
   title: "구독료 가격 비교, 유튜브·넷플릭스·챗GPT 가격할인 총정리",
   description:
     "유튜브 프리미엄 가격할인, 넷플릭스 가격할인, 챗GPT Plus 등 겜스고에서 판매하는 전체 구독 서비스의 정가와 할인가를 한 번에 비교했습니다.",
   path: "/price-comparison",
+  ogType: "website",
+  keywords: [
+    "구독료 가격 비교",
+    "OTT 요금 비교",
+    "구독 서비스 할인 총정리",
+    "넷플릭스 유튜브 요금 비교",
+    "구독료 절약",
+  ],
 });
 
 const faqs = [
@@ -42,6 +53,17 @@ export default function PriceComparisonPage() {
           { name: "구독료 가격 비교", path: "/price-comparison" },
         ]}
       />
+      <ArticleJsonLd
+        headline="구독료 가격 비교, 유튜브·넷플릭스·챗GPT 가격할인 총정리"
+        description="겜스고에서 취급하는 전체 구독 서비스의 공식 요금과 할인가를 한 페이지에서 비교."
+        path="/price-comparison"
+        pageType="CollectionPage"
+        about={["구독 서비스 요금 비교", "OTT 구독료", "AI 구독료"]}
+      />
+      <ServiceItemListJsonLd
+        path="/price-comparison"
+        name="겜스고 취급 구독 서비스 정가·할인가 비교"
+      />
       <header className="flex flex-col gap-3">
         <DisclosureBanner />
         <h1 className="text-2xl font-extrabold leading-snug">
@@ -52,6 +74,16 @@ export default function PriceComparisonPage() {
           얼마나 차이나는지 카드로 한눈에 비교해보세요.
         </p>
         <TrustBadges />
+        <AnswerSummary
+          path="/price-comparison"
+          answer={`겜스고에서 취급하는 구독 서비스는 OTT·AI·음악·소프트웨어·게임을 합쳐 ${SERVICE_PRICES.length}종입니다. 할인 폭이 가장 큰 쪽은 유튜브 프리미엄과 넷플릭스로 정가 대비 최대 70%, 챗GPT Plus 같은 AI 구독은 50% 이상 저렴해집니다. 가족 요금제나 대량 구매 혜택을 여러 명이 나눠 쓰는 구조라 결과물은 정가 결제와 같고 비용만 분담하는 방식입니다.`}
+          facts={[
+            "유튜브 프리미엄: 월 14,900원 → 월 환산 약 6,900원",
+            "넷플릭스 프리미엄: 월 17,000원 → 월 5,000원대",
+            "챗GPT Plus: 월 $20 → 정가 대비 50% 이상 할인",
+            `카테고리: OTT, AI, 음악, 소프트웨어, 게임 등 총 ${SERVICE_PRICES.length}종`,
+          ]}
+        />
       </header>
 
       <ServicePriceCards />
@@ -104,7 +136,7 @@ export default function PriceComparisonPage() {
 
       <section className="flex flex-col gap-3">
         <h2 className="text-lg font-bold">자주 묻는 질문</h2>
-        <FaqAccordion items={faqs} />
+        <FaqAccordion items={faqs} path="/price-comparison" />
       </section>
     </article>
   );

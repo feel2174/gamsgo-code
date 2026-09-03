@@ -2,7 +2,9 @@ import Link from "next/link";
 import { AffiliateCTA } from "@/components/AffiliateCTA";
 import { DisclosureBanner } from "@/components/DisclosureBanner";
 import { FaqAccordion } from "@/components/FaqAccordion";
+import { AnswerSummary } from "@/components/AnswerSummary";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import { ArticleJsonLd } from "@/components/seo/ArticleJsonLd";
 import { TrustBadges } from "@/components/TrustBadges";
 import { buildMetadata } from "@/lib/seo";
 import { PICKLEPLUS_AFFILIATE_URL } from "@/lib/constants";
@@ -12,6 +14,15 @@ export const metadata = buildMetadata({
   description:
     "겜스고 말고 다른 구독 공유 사이트도 궁금하시다면. 피클플러스, 고잉버스, 고스플릿과 서비스 범위·국내 OTT 지원·강점을 겜스고와 비교했습니다.",
   path: "/gamsgo-alternatives",
+  ogType: "website",
+  keywords: [
+    "겜스고 대안",
+    "구독 공유 사이트 비교",
+    "피클플러스 겜스고",
+    "고잉버스 비교",
+    "고스플릿",
+    "넷플릭스 파티 사이트",
+  ],
 });
 
 const platforms = [
@@ -83,6 +94,14 @@ export default function GamsgoAlternativesPage() {
           { name: "겜스고 대안 비교", path: "/gamsgo-alternatives" },
         ]}
       />
+      <ArticleJsonLd
+        headline="겜스고 대안 비교, 다른 구독 공유 사이트와 뭐가 다른가"
+        description="겜스고와 피클플러스·고잉버스·고스플릿의 서비스 범위, 국내 OTT 지원, 강점을 비교한 정리."
+        path="/gamsgo-alternatives"
+        pageType="CollectionPage"
+        about={["구독 공유 플랫폼 비교", "겜스고 대안"]}
+        mentions={["겜스고", "GamsGo", "피클플러스", "고잉버스", "고스플릿"]}
+      />
       <header className="flex flex-col gap-3">
         <DisclosureBanner />
         <h1 className="text-2xl font-extrabold leading-snug">
@@ -93,6 +112,16 @@ export default function GamsgoAlternativesPage() {
           범위부터 국내 OTT 지원까지 비교했습니다.
         </p>
         <TrustBadges />
+        <AnswerSummary
+          path="/gamsgo-alternatives"
+          answer="국내에서 쓸 수 있는 구독 공유 중개 플랫폼은 겜스고 외에도 피클플러스, 고잉버스, 고스플릿이 있습니다. 겜스고는 OTT·AI·게임까지 100여 개로 취급 범위가 가장 넓고, 피클플러스는 티빙·웨이브 같은 국내 OTT와 파티장 매칭에 강합니다. 어떤 서비스를 주로 쓰느냐에 따라 유리한 쪽이 갈립니다."
+          facts={[
+            "겜스고: 취급 서비스 범위가 가장 넓음 (OTT·AI·게임 100여 종)",
+            "피클플러스: 국내 OTT와 파티원 매칭 중심",
+            "고잉버스 / 고스플릿: 특정 서비스에 특화된 소규모 중개",
+            "공통 주의점: 모두 공식 채널이 아닌 계정 공유 구조",
+          ]}
+        />
       </header>
 
       <section className="flex flex-col gap-3">
@@ -159,7 +188,7 @@ export default function GamsgoAlternativesPage() {
 
       <section className="flex flex-col gap-3">
         <h2 className="text-lg font-bold">자주 묻는 질문</h2>
-        <FaqAccordion items={faqs} />
+        <FaqAccordion items={faqs} path="/gamsgo-alternatives" />
       </section>
 
       <section className="flex flex-col gap-3">

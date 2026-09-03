@@ -7,7 +7,8 @@ import { StarRatingDisplay } from "@/components/community/StarRatingDisplay";
 import { formatRelativeTime } from "@/lib/community/time";
 import { buildMetadata } from "@/lib/seo";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
-import { SITE_URL } from "@/lib/constants";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { ORGANIZATION_ID, SITE_LANG, SITE_URL, WEBSITE_ID } from "@/lib/constants";
 
 export const revalidate = 30;
 
@@ -23,10 +24,23 @@ export async function generateMetadata({
 }) {
   const { id } = await params;
   const post = await getPost(id);
+  if (!post) {
+    // 삭제되었거나 존재하지 않는 글은 색인 대상이 아니다
+    return buildMetadata({
+      title: "게시글",
+      description: "익명 후기 게시판",
+      path: `/community/${id}`,
+      noIndex: true,
+    });
+  }
+
   return buildMetadata({
-    title: post ? post.title : "게시글",
-    description: post ? post.content.slice(0, 80) : "익명 후기 게시판",
+    title: post.title,
+    // 줄바꿈이 그대로 들어가면 메타 설명이 잘려 보이므로 공백으로 정규화
+    description: post.content.replace(/\s+/g, " ").trim().slice(0, 155),
     path: `/community/${id}`,
+    publishedTime: post.createdAt,
+    modifiedTime: post.createdAt,
   });
 }
 
@@ -46,7 +60,24 @@ export default async function CommunityPostPage({
   const discussionJsonLd = {
     "@context": "https://schema.org",
     "@type": "DiscussionForumPosting",
+    "@id": `${postUrl}#post`,
     headline: post.title,
+    name: post.title,
+    inLanguage: SITE_LANG,
+    isPartOf: { "@id": WEBSITE_ID },
+    publisher: { "@id": ORGANIZATION_ID },
+    mainEntityOfPage: postUrl,
+    dateModified: post.createdAt,
+    ...(post.rating
+      ? {
+          reviewRating: {
+            "@type": "Rating",
+            ratingValue: post.rating,
+            bestRating: 5,
+            worstRating: 1,
+          },
+        }
+      : {}),
     text: post.content,
     datePublished: post.createdAt,
     url: postUrl,
@@ -84,10 +115,8 @@ export default async function CommunityPostPage({
           { name: post.title, path: `/community/${post.id}` },
         ]}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(discussionJsonLd) }}
-      />
+      {/* 사용자 입력이 들어가므로 반드시 이스케이프 처리되는 JsonLd 사용 */}
+      <JsonLd data={discussionJsonLd} />
       <Link href="/community" className="text-sm text-neutral-500">
         ← 목록으로
       </Link>

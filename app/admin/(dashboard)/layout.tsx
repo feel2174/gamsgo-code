@@ -1,4 +1,13 @@
 import { logoutAction } from "../actions";
+import { buildMetadata } from "@/lib/seo";
+
+// robots.txt 로도 막고 있지만, 외부 링크로 유입될 경우를 대비해 메타로도 색인을 차단
+export const metadata = buildMetadata({
+  title: "관리자",
+  description: "관리자 전용 페이지입니다.",
+  path: "/admin",
+  noIndex: true,
+});
 
 export default function AdminDashboardLayout({
   children,

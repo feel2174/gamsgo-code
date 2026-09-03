@@ -3,8 +3,10 @@ import { AffiliateCTA } from "@/components/AffiliateCTA";
 import { DisclosureBanner } from "@/components/DisclosureBanner";
 import { PriceTable } from "@/components/PriceTable";
 import { FaqAccordion } from "@/components/FaqAccordion";
+import { AnswerSummary } from "@/components/AnswerSummary";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { ProductJsonLd } from "@/components/seo/ProductJsonLd";
+import { ArticleJsonLd } from "@/components/seo/ArticleJsonLd";
 import { TrustBadges } from "@/components/TrustBadges";
 import { buildMetadata } from "@/lib/seo";
 import { getServiceById, OBJECTION_FAQS } from "@/lib/constants";
@@ -14,6 +16,14 @@ export const metadata = buildMetadata({
   description:
     "넷플릭스 가격할인 정보 총정리. 프리미엄 정가 월 17,000원을 겜스고로 월 5,000원대에 VPN 없이 이용하는 방법을 정리했습니다.",
   path: "/netflix-discount",
+  keywords: [
+    "넷플릭스 가격할인",
+    "넷플릭스 싸게 보는법",
+    "넷플릭스 프리미엄 할인",
+    "넷플릭스 4K 저렴하게",
+    "겜스고 넷플릭스",
+    "넷플릭스 계정 공유",
+  ],
 });
 
 const faqs = [
@@ -41,11 +51,19 @@ export default function NetflixDiscountPage() {
           { name: "넷플릭스 가격할인", path: "/netflix-discount" },
         ]}
       />
+      <ArticleJsonLd
+        headline="넷플릭스 가격할인, 월 5천원대로 4K 프리미엄 보는법"
+        description="넷플릭스 프리미엄 정가 월 17,000원을 겜스고 구독 공유로 월 5,000원대에 VPN 없이 이용하는 방법."
+        path="/netflix-discount"
+        about={["넷플릭스", "OTT 구독료 할인", "구독 공유"]}
+        mentions={["Netflix", "Netflix Premium", "겜스고", "GamsGo"]}
+      />
       {service.gamsgoPriceKRW && (
         <ProductJsonLd
           name="넷플릭스 프리미엄 (겜스고 할인가)"
           description="겜스고를 통해 이용하는 넷플릭스 프리미엄 4K UHD 구독"
           priceKRW={service.gamsgoPriceKRW}
+          category="OTT"
           path="/netflix-discount"
         />
       )}
@@ -59,6 +77,17 @@ export default function NetflixDiscountPage() {
           차이나요.
         </p>
         <TrustBadges />
+        <AnswerSummary
+          path="/netflix-discount"
+          answer="넷플릭스 프리미엄 정가는 월 17,000원(스탠다드 13,500원, 광고형 7,000원)이지만, 구독 공유 플랫폼 겜스고를 이용하면 월 5,000원대로 같은 프리미엄 등급을 볼 수 있습니다. VPN이나 우회 접속 없이 넷플릭스 공식 앱·사이트에 그대로 로그인하는 방식이라 4K UHD, HDR, 돌비 애트모스까지 동일하게 지원됩니다."
+          facts={[
+            "공식 요금: 프리미엄 월 17,000원 / 스탠다드 13,500원 / 광고형 7,000원",
+            "겜스고 요금: 월 5,000원대 (최대 70% 할인)",
+            "연간 절약액: 약 14만원 이상",
+            "VPN·우회 프로그램 불필요, 공식 앱 그대로 사용",
+            "화질: 4K UHD·HDR·돌비 비전·돌비 애트모스 지원",
+          ]}
+        />
       </header>
 
       <section className="flex flex-col gap-3">
@@ -78,7 +107,7 @@ export default function NetflixDiscountPage() {
 
       <section className="flex flex-col gap-3">
         <h2 className="text-lg font-bold">자주 묻는 질문</h2>
-        <FaqAccordion items={faqs} />
+        <FaqAccordion items={faqs} path="/netflix-discount" />
       </section>
 
       <section className="flex flex-col gap-3">

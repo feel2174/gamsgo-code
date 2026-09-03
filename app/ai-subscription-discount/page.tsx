@@ -3,7 +3,9 @@ import { AffiliateCTA } from "@/components/AffiliateCTA";
 import { AiServicePriceGrid, type AiServicePrice } from "@/components/AiServicePriceGrid";
 import { DisclosureBanner } from "@/components/DisclosureBanner";
 import { FaqAccordion } from "@/components/FaqAccordion";
+import { AnswerSummary } from "@/components/AnswerSummary";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import { ArticleJsonLd } from "@/components/seo/ArticleJsonLd";
 import { TrustBadges } from "@/components/TrustBadges";
 import { buildMetadata } from "@/lib/seo";
 import { OBJECTION_FAQS } from "@/lib/constants";
@@ -14,6 +16,15 @@ export const metadata = buildMetadata({
   description:
     "챗GPT Plus, 제미나이, 퍼플렉시티, 그록, 클로드, 젠스파크까지 AI 구독료를 겜스고에서 얼마나 아낄 수 있는지, 왜 이렇게 싼지 이유까지 정리했습니다.",
   path: "/ai-subscription-discount",
+  ogType: "website",
+  keywords: [
+    "AI 구독료 비교",
+    "챗GPT 제미나이 클로드 비교",
+    "AI 구독 할인",
+    "퍼플렉시티 구독료",
+    "클로드 구독료",
+    "젠스파크 할인",
+  ],
 });
 
 const freeVsPaid = [
@@ -157,6 +168,22 @@ export default function AiSubscriptionDiscountPage() {
           { name: "AI 구독료 비교", path: "/ai-subscription-discount" },
         ]}
       />
+      <ArticleJsonLd
+        headline="챗GPT·제미나이·클로드, AI 구독료도 정가로 내면 손해예요"
+        description="챗GPT Plus, 제미나이, 퍼플렉시티, 그록, 클로드, 젠스파크의 정가와 겜스고 할인가를 비교한 정리."
+        path="/ai-subscription-discount"
+        pageType="CollectionPage"
+        about={["AI 구독 서비스 요금", "AI 구독료 할인"]}
+        mentions={[
+          "ChatGPT Plus",
+          "Gemini",
+          "Claude",
+          "Perplexity",
+          "Grok",
+          "Genspark",
+          "겜스고",
+        ]}
+      />
       <header className="flex flex-col gap-3">
         <DisclosureBanner />
         <h1 className="text-2xl font-extrabold leading-snug">
@@ -168,6 +195,17 @@ export default function AiSubscriptionDiscountPage() {
           순서대로 정리했어요.
         </p>
         <TrustBadges />
+        <AnswerSummary
+          path="/ai-subscription-discount"
+          answer="주요 AI 구독의 공식 요금은 챗GPT Plus·클로드·퍼플렉시티가 월 $20, 제미나이가 약 $19.99, 그록이 약 $30, 젠스파크가 $24.99 수준입니다. 구독 공유 플랫폼 겜스고를 이용하면 같은 유료 기능을 정가의 절반 이하로 쓸 수 있고, 여러 AI를 동시에 구독해도 정가 하나 값에 못 미치는 경우가 많습니다."
+          facts={[
+            "챗GPT Plus / 클로드 / 퍼플렉시티: 공식 월 $20",
+            "제미나이: 공식 월 약 $19.99 · 그록: 월 약 $30",
+            "젠스파크: 공식 월 $24.99 → 겜스고 월 약 $16.99",
+            "유료 전환 시 차이: 최신 모델 무제한급, 긴 문서 처리, 대기 없음",
+            "AI 특가는 변동이 잦아 결제 직전 실시간 확인 권장",
+          ]}
+        />
       </header>
 
       <section className="flex flex-col gap-3">
@@ -265,7 +303,7 @@ export default function AiSubscriptionDiscountPage() {
 
       <section className="flex flex-col gap-3">
         <h2 className="text-lg font-bold">자주 묻는 질문</h2>
-        <FaqAccordion items={faqs} />
+        <FaqAccordion items={faqs} path="/ai-subscription-discount" />
       </section>
 
       <section className="flex flex-col gap-3">

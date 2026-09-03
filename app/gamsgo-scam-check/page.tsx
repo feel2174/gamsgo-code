@@ -2,7 +2,9 @@ import Link from "next/link";
 import { AffiliateCTA } from "@/components/AffiliateCTA";
 import { DisclosureBanner } from "@/components/DisclosureBanner";
 import { FaqAccordion } from "@/components/FaqAccordion";
+import { AnswerSummary } from "@/components/AnswerSummary";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import { ArticleJsonLd } from "@/components/seo/ArticleJsonLd";
 import { TrustBadges } from "@/components/TrustBadges";
 import { buildMetadata } from "@/lib/seo";
 import { OBJECTION_FAQS, PLATFORM_TRUST_FACTS } from "@/lib/constants";
@@ -12,6 +14,14 @@ export const metadata = buildMetadata({
   description:
     "겜스고 사기라는 말, 디시·클리앙에서도 나온 이야기예요. '겜스고 안전한가요?'부터 실제 논란, 사기가 아니라고 보는 근거, 그래도 조심해야 할 점까지 정직하게 정리했습니다.",
   path: "/gamsgo-scam-check",
+  keywords: [
+    "겜스고 사기",
+    "게임스고 사기",
+    "겜스고 안전한가요",
+    "겜스고 디시",
+    "겜스고 클리앙",
+    "구독 공유 사기",
+  ],
 });
 
 const controversies = [
@@ -100,6 +110,13 @@ export default function GamsgoScamCheckPage() {
           { name: "겜스고 사기 아니에요?", path: "/gamsgo-scam-check" },
         ]}
       />
+      <ArticleJsonLd
+        headline="겜스고 사기 아니에요? 안전성 논란과 팩트체크 총정리"
+        description="겜스고 사기 논란의 실제 사례와 사기가 아니라고 보는 근거, 그럼에도 주의할 점을 정리한 팩트체크."
+        path="/gamsgo-scam-check"
+        about={["겜스고 안전성", "구독 공유 사기 여부", "팩트체크"]}
+        mentions={["겜스고", "GamsGo", "Trustpilot", "디시인사이드", "클리앙"]}
+      />
       <header className="flex flex-col gap-3">
         <DisclosureBanner />
         <h1 className="text-2xl font-extrabold leading-snug">
@@ -112,6 +129,17 @@ export default function GamsgoScamCheckPage() {
           정리했습니다.
         </p>
         <TrustBadges />
+        <AnswerSummary
+          path="/gamsgo-scam-check"
+          answer="결론부터 말하면 겜스고는 돈만 받고 잠적하는 형태의 사기 사이트는 아닙니다. 6년 이상 동일 사업자로 운영된 정식 등록 법인이고, Trustpilot 평점과 PCI DSS 결제 보안 인증도 공개돼 있습니다. 다만 계정을 나눠 쓰는 구조라 서비스 측 정책 변경으로 이용이 끊긴 사례는 실제로 있었고, 이 점은 환불·재발급으로 대응되는 리스크로 이해하는 편이 정확합니다."
+          facts={[
+            "정식 등록 법인, 6년 이상 동일 사업자로 운영",
+            "Trustpilot 평점 4.0/5.0 공개 (해외 독립 리뷰 플랫폼)",
+            "PCI DSS v4.0 결제 보안 인증, EU GDPR 기준 준수",
+            "실제 논란: 유튜브 가족 요금제 위치 확인 강화로 계정이 막힌 사례",
+            "리스크 대응: 24시간 환불 보장 및 계정 재발급",
+          ]}
+        />
       </header>
 
       <section className="flex flex-col gap-3">
@@ -189,7 +217,7 @@ export default function GamsgoScamCheckPage() {
 
       <section className="flex flex-col gap-3">
         <h2 className="text-lg font-bold">자주 묻는 질문</h2>
-        <FaqAccordion items={faqs} />
+        <FaqAccordion items={faqs} path="/gamsgo-scam-check" />
       </section>
 
       <section className="flex flex-col gap-3">

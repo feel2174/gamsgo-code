@@ -6,7 +6,10 @@ import { ServicePriceCards } from "@/components/ServicePriceCards";
 import { DiscountHeroBox } from "@/components/home/DiscountHeroBox";
 import { ServiceLogoStrip } from "@/components/home/ServiceLogoStrip";
 import { FeedPostCard } from "@/components/community/FeedPostCard";
-import { SITE_TAGLINE, SITE_URL } from "@/lib/constants";
+import { AnswerSummary } from "@/components/AnswerSummary";
+import { ArticleJsonLd } from "@/components/seo/ArticleJsonLd";
+import { ServiceItemListJsonLd } from "@/components/seo/ServiceItemListJsonLd";
+import { SERVICE_PRICES, SITE_TAGLINE, SITE_URL } from "@/lib/constants";
 import { listPostsPage } from "@/lib/community/store";
 
 // 홈은 layout의 기본 title·description·OG를 그대로 상속받되(콘텐츠 페이지와 달리
@@ -72,6 +75,19 @@ export default async function Home() {
 
   return (
     <div className="flex flex-col gap-8">
+      <ArticleJsonLd
+        headline="유튜브·넷플릭스·챗GPT 구독료, 정가 대비 최대 70% 할인"
+        description="유튜브 프리미엄·넷플릭스·챗GPT Plus를 비롯한 구독 서비스의 정가와 할인가 비교, 그리고 실제 이용자 후기를 모은 사이트."
+        path=""
+        pageType="CollectionPage"
+        about={["구독료 절약", "OTT 구독 할인", "AI 구독 할인"]}
+        mentions={["YouTube Premium", "Netflix", "ChatGPT Plus", "겜스고", "GamsGo"]}
+      />
+      <ServiceItemListJsonLd
+        path=""
+        name="주요 구독 서비스 정가·할인가"
+        services={SERVICE_PRICES.filter((s) => s.href)}
+      />
       <section className="animate-fade-up flex flex-col gap-4 text-center">
         <p className="text-sm font-bold text-rose-600">{SITE_TAGLINE}</p>
         <h1 className="text-2xl font-extrabold leading-snug md:text-3xl">
@@ -100,6 +116,20 @@ export default async function Home() {
         </nav>
 
         <ServiceLogoStrip />
+
+        <div className="text-left">
+          <AnswerSummary
+            path=""
+            answer="유튜브 프리미엄·넷플릭스·챗GPT Plus를 정가로 각각 결제하면 연간 40만원가량이 나갑니다. 구독 공유 플랫폼 겜스고를 이용하면 같은 서비스를 최대 70% 저렴하게 쓸 수 있고, 별도 앱이나 우회 프로그램 없이 공식 앱·사이트에 그대로 로그인하는 방식이라 기능과 화질은 정가 결제와 동일합니다."
+            facts={[
+              "유튜브 프리미엄: 월 14,900원 → 월 환산 약 6,900원",
+              "넷플릭스 프리미엄: 월 17,000원 → 월 5,000원대",
+              "챗GPT Plus: 월 $20 → 정가 대비 50% 이상 할인",
+              "150개국 1,000만 명 이용, 평점 4.8/5.0 (3,674건)",
+              "결제 후 즉시 발송 · 24시간 환불 보장",
+            ]}
+          />
+        </div>
       </section>
 
       <section

@@ -3,8 +3,10 @@ import { AffiliateCTA } from "@/components/AffiliateCTA";
 import { DisclosureBanner } from "@/components/DisclosureBanner";
 import { PriceTable } from "@/components/PriceTable";
 import { FaqAccordion } from "@/components/FaqAccordion";
+import { AnswerSummary } from "@/components/AnswerSummary";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { ProductJsonLd } from "@/components/seo/ProductJsonLd";
+import { ArticleJsonLd } from "@/components/seo/ArticleJsonLd";
 import { TrustBadges } from "@/components/TrustBadges";
 import { buildMetadata } from "@/lib/seo";
 import { getServiceById, OBJECTION_FAQS } from "@/lib/constants";
@@ -14,6 +16,14 @@ export const metadata = buildMetadata({
   description:
     "유튜브 프리미엄 가격할인 정보 총정리. 정가 월 14,900원을 겜스고로 최대 70% 할인받아 월 6,900원대에 이용하는 방법, 이용 방식, 주의사항까지 정리했습니다.",
   path: "/youtube-premium-discount",
+  keywords: [
+    "유튜브 프리미엄 가격할인",
+    "유튜브 프리미엄 싸게",
+    "유튜브 프리미엄 할인",
+    "유튜브 프리미엄 가족 요금제",
+    "겜스고 유튜브 프리미엄",
+    "유튜브 프리미엄 월 6900원",
+  ],
 });
 
 const faqs = [
@@ -51,11 +61,19 @@ export default function YoutubePremiumDiscountPage() {
           { name: "유튜브 프리미엄 가격할인", path: "/youtube-premium-discount" },
         ]}
       />
+      <ArticleJsonLd
+        headline="유튜브 프리미엄 가격할인, 최대 70% 저렴하게 구독하는 법"
+        description="정가 월 14,900원인 유튜브 프리미엄을 겜스고 구독 공유로 월 6,900원대에 이용하는 방법과 주의사항."
+        path="/youtube-premium-discount"
+        about={["유튜브 프리미엄", "구독료 할인", "구독 공유"]}
+        mentions={["YouTube Premium", "YouTube Music", "겜스고", "GamsGo"]}
+      />
       {service.gamsgoPriceKRW && (
         <ProductJsonLd
           name="유튜브 프리미엄 (겜스고 할인가)"
           description="겜스고를 통해 이용하는 유튜브 프리미엄 개인/가족 공유 구독"
           priceKRW={service.gamsgoPriceKRW}
+          category="OTT"
           path="/youtube-premium-discount"
         />
       )}
@@ -69,6 +87,17 @@ export default function YoutubePremiumDiscountPage() {
           그냥 버리는 돈이에요.
         </p>
         <TrustBadges />
+        <AnswerSummary
+          path="/youtube-premium-discount"
+          answer="유튜브 프리미엄 정가는 월 14,900원(연 178,800원)이지만, 구독 공유 플랫폼 겜스고를 이용하면 연 82,800원 — 월 환산 약 6,900원에 같은 프리미엄 혜택을 쓸 수 있습니다. 별도 앱이나 우회 프로그램 없이 본인 구글 계정에 초대를 수락하는 방식이라 광고 제거, 백그라운드 재생, 유튜브 뮤직 모두 공식과 동일하게 작동합니다."
+          facts={[
+            "공식 요금: 월 14,900원 / 연 178,800원",
+            "겜스고 요금: 연 82,800원 (월 환산 약 6,900원, 최대 70% 할인)",
+            "연간 절약액: 약 96,000원",
+            "이용 방식: 이메일 초대 수락 (본인 계정 그대로 사용)",
+            "결제 후 즉시 발송, 24시간 환불 보장",
+          ]}
+        />
       </header>
 
       <section className="flex flex-col gap-3">
@@ -117,7 +146,7 @@ export default function YoutubePremiumDiscountPage() {
 
       <section className="flex flex-col gap-3">
         <h2 className="text-lg font-bold">자주 묻는 질문</h2>
-        <FaqAccordion items={faqs} />
+        <FaqAccordion items={faqs} path="/youtube-premium-discount" />
       </section>
 
       <section className="flex flex-col gap-3">
