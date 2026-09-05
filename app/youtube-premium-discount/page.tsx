@@ -7,6 +7,7 @@ import { AnswerSummary } from "@/components/AnswerSummary";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { ProductJsonLd } from "@/components/seo/ProductJsonLd";
 import { ArticleJsonLd } from "@/components/seo/ArticleJsonLd";
+import { HowToJsonLd } from "@/components/seo/HowToJsonLd";
 import { TrustBadges } from "@/components/TrustBadges";
 import { buildMetadata } from "@/lib/seo";
 import { getServiceById, OBJECTION_FAQS } from "@/lib/constants";
@@ -77,6 +78,31 @@ export default function YoutubePremiumDiscountPage() {
           path="/youtube-premium-discount"
         />
       )}
+      <HowToJsonLd
+        name="유튜브 프리미엄 70% 할인 구독 신청 방법"
+        description="겜스고를 통해 유튜브 프리미엄을 월 6,900원대에 안전하게 구독하는 4단계 방법"
+        path="/youtube-premium-discount"
+        estimatedCostKRW={service.gamsgoPriceKRW}
+        totalTime="PT3M"
+        steps={[
+          {
+            name: "겜스고 제휴 할인 페이지 접속",
+            text: "겜스고코드 할인 링크를 통해 겜스고 공식 웹사이트로 이동합니다.",
+          },
+          {
+            name: "유튜브 프리미엄 서비스 및 기간 선택",
+            text: "메인 화면에서 YouTube Premium을 선택하고 원하는 구독 기간(12개월 권장)을 지정합니다.",
+          },
+          {
+            name: "할인 코드 적용 및 결제",
+            text: "추가 프로모션 할인이 적용된 최종 금액을 확인하고 카카오페이, 토스, 신용카드 등 원하는 결제 수단으로 결제합니다.",
+          },
+          {
+            name: "가족 초대 링크 수락 및 이용 시작",
+            text: "결제 즉시 발송되는 이메일 초대 링크를 수락하면 본인 구글 계정에서 광고 없는 프리미엄 기능이 즉시 활성화됩니다.",
+          },
+        ]}
+      />
       <header className="flex flex-col gap-3">
         <DisclosureBanner />
         <h1 className="text-2xl font-extrabold leading-snug">

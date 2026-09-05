@@ -55,5 +55,7 @@ Disallow: /admin
 Disallow: /community/new
 
 Sitemap: https://www.gamsgocode.co.kr/sitemap.xml
+# RSS Feed (네이버 서치어드바이저 및 RSS 리더용)
+# Feed: https://www.gamsgocode.co.kr/rss.xml
 
 #DaumWebMasterTool:611a81a4811d42d2ab34ac524a7cc7248d7441960025702024ca07edef6d4a3e:P9w4LyykEX5hnuiYI3Hlww==

@@ -4,7 +4,9 @@ import { DisclosureBanner } from "@/components/DisclosureBanner";
 import { PriceTable } from "@/components/PriceTable";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import { ArticleJsonLd } from "@/components/seo/ArticleJsonLd";
 import { ProductJsonLd } from "@/components/seo/ProductJsonLd";
+import { HowToJsonLd } from "@/components/seo/HowToJsonLd";
 import { TrustBadges } from "@/components/TrustBadges";
 import { buildMetadata } from "@/lib/seo";
 import { getServiceById, OBJECTION_FAQS } from "@/lib/constants";
@@ -51,14 +53,46 @@ export default function YoutubePremiumBypassPage() {
           { name: "유튜브 프리미엄 우회", path: "/youtube-premium-bypass" },
         ]}
       />
+      <ArticleJsonLd
+        headline="유튜브 프리미엄 우회, 방법·위험·대안 총정리"
+        description="터키·인도·아르헨티나 VPN 우회 결제 막힘 및 계정 정지 리스크와 안전한 구독 대안 가이드."
+        path="/youtube-premium-bypass"
+        about={["유튜브 프리미엄 우회", "VPN 우회", "구독료 할인"]}
+        mentions={["YouTube Premium", "VPN", "겜스고", "GamsGo"]}
+      />
       {service.gamsgoPriceKRW && (
         <ProductJsonLd
-          name="유튜브 프리미엄 (겜스고 할인가)"
+          name="유튜브 프리미엄 (우회 없는 안전 할인가)"
           description="우회 없이 정식으로 이용하는 유튜브 프리미엄 개인/가족 공유 구독"
           priceKRW={service.gamsgoPriceKRW}
           path="/youtube-premium-bypass"
         />
       )}
+      <HowToJsonLd
+        name="정지 위험 없는 유튜브 프리미엄 할인 구독 방법"
+        description="VPN 우회 없이 한국 계정 그대로 최대 70% 할인받아 이용하는 4단계 방법"
+        path="/youtube-premium-bypass"
+        estimatedCostKRW={service.gamsgoPriceKRW}
+        totalTime="PT3M"
+        steps={[
+          {
+            name: "겜스고 제휴 할인 페이지 접속",
+            text: "VPN을 켤 필요 없이 겜스고코드 할인 링크로 겜스고 사이트에 바로 접속합니다.",
+          },
+          {
+            name: "YouTube Premium 12개월 또는 24개월 플랜 선택",
+            text: "원하는 이용 기간을 선택합니다.",
+          },
+          {
+            name: "국내 결제 수단으로 결제",
+            text: "해외 결제 수수료나 복잡한 환전 없이 카카오페이, 토스, 신용카드로 간편 결제합니다.",
+          },
+          {
+            name: "내 한국 구글 계정으로 초대 수락",
+            text: "도착한 이메일 초대를 수락하면 기존 내 구글 계정에 프리미엄 혜택이 즉시 연결됩니다.",
+          },
+        ]}
+      />
       <header className="flex flex-col gap-3">
         <DisclosureBanner />
         <h1 className="text-2xl font-extrabold leading-snug">

@@ -8,6 +8,9 @@ import { TaboolaPlacements } from "@/components/TaboolaPlacements";
 import { JsonLd } from "@/components/seo/JsonLd";
 import {
   DEFAULT_CONTENT_UPDATED_AT,
+  OG_IMAGE_HEIGHT,
+  OG_IMAGE_URL,
+  OG_IMAGE_WIDTH,
   ORGANIZATION_ID,
   SITE_ALTERNATE_NAMES,
   SITE_DESCRIPTION,
@@ -40,7 +43,7 @@ const pretendard = localFont({
   preload: true,
 });
 
-const DEFAULT_TITLE = `${SITE_NAME} — 유튜브 프리미엄 가격할인, 넷플릭스 가격할인, 챗GPT 플러스 할인 총정리`;
+const DEFAULT_TITLE = `${SITE_NAME} — 유튜브 프리미엄·넷플릭스·챗GPT 플러스 할인 모음`;
 const DEFAULT_DESCRIPTION = SITE_DESCRIPTION;
 
 export const metadata: Metadata = {
@@ -74,6 +77,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: SITE_URL,
     languages: { [SITE_LANG]: SITE_URL, "x-default": SITE_URL },
+    types: {
+      "application/rss+xml": `${SITE_URL}/rss.xml`,
+    },
   },
   verification: {
     google: "w1N7lAB3qFnHio7RQDdSX05UNv-RskM89O1HvldhnJQ",
@@ -88,11 +94,27 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     locale: SITE_LOCALE,
     type: "website",
+    images: [
+      {
+        url: OG_IMAGE_URL,
+        width: OG_IMAGE_WIDTH,
+        height: OG_IMAGE_HEIGHT,
+        alt: `${SITE_NAME} — ${SITE_TAGLINE}`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: DEFAULT_TITLE,
     description: DEFAULT_DESCRIPTION,
+    images: [
+      {
+        url: OG_IMAGE_URL,
+        width: OG_IMAGE_WIDTH,
+        height: OG_IMAGE_HEIGHT,
+        alt: `${SITE_NAME} — ${SITE_TAGLINE}`,
+      },
+    ],
   },
 };
 
@@ -113,6 +135,8 @@ const siteJsonLd = {
       url: SITE_URL,
       description: `${SITE_TAGLINE} — ${SITE_DESCRIPTION}`,
       slogan: SITE_TAGLINE,
+      foundingDate: "2024",
+      knowsLanguage: ["ko", "en"],
       logo: {
         "@type": "ImageObject",
         "@id": `${SITE_URL}/#logo`,
@@ -140,6 +164,14 @@ const siteJsonLd = {
       publisher: { "@id": ORGANIZATION_ID },
       copyrightHolder: { "@id": ORGANIZATION_ID },
       dateModified: DEFAULT_CONTENT_UPDATED_AT,
+      potentialAction: {
+        "@type": "SearchAction",
+        target: {
+          "@type": "EntryPoint",
+          urlTemplate: `${SITE_URL}/price-comparison?q={search_term_string}`,
+        },
+        "query-input": "required name=search_term_string",
+      },
     },
   ],
 };

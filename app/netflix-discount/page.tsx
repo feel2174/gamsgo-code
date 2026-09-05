@@ -7,6 +7,7 @@ import { AnswerSummary } from "@/components/AnswerSummary";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { ProductJsonLd } from "@/components/seo/ProductJsonLd";
 import { ArticleJsonLd } from "@/components/seo/ArticleJsonLd";
+import { HowToJsonLd } from "@/components/seo/HowToJsonLd";
 import { TrustBadges } from "@/components/TrustBadges";
 import { buildMetadata } from "@/lib/seo";
 import { getServiceById, OBJECTION_FAQS } from "@/lib/constants";
@@ -67,6 +68,31 @@ export default function NetflixDiscountPage() {
           path="/netflix-discount"
         />
       )}
+      <HowToJsonLd
+        name="넷플릭스 4K 프리미엄 월 5천원대 할인 구독 신청 방법"
+        description="VPN이나 우회 없이 넷플릭스 프리미엄 4K 계정을 월 5,000원대에 안전하게 구독하는 4단계 방법"
+        path="/netflix-discount"
+        estimatedCostKRW={service.gamsgoPriceKRW}
+        totalTime="PT3M"
+        steps={[
+          {
+            name: "겜스고 제휴 할인 페이지 접속",
+            text: "겜스고코드 공식 제휴 링크로 겜스고 홈페이지에 접속합니다.",
+          },
+          {
+            name: "넷플릭스 프리미엄 플랜 및 이용 기간 선택",
+            text: "넷플릭스 4K UHD 1개 프로필 공유 플랜을 선택하고 구독 기간을 지정합니다.",
+          },
+          {
+            name: "할인 코드 확인 및 간편 결제",
+            text: "자동 적용된 추가 할인 혜택을 확인한 후 국내 간편결제(카카오페이/토스/카드)로 결제합니다.",
+          },
+          {
+            name: "계정 정보 확인 후 넷플릭스 공식 앱 로그인",
+            text: "결제 즉시 '나의 구독' 메뉴에 전용 프로필 번호와 비밀번호가 표시되며, 공식 넷플릭스 앱에 그대로 로그인하여 4K 화질로 시청합니다.",
+          },
+        ]}
+      />
       <header className="flex flex-col gap-3">
         <DisclosureBanner />
         <h1 className="text-2xl font-extrabold leading-snug">

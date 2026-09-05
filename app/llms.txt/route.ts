@@ -43,6 +43,8 @@ export function GET() {
 
 ${TOP_KEYWORDS.map((k) => `- [${k.label}](${SITE_URL}${k.href})`).join("\n")}
 - [면책조항](${SITE_URL}/disclaimer): 제휴 링크 고지 및 정보 제공 범위
+- [전체 상세 데이터 (llms-full.txt)](${SITE_URL}/llms-full.txt): 40+개 서비스 전체 가격표 및 FAQ
+- [RSS 피드](${SITE_URL}/rss.xml): 최신 할인 정보 및 커뮤니티 게시글 피드
 
 ## 확인된 가격 (${formatKoreanDate(updatedAt)} 기준)
 

@@ -7,6 +7,7 @@ import { AnswerSummary } from "@/components/AnswerSummary";
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
 import { ArticleJsonLd } from "@/components/seo/ArticleJsonLd";
 import { ProductJsonLd } from "@/components/seo/ProductJsonLd";
+import { HowToJsonLd } from "@/components/seo/HowToJsonLd";
 import { TrustBadges } from "@/components/TrustBadges";
 import { buildMetadata } from "@/lib/seo";
 import { getServiceById, OBJECTION_FAQS } from "@/lib/constants";
@@ -68,6 +69,30 @@ export default function ChatgptPlusDiscountPage() {
         description="겜스고를 통해 이용하는 ChatGPT Plus 구독. 정가 대비 50% 이상 할인"
         category="AI"
         path="/chatgpt-plus-discount"
+      />
+      <HowToJsonLd
+        name="챗GPT 플러스 50% 이상 할인 구독 신청 방법"
+        description="ChatGPT Plus(정가 월 $20)를 겜스고를 통해 반값 이하로 이용하는 4단계 방법"
+        path="/chatgpt-plus-discount"
+        totalTime="PT3M"
+        steps={[
+          {
+            name: "겜스고 제휴 할인 페이지 접속",
+            text: "겜스고코드 할인 링크로 접속하여 챗GPT Plus 할인 페이지로 이동합니다.",
+          },
+          {
+            name: "ChatGPT Plus 상품 및 기간 선택",
+            text: "원하는 기간(1개월/3개월/12개월 등)을 선택합니다.",
+          },
+          {
+            name: "할인 코드 적용 후 간편 결제",
+            text: "프로모션 할인이 적용된 최종 금액을 확인하고 카카오페이/신용카드로 결제합니다.",
+          },
+          {
+            name: "계정 확인 후 GPT-4o 및 이미지 생성 기능 즉시 이용",
+            text: "결제 완료 후 발급된 계정 정보로 로그인하여 Plus 전용 최신 모델과 기능을 제한 없이 이용합니다.",
+          },
+        ]}
       />
       <header className="flex flex-col gap-3">
         <DisclosureBanner />
